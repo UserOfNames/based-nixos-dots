@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware/nyx.nix
+      ./nyx-hardware.nix
     ];
 
   # Bootloader.
