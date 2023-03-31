@@ -7,10 +7,14 @@
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
-  # Import package list and dotfiles
+  home.packages = with pkgs; [
+  # Declare user-specific packages here.
+  ];
+
+  # Import and dotfiles
   imports = [
-    ./hm-dotfiles/packagelist.nix
-    ./hm-dotfiles/zsh/zshrc.nix
-    ./hm-dotfiles/git/gitrc.nix
+    ./hm-dotfiles/zsh
+    ./hm-dotfiles/git
+    ./hm-dotfiles/neovim
   ];
 }

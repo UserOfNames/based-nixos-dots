@@ -19,21 +19,24 @@
       };
       lib = nixpkgs.lib;
 
+      home = [
+        home-manager.nixosModules.home-manager
+	{
+	  home-manager = {
+	    useGlobalPkgs = true;
+	    useUserPackages = true;
+	    users.zdbg = import ./home.nix;
+	  };
+        }
+      ];
+
     in {
       nixosConfigurations = {
 
         # Main desktop
         nyx = lib.nixosSystem {
           inherit system;
-	  modules = [
-	    ./hosts/nyx/nyx.nix 
-            home-manager.nixosModules.home-manager
-	    {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.zdbg = import ./home.nix;
-	    }
-	  ];
+	  modules = [ ./hosts/nyx/nyx.nix ] ++ home;
         };
       };
     };
