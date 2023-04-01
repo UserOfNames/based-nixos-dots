@@ -53,6 +53,13 @@
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+    elisa
+    khelpcenter
+    plasma-browser-integration
+    kwalletmanager
+    plasma-systemmonitor
+  ];
 
   # Configure keymap in X11
   services.xserver = {
@@ -77,14 +84,13 @@
     pulse.enable = true;
     #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
+    # This is unnecessary for now
     #media-session.enable = true;
   };
 
 
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # User settings
   users.users.zdbg = {
     isNormalUser = true;
     description = "zdbg";
@@ -103,6 +109,8 @@
   firefox
   git
   btop
+  gnupg
+  wl-clipboard
   ];
 
   programs = {

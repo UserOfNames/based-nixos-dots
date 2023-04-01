@@ -8,7 +8,19 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-  # Declare user-specific packages here.
+  mpv
+  libreoffice-fresh
+  bitwarden
+  obs-studio
+  kate
+  qalculate-qt
+  yt-dlp
+  qbittorrent
+  kteatime
+  newsboat
+  spectacle
+  neomutt
+  steam
   ];
 
   # Import and dotfiles
