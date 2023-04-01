@@ -15,18 +15,18 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-	config = { allowUnfree = true; };
+        config = { allowUnfree = true; };
       };
       lib = nixpkgs.lib;
 
       home = [
         home-manager.nixosModules.home-manager
-	{
-	  home-manager = {
-	    useGlobalPkgs = true;
-	    useUserPackages = true;
-	    users.zdbg = import ./home.nix;
-	  };
+        {
+          home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.zdbg = import ./home.nix;
+          };
         }
       ];
 
@@ -36,7 +36,7 @@
         # Main desktop
         nyx = lib.nixosSystem {
           inherit system;
-	  modules = [ ./hosts/nyx/nyx.nix ] ++ home;
+          modules = [ ./hosts/nyx/nyx.nix ] ++ home;
         };
       };
     };

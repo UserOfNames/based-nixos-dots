@@ -8,19 +8,19 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-  mpv
-  libreoffice-fresh
-  bitwarden
-  obs-studio
-  kate
-  qalculate-qt
-  yt-dlp
-  qbittorrent
-  kteatime
-  newsboat
-  spectacle
-  neomutt
-  steam
+    mpv
+    libreoffice-fresh
+    bitwarden
+    obs-studio
+    kate
+    qalculate-qt
+    yt-dlp
+    qbittorrent
+    kteatime
+    newsboat
+    spectacle
+    neomutt
+    steam
   ];
 
   # Import and dotfiles
@@ -28,5 +28,8 @@
     ./hm-dotfiles/zsh
     ./hm-dotfiles/git
     ./hm-dotfiles/neovim
+    ./hm-dotfiles/newsboat
+    ./hm-dotfiles/ytdlp
+    ./hm-dotfiles/mpv
   ];
 }

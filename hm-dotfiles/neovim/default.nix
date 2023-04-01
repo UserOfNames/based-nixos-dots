@@ -9,10 +9,10 @@
     plugins = [
       {
         plugin = pkgs.vimPlugins.nvim-tree-lua;
-	config = ''
+        config = ''
           packadd! nvim-tree.lua
-	  lua require 'nvim-tree'.setup()
-	'';
+          lua require 'nvim-tree'.setup()
+        '';
       }
     ];
 
