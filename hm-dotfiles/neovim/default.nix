@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
-
+ #         packadd! nvim-tree.lua
 {
   programs.neovim = {
     enable = true;
@@ -10,13 +10,25 @@
       {
         plugin = pkgs.vimPlugins.nvim-tree-lua;
         config = ''
-          packadd! nvim-tree.lua
           lua require 'nvim-tree'.setup()
         '';
+      }
+      {
+        plugin = pkgs.vimPlugins.nvim-web-devicons;
+        config = ''
+          lua require 'nvim-web-devicons'.setup()
+        '';
+      }
+      {
+        plugin = pkgs.vimPlugins.vim-nix;
       }
     ];
 
     extraLuaConfig = ''
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+      vim.opt.termguicolors = true
+ 
       -- Maps
       vim.g.mapleader = ","
   

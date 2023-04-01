@@ -21,6 +21,7 @@
     spectacle
     neomutt
     steam
+    nerdfonts
   ];
 
   # Import and dotfiles
