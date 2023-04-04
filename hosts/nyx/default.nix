@@ -48,11 +48,14 @@
 
 
   # Display and DE settings
-  services.xserver.enable = true;
   programs.xwayland.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.defaultSession = "plasmawayland";
+    desktopManager.plasma5.enable = true;
+  };
 
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     elisa
     khelpcenter

@@ -36,7 +36,7 @@
         # Main desktop
         nyx = lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/nyx/nyx.nix ] ++ home;
+          modules = [ ./hosts/nyx ] ++ home;
         };
       };
     };
