@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+ { config, pkgs, ... }:
 
 {
   imports =
     [
-      ./nyx-hardware.nix
+      ./hardware.nix
     ];
 
   # Bootloader
@@ -54,8 +54,11 @@
     displayManager.sddm.enable = true;
     displayManager.defaultSession = "plasmawayland";
     desktopManager.plasma5.enable = true;
+    layout = "us";
+    xkbVariant = "";
   };
-
+  
+  # Exclude these default plasma packages
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
     elisa
     khelpcenter
@@ -64,11 +67,6 @@
     plasma-systemmonitor
   ];
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
 
 
 
@@ -107,20 +105,32 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-  # Declare system-wide packages here
+  # Declare system-wide packages with no system-wide config
   freshfetch
-  firefox
-  git
   btop
   gnupg
   wl-clipboard
+  nerdfonts
+  steam
+  mpv
+  firefox
+  neovim
+  git
   ];
 
-  programs = {
-    neovim = {
+
+
+  # Services:
+  services = {
+    fail2ban = {
       enable = true;
-      defaultEditor = true;
     };
+  };
+
+
+
+  # Security:
+  security = {
   };
 
 
@@ -130,18 +140,6 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
   environment.pathsToLink = [ "/share/zsh" ];
-
-
-
-  # Services:
-  services = {
-    fail2ban = {
-      enable = true;
-    };
-
-
-  };
-
 
 
 
