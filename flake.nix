@@ -19,23 +19,25 @@
   }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config = { allowUnfree = true; };
-      };
       lib = nixpkgs.lib;
 
-      home = [
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.zdbg = import ./home.nix;
-          };
+      common = { pkgs, config, ... }: {
+        nixpkgs.overlays = [
+          nur.overlay
+        ];
+      };
+
+       home = [
+         home-manager.nixosModules.home-manager
+         {
+           home-manager = {
+           useGlobalPkgs = true;
+           useUserPackages = true;
+           users.zdbg = import ./home.nix;
+           };
         }
       ];
-
+      
     in {
       nixosConfigurations = {
 
@@ -44,6 +46,7 @@
           inherit system;
           modules = [
             ./hosts/nyx
+            common
           ] ++ home;
         };
       };

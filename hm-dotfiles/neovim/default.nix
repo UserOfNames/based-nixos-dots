@@ -16,6 +16,10 @@
         nvim-web-devicons
         vim-nix
         vim-floaterm
+        vim-fugitive
+        vim-commentary
+        vimwiki
+        vim-numbertoggle
     ];
   };
 }

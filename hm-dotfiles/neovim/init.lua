@@ -2,10 +2,12 @@ local o = vim.o
 local g = vim.g
 local map = vim.keymap.set
 
--- Disable netrw, enable termguicolors, load plugins
+-- Disable netrw, enable termguicolors
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
+
+
 
 -- Plugin settings
 require 'nvim-tree'.setup()
@@ -30,6 +32,8 @@ o.hidden = true
 o.hlsearch = false
 o.foldmethod = 'expr'
 o.foldexpr = 'nvim_treesitter#foldexpr()'
+
+
 
 -- Mappings
 vim.g.mapleader = ","

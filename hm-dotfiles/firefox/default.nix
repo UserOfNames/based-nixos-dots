@@ -1,4 +1,4 @@
-{ config, pkgs, nur,  ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.firefox = {
@@ -8,11 +8,178 @@
       default = {
         isDefault = true;
 
-#        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-#          ublock-origin
-#          clearurls
-#        ];
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          skip-redirect
+          multi-account-containers
+          canvasblocker
+        ];
+
+        search = {
+          default = "DuckDuckGo";
+          force = true;
+        };
+
         settings = {
+          # Modeled after arkenfox
+          "browser.aboutConfig.showWarning" = false;
+
+          # Startup
+          "browser.startup.page" = 1;
+          "browser.startup.homepage" = "about:home";
+          "browser.newtabpage.enabled" = true;
+          "browser.newtabpage.activity-stream.showSponsored" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "browser.newtabpage.activity-stream.default.sites" = "";
+
+          # Location, language, locale
+          "geo.provider.network.url" = "https://location.services.mozilla.com/v1/gelocate?key=%MOZILLA_API_KEY%";
+          "geo.provider.use_gpsd" = false;
+          "geo.provider.use_geoclue" = false;
+          "intl.accept_languages" = "en-US, en";
+          "javascript.use_us_english_locale" = true;
+
+          # Privacy
+          "extensions.getAddons.showPane" = false;
+          "extensions.htmlaboutaddons.recommendations.enabled" = false;
+          "browser.discovery.enabled" = false;
+          "datareporting.policy.dataSubmissionsEnabled" = false;
+          "datareporting.healthreport.uploadEnabled" = false;
+          "toolkit.telemetry.unified" = false;
+          "toolkit.telemetry.enabled" = false;
+          "toolkit.telemetry.server" = "data:,";
+          "toolkit.telemetry.archive.enabled" = false;
+          "toolkit.telemetry.newProfilePing.enabled" = false;
+          "toolkit.telemetry.shutdownPingSender.enabled" = false;
+          "toolkit.telemetry.updatePing.enabled" = false;
+          "toolkit.telemetry.bhrPing.enabled" = false;
+          "toolkit.telemetry.firstShutdownPing.enabled" = false;
+          "toolkit.telemetry.coverage.opt-out" = true;
+          "toolkit.coverage.opt-out" = true;
+          "toolkit.coverage.endpoint.base" = "";
+          "browser.ping-centre.telemetry" = false;
+          "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+          "browser.newtabpage.activity-stream.telemetry" = false;
+          "app.shield.optoutstudies.enabled" = false;
+          "app.normandy.enabled" = false;
+          "app.normandy.api_url" = "";
+          "breakpad.reportURL" = "";
+          "browser.tabs.crashReporting.sendReport" = false;
+          "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
+          "captivedetect.canonicalURL" = "";
+          "network.captive-portal-service.enabled" = false;
+          "network.connectivity-service.enabled" = false;
+          "network.prefetch-next" = false;
+          "network.dns.disablePrefetch" = true;
+          "network.predictor.enabled" = false;
+          "network.predictor.enable-prefetch" = false;
+          "network.http.speculative-parallel-limit" = 0;
+          "browser-places.speculativeConnect.enabled" = false;
+          "browser.search.suggest.enabled" = false;
+          "browser.urlbar.suggest.searches" = false;
+          "browser.urlbar.dnsResolveSingleWordsAfterSearch" = 0;
+          "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+          "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+          "browser.urlbar.suggest.engines" = false;
+          "browser.formfill.enable" = false;
+          "layout.css.visited_links_enabled" = false;
+          "layout.css.font-visibility.standard" = 1; # Restrict fonts to base system fonts only
+          "privacy.userContext.enabled" = true;
+          "privacy.userContext.ui.enabled" = true;
+          "media.eme.enabled" = false;
+          "permissions.manager.defaultsUrl" = "";
+          "webchannel.allowObject.urlWhitelist" = false;
+          "permissions.delegation.enabled" = true;
+          "browser.contentblocking.category" = "strict";
+          "privacy.partition.serviceWorkers" = true;
+          "privacy.partition.always_partition_third_party_non_cookie_storage" = true;
+          "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage" = false;
+          "network.cookie.cookieBehavior" = 5; # Enable dFPI (total cookie protection)
+          "privacy.trackingprotection.enabled" = true;
+          "privacy.trackingprotection.socialtracking.enabled" = true;
+
+          # Sanitizing
+          "privacy.sanitize.sanitizeOnShutdown" = true;
+          "privacy.clearOnShudown.history" = false;
+          "privacy.clearOnShudown.cache" = true;
+          "privacy.clearOnShudown.downloads" = true;
+          "privacy.clearOnShudown.formdata" = true;
+          "privacy.clearOnShudown.sessions" = true;
+          "privacy.clearOnShudown.openWindows" = true;
+          "privacy.clearOnShudown.offlineApps" = true;
+          "privacy.clearOnShudown.cookies" = true;
+          "browser.send_pings" = false;
+
+          # Security
+          "browser.safebrowsing.downloads.remote.enabled" = false; # Do not send PUP info to be verified
+          "browser.safebrowsing.downloads.remote.url" = "";
+          "browser.fixup.alternate.enabled" = false;
+          "browser.urlbar.speculativeConnect.enabled" = false;
+          "signon.autofillForms" = false;
+          "signon.formlessCapture.enabled" = false;
+          "network.auth.subresource-https-auth-allow" = 1;
+          "browser.cache.disk.enable" = false;
+          "browser.privatebrowsing.forceMediaMemoryCache" = true;
+          "media.memory_cache_max_size" = 65536;
+          "browser.sessionstore.privacy_level" = 2;
+          "browser.shell.shortcutFavicons" = false;
+          "security.tls.enable_0rtt_data" = false;
+          "dom.security.https_only_mode" = true;
+          "dom.security.https_only_mode_pbm" = true;
+          "dom.security.https_only_mode_send_http_background_request" = false;
+          "security.ssl.treat_unsafe_negotiation_as_broken" = true;
+          "browser.xul.error_pages.expert_bad_cert" = true;
+          "dom.disable_window_move-resize" = true;
+          "accessibility.force_disabled" = 1;
+          "browser.helperApps.deleteTempFileOnExit" = true;
+          "browser.uitour.enabled" = false;
+          "browser.uitour.url" = "";
+          "devtools.debugger.remote-enabled" = false;
+          "network.IDN_show_punycode" = true;
+          "widget.non-native-theme.enabled" = true;
+          "signon.rememberSignons" = false;
+          "permissions.memory_only" = true;
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
+          "extensions.formautofill.heuristics.enabled" = false;
+          "security.ask_for_password" = 0;
+
+          # Certificates
+          "security.ssl.require_safe-negotiation" = true; # Prevent connections to sites that don't support RFC 5746, preventing possible MiTM attacks but breaking some sites.
+          "security.ssl.enable_ocsp_stapling" = true;
+          "security.ssl.enable_ocsp_must_staple" = true; # Breaking change
+          "security.OCSP.require" = true; # Breaking change
+          "security.cert_pinning.enforcement_level" = 2; # Always force public key pinning
+          "security.remote_settings.crlite_filters.enabled" = true;
+          "security.pki.crlite_mode" = 2;
+
+          # Misc
+          "dom.battery.enabled" = false; # Do not track battery
+          "middlemouse.contentLoadURL" = false;
+          "pdfjs.disabled" = false;
+          "pdfjs.enableScripting" = false;
+          "browser.download.useDownloadDir" = false;
+          "browser.download.alwaysOpenPanel" = false;
+          "browser.download.manager.addToRecentDocs" = false;
+          "browser.download.always_ask_before_handling_new_types" = true;
+          "browser.link.open_newwindow" = 3;
+          "browser.link.open_newwindow.restriction" = 0;
+          "browser.urlbar.suggest.history" = false;
+          "browser.urlbar.suggest.bookmark" = false;
+          "browser.urlbar.suggest.openpage" = false;
+          "browser.urlbar.suggest.topsites" = false;
+          "browser.urlbar.autoFill" = false;
+
+          # Always leave on
+          "extensions.blocklist.enabled" = true;
+          "network.http.referer.spoofSource" = false;
+          "security.dialog_enable_delay" = 1000;
+          "privacy.firstpart.isolate" = false; # Disables better options
+          "extensions.webcompat.enable_shims" = true;
+          "security.tls.version.enable-deprecated" = false;
+          "extensions.webcompat-reporter.enabled" = false;
+          "dom.event.contextmenu.enabled" = true;
+          "plugins.enumerable_names" = "";
         };
       };
     };
