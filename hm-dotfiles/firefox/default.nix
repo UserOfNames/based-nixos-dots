@@ -100,7 +100,7 @@
 
           # Sanitizing
           "privacy.sanitize.sanitizeOnShutdown" = true;
-          "privacy.clearOnShudown.history" = false;
+          "privacy.clearOnShudown.history" = true;
           "privacy.clearOnShudown.cache" = true;
           "privacy.clearOnShudown.downloads" = true;
           "privacy.clearOnShudown.formdata" = true;
@@ -170,6 +170,8 @@
           "browser.urlbar.suggest.topsites" = false;
           "browser.urlbar.autoFill" = false;
 
+          # Sync
+
           # Always leave on
           "extensions.blocklist.enabled" = true;
           "network.http.referer.spoofSource" = false;
@@ -180,6 +182,45 @@
           "extensions.webcompat-reporter.enabled" = false;
           "dom.event.contextmenu.enabled" = true;
           "plugins.enumerable_names" = "";
+
+
+
+          # UI
+
+          # One-offs
+          "browser.tabs.firefox-view" = false;
+          "browser.urlbar.shortcuts.history" = false;
+          "browser.urlbar.shortcuts.tabs" = false;
+
+          # UI state
+          "browser.uiCustomization.state" = ''{"placements":{"widget-overflow-fixed-list":["panic-button"],"unified-extensions-area":["skipredirect_sblask-browser-action","canvasblocker_kkapsner_de-browser-action","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action"],"nav-bar":["back-button","forward-button","stop-reload-button","customizableui-special-spring1","urlbar-container","customizableui-special-spring2","downloads-button","fxa-toolbar-menu-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["firefox-view-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"PersonalToolbar":["personal-bookmarks","bookmarks-menu-button"]},"seen":["save-to-pocket-button","developer-button","skipredirect_sblask-browser-action","canvasblocker_kkapsner_de-browser-action","_testpilot-containers-browser-action","ublock0_raymondhill_net-browser-action"],"dirtyAreaCache":["nav-bar","PersonalToolbar","toolbar-menubar","TabsToolbar","unified-extensions-area","widget-overflow-fixed-list"],"currentVersion":19,"newElementCount":13}'';
+
+          # Activity stream
+          "browser.newtabpage.activity-stream.feeds.snippets" = false;
+          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
+          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
+          "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
+          "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+          "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
+          "browser.newtabpage.activity-stream.topSitesRows" = 3;
+          "browser.newtabpage.activity-stream.showRecentSaves" = false;
+          "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
+          "browser.partnerlink.campaign.topsites" = "";
+
+          # Disable pocket, instructions found in https://www.reddit.com/r/linux/comments/zabm2a/
+          "extensions.pocket.enabledd" = false;
+          "extensions.pocket.api" = "0.0.0.0";
+          "extensions.pocket.loggedOutVariant" = "";
+          "extensions.pocket.oAuthConsumerKey" = "";
+          "extensions.pocket.onSaveRecs" = false;
+          "extensions.pocket.onSaveRecs.locales" = "";
+          "extensions.pocket.showHome" = false;
+          "extensions.pocket.site" = "0.0.0.0";
+          "browser.newtabpage.activity-stream.pocketCta" = "";
+          "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+          "services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+          "services.sync.prefs.sync-seen.services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+          "services.sync.prefs.sync.browser.newtabpage.activity-stream.feeds.section.topstories" = false;
         };
       };
     };

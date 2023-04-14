@@ -106,17 +106,16 @@
 
   environment.systemPackages = with pkgs; [
   # Declare system-wide packages with no system-wide config
-  freshfetch
-  btop
-  gnupg
-  wl-clipboard
-  nerdfonts
-  steam
-  mpv
-  firefox
-  librewolf
-  neovim
-  git
+    btop
+    gnupg
+    wl-clipboard
+    nerdfonts
+    steam
+    mpv
+    firefox
+    librewolf
+    neovim
+    git
   ];
 
 

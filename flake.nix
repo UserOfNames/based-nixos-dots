@@ -33,7 +33,7 @@
            home-manager = {
            useGlobalPkgs = true;
            useUserPackages = true;
-           users.zdbg = import ./home.nix;
+           users.zdbg = import ./hm-dotfiles/home.nix;
            };
         }
       ];

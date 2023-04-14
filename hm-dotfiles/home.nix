@@ -20,12 +20,13 @@
 
   # Import dotfiles
   imports = [
-    ./hm-dotfiles/zsh
-    ./hm-dotfiles/git
-    ./hm-dotfiles/neovim
-    ./hm-dotfiles/newsboat
-    ./hm-dotfiles/ytdlp
-    ./hm-dotfiles/mpv
-    ./hm-dotfiles/firefox
+    ./zsh
+    ./git
+    ./neovim
+    ./newsboat
+    ./ytdlp
+    ./mpv
+    ./firefox
+    ./neomutt
   ];
 }

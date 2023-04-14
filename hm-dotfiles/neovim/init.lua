@@ -2,7 +2,7 @@ local o = vim.o
 local g = vim.g
 local map = vim.keymap.set
 
--- Disable netrw, enable termguicolors
+-- Disable netrw, enable termguicolors as recommended by nvim-tree
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
@@ -13,6 +13,18 @@ vim.opt.termguicolors = true
 require 'nvim-tree'.setup()
 require 'nvim-web-devicons'.setup()
 vim.cmd("colorscheme base16-tomorrow-night")
+
+-- Treesitter
+require 'nvim-treesitter.configs'.setup({
+	highlight = {
+		enable = true,
+	},
+
+	indent = {
+		enable = true,
+	},
+})
+
 
 -- Floaterm
 vim.cmd([[
@@ -30,6 +42,7 @@ o.syntax = true
 o.number = true
 o.hidden = true
 o.hlsearch = false
+o.foldenable = false
 o.foldmethod = 'expr'
 o.foldexpr = 'nvim_treesitter#foldexpr()'
 
@@ -39,7 +52,7 @@ o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.g.mapleader = ","
 
 -- All modes
-map({'n', 'v', 'i'}, '<Leader>s', function() vim.o.spell = not(vim.o.spell:get()) end)
+map({'n', 'v', 'i'}, '<Leader>s', function() o.spell = not(o.spell) end)
 map({'n', 'v', 'i'}, '<Leader>f', '<Esc>:NvimTreeToggle <Enter>', {silent = true})
 
 -- Normal mode
