@@ -113,7 +113,6 @@
     steam
     mpv
     firefox
-    librewolf
     neovim
     git
   ];

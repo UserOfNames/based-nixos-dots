@@ -1,13 +1,15 @@
 { config, pkgs, lib, ... }:
 
 {
+  xdg.configFile = {
+    "nvim/init.lua".source = ./init.lua;
+   };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
-
-    extraLuaConfig = lib.fileContents ./init.lua;
 
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars

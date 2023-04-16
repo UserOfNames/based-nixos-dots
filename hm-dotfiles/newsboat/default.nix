@@ -1,9 +1,18 @@
 { config, ... }:
 
 {
+  xdg.configFile = {
+    "newsboat/colors".source = ./colors;
+  };
+
   programs.newsboat = {
+
     enable = true;
     autoReload = true;
+
+    extraConfig = ''
+      include ./colors
+    '';
 
     urls = [
       {

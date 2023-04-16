@@ -33,7 +33,7 @@
           "browser.newtabpage.activity-stream.default.sites" = "";
 
           # Location, language, locale
-          "geo.provider.network.url" = "https://location.services.mozilla.com/v1/gelocate?key=%MOZILLA_API_KEY%";
+          "geo.provider.network.url" = "https://location.services.mozilla.com/v1/gelocate?key=%MOZILLA_API_KEY%"; # Change geolocation provider to Mozilla (from Google)
           "geo.provider.use_gpsd" = false;
           "geo.provider.use_geoclue" = false;
           "intl.accept_languages" = "en-US, en";
@@ -97,6 +97,9 @@
           "network.cookie.cookieBehavior" = 5; # Enable dFPI (total cookie protection)
           "privacy.trackingprotection.enabled" = true;
           "privacy.trackingprotection.socialtracking.enabled" = true;
+          # Might change later; enable DoH and use Quad9
+          "network.trr.mode" = 2; # Enable DoH with regular DNS as a backup
+          "network.trr.url" = "https://dns.quad9.net/dns-query";
 
           # Sanitizing
           "privacy.sanitize.sanitizeOnShutdown" = true;
@@ -111,7 +114,7 @@
           "browser.send_pings" = false;
 
           # Security
-          "browser.safebrowsing.downloads.remote.enabled" = false; # Do not send PUP info to be verified
+          "browser.safebrowsing.downloads.remote.enabled" = false; # Do not send PUP info to be verified. Decreases security but those queries are sent to Google
           "browser.safebrowsing.downloads.remote.url" = "";
           "browser.fixup.alternate.enabled" = false;
           "browser.urlbar.speculativeConnect.enabled" = false;
@@ -169,14 +172,14 @@
           "browser.urlbar.suggest.openpage" = false;
           "browser.urlbar.suggest.topsites" = false;
           "browser.urlbar.autoFill" = false;
-
-          # Sync
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
 
           # Always leave on
           "extensions.blocklist.enabled" = true;
           "network.http.referer.spoofSource" = false;
           "security.dialog_enable_delay" = 1000;
-          "privacy.firstpart.isolate" = false; # Disables better options
+          "privacy.firstpart.isolate" = false; # Old setting that is no longer maintained and disables better options
           "extensions.webcompat.enable_shims" = true;
           "security.tls.version.enable-deprecated" = false;
           "extensions.webcompat-reporter.enabled" = false;
