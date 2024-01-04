@@ -10,6 +10,7 @@
   boot = {
     loader = {
       systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 20;
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot/efi";
       timeout = 10;
@@ -75,18 +76,14 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     #jack.enable = true;
-
-    # This is unnecessary for now
-    #media-session.enable = true;
   };
 
 
@@ -105,17 +102,36 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-  # Declare system-wide packages with no system-wide config
+  # Declare system-wide packages with no system-wide config for the unstable branch
     btop
     gnupg
     wl-clipboard
-    nerdfonts
     steam
     mpv
     firefox
     neovim
     git
+    tor-browser-bundle-bin
+    fastfetch
   ];
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "Hack" ]; })
+  ];
+
+
+
+  # Store optimization
+  nix = {
+    optimise = {
+      automatic = true;
+      dates = "weekly";
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+  };
 
 
 
@@ -123,7 +139,7 @@
   services = {
     fail2ban = {
       enable = true;
-      bantime = 4000;
+      bantime = "4000";
     };
   };
 

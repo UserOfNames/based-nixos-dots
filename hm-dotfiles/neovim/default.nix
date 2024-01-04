@@ -1,9 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  xdg.configFile = {
-    "nvim/init.lua".source = ./init.lua;
-   };
 
   programs.neovim = {
     enable = true;
@@ -22,6 +19,11 @@
       vim-commentary
       vimwiki
       vim-numbertoggle
+      vimtex
     ];
+  };
+
+  xdg.configFile = {
+    "nvim/init.lua".source = ./init.lua;
   };
 }

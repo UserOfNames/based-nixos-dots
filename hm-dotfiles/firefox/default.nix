@@ -146,6 +146,8 @@
           "extensions.formautofill.creditCards.enabled" = false;
           "extensions.formautofill.heuristics.enabled" = false;
           "security.ask_for_password" = 0;
+          # Mixed content
+          "security.mixed_content.block_display_content" = true;
 
           # Certificates
           "security.ssl.require_safe-negotiation" = true; # Prevent connections to sites that don't support RFC 5746, preventing possible MiTM attacks but breaking some sites.
@@ -179,7 +181,7 @@
           "extensions.blocklist.enabled" = true;
           "network.http.referer.spoofSource" = false;
           "security.dialog_enable_delay" = 1000;
-          "privacy.firstpart.isolate" = false; # Old setting that is no longer maintained and disables better options
+          "privacy.firstparty.isolate" = false; # Old setting that is no longer maintained and disables better options
           "extensions.webcompat.enable_shims" = true;
           "security.tls.version.enable-deprecated" = false;
           "extensions.webcompat-reporter.enabled" = false;
