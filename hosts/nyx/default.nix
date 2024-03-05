@@ -21,10 +21,21 @@
 
 
   # Networking
-  networking.hostName = "nyx";
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "nyx";
+
+    firewall = {
+      enable = true;
+    };
+
+    networkManager = {
+      enable = true;
+    };
+
+    # wireless = {
+    #   enable = true;
+    # };
+  };
 
 
 
@@ -53,7 +64,7 @@
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
-    displayManager.defaultSession = "plasmawayland";
+    displayManager.defaultSession = "plasma";
     desktopManager.plasma6.enable = true;
     xkb = {
       layout = "us";
@@ -107,7 +118,6 @@
   # Declare system-wide packages with no system-wide config for the unstable branch
     btop
     gnupg
-    steam
     mpv
     firefox
     neovim
@@ -117,6 +127,18 @@
     wl-clipboard
     texliveMedium
   ];
+
+  # Programs with extra configuration
+  programs = {
+    steam = {
+      enable = true;
+    };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
+  };
 
   # Add nerdfont hack to fonts
   fonts.packages = with pkgs; [

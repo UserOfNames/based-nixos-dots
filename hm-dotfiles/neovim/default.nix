@@ -4,9 +4,10 @@
 
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    defaultEditor = true;
+    vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
       base16-nvim

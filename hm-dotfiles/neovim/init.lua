@@ -7,8 +7,6 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
-
-
 -- Plugin settings
 require 'nvim-tree'.setup()
 require 'nvim-web-devicons'.setup()
