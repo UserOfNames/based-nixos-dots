@@ -12,6 +12,8 @@
 
     extraConfig = ''
       include ./colors
+      bind-key j down
+      bind-key k up
     '';
 
     urls = [

@@ -54,13 +54,15 @@
     enable = true;
     displayManager.sddm.enable = true;
     displayManager.defaultSession = "plasmawayland";
-    desktopManager.plasma5.enable = true;
-    layout = "us";
-    xkbVariant = "";
+    desktopManager.plasma6.enable = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
   
   # Exclude these default plasma packages
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
     elisa
     khelpcenter
     plasma-browser-integration
@@ -105,7 +107,6 @@
   # Declare system-wide packages with no system-wide config for the unstable branch
     btop
     gnupg
-    wl-clipboard
     steam
     mpv
     firefox
@@ -113,8 +114,11 @@
     git
     tor-browser-bundle-bin
     fastfetch
+    wl-clipboard
+    texliveMedium
   ];
 
+  # Add nerdfont hack to fonts
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Hack" ]; })
   ];
@@ -125,12 +129,15 @@
   nix = {
     optimise = {
       automatic = true;
-      dates = "weekly";
+      dates = [
+        "weekly"
+      ];
     };
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
+    };
   };
 
 

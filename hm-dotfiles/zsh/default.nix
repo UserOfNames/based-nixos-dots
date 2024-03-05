@@ -19,9 +19,6 @@
 
     shellAliases = {
       ls = "ls -a --color";
-      update = "sudo nix flake update ~/.nixosdots";
-      rebuild = "sudo nixos-rebuild switch --flake ~/.nixosdots";
-      updaterb = "sudo nix flake update ~/.nixosdots && sudo nixos-rebuild switch --flake ~/.nixosdots";
       c = "clear";
       clearall = "clear && rm ~/.zsh_history";
     };

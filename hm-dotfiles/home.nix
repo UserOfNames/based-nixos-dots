@@ -4,6 +4,7 @@
   # Basic configs; username, hostname, version, and self-management.
   home.username = "zdbg";
   home.homeDirectory = "/home/zdbg";
+  # Do not change home.stateVersion except possibly on new systems.
   home.stateVersion = "22.11";
   programs.home-manager.enable = true;
 
@@ -15,7 +16,6 @@
     libreoffice-fresh
     kteatime
     spectacle
-    neomutt
   ];
 
   # Import dotfiles
@@ -27,6 +27,5 @@
     ./ytdlp
     ./mpv
     ./firefox
-    ./neomutt
   ];
 }

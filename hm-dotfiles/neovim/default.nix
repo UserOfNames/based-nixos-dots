@@ -9,8 +9,8 @@
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
+      base16-nvim
       nvim-treesitter.withAllGrammars
-      nvim-base16
       nvim-tree-lua
       nvim-web-devicons
       vim-nix

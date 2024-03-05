@@ -16,8 +16,11 @@ vim.cmd("colorscheme base16-tomorrow-night")
 
 -- Treesitter
 require 'nvim-treesitter.configs'.setup({
+	ignore_install = { "latex" },
+
 	highlight = {
 		enable = true,
+		disable = { "latex" },
 	},
 
 	indent = {

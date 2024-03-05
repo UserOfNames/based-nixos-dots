@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/nur";
   };
 
   outputs = inputs@{
@@ -25,18 +25,18 @@
 
       common = { pkgs, config, ... }: {
         nixpkgs.overlays = [
-          nur.overlay
+          inputs.nur.overlay
         ];
       };
 
-       home = [
-         home-manager.nixosModules.home-manager
-         {
-           home-manager = {
-           useGlobalPkgs = true;
-           useUserPackages = true;
-           users.zdbg = import ./hm-dotfiles/home.nix;
-           };
+      home = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.zdbg = import ./hm-dotfiles/home.nix;
+          };
         }
       ];
       
