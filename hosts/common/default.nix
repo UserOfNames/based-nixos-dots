@@ -1,9 +1,6 @@
-# Configurations for all machines
-
 { config, pkgs, ... }:
 
 {
-
   # Bootloader
   boot = {
     loader = {
@@ -55,14 +52,20 @@
 
   # Display and DE settings
   programs.xwayland.enable = true;
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.defaultSession = "plasma";
+  services = {
     desktopManager.plasma6.enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
+
+    xserver = {
+      enable = true;
+      displayManager = {
+        sddm.enable = true;
+        defaultSession = "plasma";
+      };
+
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
   };
   
@@ -155,16 +158,19 @@
 
 
 
-  # Security
-  security = {
+  # # Security
+  # security = {
+  # };
+
+
+
+  # Configure ZSH
+  users.defaultUserShell = pkgs.zsh;
+  environment = {
+    shells = with pkgs; [ zsh ];
   };
 
-
-
-  # Zsh options
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh ];
-  environment.pathsToLink = [ "/share/zsh" ];
-
+  imports = [
+    ./zsh.nix
+  ];
 }
