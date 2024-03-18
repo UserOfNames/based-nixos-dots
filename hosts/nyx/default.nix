@@ -6,12 +6,18 @@
     ../common
   ];
 
-  # Set hostname for this machine
-  networking.hostName = "nyx";
+  # Networking - Set hostname and enable wireless
+  networking = {
+    hostName = "nyx";
+
+    # wireless = {
+    #   enable = true;
+    # }
+  };
 
 
 
-  # User settings
+  # User - zdbg, wheel group
   users.users.zdbg = {
     isNormalUser = true;
     description = "zdbg";
@@ -20,13 +26,12 @@
 
 
 
-  # Package settings
+  # Declare packages with no extra configuration
   environment.systemPackages = with pkgs; [
-  # Declare system-wide packages with no system-wide config for the unstable branch
     tor-browser-bundle-bin
   ];
 
-  # Programs with extra configuration for specific machine
+  # Programs with extra configuration
   programs = {
     steam = {
       enable = true;

@@ -8,6 +8,7 @@
       default = {
         isDefault = true;
 
+        # Extensions from NUR
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           skip-redirect

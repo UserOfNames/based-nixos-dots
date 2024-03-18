@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader
+  # Bootloader - systemd-boot, maximum 20 generations
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -15,7 +15,7 @@
 
 
 
-  # Networking
+  # Networking - enable firewall with default policies, use network manager
   networking = {
     firewall = {
       enable = true;
@@ -24,15 +24,11 @@
     networkmanager = {
       enable = true;
     };
-
-    # wireless = {
-    #   enable = true;
-    # };
   };
 
 
 
-  # Timezone, locale
+  # Timezone and locale - American Eastern time, US english
   time.timeZone = "America/New_York";
 
   i18n = {
@@ -50,7 +46,7 @@
     };
   };
 
-  # Display and DE settings
+  # Display and DE - Wayland with xwayland, Plasma/SDDM, US xkb
   programs.xwayland.enable = true;
   services = {
     desktopManager.plasma6.enable = true;
@@ -68,7 +64,6 @@
       };
     };
   };
-  
   # Exclude these default plasma packages
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     elisa
@@ -80,13 +75,14 @@
 
 
 
-  # Package settings
+  # Packages - Allow unfree software, enable 'nix' command and flakes, system-wide software
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
+  # Programs with no additional system-wide configuration
   environment.systemPackages = with pkgs; [
     btop
     gnupg
@@ -98,14 +94,26 @@
     texliveMedium
   ];
 
+  # Programs with additional system-wide configuration
+  programs = {
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
+  };
+
+  # Add nerdfont hack to fonts, mostly for nvim-tree
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "Hack" ]; })
+  ];
 
 
 
-  # Hardware settings
-  # Enable printing
+  # Hardware settings - enable printing and sound (pipewire w/ alsa, pulse, and wireplumber)
+  # Do not use sound.enable as it is only meant for ALSA
   services.printing.enable = true;
 
-  # Enable sound with pipewire
+  #rtkit is optional but recommended for pipewire
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -118,20 +126,7 @@
 
 
 
-  # Programs for all machines
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-  };
-
-  # Add nerdfont hack to fonts
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" ]; })
-  ];
-
-  # Store optimization
+  # Store optimization - Automatically optimize and collect garbage once per week
   nix = {
     optimise = {
       automatic = true;
@@ -148,7 +143,7 @@
 
 
 
-  # Services
+  # Services - Additional services
   services = {
     fail2ban = {
       enable = true;
@@ -158,13 +153,17 @@
 
 
 
-  # # Security
-  # security = {
-  # };
+  # Security - sudo configuration
+  security = {
+    sudo = {
+      extraConfig = "Defaults pwfeedback";
+    };
+  };
 
 
 
-  # Configure ZSH
+  # Configure ZSH - Enable ZSH and set as default shell
+  # More configs in common zsh.nix and home-manager zsh.nix
   users.defaultUserShell = pkgs.zsh;
   environment = {
     shells = with pkgs; [ zsh ];

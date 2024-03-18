@@ -5,10 +5,9 @@
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
-    
-
     syntaxHighlighting.enable = true;
 
+    # setopt lines, other configs are in home-manager zsh.nix
     setOptions = [
       "INC_APPEND_HISTORY"
       "HIST_FIND_NO_DUPS"

@@ -25,10 +25,6 @@
           "Tech"
         ];
       }
-      {
-        title = "Luke Smith XYZ";
-        url = "https://lukesmith.xyz/index.xml";
-      }
     ];
   };
 }
