@@ -46,7 +46,7 @@
     };
   };
 
-  # Display and DE - Wayland with xwayland, Plasma/SDDM, US xkb
+  # Display and DE - Wayland with xwayland, Plasma/SDDM, xkb uses US layout with caps lock mapped to escape
   programs.xwayland.enable = true;
   services = {
     desktopManager.plasma6.enable = true;
@@ -60,7 +60,6 @@
 
       xkb = {
         layout = "us";
-        variant = "";
       };
     };
   };
@@ -153,10 +152,12 @@
 
 
 
-  # Security - sudo configuration
+  # Security - sudo configuration (show password feedback)
   security = {
     sudo = {
-      extraConfig = "Defaults pwfeedback";
+      extraConfig = ''
+        Defaults pwfeedback
+      '';
     };
   };
 

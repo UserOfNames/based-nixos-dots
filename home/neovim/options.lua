@@ -2,41 +2,11 @@ local o = vim.o
 local g = vim.g
 local map = vim.keymap.set
 
--- Disable netrw, enable termguicolors as recommended by nvim-tree
+-- Disable netrw, enable termguicolors as recommended by nvim-tree, set colorscheme
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
-
-
-
--- Plugin settings
-require 'nvim-tree'.setup()
-require 'nvim-web-devicons'.setup()
 vim.cmd("colorscheme base16-tomorrow-night")
-
--- Treesitter
-require 'nvim-treesitter.configs'.setup({
-	ignore_install = { "latex" },
-
-	highlight = {
-		enable = true,
-		disable = { "latex" },
-	},
-
-	indent = {
-		enable = true,
-	},
-})
-
--- Floaterm
-vim.cmd([[
-	hi Floaterm guibg = black
-        hi FloatermBorder guibg = grey guifg = white
-	let g:floaterm_wintype = "float"
-        let g:floaterm_position = "bottomright"
-        let g:floaterm_height = 0.5
-	let g:floaterm_width = 0.5
-]])
 
 
 
