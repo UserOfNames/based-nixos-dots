@@ -91,6 +91,7 @@
     fastfetch
     wl-clipboard
     texliveMedium
+    ripgrep
   ];
 
   # Programs with additional system-wide configuration

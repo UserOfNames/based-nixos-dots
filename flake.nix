@@ -10,13 +10,7 @@
     nur.url = "github:nix-community/nur";
   };
 
-  outputs = inputs@{
-    self,
-    nixpkgs,
-    home-manager,
-    nur,
-    ...
-  }:
+  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -39,7 +33,7 @@
           };
         }
       ];
-      
+    
     in {
       nixosConfigurations = {
         # Main desktop

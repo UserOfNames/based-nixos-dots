@@ -35,6 +35,14 @@
         config = toLua "require 'nvim-web-devicons'.setup()";
       }
 
+      {
+        plugin = lualine-nvim;
+        config = toLuaFile ./plugins/lualine.lua;
+      }
+
+      plenary-nvim
+      telescope-nvim
+      telescope-fzf-native-nvim
       vim-nix
       vim-fugitive
       vim-commentary
@@ -46,6 +54,8 @@
 
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
+      ${builtins.readFile ./mappings.lua}
+      ${builtins.readFile ./autocmd/indentation.lua}
     '';
   };
 }
