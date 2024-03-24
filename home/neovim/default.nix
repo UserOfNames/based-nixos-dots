@@ -55,7 +55,7 @@
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./mappings.lua}
-      ${builtins.readFile ./autocmd/indentation.lua}
+      ${builtins.readFile ./autocmd/lua.lua}
     '';
   };
 }
