@@ -15,21 +15,14 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
 
-      # Enable NUR, I would like to do this in a more elegant way once I figure it out
-      nur = { pkgs, config, ... }: {
-        nixpkgs.overlays = [
-          inputs.nur.overlay
-        ];
-      };
-
       # Enable home-manager as a flake module, user must be zdbg
       home = [
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.zdbg = import ./home;
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.zdbg = import ./home;
           };
         }
       ];
@@ -41,7 +34,7 @@
           inherit system;
           modules = [
             ./hosts/nyx
-            nur
+            { nixpkgs.overlays = [ nur.overlay ]; }
           ] ++ home;
         };
       };
