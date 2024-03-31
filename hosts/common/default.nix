@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./zsh.nix
+    ../../modules
+  ];
+
   # Bootloader - systemd-boot, maximum 20 generations
   boot = {
     loader = {
@@ -11,6 +16,15 @@
       timeout = 10;
       systemd-boot.editor = false;
     };
+  };
+
+
+
+  # Configure ZSH - Enable ZSH and set as default shell
+  # More configs in common zsh.nix and home-manager zsh.nix
+  users.defaultUserShell = pkgs.zsh;
+  environment = {
+    shells = with pkgs; [ zsh ];
   };
 
 
@@ -161,17 +175,4 @@
       '';
     };
   };
-
-
-
-  # Configure ZSH - Enable ZSH and set as default shell
-  # More configs in common zsh.nix and home-manager zsh.nix
-  users.defaultUserShell = pkgs.zsh;
-  environment = {
-    shells = with pkgs; [ zsh ];
-  };
-
-  imports = [
-    ./zsh.nix
-  ];
 }

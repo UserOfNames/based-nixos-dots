@@ -4,7 +4,6 @@
   imports = [
     ./hardware.nix
     ../common
-    ../../modules
   ];
 
   # Set hostname 
@@ -16,6 +15,11 @@
   environment.systemPackages = with pkgs; [
     tor-browser-bundle-bin
   ];
+
+  
+
+  # Enable modules
+  modSteam.enable = true;
 
 
 

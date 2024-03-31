@@ -1,13 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.neovim =
-  let
-    # Credit to Vimjoyer on youtube
-    toLua = str: "lua <<EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-  in
-  {
+  programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
@@ -15,33 +9,14 @@
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      {
-        plugin = nvim-treesitter.withAllGrammars;
-        config = toLuaFile ./plugins/treesitter.lua;
-      }
-
-      {
-        plugin = vim-floaterm;
-        config = toLuaFile ./plugins/floaterm.lua;
-      }
-
-      {
-        plugin = nvim-tree-lua;
-        config = toLua "require 'nvim-tree'.setup()";
-      }
-
-      {
-        plugin = nvim-web-devicons;
-        config = toLua "require 'nvim-web-devicons'.setup()";
-      }
-
-      {
-        plugin = lualine-nvim;
-        config = toLuaFile ./plugins/lualine.lua;
-      }
-
-      plenary-nvim
+      nvim-treesitter.withAllGrammars
+      vim-floaterm
+      nvim-tree-lua
+      nvim-web-devicons
+      lualine-nvim
       telescope-nvim
+      undotree
+      plenary-nvim
       telescope-fzf-native-nvim
       vim-nix
       vim-fugitive
@@ -52,10 +27,18 @@
       base16-nvim
     ];
 
+    # Import all configs. Ugly solution but I can't seem to find a better one.
     extraLuaConfig = ''
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./mappings.lua}
       ${builtins.readFile ./autocmd/lua.lua}
+      ${builtins.readFile ./plugins/treesitter.lua}
+      ${builtins.readFile ./plugins/floaterm.lua}
+      ${builtins.readFile ./plugins/nvim-tree.lua}
+      ${builtins.readFile ./plugins/nvim-web-devicons.lua}
+      ${builtins.readFile ./plugins/lualine.lua}
+      ${builtins.readFile ./plugins/telescope.lua}
+      ${builtins.readFile ./plugins/undotree.lua}
     '';
   };
 }
