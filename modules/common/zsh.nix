@@ -1,6 +1,13 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
+  # More zsh options in home-manager zsh.nix
+  # Enable zsh and set as default shell
+  environment = {
+    shells = with pkgs; [ zsh ];
+  };
+  users.defaultUserShell = pkgs.zsh;
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -23,5 +30,4 @@
       updaterb = "sudo nix flake update ~/.nixosdots && sudo nixos-rebuild switch --flake ~/.nixosdots";
     };
   };
-
 }

@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./steam.nix
-    ./common
+    ./common.nix
+    ./user.nix
+    ./zsh.nix
   ];
 }

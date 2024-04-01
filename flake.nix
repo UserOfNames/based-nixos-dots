@@ -34,6 +34,7 @@
           inherit system;
           modules = [
             ./hosts/nyx
+            ./modules
             { nixpkgs.overlays = [ nur.overlay ]; }
           ] ++ home;
         };

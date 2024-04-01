@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware.nix
-    ../common
   ];
 
   # Set hostname 
@@ -18,8 +17,8 @@
 
   
 
-  # Enable modules
-  modSteam.enable = true;
+  # Toggle modules
+  module-steam.enable = true;
 
 
 
