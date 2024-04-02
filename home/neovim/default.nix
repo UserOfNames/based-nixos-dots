@@ -14,9 +14,9 @@
       nvim-tree-lua
       nvim-web-devicons
       lualine-nvim
+      plenary-nvim
       telescope-nvim
       undotree
-      plenary-nvim
       telescope-fzf-native-nvim
       vim-nix
       vim-fugitive

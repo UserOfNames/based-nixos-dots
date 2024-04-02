@@ -1,9 +1,9 @@
-My NixOS dotfiles. Nothing too special, lots of "borrowing" from other people's dotfiles.
+My NixOS dotfiles. Nothing too special.
 
 # Hosts
-Host files are for machine-specific options and enabling optional modules.
-**nyx** - Main desktop.
+Host files are for enabling/disabling modules for a particular machine, as well as machine-specific options and packages.  
+- **nyx** - Main desktop.
 
 # Modules
-Modules are options that are reused between multiple machines (when I actually get multiple machines) but not all. Can be toggled in host files using `module-<module name>.enable = true`
-Modules are grouped by purpose. Anything not self-explanatory will be explained here.
+Modules are options that are reused between multiple machines. Can be toggled in host files using `module-<module name>.enable = <boolean>`.  
+- **common** - Options for all machines. **Cannot be turned off.** Includes essentials like shell, bootloader, network, etc.
