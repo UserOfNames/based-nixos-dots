@@ -11,7 +11,7 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       vim-floaterm
-      nvim-tree-lua
+      oil-nvim
       nvim-web-devicons
       lualine-nvim
       plenary-nvim
@@ -34,7 +34,7 @@
       ${builtins.readFile ./autocmd/lua.lua}
       ${builtins.readFile ./plugins/treesitter.lua}
       ${builtins.readFile ./plugins/floaterm.lua}
-      ${builtins.readFile ./plugins/nvim-tree.lua}
+      ${builtins.readFile ./plugins/oil-nvim.lua}
       ${builtins.readFile ./plugins/nvim-web-devicons.lua}
       ${builtins.readFile ./plugins/lualine.lua}
       ${builtins.readFile ./plugins/telescope.lua}
