@@ -1,10 +1,10 @@
 # Mappings list  
-Custom mappings are assigned in their respsective plugin files, except general maps which are in mappings.lua.  
-Mapleader is space. Most mappings use <leader> then two keys, the first of which (I will call this the gateway key) groups maps with similar purposes. Some important mappings are instead one keystroke, or one after <leader>.  
+Custom mappings are assigned in their respective plugin files, except general maps which are in mappings.lua.  
+Mapleader is space. Most mappings use leader followed by two keys, the first of which (I call this the gateway key) groups maps with similar purposes. Some important/commonly used mappings are instead one keystroke, or one after leader.  
 **Single key:**  
-- **<Enter>** - Create new line below.  
+- **Enter** - Create new line below.  
   
-**<leader>:**  
+**Leader:**  
 - **Single key after leader:**  
 	- **u** - Open undotree.  
   
