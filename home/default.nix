@@ -25,10 +25,11 @@
   imports = [
     ./zsh
     ./git
-    ./neovim
+    # ./neovim
     ./newsboat
     ./ytdlp
     ./mpv
     ./firefox
+    ./nixvim.nix
   ];
 }
