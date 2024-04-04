@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ./steam.nix
-    ./utilities
-    ./system
+    ./git.nix
   ];
 }

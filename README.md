@@ -6,4 +6,5 @@ Host files are for enabling/disabling modules for a particular machine, as well 
 
 # Modules
 Modules are options that are reused between multiple machines. Can be toggled in host files using `module-<module name>.enable = <boolean>`.  
-- **common** - Options for all machines. **Cannot be turned off.** Includes essentials like shell, bootloader, network, etc.
+- **system** - Basic system options for all machines. **Cannot be turned off.** Includes essentials like zsh, bootloader, network, etc.
+- **utilities** - Basic utilities such as git, tmux, etc.

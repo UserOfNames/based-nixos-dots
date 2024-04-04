@@ -87,7 +87,6 @@
     gnupg
     mpv
     firefox
-    git
     fastfetch
     wl-clipboard
     texliveMedium

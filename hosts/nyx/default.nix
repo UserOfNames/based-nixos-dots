@@ -16,6 +16,9 @@
   # Toggle modules
   module-steam.enable = true;
 
+  module-user.enable = true;
+  module-user.userName = "zdbg";
+
   # Leave this unchanged
   system.stateVersion = "22.11";
 }

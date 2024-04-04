@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 -- Normal mode
-vim.keymap.set('n', '<Leader>s', function() vim.o.spell = not(vim.o.spell) end)
+vim.keymap.set('n', '<Leader>gs', function() vim.o.spell = not(vim.o.spell) end)
 
 
 vim.keymap.set('n', '<Enter>', 'o<Esc>')
@@ -20,4 +20,5 @@ vim.keymap.set('n', '<M-K>', '<C-w>+')
 vim.keymap.set('n', '<M-J>', '<C-w>-')
 vim.keymap.set('n', '<M-L>', '<C-w>>')
 vim.keymap.set('n', '<M-H>', '<C-w><')
+-- Swap splits
 vim.keymap.set('n', '<M-x>', '<C-w>x')
