@@ -26,11 +26,10 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./zsh
     ./git
-    # ./neovim
     ./newsboat
     ./ytdlp
     ./mpv
     ./firefox
-    ./nixvim.nix
+    ./nixvim
   ];
 }
