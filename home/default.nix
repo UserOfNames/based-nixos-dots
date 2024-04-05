@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Basic configs; username, version, and self-management.
@@ -23,6 +23,7 @@
 
   # Import configurations for zdbg
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
     ./zsh
     ./git
     # ./neovim

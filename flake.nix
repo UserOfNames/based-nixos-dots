@@ -26,6 +26,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+            extraSpecialArgs = { inherit inputs; };
             users.zdbg = import ./home;
           };
         }
@@ -36,6 +37,7 @@
         # Main desktop
         nyx = lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/nyx
             ./modules
