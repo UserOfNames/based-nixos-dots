@@ -32,7 +32,7 @@
         }
       ];
     
-    in {
+    in {  
       nixosConfigurations = {
         # Main desktop
         nyx = lib.nixosSystem {

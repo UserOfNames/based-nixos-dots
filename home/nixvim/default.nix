@@ -5,8 +5,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-
-    colorschemes.base16 = {
+    colorschemes.base16  ={
       enable = true;
       colorscheme = "tomorrow-night";
     };
@@ -41,6 +40,8 @@
 
       floaterm = {
         enable = true;
+        wintype = "float";
+        position = "bottomright";
       };
 
       telescope = {
@@ -56,6 +57,18 @@
       nix.enable = true;
       commentary.enable = true;
       vimtex.enable = true;
+
+      lsp = {
+        enable = true;
+        servers = {
+          lua-ls.enable = true;
+        };
+      };
+
+      cmp = {
+        enable = true;
+        autoEnableSources = true;
+      };
     };
 
     keymaps = [
