@@ -20,13 +20,13 @@
     ripgrep
   ];
 
-  # # Programs with additional system-wide confiuration
-  # programs = {
-  #   neovim = {
-  #     enable = true;
-  #     defaultEditor = true;
-  #   };
-  # };
+  # Programs with additional system-wide confiuration
+  programs = {
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
+  };
 
   # Add nerdfont hack to fonts, mostly for nvim-tree
   fonts.packages = with pkgs; [

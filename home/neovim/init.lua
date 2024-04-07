@@ -4,13 +4,20 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.cmd("colorscheme base16-tomorrow-night")
 
-
-
--- Main configs
+-- Misc settings
 vim.o.syntax = true
 vim.o.number = true
-vim.o.hidden = true
 vim.o.hlsearch = false
+
+-- Tab settings - Use tabs instead of spaces, default width 4
+vim.o.expandtab = false
+vim.o.softtabstop = 4
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+
+-- Fold settings - Use treesitter folding, fold nothing by default
 vim.o.foldenable = false
+vim.o.foldlevelstart = 99
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+
