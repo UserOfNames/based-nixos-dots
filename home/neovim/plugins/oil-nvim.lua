@@ -1,7 +1,14 @@
 require('oil').setup({
+	default_file_explorer = true,
+
 	view_options = {
-		show_hidden = true
-	}
+		show_hidden = true,
+	},
+
+	keymaps = {
+		['<C-v>'] = 'actions.select_vsplit',
+		['<C-x>'] = 'actions.select_split',
+	},
 })
 
 -- Mappings

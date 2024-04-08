@@ -8,6 +8,8 @@
     # Directory shortcuts - shortcut = directory
     dirHashes = {
       dots = "$HOME/.nixosdots";
+      desk = "$HOME/Desktop";
+      ytdlp = "$HOME/YT-DLP";
     };
 
     # Default keys didn't work, manually reset up and down keys

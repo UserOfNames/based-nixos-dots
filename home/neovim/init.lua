@@ -8,10 +8,12 @@ vim.cmd("colorscheme base16-tomorrow-night")
 vim.o.syntax = true
 vim.o.number = true
 vim.o.hlsearch = false
+vim.o.incsearch = true
+vim.o.scrolloff = 8
 
 -- Tab settings - Use tabs instead of spaces, default width 4
 vim.o.expandtab = false
-vim.o.softtabstop = 4
+vim.o.softtabstop = 0
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
@@ -20,4 +22,3 @@ vim.o.foldenable = false
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-

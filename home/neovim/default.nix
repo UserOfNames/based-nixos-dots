@@ -10,6 +10,7 @@
 
     extraPackages = with pkgs; [
       lua-language-server
+      nil
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -56,6 +57,9 @@
       ${readFile ./plugins/lualine.lua}
       ${readFile ./plugins/telescope.lua}
       ${readFile ./plugins/undotree.lua}
+      ${readFile ./plugins/lsp/lsp-zero.lua}
+      ${readFile ./plugins/lsp/lsp-lua_ls.lua}
+      ${readFile ./plugins/lsp/lsp-nil_ls.lua}
     '';
   };
 }
