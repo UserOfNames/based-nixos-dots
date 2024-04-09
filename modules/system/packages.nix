@@ -16,7 +16,7 @@
     firefox
     fastfetch
     wl-clipboard
-    texliveMedium
+    texliveFull
     ripgrep
   ];
 
