@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardware.nix
+    ./hardware-configuration.nix
   ];
 
   # Set hostname 
@@ -20,5 +20,5 @@
   module-user.userName = "zdbg";
 
   # Leave this unchanged
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.11";
 }

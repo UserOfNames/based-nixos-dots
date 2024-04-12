@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # Basic configs; username, version, and self-management.
+  # Basic settings: username, version, and self-management.
   home = {
     username = "zdbg";
     homeDirectory = "/home/zdbg";
@@ -12,7 +12,7 @@
 
   # Packages to install for zdbg with no configurations
   home.packages = with pkgs; [
-    bitwarden
+    # bitwarden
     obs-studio
     qalculate-qt
     qbittorrent
@@ -30,5 +30,6 @@
     ./mpv
     ./firefox
     ./neovim
+    ./lf
   ];
 }

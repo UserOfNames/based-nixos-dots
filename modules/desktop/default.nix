@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ./desktop
-    ./system
-    ./utilities
+    ./firefox.nix
+    ./steam.nix
   ];
 }

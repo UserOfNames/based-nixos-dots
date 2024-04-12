@@ -6,7 +6,7 @@
     ./display.nix
     ./hardware.nix
     ./locale.nix
-    ./networking.nix
+    ./network.nix
     ./packages.nix
     ./security.nix
     ./store.nix

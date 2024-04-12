@@ -1,34 +1,27 @@
 { config, pkgs, ... }:
 
 {
-  # Allow unfree software, enable 'nix' command and flakes, system-wide software
+  # Allow unfree software, enable nix command and flakes
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # Programs with no additional system-wide configuration
+  # Programs with programs... options should be given their own modules in the appropriate place.
+  # This is for programs that can only be declared directly.
   environment.systemPackages = with pkgs; [
     btop
-    gnupg
     mpv
-    firefox
     fastfetch
     wl-clipboard
     texliveFull
     ripgrep
+    lf
+    gnupg
   ];
 
-  # Programs with additional system-wide confiuration
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-  };
-
-  # Add nerdfont hack to fonts, mostly for nvim-tree
+  # Add nerdfont hack to fonts, mostly for neovim
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Hack" ]; })
   ];

@@ -9,10 +9,10 @@
     dirHashes = {
       dots = "$HOME/.nixosdots";
       desk = "$HOME/Desktop";
-      ytdlp = "$HOME/YT-DLP";
+      ytdlp = "$HOME/YTDLP";
     };
 
-    # Default keys didn't work, manually reset up and down keys
+    # Default keys didn't work, set alternate up/down keys
     historySubstringSearch = {
       enable = true;
       searchUpKey = "$terminfo[kcuu1]";
