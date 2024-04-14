@@ -21,9 +21,9 @@
       vim-numbertoggle
       oil-nvim
       undotree
-      vim-nix
       vim-fugitive
       vim-commentary
+      harpoon2
       # Telescope and dependencies
       telescope-nvim
       plenary-nvim
@@ -54,10 +54,11 @@
       ${readFile ./plugins/treesitter.lua}
       ${readFile ./plugins/floaterm.lua}
       ${readFile ./plugins/oil-nvim.lua}
-      ${readFile ./plugins/nvim-web-devicons.lua}
-      ${readFile ./plugins/lualine.lua}
       ${readFile ./plugins/telescope.lua}
       ${readFile ./plugins/undotree.lua}
+      ${readFile ./plugins/harpoon.lua}
+      ${readFile ./plugins/nvim-web-devicons.lua}
+      ${readFile ./plugins/lualine.lua}
       ${readFile ./plugins/vimtex.lua}
       ${readFile ./plugins/lsp/lsp-zero.lua}
       ${readFile ./plugins/lsp/lsp-lua_ls.lua}

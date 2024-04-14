@@ -4,6 +4,7 @@
   imports = [
     ./bootloader.nix
     ./display.nix
+    ./environment.nix
     ./hardware.nix
     ./locale.nix
     ./network.nix

@@ -8,7 +8,7 @@ Mapleader is space. Most mappings use leader followed by two keys, the first of 
 - **Single key after leader:**  
 	- **u** - Open undotree.  
   
-- **g** - General mappings gateway.  
+- **m** - General mappings gateway.  
 	- **s** - Toggle spellcheck.  
   
 - **t** - Terminal mappings gateway. Escape automatically exits terminal mode (while in terminal mode). Uses floaterm.  
@@ -23,10 +23,15 @@ Mapleader is space. Most mappings use leader followed by two keys, the first of 
 	- **g** - Telescope git search.  
 	- **s** - Telescope string search.  
 	- **b** - Telescope buffer search.  
-
-**Splits:** - Hold alt. Controls splits.  
-- **hjkl** - Move through splits.  
-- **HJKL** - Resize splits. Directions correspond to size change, not direction (e.g. H always decreases size).  
-- **v** - Create vertical split.  
-- **s** - Create horizontal split.  
-- **x** - Swap splits.  
+  
+- **h** - Harpoon maps.  
+	- **h** - Open harpoon menu.  
+	- **a** - Add file to harpoon.  
+	- **1234** - Open respective file from menu.  
+  
+**Splits:** - Hold alt. Controls splits.
+	- **hjkl** - Move through splits.  
+	- **HJKL** - Resize splits. Directions correspond to size change, not direction (e.g. H always decreases size).  
+	- **v** - Create vertical split.  
+	- **s** - Create horizontal split.  
+	- **x** - Swap splits.  

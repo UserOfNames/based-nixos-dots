@@ -25,5 +25,6 @@
     plasma-browser-integration
     kwalletmanager
     plasma-systemmonitor
+    kate
   ];
 }

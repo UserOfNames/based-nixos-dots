@@ -28,6 +28,7 @@
       rebuild = "sudo nixos-rebuild switch --flake ~/.nixosdots";
       update = "sudo nix flake update ~/.nixosdots";
       updaterb = "sudo nix flake update ~/.nixosdots && sudo nixos-rebuild switch --flake ~/.nixosdots";
+	  listpkgs = "nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq";
     };
   };
 }
