@@ -11,9 +11,9 @@ vim.o.hlsearch = false
 vim.o.incsearch = true
 vim.o.scrolloff = 8
 
--- Tab settings - Use tabs instead of spaces, default width 4
-vim.o.expandtab = false
-vim.o.softtabstop = 0
+-- Tab settings - Use spaces instead of tabs, default width 4
+vim.o.expandtab = true
+vim.o.softtabstop = 4
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 

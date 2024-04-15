@@ -10,6 +10,6 @@ Modules are options that are reused between multiple machines. Can be toggled in
 Self-explanatory modules aren't elaborated on here.  
 This structure is likely to change.  
 - **system** - Basic system options for all machines. Includes essentials like zsh, bootloader, network, etc.  
-	- **security** - For *local* security-related settings. Network security (e.g. firewall, fail2ban) are handled in **network** instead.  
+    - **security** - For *local* security-related settings. Network security (e.g. firewall, fail2ban) are handled in **network** instead.  
 - **utilities** - Productivity software such as git and neovim.  
 - **desktop** - Software that isn't strictly productive. Includes explicitly recreational software such as steam, but also some mixed software such as firefox.  

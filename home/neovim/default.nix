@@ -42,6 +42,8 @@
       nvim-lspconfig
       nvim-cmp
       cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
       luasnip
       lsp-zero-nvim
     ];
@@ -51,6 +53,7 @@
       ${readFile ./init.lua}
       ${readFile ./mappings.lua}
       ${readFile ./autocmd/lua.lua}
+      ${readFile ./autocmd/nix.lua}
       ${readFile ./plugins/treesitter.lua}
       ${readFile ./plugins/floaterm.lua}
       ${readFile ./plugins/oil-nvim.lua}
@@ -61,6 +64,7 @@
       ${readFile ./plugins/lualine.lua}
       ${readFile ./plugins/vimtex.lua}
       ${readFile ./plugins/lsp/lsp-zero.lua}
+      ${readFile ./plugins/lsp/lsp-cmp.lua}
       ${readFile ./plugins/lsp/lsp-lua_ls.lua}
       ${readFile ./plugins/lsp/lsp-nil_ls.lua}
       ${readFile ./plugins/lsp/lsp-pyright.lua}
