@@ -1,23 +1,27 @@
 { config, pkgs, ... }:
 
 {
-  # Wayland with xwayland, Plasma/SDDM, xkb uses US layout with caps lock mapped to escape
+  # Wayland with xwayland, Plasma/SDDM
   programs.xwayland.enable = true;
   services = {
-    desktopManager.plasma6.enable = true;
+   desktopManager.plasma6.enable = true;
+
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+      defaultSession = "plasma";
+    };
 
     xserver = {
       enable = true;
-      displayManager = {
-        sddm.enable = true;
-        defaultSession = "plasma";
-      };
-
       xkb = {
         layout = "us";
       };
     };
   };
+
   # Exclude these default plasma packages
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     elisa

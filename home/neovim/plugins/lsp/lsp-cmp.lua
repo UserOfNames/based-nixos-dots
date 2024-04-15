@@ -11,10 +11,14 @@ cmp.setup({
    }),
 
    mapping = {
-      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
       ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
       ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-Space>'] = cmp.mapping.confirm({ select = true }),
+
+      -- These are default, but I prefer space to confirm and complete doesn't work for some reason
+      -- Kept in case I change my mind or something
+      -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+      -- ['<C-Space>'] = cmp.mapping.complete(),
    },
 
    snippet = {
