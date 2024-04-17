@@ -4,7 +4,7 @@
   # Wayland with xwayland, Plasma/SDDM
   programs.xwayland.enable = true;
   services = {
-   desktopManager.plasma6.enable = true;
+   # desktopManager.plasma6.enable = true;
 
     displayManager = {
       sddm = {
@@ -16,6 +16,7 @@
 
     xserver = {
       enable = true;
+	  desktopManager.plasma5.enable = true;
       xkb = {
         layout = "us";
       };
@@ -30,5 +31,6 @@
     kwalletmanager
     plasma-systemmonitor
     kate
+    konsole
   ];
 }

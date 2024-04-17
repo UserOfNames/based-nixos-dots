@@ -17,8 +17,10 @@
     wl-clipboard
     texliveFull
     ripgrep
+    alacritty
     lf
     gnupg
+    ripdrag
   ];
 
   # Add nerdfont hack to fonts, mostly for neovim

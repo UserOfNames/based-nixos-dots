@@ -31,5 +31,7 @@
     ./firefox
     ./neovim
     ./lf
+    ./alacritty
+    ./tmux
   ];
 }
