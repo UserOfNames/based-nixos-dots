@@ -14,6 +14,8 @@
       drawbox = true;
       icons = true;
       ignorecase = true;
+      number = true;
+      relativenumber = true;
 
       previewer = "${pkgs.ctpv}/bin/ctpv";
       cleaner = "${pkgs.ctpv}/bin/ctpvclear";

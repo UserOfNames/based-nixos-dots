@@ -18,8 +18,8 @@
 
       font = {
         normal = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Mono";
+          family = "JetBrainsMono Nerd Font Mono";
+          style = "Regular";
         };
       };
 

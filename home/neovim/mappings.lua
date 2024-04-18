@@ -4,7 +4,6 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<Leader>ms', function() vim.o.spell = not(vim.o.spell) end)
 
 
-vim.keymap.set('n', '<Enter>', 'o<Esc>')
 
 -- Split commands are handled with left alt
 -- Create splits
