@@ -9,6 +9,7 @@
     dirHashes = {
       dots = "$HOME/.nixosdots";
       desk = "$HOME/Desktop";
+      proj = "$HOME/projects";
       ytdlp = "$HOME/YTDLP";
     };
 

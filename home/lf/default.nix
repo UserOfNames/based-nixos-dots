@@ -5,9 +5,7 @@
   xdg.configFile."lf/icons".source = ./icons;
 
   programs.lf = {
-
     enable = true;
-
     settings = {
       preview = true;
       hidden = true;
@@ -21,13 +19,11 @@
       cleaner = "${pkgs.ctpv}/bin/ctpvclear";
     };
 
-
     commands = {
       editor-open = ''$$EDITOR $f'';
     };
 
     keybindings = {
-      
     };
   };
 }

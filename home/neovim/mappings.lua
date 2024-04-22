@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 -- Normal mode
-vim.keymap.set('n', '<Leader>ms', function() vim.o.spell = not(vim.o.spell) end)
+vim.keymap.set('n', '<Leader>os', function() vim.o.spell = not(vim.o.spell) end)
 
 
 
@@ -21,8 +21,3 @@ vim.keymap.set('n', '<M-L>', '<C-w>>')
 vim.keymap.set('n', '<M-H>', '<C-w><')
 -- Swap splits
 vim.keymap.set('n', '<M-x>', '<C-w>x')
-
--- Credit to ThePrimeagen for all of these
--- Move visual selection and auto-indent
-vim.keymap.set('v', "J", ":m '>+1<Enter>gv=gv")
-vim.keymap.set('v', "K", ":m '<-2<Enter>gv=gv")

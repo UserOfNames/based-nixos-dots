@@ -22,8 +22,8 @@
       oil-nvim
       undotree
       vim-fugitive
-      vim-commentary
       harpoon2
+      mini-nvim
       # Telescope and dependencies
       telescope-nvim
       plenary-nvim
@@ -56,6 +56,7 @@
       ${readFile ./autocmd/nix.lua}
       ${readFile ./plugins/treesitter.lua}
       ${readFile ./plugins/floaterm.lua}
+      ${readFile ./plugins/mini-nvim.lua}
       ${readFile ./plugins/oil-nvim.lua}
       ${readFile ./plugins/telescope.lua}
       ${readFile ./plugins/undotree.lua}

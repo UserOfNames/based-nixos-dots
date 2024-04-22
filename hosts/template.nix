@@ -1,3 +1,4 @@
+# This is a template for setting up a new host. Make changes as needed.
 { config, pkgs, ... }:
 
 {
@@ -7,22 +8,21 @@
 
 
   # Set hostname 
-  networking.hostName = "nyx";
+  networking.hostName = "";
 
 
   # Extra packages for this system
   environment.systemPackages = with pkgs; [
-    tor-browser-bundle-bin
   ];
-  
+
 
   # Toggle modules
-  module-steam.enable = true;
+  # module-steam.enable = true;
 
-  module-user.enable = true;
-  module-user.userName = "zdbg";
+  # module-user.enable = true;
+  # module-user.userName = "";
 
 
   # Leave this unchanged
-  system.stateVersion = "23.11";
+  system.stateVersion = "";
 }
