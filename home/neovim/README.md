@@ -3,6 +3,9 @@ Custom mappings are assigned in their respective plugin files, except general ma
 Mapleader is space. Most mappings use leader followed by two keys, the first of which (I call this the gateway key) groups maps with similar purposes. Some important/commonly used mappings are instead one keystroke, or one after leader.  
 Standard mappings which aren't specific to my setup are not listed here (e.g. LSP mappings, which I left as defaults).
 
+**General notes:**  
+- For telescope, LSP, etc. I use <C-Space> instead of <C-y>.
+
 **Single key:**  
 - **Enter** - Create new line below.  
   

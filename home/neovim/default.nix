@@ -9,9 +9,10 @@
     vimdiffAlias = true;
 
     extraPackages = with pkgs; [
+      ccls
       lua-language-server
       nil
-      nodePackages.pyright
+      python311Packages.python-lsp-server
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -66,9 +67,10 @@
       ${readFile ./plugins/vimtex.lua}
       ${readFile ./plugins/lsp/lsp-zero.lua}
       ${readFile ./plugins/lsp/lsp-cmp.lua}
+      ${readFile ./plugins/lsp/lsp-ccls.lua}
       ${readFile ./plugins/lsp/lsp-lua_ls.lua}
       ${readFile ./plugins/lsp/lsp-nil_ls.lua}
-      ${readFile ./plugins/lsp/lsp-pyright.lua}
+      ${readFile ./plugins/lsp/lsp-pylsp.lua}
     '';
   };
 }

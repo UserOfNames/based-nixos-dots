@@ -15,7 +15,7 @@ cmp.setup({
       ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
       ['<C-Space>'] = cmp.mapping.confirm({ select = true }),
 
-      -- These are default, but I prefer space to confirm and complete doesn't work for some reason
+      -- These are default, but I prefer C-Space to confirm
       -- Kept in case I change my mind or something
       -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
       -- ['<C-Space>'] = cmp.mapping.complete(),

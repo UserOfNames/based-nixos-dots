@@ -20,7 +20,8 @@
     };
 
     commands = {
-      editor-open = ''$$EDITOR $f'';
+      ripdrag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
+      open-editor = ''$$EDITOR $f'';
     };
 
     keybindings = {
