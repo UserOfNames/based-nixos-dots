@@ -9,6 +9,7 @@ vim.o.syntax = true
 vim.o.number = true
 vim.o.hlsearch = false
 vim.o.incsearch = true
+vim.o.wrap = false
 vim.o.scrolloff = 8
 
 -- Tab settings - Use spaces instead of tabs, default width 4

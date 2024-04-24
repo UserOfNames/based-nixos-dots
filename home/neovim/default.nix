@@ -34,6 +34,7 @@
       nvim-web-devicons
       base16-nvim
       lualine-nvim
+      zen-mode-nvim
 
       # Notetaking plugins
       vimtex
@@ -65,6 +66,7 @@
       ${readFile ./plugins/nvim-web-devicons.lua}
       ${readFile ./plugins/lualine.lua}
       ${readFile ./plugins/vimtex.lua}
+      ${readFile ./plugins/zen-mode.lua}
       ${readFile ./plugins/lsp/lsp-zero.lua}
       ${readFile ./plugins/lsp/lsp-cmp.lua}
       ${readFile ./plugins/lsp/lsp-ccls.lua}

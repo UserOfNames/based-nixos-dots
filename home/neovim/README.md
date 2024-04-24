@@ -15,6 +15,7 @@ Standard mappings which aren't specific to my setup are not listed here (e.g. LS
   
 - **o** - 'Other' (misc) mappings gateway.  
     - **s** - Toggle spellcheck.  
+    - **z** - Toggle ZenMode.  
   
 - **f** - File mappings gateway.  
     - **t** - Open oil.nvim.  
