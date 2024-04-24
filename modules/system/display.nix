@@ -11,26 +11,17 @@
         enable = true;
         wayland.enable = true;
       };
-      defaultSession = "plasma";
     };
 
     xserver = {
       enable = true;
-	  desktopManager.plasma5.enable = true;
       xkb = {
         layout = "us";
       };
     };
-  };
 
-  # Exclude these default plasma packages
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    elisa
-    khelpcenter
-    plasma-browser-integration
-    kwalletmanager
-    plasma-systemmonitor
-    kate
-    konsole
-  ];
+    programs.hyprland = {
+      enable = true;
+    };
+  };
 }
