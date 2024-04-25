@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Wayland with xwayland, Plasma/SDDM
@@ -19,9 +19,13 @@
         layout = "us";
       };
     };
-
-    programs.hyprland = {
+  };
+  programs = {
+    hyprland = {
       enable = true;
+      xwayland.enable = true;
     };
+
+    waybar.enable = true;
   };
 }

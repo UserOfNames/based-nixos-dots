@@ -21,6 +21,7 @@
     lf
     gnupg
     ripdrag
+    kitty
   ];
 
   # Add nerdfont hack to fonts, mostly for neovim

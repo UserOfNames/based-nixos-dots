@@ -26,6 +26,7 @@
     ./alacritty
     ./firefox
     ./git
+    ./hyprland
     ./lf
     ./mpv
     ./neovim
