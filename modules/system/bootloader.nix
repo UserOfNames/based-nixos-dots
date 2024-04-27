@@ -12,7 +12,7 @@
 
       efi = {
         canTouchEfiVariables = true;
-        # efi.efiSysMountPoint = "/boot";
+        efiSysMountPoint = "/boot";
       };
 
       timeout = 10;

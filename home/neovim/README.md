@@ -18,7 +18,7 @@ Standard mappings which aren't specific to my setup are not listed here (e.g. LS
     - **z** - Toggle ZenMode.  
   
 - **f** - File mappings gateway.  
-    - **t** - Open oil.nvim.  
+    - **e** - Open oil.nvim.  
     - **f** - Telescope file search.  
     - **g** - Telescope git search.  
     - **s** - Telescope string search.  

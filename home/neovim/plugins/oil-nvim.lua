@@ -13,4 +13,4 @@ require('oil').setup({
 })
 
 -- Mappings
-vim.keymap.set('n', '<Leader>ft', ':e . <Enter>', {silent = true})
+vim.keymap.set('n', '<Leader>fe', ':e . <Enter>', {silent = true})
