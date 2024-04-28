@@ -2,11 +2,11 @@ require('telescope').setup({
    defaults = {
       mappings = {
          i = {
-            ["<C-Space>"] = "select_default"
+            ['<C-Space>'] = 'select_default',
          },
 
          n = {
-            ["<C-Space>"] = "select_default"
+            ['<C-Space>'] = 'select_default',
          }
       }
    }

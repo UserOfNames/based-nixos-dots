@@ -1,11 +1,8 @@
-# Template for disko. Credit to Vimjoyer for parts of this.
-# Single disk, btrfs on luks
-{ device ? /dev/sda "Set this to your disk device, e.g. /dev/sda", ... }:
-
 {
   disko.devices = {
     disk.main = {
-      inherit device;
+      # FIXME Add device
+      device = "";
       type = "disk";
       content = {
         type = "gpt";
