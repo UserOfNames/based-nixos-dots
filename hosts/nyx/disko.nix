@@ -1,13 +1,11 @@
-# Template for disko. Credit to Vimjoyer for parts of this.
-# Single disk, btrfs on luks
-{ inputs, ... }:
+{ inputs, device ? throw "Specify device name, e.g. /dev/sda", ... }:
 
 {
   imports = [ inputs.disko.nixosModules.disko ];
 
   disko.devices = {
     disk.main = {
-      device = "/dev/sda";
+      inherit device;
       type = "disk";
       content = {
         type = "gpt";

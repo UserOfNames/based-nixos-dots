@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # ./disko.nix
+    # (import ./disko.nix { device = "/dev/sda"; })
   ];
 
 

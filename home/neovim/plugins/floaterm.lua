@@ -9,7 +9,9 @@ vim.cmd([[
 
 vim.keymap.set('t', '<Esc>', '<C-Bslash><C-n>')
 vim.g.floaterm_keymap_toggle = '<Leader>tt'
-vim.g.floaterm_keymap_new = '<Leader>tn'
+vim.g.floaterm_keymap_new =  '<Leader>tn'
 vim.g.floaterm_keymap_next = '<Leader>tl'
 vim.g.floaterm_keymap_prev = '<Leader>th'
 vim.g.floaterm_keymap_kill = '<Leader>tk'
+vim.keymap.set('t', '<C-l>', vim.cmd.FloatermNext)
+vim.keymap.set('t', '<C-h>', vim.cmd.FloatermPrev)
