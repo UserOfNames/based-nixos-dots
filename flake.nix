@@ -15,6 +15,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = { self, nixpkgs, home-manager, nur, disko, ... }@inputs:
@@ -22,7 +24,7 @@
     system = "x86_64-linux";
     lib = nixpkgs.lib;
 
-    # Enable home-manager as a flake module, user must be zdbg
+    # Enable home-manager as a flake module
     home = [
       home-manager.nixosModules.home-manager
       {

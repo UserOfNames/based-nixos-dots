@@ -6,5 +6,6 @@
     ./neovim.nix
     ./tmux.nix
     ./virtualization.nix
+    ./xremap-users.nix
   ];
 }

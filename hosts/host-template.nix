@@ -1,9 +1,11 @@
 # This is a template for setting up a new host. Make changes as needed.
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+    inputs.disko.nixosModules.disko 
+    (import ./disko.nix { device = ""; })
   ];
 
 
@@ -19,8 +21,8 @@
   # Toggle modules
   # module-steam.enable = true;
 
-  # module-user.enable = true;
-  # module-user.userName = "";
+  # module-main-user.enable = true;
+  # module-main-user.userName = "";
 
 
   # Leave this unchanged

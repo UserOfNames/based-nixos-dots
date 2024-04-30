@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    # (import ./disko.nix { device = "/dev/sda"; })
+    inputs.disko.nixosModules.disko 
+    (import ./disko.nix { device = "/dev/sda"; })
   ];
 
 
@@ -20,8 +21,8 @@
   # Toggle modules
   module-steam.enable = true;
 
-  module-user.enable = true;
-  module-user.userName = "zdbg";
+  module-main-user.enable = true;
+  module-main-user.userName = "zdbg";
 
 
   # Leave this unchanged

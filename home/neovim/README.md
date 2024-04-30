@@ -4,7 +4,7 @@ Mapleader is space. Most mappings use leader followed by two keys, the first of 
 Standard mappings which aren't specific to my setup are not listed here (e.g. LSP mappings, which I left as defaults).
 
 **General notes:**  
-- For telescope, LSP, etc. I use <C-Space> instead of <C-y>.
+- For telescope, LSP, etc. I use C-Space instead of C-y.
 
 **Single key:**  
 - **Enter** - Create new line below.  
@@ -17,23 +17,26 @@ Standard mappings which aren't specific to my setup are not listed here (e.g. LS
     - **s** - Toggle spellcheck.  
     - **z** - Toggle ZenMode.  
   
-- **f** - File mappings gateway.  
+- **f** - File/Find mappings gateway.  
     - **e** - Open oil.nvim.  
     - **f** - Telescope file search.  
     - **g** - Telescope git search.  
     - **s** - Telescope string search.  
     - **b** - Telescope buffer search.  
+    - **d** - Telescope diagnostics search.  
   
 - **h** - Harpoon maps.  
     - **h** - Open harpoon menu.  
     - **a** - Add file to harpoon.  
-- **1234** - Open respective file from menu. (Standalone, not following **h**. Placed here since it's linked with harpoon.)  
+- **1234** - Open respective file from menu. (Single key after leader, not following **h**.)  
   
 - **t** - Terminal mappings gateway. Escape automatically exits terminal mode (while in terminal mode). Uses floaterm.  
     - **t** - Toggle terminal window.  
     - **n** - New floaterm instance.  
     - **h** - Previous floaterm instance.  
     - **l** - Previous floaterm instance.  
+    - **k** - Kill floaterm instance.  
+**While in terminal mode** - C-h and C-l to switch to previous/next instance, repsectively.  
   
 **Splits:** - Hold alt. Controls splits.
     - **hjkl** - Move through splits.  

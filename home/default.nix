@@ -6,7 +6,7 @@
     username = "zdbg";
     homeDirectory = "/home/zdbg";
     # Do not change stateVersion
-    stateVersion = "22.11";
+    stateVersion = "23.11";
   };
   programs.home-manager.enable = true;
 
@@ -23,15 +23,16 @@
 
   # Import configurations for zdbg
   imports = [
-    ./zsh
-    ./git
-    ./newsboat
-    ./ytdlp
-    ./mpv
-    ./firefox
-    ./neovim
-    ./lf
     ./alacritty
+    ./firefox
+    ./git
+    ./lf
+    ./mpv
+    ./neovim
+    ./newsboat
     ./tmux
+    ./xremap
+    ./ytdlp
+    ./zsh
   ];
 }

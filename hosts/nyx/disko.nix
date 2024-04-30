@@ -1,8 +1,7 @@
-{ inputs, device ? throw "Specify device name, e.g. /dev/sda", ... }:
+{ device ? throw "Specify device name, e.g. /dev/sda", ... }:
 
 {
-  imports = [ inputs.disko.nixosModules.disko ];
-
+  # FIXME on next install, add boot mount option umask=0077 and change subvolume names
   disko.devices = {
     disk.main = {
       inherit device;
