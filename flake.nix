@@ -49,6 +49,17 @@
           { nixpkgs.overlays = [ nur.overlay ]; }
         ] ++ home;
       };
+
+      # Thinkpad T520
+      aeon = lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/aeon
+          ./modules
+          { nixpkgs.overlays = [ nur.overlay ]; }
+        ] ++ home;
+      };
     };
   };
 }

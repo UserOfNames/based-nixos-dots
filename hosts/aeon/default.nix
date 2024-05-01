@@ -9,14 +9,14 @@
 
 
   # Set hostname 
-  networking.hostName = "nyx";
+  networking.hostName = "aeon";
 
 
   # Extra packages for this system
   environment.systemPackages = with pkgs; [
     tor-browser
   ];
-  
+
 
   # Toggle modules
   module-steam.enable = true;
