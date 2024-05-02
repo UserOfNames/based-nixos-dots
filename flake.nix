@@ -38,7 +38,7 @@
         };
       }
     ];
-  
+
   in {
     nixosConfigurations = {
       # Main desktop

@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./binds.nix
+  ];
+
+  xdg.configFile."hypr/hyprlock.conf".source = ./hyprlock.conf;
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -10,29 +16,44 @@
       "$menu" = "rofi --show drun";
       "$browser" = "firefox";
 
-      input = {
-        "numlock_by_default" = true;
+      general = {
+        "border_size" = 2;
+        "gaps_out" = 20;
+        "layout" = "master";
       };
 
-      bind = [
-        "$mainMod, return, exec, $terminal"
-        "$mainMod SHIFT, M, exit,"
-        "$mainMod, Q, killactive"
-        "$mainMod, F, fullscreen"
+      decoration = {
+      };
 
-        "$mainMod, W, exec, $browser"
-        "$mainMod, R, exec, $menu"
+      blur = {
+      };
 
-        "$mainMod, h, movefocus, l"
-        "$mainMod, l, movefocus, r"
-        "$mainMod, k, movefocus, u"
-        "$mainMod, j, movefocus, d"
+      animations = {
+      };
 
-        "$mainMod SHIFT, h, movewindow, l"
-        "$mainMod SHIFT, l, movewindow, r"
-        "$mainMod SHIFT, k, movewindow, u"
-        "$mainMod SHIFT, j, movewindow, d"
-      ];
+      input = {
+        "numlock_by_default" = true;
+        "repeat_rate" = 40;
+        "repeat_delay" = 300;
+        "follow_mouse" = 2;
+        touchpad = {
+        };
+      };
+
+      gestures = {
+      };
+
+      group = {
+        groupbar = {
+        };
+      };
+
+      misc = {
+        "force_default_wallpaper" = 1;
+        "disable_hyprland_logo" = true;
+        "disable_autoreload" = true;
+        "enable_swallow" = true;
+      };
     };
   };
 }

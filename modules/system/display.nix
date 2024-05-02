@@ -1,11 +1,9 @@
 { config, pkgs, inputs, ... }:
 
 {
-  # Wayland with xwayland, Plasma/SDDM
+  # Wayland with xwayland, hyprland
   programs.xwayland.enable = true;
   services = {
-   # desktopManager.plasma6.enable = true;
-
     displayManager = {
       sddm = {
         enable = true;
@@ -20,6 +18,7 @@
       };
     };
   };
+
   programs = {
     hyprland = {
       enable = true;

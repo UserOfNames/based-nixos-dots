@@ -22,6 +22,8 @@
     gnupg
     ripdrag
     mako
+    hyprpaper
+    hyprlock
   ];
 
   # Add nerdfont hack to fonts, mostly for neovim
