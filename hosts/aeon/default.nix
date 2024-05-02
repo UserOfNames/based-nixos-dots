@@ -5,11 +5,16 @@
     ./hardware-configuration.nix
     inputs.disko.nixosModules.disko 
     (import ./disko.nix { device = "/dev/sda"; })
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t520
   ];
 
 
   # Set hostname 
   networking.hostName = "aeon";
+
+
+  # Enable touchpad support
+  services.xserver.libinput.enable = true;
 
 
   # Extra packages for this system

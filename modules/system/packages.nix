@@ -21,7 +21,7 @@
     lf
     gnupg
     ripdrag
-    kitty
+    mako
   ];
 
   # Add nerdfont hack to fonts, mostly for neovim

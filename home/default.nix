@@ -28,6 +28,7 @@
     ./git
     ./hyprland
     ./lf
+    ./mako
     ./mpv
     ./neovim
     ./newsboat
