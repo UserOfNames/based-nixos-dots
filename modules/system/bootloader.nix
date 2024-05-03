@@ -3,6 +3,8 @@
 {
   # Systemd-boot, maximum 20 generations
   boot = {
+    supportedFilesystems = [ "ntfs" ];
+
     loader = {
       systemd-boot = {
         enable = true;

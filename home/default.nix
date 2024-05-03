@@ -5,9 +5,10 @@
   home = {
     username = "zdbg";
     homeDirectory = "/home/zdbg";
-    # Do not change stateVersion
+    # FIXME allow different stateVersion per host
     stateVersion = "23.11";
   };
+
   programs.home-manager.enable = true;
 
   # Packages to install for zdbg with no configurations
@@ -17,8 +18,11 @@
     qalculate-qt
     qbittorrent
     libreoffice-fresh
-    kteatime
     spectacle
+    fastfetch
+    ripdrag
+    mpv
+    qimgv
   ];
 
   # Import configurations for zdbg

@@ -13,19 +13,23 @@
       "$mainMod" = "SUPER";
       "$terminal" = "alacritty";
       "$fileManager" = "lf";
-      "$menu" = "rofi --show drun";
+      "$menu" = "bemenu-run";
       "$browser" = "firefox";
+
+      exec-once = [
+        "mako"
+      ];
 
       general = {
         "border_size" = 2;
-        "gaps_out" = 20;
+        "gaps_out" = 10;
         "layout" = "master";
       };
 
       decoration = {
-      };
-
-      blur = {
+        rounding = 5;
+        # active_opacity = 0.95;
+        # inactive_opacity = 0.85;
       };
 
       animations = {
@@ -37,10 +41,8 @@
         "repeat_delay" = 300;
         "follow_mouse" = 2;
         touchpad = {
+          natural_scroll = false;
         };
-      };
-
-      gestures = {
       };
 
       group = {
@@ -53,6 +55,7 @@
         "disable_hyprland_logo" = true;
         "disable_autoreload" = true;
         "enable_swallow" = true;
+        "swallow_regex" = "^(Alacritty)$";
       };
     };
   };

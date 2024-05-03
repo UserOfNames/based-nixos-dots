@@ -1,8 +1,10 @@
--- Disable netrw, enable termguicolors as recommended by nvim-tree, set colorscheme
+-- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Colorscheme
 vim.opt.termguicolors = true
-vim.cmd("colorscheme base16-tomorrow-night")
+vim.cmd("colorscheme tokyonight-night")
 
 -- Misc settings
 vim.o.syntax = true

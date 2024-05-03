@@ -7,22 +7,24 @@
 
     bind = [
       "$mainMod, return, exec, $terminal"
-        "$mainMod SHIFT, M, exit,"
-        "$mainMod, Q, killactive"
-        "$mainMod, F, fullscreen"
+      "$mainMod SHIFT, M, exit,"
+      "$mainMod, Q, killactive"
+      "$mainMod, F, fullscreen, 1"
+      "$mainMod SHIFT, F, fullscreen, 0"
+      "$mainMod ALT, F, fakefullscreen"
 
-        "$mainMod, W, exec, $browser"
-        "$mainMod, R, exec, $menu"
+      "$mainMod, W, exec, $browser"
+      "$mainMod, R, exec, $menu"
 
-        "$mainMod, h, movefocus, l"
-        "$mainMod, l, movefocus, r"
-        "$mainMod, k, movefocus, u"
-        "$mainMod, j, movefocus, d"
+      "$mainMod, h, movefocus, l"
+      "$mainMod, l, movefocus, r"
+      "$mainMod, k, movefocus, u"
+      "$mainMod, j, movefocus, d"
 
-        "$mainMod SHIFT, h, movewindow, l"
-        "$mainMod SHIFT, l, movewindow, r"
-        "$mainMod SHIFT, k, movewindow, u"
-        "$mainMod SHIFT, j, movewindow, d"
+      "$mainMod SHIFT, h, movewindow, l"
+      "$mainMod SHIFT, l, movewindow, r"
+      "$mainMod SHIFT, k, movewindow, u"
+      "$mainMod SHIFT, j, movewindow, d"
     ];
 
     bindle = [
@@ -35,12 +37,11 @@
 
     bindl = [
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPrev, exec, playerctl previous"
-
-      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
   };
 }

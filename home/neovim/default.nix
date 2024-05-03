@@ -32,7 +32,7 @@
 
       # Aesthetic plugins
       nvim-web-devicons
-      base16-nvim
+      tokyonight-nvim
       lualine-nvim
       zen-mode-nvim
 
