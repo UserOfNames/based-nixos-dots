@@ -11,13 +11,17 @@
     enable = true;
     settings = {
       "$mainMod" = "SUPER";
-      "$terminal" = "alacritty";
+      "$terminal" = "foot";
       "$fileManager" = "lf";
-      "$menu" = "bemenu-run";
+      "$menu" = "fuzzel";
       "$browser" = "firefox";
 
       exec-once = [
         "mako"
+        "${pkgs.swww}/bin/swww-daemon"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+        # "${pkgs.swww}/bin/swww img ${../../glowy.jpg}"
       ];
 
       general = {
@@ -28,15 +32,18 @@
 
       decoration = {
         rounding = 5;
-        # active_opacity = 0.95;
-        # inactive_opacity = 0.85;
+        active_opacity = 0.95;
+        inactive_opacity = 0.85;
+        blur = {
+          enabled = false;
+        };
       };
 
       animations = {
       };
 
       input = {
-        "numlock_by_default" = true;
+        # "numlock_by_default" = true;
         "repeat_rate" = 40;
         "repeat_delay" = 300;
         "follow_mouse" = 2;
@@ -55,8 +62,12 @@
         "disable_hyprland_logo" = true;
         "disable_autoreload" = true;
         "enable_swallow" = true;
-        "swallow_regex" = "^(Alacritty)$";
+        "swallow_regex" = "^(foot)$";
       };
+
+      windowrule = [
+        "opaque, ^(qimgv)$"
+      ];
     };
   };
 }

@@ -3,7 +3,9 @@
 {
   wayland.windowManager.hyprland.settings = {
     # l: Activate even while locked
+    # r: Trigger on release
     # e: Repeat on hold
+    # m: Mouse
 
     bind = [
       "$mainMod, return, exec, $terminal"
@@ -11,20 +13,28 @@
       "$mainMod, Q, killactive"
       "$mainMod, F, fullscreen, 1"
       "$mainMod SHIFT, F, fullscreen, 0"
-      "$mainMod ALT, F, fakefullscreen"
+
+      "$mainMod SHIFT, V, exec, cliphist list | fuzzel -d | cliphist decode | wl-copy"
 
       "$mainMod, W, exec, $browser"
       "$mainMod, R, exec, $menu"
 
       "$mainMod, h, movefocus, l"
       "$mainMod, l, movefocus, r"
-      "$mainMod, k, movefocus, u"
       "$mainMod, j, movefocus, d"
+      "$mainMod, k, movefocus, u"
 
-      "$mainMod SHIFT, h, movewindow, l"
-      "$mainMod SHIFT, l, movewindow, r"
-      "$mainMod SHIFT, k, movewindow, u"
-      "$mainMod SHIFT, j, movewindow, d"
+      "$mainMod ALT, h, movewindow, l"
+      "$mainMod ALT, l, movewindow, r"
+      "$mainMod ALT, j, movewindow, d"
+      "$mainMod ALT, k, movewindow, u"
+    ];
+
+    binde = [
+      "$mainMod SHIFT, h, resizeactive, -30 0"
+      "$mainMod SHIFT, l, resizeactive, 30 0"
+      "$mainMod SHIFT, j, resizeactive, 0 10"
+      "$mainMod SHIFT, k, resizeactive, 0 -10"
     ];
 
     bindle = [
@@ -42,6 +52,11 @@
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPrev, exec, playerctl previous"
+    ];
+
+    bindm = [
+      "$mainMod, mouse:272, movewindow"
+      "$mainMod, mouse:273, resizewindow"
     ];
   };
 }

@@ -14,21 +14,23 @@
   # Packages to install for zdbg with no configurations
   home.packages = with pkgs; [
     # bitwarden
+    fastfetch
+    libreoffice-fresh
+    mpv
     obs-studio
     qalculate-qt
     qbittorrent
-    libreoffice-fresh
-    spectacle
-    fastfetch
-    ripdrag
-    mpv
     qimgv
+    ripdrag
+    spectacle
+    swww
   ];
 
   # Import configurations for zdbg
   imports = [
-    ./alacritty
     ./firefox
+    ./foot
+    ./fuzzel
     ./git
     ./hyprland
     ./lf

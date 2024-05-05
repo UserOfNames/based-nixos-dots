@@ -14,6 +14,7 @@
       ignorecase = true;
       number = true;
       relativenumber = true;
+      sixel = true;
 
       previewer = "${pkgs.ctpv}/bin/ctpv";
       cleaner = "${pkgs.ctpv}/bin/ctpvclear";
@@ -23,6 +24,11 @@
       ripdrag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
       open-editor = ''$$EDITOR $f'';
     };
+
+    extraConfig = ''
+      &${pkgs.ctpv}/bin/ctpv -s $id
+      cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
+    '';
 
     keybindings = {
     };

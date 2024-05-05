@@ -11,21 +11,16 @@
   # This is for programs that can only be declared directly.
   environment.systemPackages = with pkgs; [
     btop
-    wl-clipboard
-    texliveFull
-    ripgrep
-    alacritty
-    lf
-    gnupg
-    mako
-    hyprpaper
-    hyprlock
-    bemenu
-    j4-dmenu-desktop
+    cliphist
+    foot
     fuzzel
-
-    swww
-    waypaper
+    gnupg
+    hyprlock
+    lf
+    mako
+    ripgrep
+    texliveFull
+    wl-clipboard
   ];
 
   # Add nerdfont hack to fonts, mostly for neovim
