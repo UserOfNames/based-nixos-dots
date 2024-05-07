@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  # Enable printing and sound (pipewire w/ alsa, pulse, and wireplumber)
-  # Do not use sound.enable as it is only meant for ALSA
+  # Enable printing
   services.printing.enable = true;
 
-  #rtkit is optional but recommended for pipewire
+  # rtkit is optional but recommended for pipewire
+  # Do not use sound.enable as it is only meant for ALSA
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

@@ -10,16 +10,20 @@
 
   # This is for programs that can only be declared directly.
   environment.systemPackages = with pkgs; [
+    _7zz
     btop
     cliphist
     foot
     fuzzel
     gnupg
+    hypridle
     hyprlock
     lf
     mako
     ripgrep
     texliveFull
+    tree
+    wl-clip-persist
     wl-clipboard
   ];
 

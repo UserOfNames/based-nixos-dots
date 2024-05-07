@@ -5,7 +5,10 @@
     ./binds.nix
   ];
 
-  xdg.configFile."hypr/hyprlock.conf".source = ./hyprlock.conf;
+  xdg.configFile = {
+    "hypr/hyprlock.conf".source = ./hyprlock.conf;
+    "hypr/hypridle.conf".source = ./hypridle.conf;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -17,11 +20,13 @@
       "$browser" = "firefox";
 
       exec-once = [
+        "hypridle"
         "mako"
         "${pkgs.swww}/bin/swww-daemon"
+        # "${pkgs.swww}/bin/swww img ${../../glowy.jpg}"
+        "wl-clip-persist --clipboard regular"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        # "${pkgs.swww}/bin/swww img ${../../glowy.jpg}"
       ];
 
       general = {
@@ -31,15 +36,22 @@
       };
 
       decoration = {
-        rounding = 5;
-        active_opacity = 0.95;
-        inactive_opacity = 0.85;
-        blur = {
-          enabled = false;
+        "rounding" = 5;
+        "active_opacity" = 0.95;
+        "inactive_opacity" = 0.85;
+        "blur" = {
+          "enabled" = false;
         };
       };
 
       animations = {
+        enabled = true;
+
+        animation = [
+          "windows, 1, 7, default"
+          "fade, 0"
+          "workspaces, 1, 3, default, fade"
+        ];
       };
 
       input = {
@@ -48,7 +60,7 @@
         "repeat_delay" = 300;
         "follow_mouse" = 2;
         touchpad = {
-          natural_scroll = false;
+          "natural_scroll" = false;
         };
       };
 
@@ -67,6 +79,7 @@
 
       windowrule = [
         "opaque, ^(qimgv)$"
+        "opaque, ^(org.pwmt.zathura)$"
       ];
     };
   };

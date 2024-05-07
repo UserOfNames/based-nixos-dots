@@ -25,6 +25,7 @@
       vim-fugitive
       harpoon2
       mini-nvim
+
       # Telescope and dependencies
       telescope-nvim
       plenary-nvim

@@ -7,10 +7,15 @@
 
     # Directory shortcuts - shortcut = directory
     dirHashes = {
+      docs = "$HOME/Documents";
       dots = "$HOME/.nixosdots";
       desk = "$HOME/Desktop";
+      down = "$HOME/Downloads";
+      mus  = "$HOME/Music";
+      pics = "$HOME/Pictures";
       proj = "$HOME/Projects";
-      ytdlp = "$HOME/YTDLP";
+      vids = "$HOME/Videos";
+      ytdl = "$HOME/YTDLP";
     };
 
     # Default keys didn't work, set alternate up/down keys

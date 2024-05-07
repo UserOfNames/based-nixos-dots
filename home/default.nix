@@ -16,18 +16,18 @@
     # bitwarden
     fastfetch
     libreoffice-fresh
-    mpv
+    mpc-cli
     obs-studio
     qalculate-qt
     qbittorrent
     qimgv
     ripdrag
-    spectacle
     swww
   ];
 
   # Import configurations for zdbg
   imports = [
+    ./btop
     ./firefox
     ./foot
     ./fuzzel
@@ -35,12 +35,16 @@
     ./hyprland
     ./lf
     ./mako
+    ./mpd
     ./mpv
+    ./ncmpcpp
     ./neovim
     ./newsboat
     ./tmux
+    ./waybar
     ./xremap
     ./ytdlp
+    ./zathura
     ./zsh
   ];
 }
