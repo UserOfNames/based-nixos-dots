@@ -9,6 +9,7 @@
   ];
 
   # This is for programs that can only be declared directly.
+  # Before adding a package here, make sure there isn't a module for it
   environment.systemPackages = with pkgs; [
     _7zz
     btop
@@ -21,7 +22,6 @@
     lf
     mako
     ripgrep
-    texliveFull
     tree
     wl-clip-persist
     wl-clipboard

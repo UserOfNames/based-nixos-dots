@@ -23,6 +23,7 @@
     qimgv
     ripdrag
     swww
+    texliveFull
   ];
 
   # Import configurations for zdbg
