@@ -59,9 +59,7 @@
           format = "{:%H:%M}";
           tooltip-format = "{calendar}";
           actions = {
-            on-click-middle = "shift_reset";
-            on-click = "shift_down";
-            on-click-right = "shift_up";
+            on-click-right = "shift_reset";
             on-scroll-down = "shift_down";
             on-scroll-up = "shift_up";
           };

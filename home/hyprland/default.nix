@@ -46,6 +46,7 @@
 
       animations = {
         enabled = true;
+        first_launch_animation = false;
 
         animation = [
           "windows, 1, 7, default"

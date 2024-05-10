@@ -21,8 +21,7 @@
     };
 
     commands = {
-      ripdrag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
-      open-editor = ''$$EDITOR $f'';
+      drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
     };
 
     extraConfig = ''
@@ -31,6 +30,8 @@
     '';
 
     keybindings = {
+      x = "delete";
+      o = "drag-out";
     };
   };
 }

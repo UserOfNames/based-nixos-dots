@@ -14,6 +14,7 @@
   # Packages to install for zdbg with no configurations
   home.packages = with pkgs; [
     # bitwarden
+    calcurse
     fastfetch
     libreoffice-fresh
     mpc-cli
