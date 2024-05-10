@@ -1,23 +1,29 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # Systemd-boot, maximum 20 generations
-  boot = {
-    supportedFilesystems = [ "ntfs" ];
+  options = {
+    module-bootloader.enable = lib.mkEnableOption "Enable bootloader module";
+  };
 
-    loader = {
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 20;
-        editor = false;
+  config = lib.mkIf config.module-bootloader.enable {
+    # Systemd-boot, maximum 20 generations
+    boot = {
+      supportedFilesystems = [ "ntfs" ];
+
+      loader = {
+        systemd-boot = {
+          enable = true;
+          configurationLimit = 20;
+          editor = false;
+        };
+
+        efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot";
+        };
+
+        timeout = 10;
       };
-
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-      };
-
-      timeout = 10;
     };
   };
 }

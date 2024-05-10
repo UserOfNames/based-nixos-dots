@@ -1,22 +1,28 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # Enable firewall with default policies, use network manager
-  networking = {
-    firewall = {
-      enable = true;
-    };
-
-    networkmanager = {
-      enable = true;
-    };
+  options = {
+    module-network.enable = lib.mkEnableOption "Enable network module";
   };
 
-  # Enable fail2ban
-  services = {
-    fail2ban = {
-      enable = true;
-      bantime = "4000";
+  config = lib.mkIf config.module-network.enable {
+    # Enable firewall with default policies, use network manager
+    networking = {
+      firewall = {
+        enable = true;
+      };
+
+      networkmanager = {
+        enable = true;
+      };
+    };
+
+    # Enable fail2ban
+    services = {
+      fail2ban = {
+        enable = true;
+        bantime = "4000";
+      };
     };
   };
 }

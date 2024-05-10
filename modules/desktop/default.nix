@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
-    ./firefox.nix
     ./steam.nix
   ];
 }

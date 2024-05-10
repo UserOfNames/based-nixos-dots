@@ -24,12 +24,15 @@
 
 
   # Toggle modules
+  module-user.userName = "zdbg";
+
   module-steam.enable = true;
-
-  module-main-user.enable = true;
-  module-main-user.userName = "zdbg";
+  module-virtualization.enable = true;
 
 
-  # Leave this unchanged
+
+  # Set this on install according to the version of NixOS
+  # on installation (copy from auto-generated configuration.nix).
+  # Do not change once set!
   system.stateVersion = "23.11";
 }

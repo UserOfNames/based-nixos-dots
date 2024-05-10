@@ -1,30 +1,36 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
-  # Wayland with xwayland, hyprland
-  programs.xwayland.enable = true;
-  services = {
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-    };
-
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-      };
-    };
+  options = {
+    module-display.enable = lib.mkEnableOption "Enable display module";
   };
 
-  programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
+  config = lib.mkIf config.module-display.enable {
+    # Wayland with xwayland, hyprland
+    programs.xwayland.enable = true;
+    services = {
+      displayManager = {
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
+      };
+
+      xserver = {
+        enable = true;
+        xkb = {
+          layout = "us";
+        };
+      };
     };
 
-    waybar.enable = true;
+    programs = {
+      hyprland = {
+        enable = true;
+        xwayland.enable = true;
+      };
+
+      waybar.enable = true;
+    };
   };
 }

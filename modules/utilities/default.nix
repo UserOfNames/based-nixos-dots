@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
-    ./git.nix
-    ./neovim.nix
-    ./tmux.nix
     ./virtualization.nix
     ./xremap-users.nix
   ];
+
+  module-xremapusers.enable = lib.mkDefault true;
 }
