@@ -2,17 +2,17 @@
 
 {
   imports = [
-    ./btop
-    ./firefox
-    ./foot
-    ./fuzzel
-    ./git
     ./lf
     ./neovim
-    ./tmux
     ./waybar
-    ./xremap
-    ./zathura
-    ./zsh
+    ./btop.nix
+    ./firefox.nix
+    ./foot.nix
+    ./fuzzel.nix
+    ./git.nix
+    ./tmux.nix
+    ./xremap.nix
+    ./zathura.nix
+    ./zsh.nix
   ];
 }

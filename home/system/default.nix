@@ -3,6 +3,6 @@
 {
   imports = [
     ./hyprland
-    ./mako
+    ./mako.nix
   ];
 }

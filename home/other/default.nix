@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./mpd
-    ./mpv
-    ./ncmpcpp
     ./newsboat
-    ./ytdlp
+    ./mpd.nix
+    ./mpv.nix
+    ./ncmpcpp.nix
+    ./ytdlp.nix
   ];
 }
