@@ -25,16 +25,6 @@
           "Tech"
         ];
       }
-
-      {
-        title = "Luke Smith";
-        url = "https://lukesmith.xyz/index.xml";
-        tags = [
-          "Linux"
-          "Tech"
-          "Ideas"
-        ];
-      }
     ];
   };
 }

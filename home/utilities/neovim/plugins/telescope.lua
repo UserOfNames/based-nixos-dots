@@ -6,7 +6,7 @@ require('telescope').setup({
          },
 
          n = {
-            ['<C-Space>'] = 'select_default',
+            ['<Space>'] = 'select_default',
          }
       }
    }

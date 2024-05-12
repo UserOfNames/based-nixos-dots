@@ -29,24 +29,8 @@
 
   # Import configurations for zdbg
   imports = [
-    ./btop
-    ./firefox
-    ./foot
-    ./fuzzel
-    ./git
-    ./hyprland
-    ./lf
-    ./mako
-    ./mpd
-    ./mpv
-    ./ncmpcpp
-    ./neovim
-    ./newsboat
-    ./tmux
-    ./waybar
-    ./xremap
-    ./ytdlp
-    ./zathura
-    ./zsh
+    ./system
+    ./utilities
+    ./other
   ];
 }

@@ -24,7 +24,6 @@
   outputs = { self, nixpkgs, home-manager, nur, disko, ... }@inputs:
   let
     system = "x86_64-linux";
-    lib = nixpkgs.lib;
 
     # Enable home-manager as a flake module
     home = [
@@ -39,29 +38,21 @@
       }
     ];
 
-  in {
-    nixosConfigurations = {
-      # Main desktop
-      nyx = lib.nixosSystem {
-        inherit system;
+    mkHost = hostname:
+      nixpkgs.lib.nixosSystem {
+       inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/nyx
+          ./hosts/${hostname}
           ./modules
           { nixpkgs.overlays = [ nur.overlay ]; }
         ] ++ home;
       };
 
-      # Thinkpad T520
-      aeon = lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/aeon
-          ./modules
-          { nixpkgs.overlays = [ nur.overlay ]; }
-        ] ++ home;
-      };
+  in {
+    nixosConfigurations = {
+      nyx = mkHost "nyx";
+      aeon = mkHost "aeon";
     };
   };
 }

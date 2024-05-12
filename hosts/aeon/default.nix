@@ -25,9 +25,10 @@
 
   # Toggle modules
   module-user.userName = "zdbg";
-
   module-steam.enable = true;
   module-virtualization.enable = true;
+
+  # Toggle home modules
 
 
 
