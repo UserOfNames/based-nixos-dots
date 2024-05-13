@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-display.enable = lib.mkEnableOption "Enable display module";
+    myModules.display.enable = lib.mkEnableOption "Enable display module";
   };
 
-  config = lib.mkIf config.module-display.enable {
+  config = lib.mkIf config.myModules.display.enable {
     # Wayland with xwayland, hyprland
     programs.xwayland.enable = true;
     services = {

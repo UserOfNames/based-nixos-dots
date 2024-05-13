@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-store.enable = lib.mkEnableOption "Enable store module";
+    myModules.store.enable = lib.mkEnableOption "Enable store module";
   };
 
-  config = lib.mkIf config.module-store.enable {
+  config = lib.mkIf config.myModules.store.enable {
     # Automatically optimize and collect garbage once per week
     nix = {
       optimise = {

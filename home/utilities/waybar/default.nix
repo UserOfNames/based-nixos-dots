@@ -1,160 +1,165 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  programs.waybar = {
-    enable = true;
-    style = ./style.css;
-    settings = {
-      mainBar = {
-        mod = "dock";
-        layer = "top";
-        position = "top";
-        height = 30;
-        spacing = 5;
+  options = {
+    myHomeModules.waybar.enable = lib.mkEnableOption "Enable waybar module";
+  };
 
-        modules-left = [
-          "hyprland/workspaces"
-          "hyprland/window"
-        ];
+  config = lib.mkIf config.myHomeModules.waybar.enable {
+    programs.waybar = {
+      enable = true;
+      style = ./style.css;
+      settings = {
+        mainBar = {
+          mod = "dock";
+          layer = "top";
+          position = "top";
+          height = 30;
+          spacing = 5;
 
-        modules-right = [
-          "mpd"
-          "bluetooth"
-          "wireplumber"
-          "group/hardware"
-          "network"
-          "clock"
-          "tray"
-        ];
+          modules-left = [
+            "hyprland/workspaces"
+            "hyprland/window"
+          ];
 
-        "hyprland/window" = {
-          # Defaults are good here
-        };
+          modules-right = [
+            "mpd"
+            "bluetooth"
+            "wireplumber"
+            "group/hardware"
+            "network"
+            "clock"
+            "tray"
+          ];
 
-        "backlight" = {
-          format = "{percent}% {icon}";
-          format-icons = ["" "" "" "" "" "" "" "" ""];
-        };
-
-        "battery" = {
-          states = { "good" = 95; "warning" = 30; "critical" = 15; };
-          format = "{capacity}% {icon}";
-          format-charging = "{capacity}% ";
-          format-plugged = "{capacity}% ";
-          format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
-        };
-
-        "bluetooth" = {
-          # Credit to Vimjoyer
-          format = "";
-          format-connected = " {num_connections}";
-          format-disabled = "";
-          tooltip-format = " {device_alias}";
-          tooltip-format-connected = "{device_enumerate}";
-          tooltip-format-enumerate-connected = " {device_alias}";
-        };
-
-        "clock" = {
-          format = "{:%H:%M}";
-          tooltip-format = "{calendar}";
-          actions = {
-            on-click-right = "shift_reset";
-            on-scroll-down = "shift_down";
-            on-scroll-up = "shift_up";
+          "hyprland/window" = {
+            # Defaults are good here
           };
 
-          calendar = {
-            weeks-pos = "right";
-            format = {
-              days = "<span color='#c0caf5'><b>{}</b></span>";
-              months = "<span color='#eeeeee'><b>{}</b></span>";
-              today = "<span color='#9ece6a'><b><u>{}</u></b></span>";
-              weekdays = "<span color='#e0af68'><b>{}</b></span>";
-              weeks = "<span color='#7dcfff'><b>W{}</b></span>";
+          "backlight" = {
+            format = "{percent}% {icon}";
+            format-icons = ["" "" "" "" "" "" "" "" ""];
+          };
+
+          "battery" = {
+            states = { "good" = 95; "warning" = 30; "critical" = 15; };
+            format = "{capacity}% {icon}";
+            format-charging = "{capacity}% ";
+            format-plugged = "{capacity}% ";
+            format-alt = "{time} {icon}";
+            format-icons = ["" "" "" "" ""];
+          };
+
+          "bluetooth" = {
+            format = "";
+            format-connected = " {num_connections}";
+            format-disabled = "";
+            tooltip-format = " {device_alias}";
+            tooltip-format-connected = "{device_enumerate}";
+            tooltip-format-enumerate-connected = " {device_alias}";
+          };
+
+          "clock" = {
+            format = "{:%H:%M}";
+            tooltip-format = "{calendar}";
+            actions = {
+              on-click-right = "shift_reset";
+              on-scroll-down = "shift_down";
+              on-scroll-up = "shift_up";
+            };
+
+            calendar = {
+              weeks-pos = "right";
+              format = {
+                days = "<span color='#c0caf5'><b>{}</b></span>";
+                months = "<span color='#eeeeee'><b>{}</b></span>";
+                today = "<span color='#9ece6a'><b><u>{}</u></b></span>";
+                weekdays = "<span color='#e0af68'><b>{}</b></span>";
+                weeks = "<span color='#7dcfff'><b>W{}</b></span>";
+              };
             };
           };
-        };
 
-        "cpu" = {
-          format = "{usage}% ";
-          tooltip = true;
-        };
-
-        "group/hardware" = {
-          orientation = "inherit";
-          drawer = {
-            transtion-duration = 500;
-          };
-          modules = [
-            "battery"
-            "cpu"
-            "memory"
-            "temperature"
-            "backlight"
-          ];
-        };
-
-        "memory" = {
-          format = "{percentage}% ";
-          tooltip = true;
-          tooltip-format = "{used:0.1f}GB/{total:0.1f}GB";
-        };
-
-        "mpd" = {
-          format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
-          format-disconnected = "Disconnected ";
-          format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
-          unknown-tag = "N/A";
-          interval = 5;
-          consume-icons = {
-              on = " ";
-          };
-          random-icons = {
-              off = "<span color=\"#f53c3c\"></span> ";
-              on = " ";
-          };
-          repeat-icons = {
-              on = " ";
-          };
-          single-icons = {
-              on = "1 ";
-          };
-          state-icons = {
-              paused = "";
-              playing = "";
+          "cpu" = {
+            format = "{usage}% ";
+            tooltip = true;
           };
 
-          tooltip-format = "MPD (connected)";
-          tooltip-format-disconnected = "MPD (disconnected)";
-        };
+          "group/hardware" = {
+            orientation = "inherit";
+            drawer = {
+              transtion-duration = 500;
+            };
+            modules = [
+              "battery"
+              "cpu"
+              "memory"
+              "temperature"
+              "backlight"
+            ];
+          };
 
-        "network" = {
-          format-wifi = "{essid} ({signalStrength}%) ";
-          format-ethernet = "{ipaddr}/{cidr} ";
-          tooltip-format = "{ifname} via {gwaddr} ";
-          format-linked = "{ifname} (No IP) ";
-          format-disconnected = "Disconnected ⚠";
-          format-alt = "{ifname}: {ipaddr}/{cidr}";
-        };
+          "memory" = {
+            format = "{percentage}% ";
+            tooltip = true;
+            tooltip-format = "{used:0.1f}GB/{total:0.1f}GB";
+          };
 
-        "temperature" = {
-          critical-threshold = 80;
-          format = "{temperatureC}°C {icon}";
-          format-critical = "{temperatureC}°C {icon}";
-          format-icons = ["" "" ""];
-        };
+          "mpd" = {
+            format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
+            format-disconnected = "Disconnected ";
+            format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+            unknown-tag = "N/A";
+            interval = 5;
+            consume-icons = {
+                on = " ";
+            };
+            random-icons = {
+                off = "<span color=\"#f53c3c\"></span> ";
+                on = " ";
+            };
+            repeat-icons = {
+                on = " ";
+            };
+            single-icons = {
+                on = "1 ";
+            };
+            state-icons = {
+                paused = "";
+                playing = "";
+            };
 
-        "tray" = {
-          icon-size = 15;
-          spacing = 6;
-        };
+            tooltip-format = "MPD (connected)";
+            tooltip-format-disconnected = "MPD (disconnected)";
+          };
 
-        "wireplumber" = {
-          format = "{volume}% {icon}";
-          format-icons = ["" "" ""];
-          format-muted = "";
-          on-click = "helvum";
+          "network" = {
+            format-wifi = "{essid} ({signalStrength}%) ";
+            format-ethernet = "{ipaddr}/{cidr} ";
+            tooltip-format = "{ifname} via {gwaddr} ";
+            format-linked = "{ifname} (No IP) ";
+            format-disconnected = "Disconnected ⚠";
+            format-alt = "{ifname}: {ipaddr}/{cidr}";
+          };
+
+          "temperature" = {
+            critical-threshold = 80;
+            format = "{temperatureC}°C {icon}";
+            format-critical = "{temperatureC}°C {icon}";
+            format-icons = ["" "" ""];
+          };
+
+          "tray" = {
+            icon-size = 15;
+            spacing = 6;
+          };
+
+          "wireplumber" = {
+            format = "{volume}% {icon}";
+            format-icons = ["" "" ""];
+            format-muted = "";
+            on-click = "helvum";
+          };
         };
       };
     };

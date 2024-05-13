@@ -1,80 +1,86 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  programs.neovim = let readFile = file: builtins.readFile file; in {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
+  options = {
+    myHomeModules.neovim.enable = lib.mkEnableOption "Enable neovim module";
+  };
 
-    extraPackages = with pkgs; [
-      ccls
-      lua-language-server
-      nil
-      python311Packages.python-lsp-server
-    ];
+  config = lib.mkIf config.myHomeModules.neovim.enable {
+    programs.neovim = let readFile = file: builtins.readFile file; in {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
 
-    plugins = with pkgs.vimPlugins; [
-      # Workflow plugins
-      nvim-treesitter.withAllGrammars
-      vim-floaterm
-      vim-numbertoggle
-      oil-nvim
-      undotree
-      vim-fugitive
-      harpoon2
-      mini-nvim
-      vim-visual-multi
+      extraPackages = with pkgs; [
+        ccls
+        lua-language-server
+        nil
+        python311Packages.python-lsp-server
+      ];
 
-      # Telescope and dependencies
-      telescope-nvim
-      plenary-nvim
-      telescope-fzf-native-nvim
+      plugins = with pkgs.vimPlugins; [
+        # Workflow plugins
+        nvim-treesitter.withAllGrammars
+        vim-floaterm
+        vim-numbertoggle
+        oil-nvim
+        undotree
+        vim-fugitive
+        harpoon2
+        mini-nvim
+        vim-visual-multi
 
-      # Aesthetic plugins
-      nvim-web-devicons
-      tokyonight-nvim
-      lualine-nvim
-      zen-mode-nvim
+        # Telescope and dependencies
+        telescope-nvim
+        plenary-nvim
+        telescope-fzf-native-nvim
 
-      # Notetaking plugins
-      vimtex
-      vimwiki
+        # Aesthetic plugins
+        nvim-web-devicons
+        tokyonight-nvim
+        lualine-nvim
+        zen-mode-nvim
 
-      # LSP plugins
-      nvim-lspconfig
-      nvim-cmp
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
-      luasnip
-      lsp-zero-nvim
-    ];
+        # Notetaking plugins
+        vimtex
+        vimwiki
 
-    # Import all configs. Ugly solution but I can't seem to find a better one.
-    extraLuaConfig = ''
-      ${readFile ./init.lua}
-      ${readFile ./mappings.lua}
-      ${readFile ./autocmd/lua.lua}
-      ${readFile ./autocmd/nix.lua}
-      ${readFile ./plugins/treesitter.lua}
-      ${readFile ./plugins/floaterm.lua}
-      ${readFile ./plugins/mini-nvim.lua}
-      ${readFile ./plugins/oil-nvim.lua}
-      ${readFile ./plugins/telescope.lua}
-      ${readFile ./plugins/undotree.lua}
-      ${readFile ./plugins/harpoon.lua}
-      ${readFile ./plugins/nvim-web-devicons.lua}
-      ${readFile ./plugins/lualine.lua}
-      ${readFile ./plugins/vimtex.lua}
-      ${readFile ./plugins/zen-mode.lua}
-      ${readFile ./plugins/lsp/lsp-zero.lua}
-      ${readFile ./plugins/lsp/lsp-cmp.lua}
-      ${readFile ./plugins/lsp/lsp-ccls.lua}
-      ${readFile ./plugins/lsp/lsp-lua_ls.lua}
-      ${readFile ./plugins/lsp/lsp-nil_ls.lua}
-      ${readFile ./plugins/lsp/lsp-pylsp.lua}
-    '';
+        # LSP plugins
+        nvim-lspconfig
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
+        luasnip
+        lsp-zero-nvim
+      ];
+
+      # Import all configs. Ugly solution but I can't seem to find a better one.
+      extraLuaConfig = ''
+        ${readFile ./init.lua}
+        ${readFile ./mappings.lua}
+        ${readFile ./autocmd/lua.lua}
+        ${readFile ./autocmd/nix.lua}
+        ${readFile ./plugins/treesitter.lua}
+        ${readFile ./plugins/floaterm.lua}
+        ${readFile ./plugins/mini-nvim.lua}
+        ${readFile ./plugins/oil-nvim.lua}
+        ${readFile ./plugins/telescope.lua}
+        ${readFile ./plugins/undotree.lua}
+        ${readFile ./plugins/harpoon.lua}
+        ${readFile ./plugins/nvim-web-devicons.lua}
+        ${readFile ./plugins/lualine.lua}
+        ${readFile ./plugins/vimtex.lua}
+        ${readFile ./plugins/zen-mode.lua}
+        ${readFile ./plugins/lsp/lsp-zero.lua}
+        ${readFile ./plugins/lsp/lsp-cmp.lua}
+        ${readFile ./plugins/lsp/lsp-ccls.lua}
+        ${readFile ./plugins/lsp/lsp-lua_ls.lua}
+        ${readFile ./plugins/lsp/lsp-nil_ls.lua}
+        ${readFile ./plugins/lsp/lsp-pylsp.lua}
+      '';
+    };
   };
 }

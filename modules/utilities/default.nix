@@ -6,5 +6,5 @@
     ./xremap-users.nix
   ];
 
-  module-xremapusers.enable = lib.mkDefault true;
+  myModules.xremapusers.enable = lib.mkDefault true;
 }

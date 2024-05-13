@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-hardware.enable = lib.mkEnableOption "Enable hardware module";
+    myModules.hardware.enable = lib.mkEnableOption "Enable hardware module";
   };
 
-  config = lib.mkIf config.module-hardware.enable {
+  config = lib.mkIf config.myModules.hardware.enable {
     # Enable printing
     services.printing.enable = true;
 

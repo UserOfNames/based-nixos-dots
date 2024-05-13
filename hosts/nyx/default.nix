@@ -19,10 +19,10 @@
   
 
   # Toggle modules
-  module-user.userName = "zdbg";
+  myModules.user.userName = "zdbg";
 
-  module-steam.enable = true;
-  module-virtualization.enable = true;
+  myModules.steam.enable = true;
+  myModules.virtualization.enable = true;
 
 
   # Set this on install according to the version of NixOS

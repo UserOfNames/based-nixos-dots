@@ -1,4 +1,3 @@
-# This is a template for setting up a new host. Make changes as needed.
 { config, pkgs, inputs, ... }:
 
 {
@@ -13,16 +12,19 @@
   networking.hostName = "";
 
 
+  # Enable touchpad support
+  # services.libinput.enable = true;
+
+
   # Extra packages for this system
   environment.systemPackages = with pkgs; [
   ];
 
 
   # Toggle modules
-  # module-user.userName = "";
-
-  # module-steam.enable = true;
-  # module-virtualization.enable = true;
+  # myModules.user.userName = "";
+  # myModules.steam.enable = true;
+  # myModules.virtualization.enable = true;
 
 
   # Set this on install according to the version of NixOS

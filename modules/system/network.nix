@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-network.enable = lib.mkEnableOption "Enable network module";
+    myModules.network.enable = lib.mkEnableOption "Enable network module";
   };
 
-  config = lib.mkIf config.module-network.enable {
+  config = lib.mkIf config.myModules.network.enable {
     # Enable firewall with default policies, use network manager
     networking = {
       firewall = {

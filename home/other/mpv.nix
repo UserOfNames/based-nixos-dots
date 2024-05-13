@@ -1,11 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  programs.mpv = {
-    enable = true;
-    config = {
-      profile = "high-quality";
-      force-window = true;
+  options = {
+    myHomeModules.mpv.enable = lib.mkEnableOption "Enable mpv module";
+  };
+
+  config = lib.mkIf config.myHomeModules.mpv.enable {
+    programs.mpv = {
+      enable = true;
+      config = {
+        profile = "high-quality";
+        force-window = true;
+      };
     };
   };
 }

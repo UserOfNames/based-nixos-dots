@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-steam.enable = lib.mkEnableOption "Enable steam module";
+    myModules.steam.enable = lib.mkEnableOption "Enable steam module";
   };
 
-  config = lib.mkIf config.module-steam.enable {
+  config = lib.mkIf config.myModules.steam.enable {
     programs.steam = {
       enable = true;
     };

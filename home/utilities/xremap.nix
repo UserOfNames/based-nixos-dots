@@ -1,17 +1,24 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports = [ inputs.xremap-flake.homeManagerModules.default ];
 
-  services.xremap = {
-    # withHypr = true;
-    config = {
-      keymap = [
-        {
-          name = "Main remaps";
-          remap = { "Capslock" = "esc"; };
-        }
-      ];
+  options = {
+    myHomeModules.xremap.enable = lib.mkEnableOption "Enable xremap module";
+  };
+
+  config = lib.mkIf config.myHomeModules.xremap.enable {
+
+    services.xremap = {
+      # withHypr = true;
+      config = {
+        keymap = [
+          {
+            name = "Main remaps";
+            remap = { "Capslock" = "esc"; };
+          }
+        ];
+      };
     };
   };
 }

@@ -1,14 +1,20 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
-  programs.yt-dlp = {
-    enable = true;
+  options = {
+    myHomeModules.ytdlp.enable = lib.mkEnableOption "Enable ytdlp module";
+  };
 
-    settings = {
-      format = "bv*+ba/b";
-      merge-output-format = "mkv";
-      no-mtime = true;
-      output = "~/YTDLP/%(title)s.%(ext)s";
+  config = lib.mkIf config.myHomeModules.ytdlp.enable {
+    programs.yt-dlp = {
+      enable = true;
+
+      settings = {
+        format = "bv*+ba/b";
+        merge-output-format = "mkv";
+        no-mtime = true;
+        output = "~/YTDLP/%(title)s.%(ext)s";
+      };
     };
   };
 }

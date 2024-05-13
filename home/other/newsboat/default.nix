@@ -1,30 +1,36 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
-  xdg.configFile = {
-    "newsboat/colors".source = ./colors;
+  options = {
+    myHomeModules.newsboat.enable = lib.mkEnableOption "Enable newsboat module";
   };
 
-  programs.newsboat = {
+  config = lib.mkIf config.myHomeModules.newsboat.enable {
+    xdg.configFile = {
+      "newsboat/colors".source = ./colors;
+    };
 
-    enable = true;
-    autoReload = true;
+    programs.newsboat = {
 
-    extraConfig = ''
-      include ./colors
-      bind-key j down
-      bind-key k up
-    '';
+      enable = true;
+      autoReload = true;
 
-    urls = [
-      {
-        title = "Planet KDE";
-        url = "https://planet.kde.org/atom.xml";
-        tags = [
-          "Linux"
-          "Tech"
-        ];
-      }
-    ];
+      extraConfig = ''
+        include ./colors
+        bind-key j down
+        bind-key k up
+      '';
+
+      urls = [
+        {
+          title = "Planet KDE";
+          url = "https://planet.kde.org/atom.xml";
+          tags = [
+            "Linux"
+            "Tech"
+          ];
+        }
+      ];
+    };
   };
 }

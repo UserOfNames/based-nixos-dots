@@ -24,12 +24,9 @@
 
 
   # Toggle modules
-  module-user.userName = "zdbg";
-  module-steam.enable = true;
-  module-virtualization.enable = true;
-
-  # Toggle home modules
-
+  myModules.user.userName = "zdbg";
+  myModules.steam.enable = true;
+  myModules.virtualization.enable = true;
 
 
   # Set this on install according to the version of NixOS

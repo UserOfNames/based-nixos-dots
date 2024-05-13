@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-bootloader.enable = lib.mkEnableOption "Enable bootloader module";
+    myModules.bootloader.enable = lib.mkEnableOption "Enable bootloader module";
   };
 
-  config = lib.mkIf config.module-bootloader.enable {
+  config = lib.mkIf config.myModules.bootloader.enable {
     # Systemd-boot, maximum 20 generations
     boot = {
       supportedFilesystems = [ "ntfs" ];

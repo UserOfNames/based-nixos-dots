@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-zsh.enable = lib.mkEnableOption "Enable zsh module";
+    myModules.zsh.enable = lib.mkEnableOption "Enable zsh module";
   };
 
-  config = lib.mkIf config.module-zsh.enable {
+  config = lib.mkIf config.myModules.zsh.enable {
     # More zsh options in home-manager zsh.nix
     # Enable zsh and set as default shell
     environment = {

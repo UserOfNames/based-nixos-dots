@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Credits to Vimjoyer on youtube for the generic main user concept and structure
-  options.module-user = {
+  options.myModules.user = {
     enable = lib.mkEnableOption "Enable user module";
 
     userName = lib.mkOption {
@@ -11,8 +10,8 @@
     };
   };
 
-  config = lib.mkIf config.module-user.enable {
-    users.users.${config.module-user.userName} = {
+  config = lib.mkIf config.myModules.user.enable {
+    users.users.${config.myModules.user.userName} = {
       isNormalUser = true;
       description = "Main user";
       initialPassword = "CHANGENOW";

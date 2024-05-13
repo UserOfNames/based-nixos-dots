@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-locale.enable = lib.mkEnableOption "Enable locale module";
+    myModules.locale.enable = lib.mkEnableOption "Enable locale module";
   };
 
-  config = lib.mkIf config.module-locale.enable {
+  config = lib.mkIf config.myModules.locale.enable {
     # American Eastern time, US english
     time.timeZone = "America/New_York";
 

@@ -1,37 +1,42 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # Credits to Vimjoyer on youtuber for several parts of this config
-  xdg.configFile."lf/icons".source = ./icons;
+  options = {
+    myHomeModules.lf.enable = lib.mkEnableOption "Enable lf module";
+  };
 
-  programs.lf = {
-    enable = true;
-    settings = {
-      preview = true;
-      hidden = true;
-      drawbox = true;
-      icons = true;
-      ignorecase = true;
-      number = true;
-      relativenumber = true;
-      sixel = true;
+  config = lib.mkIf config.myHomeModules.lf.enable {
+    xdg.configFile."lf/icons".source = ./icons;
 
-      previewer = "${pkgs.ctpv}/bin/ctpv";
-      cleaner = "${pkgs.ctpv}/bin/ctpvclear";
-    };
+    programs.lf = {
+      enable = true;
+      settings = {
+        preview = true;
+        hidden = true;
+        drawbox = true;
+        icons = true;
+        ignorecase = true;
+        number = true;
+        relativenumber = true;
+        sixel = true;
 
-    commands = {
-      drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
-    };
+        previewer = "${pkgs.ctpv}/bin/ctpv";
+        cleaner = "${pkgs.ctpv}/bin/ctpvclear";
+      };
 
-    extraConfig = ''
-      &${pkgs.ctpv}/bin/ctpv -s $id
-      cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
-    '';
+      commands = {
+        drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
+      };
 
-    keybindings = {
-      x = "delete";
-      o = "drag-out";
+      extraConfig = ''
+        &${pkgs.ctpv}/bin/ctpv -s $id
+        cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
+      '';
+
+      keybindings = {
+        x = "delete";
+        o = "drag-out";
+      };
     };
   };
 }

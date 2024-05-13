@@ -2,10 +2,10 @@
 
 {
   options = {
-    module-fonts.enable = lib.mkEnableOption "Enable fonts module";
+    myModules.fonts.enable = lib.mkEnableOption "Enable fonts module";
   };
 
-  config = lib.mkIf config.module-fonts.enable {
+  config = lib.mkIf config.myModules.fonts.enable {
     # Add nerdfont hack to fonts, mostly for neovim
     fonts = {
       packages = with pkgs; [
