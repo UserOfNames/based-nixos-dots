@@ -6,7 +6,6 @@
   };
 
   config = lib.mkIf config.myModules.hardware.enable {
-    # Enable printing
     services.printing.enable = true;
 
     # rtkit is optional but recommended for pipewire

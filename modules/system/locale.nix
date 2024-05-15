@@ -6,7 +6,6 @@
   };
 
   config = lib.mkIf config.myModules.locale.enable {
-    # American Eastern time, US english
     time.timeZone = "America/New_York";
 
     i18n = {

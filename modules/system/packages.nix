@@ -6,18 +6,16 @@
   };
 
   config = lib.mkIf config.myModules.packages.enable {
-    # Allow unfree software, enable nix command and flakes
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
 
-    # Packages only useful for certain machines should be
-    # declared in the relevant host file, not here.
+    # Before adding a package here, make sure there isn't a module for it
+    # Packages only useful for certain machines should be declared in the
+    # relevant host file, not here. These packages are shared between all hosts.
     environment.systemPackages = with pkgs; [
-      # This is for programs that can only be declared directly.
-      # Before adding a package here, make sure there isn't a module for it
       _7zz
       btop
       cliphist
@@ -33,17 +31,12 @@
       wl-clip-persist
       wl-clipboard
 
-      # Here are packages configured via home-manager,
-      # but installed system-wide as well.
+      # Here are packages configured via home-manager, but also
+      # installed system-wide with no further configuration.
       firefox
       git
       neovim
       tmux
-    ];
-
-    # Add nerdfont hack to fonts, mostly for neovim
-    fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
 }

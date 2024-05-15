@@ -6,7 +6,6 @@
   };
 
   config = lib.mkIf config.myModules.display.enable {
-    # Wayland with xwayland, hyprland
     programs.xwayland.enable = true;
     services = {
       displayManager = {

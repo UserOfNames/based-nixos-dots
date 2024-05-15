@@ -6,7 +6,6 @@
   };
 
   config = lib.mkIf config.myModules.store.enable {
-    # Automatically optimize and collect garbage once per week
     nix = {
       optimise = {
         automatic = true;

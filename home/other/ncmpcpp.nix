@@ -9,7 +9,6 @@
     programs.ncmpcpp = {
       enable = true;
       bindings = [
-        # Bindings largely copied from Luke Smith's ncmpcpp/mpd video
         { key = "j"; command = "scroll_down"; }
         { key = "k"; command = "scroll_up"; }
         { key = "ctrl-u"; command = "page_up"; }

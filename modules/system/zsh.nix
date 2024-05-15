@@ -7,7 +7,6 @@
 
   config = lib.mkIf config.myModules.zsh.enable {
     # More zsh options in home-manager zsh.nix
-    # Enable zsh and set as default shell
     environment = {
       shells = with pkgs; [ zsh ];
     };
@@ -19,7 +18,6 @@
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
 
-      # setopt lines, other configs are in home-manager zsh.nix
       setOptions = [
         "INC_APPEND_HISTORY"
         "HIST_FIND_NO_DUPS"

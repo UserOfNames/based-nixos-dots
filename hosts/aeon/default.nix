@@ -9,7 +9,6 @@
   ];
 
 
-  # Set hostname 
   networking.hostName = "aeon";
 
 
@@ -17,7 +16,6 @@
   services.libinput.enable = true;
 
 
-  # Extra packages for this system
   environment.systemPackages = with pkgs; [
     tor-browser
   ];

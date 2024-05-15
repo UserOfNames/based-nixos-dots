@@ -6,7 +6,6 @@
   };
 
   config = lib.mkIf config.myModules.network.enable {
-    # Enable firewall with default policies, use network manager
     networking = {
       firewall = {
         enable = true;
@@ -17,7 +16,6 @@
       };
     };
 
-    # Enable fail2ban
     services = {
       fail2ban = {
         enable = true;

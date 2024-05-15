@@ -8,7 +8,6 @@
   ];
 
 
-  # Set hostname 
   networking.hostName = "";
 
 
@@ -16,7 +15,6 @@
   # services.libinput.enable = true;
 
 
-  # Extra packages for this system
   environment.systemPackages = with pkgs; [
   ];
 

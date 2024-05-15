@@ -7,7 +7,7 @@
 
   config = lib.mkIf config.myModules.security.enable {
     security = {
-      # Sudo configuration (show password feedback)
+      # sudo: show password feedback, force root password
       sudo = {
         extraConfig = ''
           Defaults pwfeedback

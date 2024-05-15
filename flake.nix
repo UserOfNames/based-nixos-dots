@@ -25,19 +25,6 @@
   let
     system = "x86_64-linux";
 
-    # Enable home-manager as a flake module
-    home = [
-      home-manager.nixosModules.home-manager
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
-          users.zdbg = import ./home;
-        };
-      }
-    ];
-
     mkHost = hostname:
       nixpkgs.lib.nixosSystem {
        inherit system;
@@ -46,7 +33,16 @@
           ./hosts/${hostname}
           ./modules
           { nixpkgs.overlays = [ nur.overlay ]; }
-        ] ++ home;
+
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
+              users.zdbg = import ./hosts/${hostname}/home.nix;
+            };
+          }
+        ];
       };
 
   in {

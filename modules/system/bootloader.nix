@@ -6,7 +6,6 @@
   };
 
   config = lib.mkIf config.myModules.bootloader.enable {
-    # Systemd-boot, maximum 20 generations
     boot = {
       supportedFilesystems = [ "ntfs" ];
 

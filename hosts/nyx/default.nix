@@ -8,11 +8,9 @@
   ];
 
 
-  # Set hostname 
   networking.hostName = "nyx";
 
 
-  # Extra packages for this system
   environment.systemPackages = with pkgs; [
     tor-browser
   ];

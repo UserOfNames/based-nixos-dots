@@ -10,7 +10,7 @@
   config = lib.mkIf config.myHomeModules.xremap.enable {
 
     services.xremap = {
-      # withHypr = true;
+      withHypr = true;
       config = {
         keymap = [
           {
