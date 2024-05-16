@@ -3,11 +3,14 @@ require('telescope').setup({
       mappings = {
          i = {
             ['<C-Space>'] = 'select_default',
+            ['<C-s>'] = 'select_vertical',
          },
 
          n = {
+            ['<C-Space>'] = 'select_default',
             ['<Space>'] = 'select_default',
-         }
+            ['<C-s>'] = 'select_vertical',
+         },
       }
    }
 })

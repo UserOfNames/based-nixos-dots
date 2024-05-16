@@ -2,7 +2,7 @@
 
 {
   options = {
-    myHomeModules.git.enable = lib.mkEnableOption "Enable git module";
+    myHomeModules.git.enable = lib.mkEnableOption "Enable git user configuration";
   };
 
   config = lib.mkIf config.myHomeModules.git.enable {

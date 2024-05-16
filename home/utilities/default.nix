@@ -1,6 +1,6 @@
 { lib, ... }:
 
-{
+let dtrue = lib.mkDefault true; in {
   imports = [
     ./lf
     ./neovim
@@ -14,14 +14,16 @@
     ./zathura.nix
   ];
 
-  myHomeModules.lf.enable = lib.mkDefault true;
-  myHomeModules.neovim.enable = lib.mkDefault true;
-  myHomeModules.btop.enable = lib.mkDefault true;
-  myHomeModules.firefox.enable = lib.mkDefault true;
-  myHomeModules.foot.enable = lib.mkDefault true;
-  myHomeModules.fuzzel.enable = lib.mkDefault true;
-  myHomeModules.git.enable = lib.mkDefault true;
-  myHomeModules.tmux.enable = lib.mkDefault true;
-  myHomeModules.xremap.enable = lib.mkDefault true;
-  myHomeModules.zathura.enable = lib.mkDefault true;
+  myHomeModules = {
+    lf.enable = dtrue;
+    neovim.enable = dtrue;
+    btop.enable = dtrue;
+    firefox.enable = dtrue;
+    foot.enable = dtrue;
+    fuzzel.enable = dtrue;
+    git.enable = dtrue;
+    tmux.enable = dtrue;
+    xremap.enable = dtrue;
+    zathura.enable = dtrue;
+  };
 }

@@ -2,7 +2,7 @@
 
 {
   options = {
-    myHomeModules.zathura.enable = lib.mkEnableOption "Enable zathura module";
+    myHomeModules.zathura.enable = lib.mkEnableOption "Enable zathura user configuration";
   };
 
   config = lib.mkIf config.myHomeModules.zathura.enable {

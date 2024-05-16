@@ -2,7 +2,7 @@
 
 {
   options = {
-    myHomeModules.mako.enable = lib.mkEnableOption "Enable mako module";
+    myHomeModules.mako.enable = lib.mkEnableOption "Enable mako user configuration";
   };
 
   config = lib.mkIf config.myHomeModules.mako.enable {

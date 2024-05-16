@@ -2,7 +2,7 @@
 
 {
   options = {
-    myHomeModules.tmux.enable = lib.mkEnableOption "Enable tmux module";
+    myHomeModules.tmux.enable = lib.mkEnableOption "Enable tmux user configuration";
   };
 
   config = lib.mkIf config.myHomeModules.tmux.enable {

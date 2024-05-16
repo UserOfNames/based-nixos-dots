@@ -1,6 +1,6 @@
 { lib, ... }:
 
-{
+let dtrue = lib.mkDefault true; in {
   imports = [
     ./hyprland
     ./waybar
@@ -8,7 +8,10 @@
     ./zsh.nix
   ];
 
-  myHomeModules.mako.enable = lib.mkDefault true;
-  myHomeModules.waybar.enable = lib.mkDefault true;
-  myHomeModules.zsh.enable = lib.mkDefault true;
+  myHomeModules = {
+    hyprland.enable = dtrue;
+    mako.enable = dtrue;
+    waybar.enable = dtrue;
+    zsh.enable = dtrue;
+  };
 }

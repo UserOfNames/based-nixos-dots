@@ -1,6 +1,6 @@
 { lib, ... }:
 
-{
+let dtrue = lib.mkDefault true; in {
   imports = [
     ./newsboat
     ./mpd.nix
@@ -9,9 +9,11 @@
     ./ytdlp.nix
   ];
 
-  myHomeModules.newsboat.enable = lib.mkDefault true;
-  myHomeModules.mpd.enable = lib.mkDefault true;
-  myHomeModules.mpv.enable = lib.mkDefault true;
-  myHomeModules.ncmpcpp.enable = lib.mkDefault true;
-  myHomeModules.ytdlp.enable = lib.mkDefault true;
+  myHomeModules = {
+    newsboat.enable = dtrue;
+    mpd.enable = dtrue;
+    mpv.enable = dtrue;
+    ncmpcpp.enable = dtrue;
+    ytdlp.enable = dtrue;
+  };
 }

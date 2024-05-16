@@ -2,7 +2,7 @@
 
 {
   options = {
-    myHomeModules.lf.enable = lib.mkEnableOption "Enable lf module";
+    myHomeModules.lf.enable = lib.mkEnableOption "Enable lf user configuration";
   };
 
   config = lib.mkIf config.myHomeModules.lf.enable {

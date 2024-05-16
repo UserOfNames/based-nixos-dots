@@ -2,7 +2,7 @@
 
 {
   options = {
-    myHomeModules.foot.enable = lib.mkEnableOption "Enable foot module";
+    myHomeModules.foot.enable = lib.mkEnableOption "Enable foot user configuration";
   };
 
   config = lib.mkIf config.myHomeModules.foot.enable {

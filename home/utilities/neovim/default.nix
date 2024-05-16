@@ -2,7 +2,7 @@
 
 {
   options = {
-    myHomeModules.neovim.enable = lib.mkEnableOption "Enable neovim module";
+    myHomeModules.neovim.enable = lib.mkEnableOption "Enable neovim user configuration";
   };
 
   config = lib.mkIf config.myHomeModules.neovim.enable {
