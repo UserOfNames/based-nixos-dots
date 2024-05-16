@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let dtrue = lib.mkDefault true; in {
   imports = [
@@ -9,11 +9,17 @@ let dtrue = lib.mkDefault true; in {
     ./ytdlp.nix
   ];
 
-  myHomeModules.other = {
-    newsboat.enable = dtrue;
-    mpd.enable = dtrue;
-    mpv.enable = dtrue;
-    ncmpcpp.enable = dtrue;
-    ytdlp.enable = dtrue;
+  options = {
+    myHomeModules.other.enable = lib.mkEnableOption "Enable 'other' home module group";
+  };
+
+  config = {
+    myHomeModules.other = lib.mkIf config.myHomeModules.other.enable {
+      newsboat.enable = dtrue;
+      mpd.enable = dtrue;
+      mpv.enable = dtrue;
+      ncmpcpp.enable = dtrue;
+      ytdlp.enable = dtrue;
+    };
   };
 }

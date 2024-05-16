@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let dtrue = lib.mkDefault true; in {
   imports = [
@@ -8,10 +8,16 @@ let dtrue = lib.mkDefault true; in {
     ./zsh.nix
   ];
 
-  myHomeModules.system = {
-    hyprland.enable = dtrue;
-    mako.enable = dtrue;
-    waybar.enable = dtrue;
-    zsh.enable = dtrue;
+  options = {
+    myHomeModules.system.enable = lib.mkEnableOption "Enable 'system' home module group";
+  };
+
+  config = {
+    myHomeModules.system = lib.mkIf config.myHomeModules.system.enable {
+      hyprland.enable = dtrue;
+      mako.enable = dtrue;
+      waybar.enable = dtrue;
+      zsh.enable = dtrue;
+    };
   };
 }

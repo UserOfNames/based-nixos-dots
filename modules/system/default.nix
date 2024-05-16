@@ -16,24 +16,31 @@ let dtrue = lib.mkDefault true; in {
     ./zsh.nix
   ];
 
-  myModules.system = {
-    display = {
-      enable = dtrue;
-      hyprland.enable = dtrue;
+  options = {
+    myModules.system.enable = lib.mkEnableOption "Enable 'system' module group";
+  };
+
+  config = {
+    myModules.system = lib.mkIf config.myModules.system.enable {
+      display = {
+        enable = dtrue;
+        hyprland.enable = dtrue;
+      };
+      hardware = {
+        # laptops.enable = dtrue;
+        printing.enable = dtrue;
+        sound.enable = dtrue;
+      };
+      bootloader.enable = dtrue;
+      fonts.enable = dtrue;
+      environment.enable = dtrue;
+      locale.enable = dtrue;
+      network.enable = dtrue;
+      packages.enable = dtrue;
+      security.enable = dtrue;
+      store.enable = dtrue;
+      user.enable = dtrue;
+      zsh.enable = dtrue;
     };
-    hardware = {
-      printing.enable = dtrue;
-      sound.enable = dtrue;
-    };
-    bootloader.enable = dtrue;
-    fonts.enable = dtrue;
-    environment.enable = dtrue;
-    locale.enable = dtrue;
-    network.enable = dtrue;
-    packages.enable = dtrue;
-    security.enable = dtrue;
-    store.enable = dtrue;
-    user.enable = dtrue;
-    zsh.enable = dtrue;
   };
 }

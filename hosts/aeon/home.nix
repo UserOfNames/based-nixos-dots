@@ -16,4 +16,18 @@
       qbittorrent
     ];
   };
+
+  myHomeModules = {
+    other = {
+      enable = true;
+    };
+
+    system = {
+      enable = true;
+    };
+
+    utilities = {
+      enable = true;
+    };
+  };
 }

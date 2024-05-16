@@ -6,11 +6,25 @@
   ];
 
   home = {
-    username = "zdbg";
-    homeDirectory = "/home/zdbg";
+    username = "";
+    homeDirectory = "";
     stateVersion = "";
 
     packages = with pkgs; [
     ];
+  };
+
+  myHomeModules = {
+    other = {
+      enable = true;
+    };
+
+    system = {
+      enable = true;
+    };
+
+    utilities = {
+      enable = true;
+    };
   };
 }

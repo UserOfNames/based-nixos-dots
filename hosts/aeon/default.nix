@@ -19,8 +19,8 @@
 
   myModules = {
     system = {
+      enable = true;
       user.userName = "zdbg";
-
       hardware = {
         laptops.enable = true;
         printing.enable = true;
@@ -28,10 +28,11 @@
     };
 
     other = {
-      gaming.enable = true;
+      enable = true;
     };
 
     utilities = {
+      enable = true;
       virtualization.enable = true;
     };
   };

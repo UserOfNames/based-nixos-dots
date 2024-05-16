@@ -15,10 +15,20 @@
   ];
 
 
-  # Toggle modules
-  myModules.user.userName = "zdbg";
-  # myModules.gaming.enable = true;
-  # myModules.virtualization.enable = true;
+  myModules = {
+    system = {
+      enable = true;
+      user.userName = "";
+    };
+
+    other = {
+      enable = true;
+    };
+
+    utilities = {
+      enable = true;
+    };
+  };
 
 
   # Set this on install according to the version of NixOS

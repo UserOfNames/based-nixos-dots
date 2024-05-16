@@ -6,7 +6,14 @@ let dtrue = lib.mkDefault true; in {
     ./xremap-users.nix
   ];
 
-  myModules.utilities = {
-    xremapusers.enable = dtrue;
+  options = {
+    myModules.utilities.enable = lib.mkEnableOption "Enable 'utilities' module";
+  };
+
+  config = {
+    myModules.utilities = lib.mkIf config.myModules.utilities.enable {
+      # virtualization.enable = dtrue;
+      xremapusers.enable = dtrue;
+    };
   };
 }
