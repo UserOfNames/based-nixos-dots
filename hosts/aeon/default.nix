@@ -12,19 +12,22 @@
   networking.hostName = "aeon";
 
 
-  # Enable touchpad support
-  services.libinput.enable = true;
-
-
   environment.systemPackages = with pkgs; [
     tor-browser
   ];
 
 
   # Toggle modules
-  myModules.user.userName = "zdbg";
-  myModules.steam.enable = true;
-  myModules.virtualization.enable = true;
+  myModules = {
+    hardware = {
+      laptops.enable = true;
+      printing.enable = true;
+    };
+    user.userName = "zdbg";
+
+    gaming.enable = true;
+    virtualization.enable = true;
+  };
 
 
   # Set this on install according to the version of NixOS

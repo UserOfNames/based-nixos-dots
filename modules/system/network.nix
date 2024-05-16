@@ -7,11 +7,11 @@
 
   config = lib.mkIf config.myModules.network.enable {
     networking = {
-      firewall = {
+      networkmanager = {
         enable = true;
       };
 
-      networkmanager = {
+      firewall = {
         enable = true;
       };
     };

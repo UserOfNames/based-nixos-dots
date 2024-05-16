@@ -19,7 +19,7 @@
   # Toggle modules
   myModules.user.userName = "zdbg";
 
-  myModules.steam.enable = true;
+  myModules.gaming.enable = true;
   myModules.virtualization.enable = true;
 
 

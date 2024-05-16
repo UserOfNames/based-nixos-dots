@@ -11,17 +11,13 @@
   networking.hostName = "";
 
 
-  # Enable touchpad support
-  # services.libinput.enable = true;
-
-
   environment.systemPackages = with pkgs; [
   ];
 
 
   # Toggle modules
-  # myModules.user.userName = "";
-  # myModules.steam.enable = true;
+  myModules.user.userName = "zdbg";
+  # myModules.gaming.enable = true;
   # myModules.virtualization.enable = true;
 
 

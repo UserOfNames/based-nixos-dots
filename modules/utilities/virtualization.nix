@@ -6,7 +6,7 @@
   };
 
   config = lib.mkIf config.myModules.virtualization.enable {
-    # FIXME finish VM setup, hm declarations, btrfs subvol, etc.
+    # FIXME finish VM setup
     virtualisation.libvirtd.enable = true;
     # I am a GUI scrub. Sad!
     programs.virt-manager.enable = true;

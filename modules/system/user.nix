@@ -2,7 +2,7 @@
 
 {
   options.myModules.user = {
-    enable = lib.mkEnableOption "Enable user module";
+    enable = lib.mkEnableOption "Enable main user module";
 
     userName = lib.mkOption {
       default = "zdbg";

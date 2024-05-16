@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./steam.nix
+    ./gaming.nix
   ];
 }

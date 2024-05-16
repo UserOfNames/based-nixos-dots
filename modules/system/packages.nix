@@ -13,19 +13,12 @@
     ];
 
     # Before adding a package here, make sure there isn't a module for it
-    # Packages only useful for certain machines should be declared in the
-    # relevant host file, not here. These packages are shared between all hosts.
+    # These packages are shared between all hosts. Packages only useful for
+    # certain machines should be declared in the relevant host file, not here.
     environment.systemPackages = with pkgs; [
       _7zz
-      btop
       cliphist
-      foot
-      fuzzel
       gnupg
-      hypridle
-      hyprlock
-      lf
-      mako
       ripgrep
       tree
       wl-clip-persist
@@ -33,8 +26,15 @@
 
       # Here are packages configured via home-manager, but also
       # installed system-wide with no further configuration.
+      btop
       firefox
+      foot
+      fuzzel
       git
+      hypridle
+      hyprlock
+      lf
+      mako
       neovim
       tmux
     ];

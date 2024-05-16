@@ -1,8 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  imports = [ ./hyprland.nix ];
+
   options = {
-    myModules.display.enable = lib.mkEnableOption "Enable display module";
+    myModules.display.enable = lib.mkEnableOption "Enable basic display options";
   };
 
   config = lib.mkIf config.myModules.display.enable {
@@ -21,15 +23,6 @@
           layout = "us";
         };
       };
-    };
-
-    programs = {
-      hyprland = {
-        enable = true;
-        xwayland.enable = true;
-      };
-
-      waybar.enable = true;
     };
   };
 }

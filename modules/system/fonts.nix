@@ -8,7 +8,7 @@
   config = lib.mkIf config.myModules.fonts.enable {
     fonts = {
       packages = with pkgs; [
-        (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
+        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       ];
 
       fontDir.enable = true;

@@ -1,12 +1,12 @@
 { config, pkgs, lib, ... }:
 
-{
+let dtrue = lib.mkDefault true; in {
   imports = [
+    ./display
+    ./hardware
     ./bootloader.nix
-    ./display.nix
     ./fonts.nix
     ./environment.nix
-    ./hardware.nix
     ./locale.nix
     ./network.nix
     ./packages.nix
@@ -16,16 +16,24 @@
     ./zsh.nix
   ];
 
-  myModules.bootloader.enable = lib.mkDefault true;
-  myModules.display.enable = lib.mkDefault true;
-  myModules.fonts.enable = lib.mkDefault true;
-  myModules.environment.enable = lib.mkDefault true;
-  myModules.hardware.enable = lib.mkDefault true;
-  myModules.locale.enable = lib.mkDefault true;
-  myModules.network.enable = lib.mkDefault true;
-  myModules.packages.enable = lib.mkDefault true;
-  myModules.security.enable = lib.mkDefault true;
-  myModules.store.enable = lib.mkDefault true;
-  myModules.user.enable = lib.mkDefault true;
-  myModules.zsh.enable = lib.mkDefault true;
+  myModules = {
+    display = {
+      enable = dtrue;
+      hyprland.enable = dtrue;
+    };
+    hardware = {
+      printing.enable = dtrue;
+      sound.enable = dtrue;
+    };
+    bootloader.enable = dtrue;
+    fonts.enable = dtrue;
+    environment.enable = dtrue;
+    locale.enable = dtrue;
+    network.enable = dtrue;
+    packages.enable = dtrue;
+    security.enable = dtrue;
+    store.enable = dtrue;
+    user.enable = dtrue;
+    zsh.enable = dtrue;
+  };
 }
