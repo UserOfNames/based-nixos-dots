@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.tmux.enable = lib.mkEnableOption "Enable tmux user configuration";
+    myHomeModules.utilities.tmux.enable = lib.mkEnableOption "Enable tmux user configuration";
   };
 
-  config = lib.mkIf config.myHomeModules.tmux.enable {
+  config = lib.mkIf config.myHomeModules.utilities.tmux.enable {
     programs.tmux = {
       enable = true;
       escapeTime = 0;

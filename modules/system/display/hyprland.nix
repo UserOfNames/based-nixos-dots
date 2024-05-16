@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.display.hyprland.enable = lib.mkEnableOption "Enable hyprland";
+    myModules.system.display.hyprland.enable = lib.mkEnableOption "Enable hyprland";
   };
 
-  config = lib.mkIf config.myModules.display.hyprland.enable {
+  config = lib.mkIf config.myModules.system.display.hyprland.enable {
     services.displayManager.defaultSession = "hyprland";
 
     programs = {

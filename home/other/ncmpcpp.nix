@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.ncmpcpp.enable = lib.mkEnableOption "Enable ncmpcpp module";
+    myHomeModules.other.ncmpcpp.enable = lib.mkEnableOption "Enable ncmpcpp module";
   };
 
-  config = lib.mkIf config.myHomeModules.ncmpcpp.enable {
+  config = lib.mkIf config.myHomeModules.other.ncmpcpp.enable {
     programs.ncmpcpp = {
       enable = true;
       bindings = [

@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.btop.enable = lib.mkEnableOption "Enable btop user configuration";
+    myHomeModules.utilities.btop.enable = lib.mkEnableOption "Enable btop user configuration";
   };
 
-  config = lib.mkIf config.myHomeModules.btop.enable {
+  config = lib.mkIf config.myHomeModules.utilities.btop.enable {
     programs.btop = {
       enable = true;
 

@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.locale.enable = lib.mkEnableOption "Enable locale module";
+    myModules.system.locale.enable = lib.mkEnableOption "Enable locale module";
   };
 
-  config = lib.mkIf config.myModules.locale.enable {
+  config = lib.mkIf config.myModules.system.locale.enable {
     time.timeZone = "America/New_York";
 
     i18n = {

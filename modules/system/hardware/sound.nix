@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.hardware.sound.enable = lib.mkEnableOption "Enable sound module";
+    myModules.system.hardware.sound.enable = lib.mkEnableOption "Enable sound module";
   };
 
-  config = lib.mkIf config.myModules.hardware.sound.enable {
+  config = lib.mkIf config.myModules.system.hardware.sound.enable {
     # rtkit is optional but recommended for pipewire
     # Do not use sound.enable as it is only meant for ALSA
     security.rtkit.enable = true;

@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.mpv.enable = lib.mkEnableOption "Enable mpv module";
+    myHomeModules.other.mpv.enable = lib.mkEnableOption "Enable mpv module";
   };
 
-  config = lib.mkIf config.myHomeModules.mpv.enable {
+  config = lib.mkIf config.myHomeModules.other.mpv.enable {
     programs.mpv = {
       enable = true;
       config = {

@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.waybar.enable = lib.mkEnableOption "Enable waybar module";
+    myHomeModules.system.waybar.enable = lib.mkEnableOption "Enable waybar module";
   };
 
-  config = lib.mkIf config.myHomeModules.waybar.enable {
+  config = lib.mkIf config.myHomeModules.system.waybar.enable {
     programs.waybar = {
       enable = true;
       style = ./style.css;

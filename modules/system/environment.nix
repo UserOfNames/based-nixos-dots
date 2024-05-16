@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.environment.enable = lib.mkEnableOption "Enable environment module";
+    myModules.system.environment.enable = lib.mkEnableOption "Enable environment module";
   };
 
-  config = lib.mkIf config.myModules.environment.enable {
+  config = lib.mkIf config.myModules.system.environment.enable {
     environment.sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";

@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.neovim.enable = lib.mkEnableOption "Enable neovim user configuration";
+    myHomeModules.utilities.neovim.enable = lib.mkEnableOption "Enable neovim user configuration";
   };
 
-  config = lib.mkIf config.myHomeModules.neovim.enable {
+  config = lib.mkIf config.myHomeModules.utilities.neovim.enable {
     programs.neovim = let readFile = file: builtins.readFile file; in {
       enable = true;
       defaultEditor = true;

@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.newsboat.enable = lib.mkEnableOption "Enable newsboat module";
+    myHomeModules.other.newsboat.enable = lib.mkEnableOption "Enable newsboat module";
   };
 
-  config = lib.mkIf config.myHomeModules.newsboat.enable {
+  config = lib.mkIf config.myHomeModules.other.newsboat.enable {
     xdg.configFile = {
       "newsboat/colors".source = ./colors;
     };

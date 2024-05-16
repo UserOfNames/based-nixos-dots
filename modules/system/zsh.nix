@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.zsh.enable = lib.mkEnableOption "Enable zsh module";
+    myModules.system.zsh.enable = lib.mkEnableOption "Enable zsh module";
   };
 
-  config = lib.mkIf config.myModules.zsh.enable {
+  config = lib.mkIf config.myModules.system.zsh.enable {
     environment = {
       shells = with pkgs; [ zsh ];
       pathsToLink = [ "/share/zsh" ];

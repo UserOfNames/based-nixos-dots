@@ -9,7 +9,7 @@ let dtrue = lib.mkDefault true; in {
     ./ytdlp.nix
   ];
 
-  myHomeModules = {
+  myHomeModules.other = {
     newsboat.enable = dtrue;
     mpd.enable = dtrue;
     mpv.enable = dtrue;

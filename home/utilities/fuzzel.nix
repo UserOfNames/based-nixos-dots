@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.fuzzel.enable = lib.mkEnableOption "Enable fuzzel module";
+    myHomeModules.utilities.fuzzel.enable = lib.mkEnableOption "Enable fuzzel module";
   };
 
-  config = lib.mkIf config.myHomeModules.fuzzel.enable {
+  config = lib.mkIf config.myHomeModules.utilities.fuzzel.enable {
     programs.fuzzel = {
       enable = true;
       settings = {

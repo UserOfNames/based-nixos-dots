@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.lf.enable = lib.mkEnableOption "Enable lf user configuration";
+    myHomeModules.utilities.lf.enable = lib.mkEnableOption "Enable lf user configuration";
   };
 
-  config = lib.mkIf config.myHomeModules.lf.enable {
+  config = lib.mkIf config.myHomeModules.utilities.lf.enable {
     xdg.configFile."lf/icons".source = ./icons;
 
     programs.lf = {

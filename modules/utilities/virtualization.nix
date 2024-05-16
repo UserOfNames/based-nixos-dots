@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.virtualization.enable = lib.mkEnableOption "Enable virtualization module";
+    myModules.utilities.virtualization.enable = lib.mkEnableOption "Enable virtualization module";
   };
 
-  config = lib.mkIf config.myModules.virtualization.enable {
+  config = lib.mkIf config.myModules.utilities.virtualization.enable {
     # FIXME finish VM setup
     virtualisation.libvirtd.enable = true;
     # I am a GUI scrub. Sad!

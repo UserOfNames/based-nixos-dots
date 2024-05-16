@@ -17,16 +17,23 @@
   ];
 
 
-  # Toggle modules
   myModules = {
-    hardware = {
-      laptops.enable = true;
-      printing.enable = true;
-    };
-    user.userName = "zdbg";
+    system = {
+      user.userName = "zdbg";
 
-    gaming.enable = true;
-    virtualization.enable = true;
+      hardware = {
+        laptops.enable = true;
+        printing.enable = true;
+      };
+    };
+
+    other = {
+      gaming.enable = true;
+    };
+
+    utilities = {
+      virtualization.enable = true;
+    };
   };
 
 

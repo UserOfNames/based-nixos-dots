@@ -6,7 +6,7 @@ let dtrue = lib.mkDefault true; in {
     ./xremap-users.nix
   ];
 
-  myModules = {
+  myModules.utilities = {
     xremapusers.enable = dtrue;
   };
 }

@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.bootloader.enable = lib.mkEnableOption "Enable bootloader module";
+    myModules.system.bootloader.enable = lib.mkEnableOption "Enable bootloader module";
   };
 
-  config = lib.mkIf config.myModules.bootloader.enable {
+  config = lib.mkIf config.myModules.system.bootloader.enable {
     boot = {
       supportedFilesystems = [ "ntfs" ];
 

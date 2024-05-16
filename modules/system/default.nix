@@ -16,7 +16,7 @@ let dtrue = lib.mkDefault true; in {
     ./zsh.nix
   ];
 
-  myModules = {
+  myModules.system = {
     display = {
       enable = dtrue;
       hyprland.enable = dtrue;

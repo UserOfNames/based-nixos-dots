@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.hardware.printing.enable = lib.mkEnableOption "Enable printing module";
+    myModules.system.hardware.printing.enable = lib.mkEnableOption "Enable printing module";
   };
 
-  config = lib.mkIf config.myModules.hardware.printing.enable {
+  config = lib.mkIf config.myModules.system.hardware.printing.enable {
     # avahi is for autodiscovery of printers
     # Port 5353 is opened
     services = {

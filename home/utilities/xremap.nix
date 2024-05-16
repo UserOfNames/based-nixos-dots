@@ -4,10 +4,10 @@
   imports = [ inputs.xremap-flake.homeManagerModules.default ];
 
   options = {
-    myHomeModules.xremap.enable = lib.mkEnableOption "Enable xremap module";
+    myHomeModules.utilities.xremap.enable = lib.mkEnableOption "Enable xremap module";
   };
 
-  config = lib.mkIf config.myHomeModules.xremap.enable {
+  config = lib.mkIf config.myHomeModules.utilities.xremap.enable {
 
     services.xremap = {
       withWlroots = true;

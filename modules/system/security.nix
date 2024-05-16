@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.security.enable = lib.mkEnableOption "Enable security module";
+    myModules.system.security.enable = lib.mkEnableOption "Enable security module";
   };
 
-  config = lib.mkIf config.myModules.security.enable {
+  config = lib.mkIf config.myModules.system.security.enable {
     security = {
       # sudo: show password feedback, force root password
       sudo = {

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  options.myModules.user = {
+  options.myModules.system.user = {
     enable = lib.mkEnableOption "Enable main user module";
 
     userName = lib.mkOption {
@@ -10,8 +10,8 @@
     };
   };
 
-  config = lib.mkIf config.myModules.user.enable {
-    users.users.${config.myModules.user.userName} = {
+  config = lib.mkIf config.myModules.system.user.enable {
+    users.users.${config.myModules.system.user.userName} = {
       isNormalUser = true;
       description = "Main user";
       initialPassword = "CHANGENOW";

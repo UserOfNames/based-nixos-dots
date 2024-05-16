@@ -8,7 +8,7 @@ let dtrue = lib.mkDefault true; in {
     ./zsh.nix
   ];
 
-  myHomeModules = {
+  myHomeModules.system = {
     hyprland.enable = dtrue;
     mako.enable = dtrue;
     waybar.enable = dtrue;

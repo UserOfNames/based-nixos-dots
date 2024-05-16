@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.fonts.enable = lib.mkEnableOption "Enable fonts module";
+    myModules.system.fonts.enable = lib.mkEnableOption "Enable fonts module";
   };
 
-  config = lib.mkIf config.myModules.fonts.enable {
+  config = lib.mkIf config.myModules.system.fonts.enable {
     fonts = {
       packages = with pkgs; [
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

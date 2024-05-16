@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.gaming.enable = lib.mkEnableOption "Enable gaming module";
+    myModules.other.gaming.enable = lib.mkEnableOption "Enable gaming module";
   };
 
-  config = lib.mkIf config.myModules.gaming.enable {
+  config = lib.mkIf config.myModules.other.gaming.enable {
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;

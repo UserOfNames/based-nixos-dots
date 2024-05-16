@@ -14,7 +14,7 @@ let dtrue = lib.mkDefault true; in {
     ./zathura.nix
   ];
 
-  myHomeModules = {
+  myHomeModules.utilities = {
     lf.enable = dtrue;
     neovim.enable = dtrue;
     btop.enable = dtrue;

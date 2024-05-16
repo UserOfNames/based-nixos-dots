@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.zsh.enable = lib.mkEnableOption "Enable zsh user configuration";
+    myHomeModules.system.zsh.enable = lib.mkEnableOption "Enable zsh user configuration";
   };
 
-  config = lib.mkIf config.myHomeModules.zsh.enable {
+  config = lib.mkIf config.myHomeModules.system.zsh.enable {
     programs.zsh = {
       enable = true;
       enableCompletion = true;

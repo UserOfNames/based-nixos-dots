@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.ytdlp.enable = lib.mkEnableOption "Enable ytdlp module";
+    myHomeModules.other.ytdlp.enable = lib.mkEnableOption "Enable ytdlp module";
   };
 
-  config = lib.mkIf config.myHomeModules.ytdlp.enable {
+  config = lib.mkIf config.myHomeModules.other.ytdlp.enable {
     programs.yt-dlp = {
       enable = true;
 

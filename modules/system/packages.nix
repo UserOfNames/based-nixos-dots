@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.packages.enable = lib.mkEnableOption "Enable packages module";
+    myModules.system.packages.enable = lib.mkEnableOption "Enable packages module";
   };
 
-  config = lib.mkIf config.myModules.packages.enable {
+  config = lib.mkIf config.myModules.system.packages.enable {
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = [
       "nix-command"

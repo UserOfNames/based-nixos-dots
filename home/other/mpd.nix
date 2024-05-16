@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.mpd.enable = lib.mkEnableOption "Enable mpd module";
+    myHomeModules.other.mpd.enable = lib.mkEnableOption "Enable mpd module";
   };
 
-  config = lib.mkIf config.myHomeModules.mpd.enable {
+  config = lib.mkIf config.myHomeModules.other.mpd.enable {
     services.mpd = {
       enable = true;
       musicDirectory = "/home/zdbg/Music";

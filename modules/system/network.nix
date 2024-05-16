@@ -2,10 +2,10 @@
 
 {
   options = {
-    myModules.network.enable = lib.mkEnableOption "Enable network module";
+    myModules.system.network.enable = lib.mkEnableOption "Enable network module";
   };
 
-  config = lib.mkIf config.myModules.network.enable {
+  config = lib.mkIf config.myModules.system.network.enable {
     networking = {
       networkmanager = {
         enable = true;

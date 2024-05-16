@@ -2,10 +2,10 @@
 
 {
   options = {
-    myHomeModules.firefox.enable = lib.mkEnableOption "Enable firefox user configuration";
+    myHomeModules.utilities.firefox.enable = lib.mkEnableOption "Enable firefox user configuration";
   };
 
-  config = lib.mkIf config.myHomeModules.firefox.enable {
+  config = lib.mkIf config.myHomeModules.utilities.firefox.enable {
     programs.firefox = {
       enable = true;
 

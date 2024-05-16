@@ -6,10 +6,10 @@
   ];
   
   options  ={
-    myHomeModules.hyprland.enable = lib.mkEnableOption "Enable hyprland user configuration";
+    myHomeModules.system.hyprland.enable = lib.mkEnableOption "Enable hyprland user configuration";
   };
 
-  config = lib.mkIf config.myHomeModules.hyprland.enable {
+  config = lib.mkIf config.myHomeModules.system.hyprland.enable {
     xdg.configFile = {
       "hypr/hyprlock.conf".source = ./hyprlock.conf;
       "hypr/hypridle.conf".source = ./hypridle.conf;
