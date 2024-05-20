@@ -25,6 +25,7 @@ let dtrue = lib.mkDefault true; in {
       display = {
         enable = dtrue;
         hyprland.enable = dtrue;
+        # plasma.enable = dtrue;
       };
       hardware = {
         # laptops.enable = dtrue;

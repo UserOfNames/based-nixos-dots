@@ -23,11 +23,9 @@
 
   outputs = { self, nixpkgs, home-manager, nur, disko, ... }@inputs:
   let
-    system = "x86_64-linux";
-
     mkHost = hostname:
       nixpkgs.lib.nixosSystem {
-       inherit system;
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/${hostname}

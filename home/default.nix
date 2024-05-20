@@ -18,5 +18,6 @@
     ripdrag
     swww
     texliveFull
+    trashy
   ];
 }

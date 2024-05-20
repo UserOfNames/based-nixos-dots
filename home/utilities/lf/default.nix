@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   options = {
@@ -19,13 +19,21 @@
         number = true;
         relativenumber = true;
         sixel = true;
+        info = "size";
+        ifs = "\n";
+        scrolloff = 8;
 
         previewer = "${pkgs.ctpv}/bin/ctpv";
         cleaner = "${pkgs.ctpv}/bin/ctpvclear";
       };
 
       commands = {
-        drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
+        drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x $fx'';
+        open-editor = ''$$EDITOR "$f"'';
+        edit-dir = ''$$EDITOR .'';
+        mkfile = ''%touch "$@"'';
+        mkdir = ''%mkdir "$@"'';
+        trash = ''%trash put $fx'';
       };
 
       extraConfig = ''
@@ -34,8 +42,11 @@
       '';
 
       keybindings = {
-        x = "delete";
-        o = "drag-out";
+        "D" = "trash";
+        "E" = "edit-dir";
+        "o" = "push :mkfile<space>";
+        "O" = "push :mkdir<space>";
+        "~" = "drag-out";
       };
     };
   };

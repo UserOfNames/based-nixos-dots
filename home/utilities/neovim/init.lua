@@ -7,7 +7,6 @@ vim.opt.termguicolors = true
 vim.cmd("colorscheme tokyonight-night")
 
 -- Misc settings
-vim.o.syntax = true
 vim.o.number = true
 vim.o.hlsearch = false
 vim.o.incsearch = true

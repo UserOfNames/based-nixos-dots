@@ -15,7 +15,7 @@
       isNormalUser = true;
       description = "Main user";
       initialPassword = "CHANGENOW";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "syncthing" ];
     };
   };
 }

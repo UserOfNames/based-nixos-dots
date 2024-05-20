@@ -1,6 +1,3 @@
--- mini.comment: Commenting
-require('mini.comment').setup()
-
 -- mini.move: Move blocks of text
 require('mini.move').setup({
    mappings = {

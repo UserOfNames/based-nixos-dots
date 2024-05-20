@@ -23,6 +23,7 @@
 
       "$mainMod, W, exec, $browser"
       "$mainMod, R, exec, $menu"
+      "$mainMod, B, exec, $terminal -e $fileManager"
       "CTRL SHIFT, L, exec, hyprlock"
       "CTRL SHIFT, escape, exec, $terminal -e btop"
 

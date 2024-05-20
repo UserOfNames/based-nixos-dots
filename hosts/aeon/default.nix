@@ -23,7 +23,6 @@
       user.userName = "zdbg";
       hardware = {
         laptops.enable = true;
-        printing.enable = true;
       };
     };
 
@@ -33,6 +32,7 @@
 
     utilities = {
       enable = true;
+      syncthing.enable = true;
       virtualization.enable = true;
     };
   };

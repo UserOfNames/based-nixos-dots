@@ -1,7 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./hyprland.nix ];
+  imports = [
+    ./hyprland.nix
+    ./plasma.nix
+  ];
 
   options = {
     myModules.system.display.enable = lib.mkEnableOption "Enable basic display options";
