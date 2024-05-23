@@ -23,6 +23,7 @@
       tree
       wl-clip-persist
       wl-clipboard
+      wlr-randr
 
       # Here are packages configured via home-manager, but also
       # installed system-wide with no further configuration.

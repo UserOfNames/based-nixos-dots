@@ -12,6 +12,7 @@
   home.packages = with pkgs; [
     calcurse
     fastfetch
+    hydrus
     mpc-cli
     qalculate-qt
     qimgv

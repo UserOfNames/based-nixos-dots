@@ -3,6 +3,8 @@
 {
   imports = [
     ./binds.nix
+    ./hypridle.nix
+    ./hyprlock.nix
   ];
   
   options  ={
@@ -10,11 +12,6 @@
   };
 
   config = lib.mkIf config.myHomeModules.system.hyprland.enable {
-    xdg.configFile = {
-      "hypr/hyprlock.conf".source = ./hyprlock.conf;
-      "hypr/hypridle.conf".source = ./hypridle.conf;
-    };
-
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -27,6 +24,7 @@
         exec-once = [
           "hypridle"
           "mako"
+          "${pkgs.networkmanagerapplet}/bin/nm-applet"
           "${pkgs.swww}/bin/swww-daemon"
           # "${pkgs.swww}/bin/swww img ${../../glowy.jpg}"
           "wl-clip-persist --clipboard regular"
@@ -36,6 +34,7 @@
 
         general = {
           "border_size" = 2;
+          "gaps_in" = 5;
           "gaps_out" = 10;
           "layout" = "master";
         };

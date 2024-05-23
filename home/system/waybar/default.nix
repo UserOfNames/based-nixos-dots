@@ -11,13 +11,14 @@
       style = ./style.css;
       settings = {
         mainBar = {
-          mod = "dock";
+          mode = "dock";
           layer = "top";
           position = "top";
           height = 30;
           spacing = 5;
 
           modules-left = [
+            "custom/nixicon"
             "hyprland/workspaces"
             "hyprland/window"
           ];
@@ -31,6 +32,14 @@
             "clock"
             "tray"
           ];
+
+          "custom/nixicon" = {
+            format = "  ";
+          };
+
+          "hyprland/workspaces" = {
+            # Defaults are good here
+          };
 
           "hyprland/window" = {
             # Defaults are good here
@@ -108,14 +117,13 @@
           "mpd" = {
             format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
             format-disconnected = "Disconnected ";
-            format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+            format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ";
             unknown-tag = "N/A";
             interval = 5;
             consume-icons = {
                 on = " ";
             };
             random-icons = {
-                off = "<span color=\"#f53c3c\"></span> ";
                 on = " ";
             };
             repeat-icons = {
@@ -135,9 +143,8 @@
 
           "network" = {
             format-wifi = "{essid} ({signalStrength}%) ";
-            format-ethernet = "{ipaddr}/{cidr} ";
-            tooltip-format = "{ifname} via {gwaddr} ";
-            format-linked = "{ifname} (No IP) ";
+            format-ethernet = "{ipaddr}/{cidr} 󰊗";
+            tooltip-format = "{ifname} via {gwaddr} 󰊗";
             format-disconnected = "Disconnected ⚠";
             format-alt = "{ifname}: {ipaddr}/{cidr}";
           };
