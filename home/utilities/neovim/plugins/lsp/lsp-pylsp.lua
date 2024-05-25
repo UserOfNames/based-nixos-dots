@@ -1,1 +1,1 @@
-require('lspconfig').pylsp.setup({})
+require('lspconfig').pyright.setup({})

@@ -8,7 +8,6 @@
     # m: Mouse
 
     bind = [
-      "$mainMod, return, exec, $terminal"
       "$mainMod SHIFT, M, exit,"
       "$mainMod, Q, killactive"
       "$mainMod, F, fullscreen, 1"
@@ -20,13 +19,13 @@
       "$mainMod, bracketleft, changegroupactive, b"
       "$mainMod, bracketright, changegroupactive, f"
 
-      "$mainMod, R, exec, $menu"
-      "$mainMod SHIFT, V, exec, cliphist list | fuzzel -d | cliphist decode | wl-copy"
-
-      "$mainMod, W, exec, $browser"
+      "$mainMod, return, exec, $terminal"
       "$mainMod, B, exec, $terminal -e $fileManager"
-      "CTRL SHIFT, L, exec, hyprlock"
       "CTRL SHIFT, escape, exec, $terminal -e btop"
+      "$mainMod, R, exec, j4-dmenu-desktop --dmenu=$menu --term $terminal --no-generic"
+      "$mainMod SHIFT, V, exec, cliphist list | $menu | cliphist decode | wl-copy"
+      "$mainMod, W, exec, $browser"
+      "CTRL SHIFT, L, exec, hyprlock"
 
       "$mainMod, H, movefocus, l"
       "$mainMod, L, movefocus, r"

@@ -18,7 +18,7 @@
         "$mainMod" = "SUPER";
         "$terminal" = "foot";
         "$fileManager" = "lf";
-        "$menu" = "fuzzel";
+        "$menu" = "bemenu";
         "$browser" = "firefox";
 
         exec-once = [
@@ -85,6 +85,10 @@
         windowrule = [
           "opaque, ^(qimgv)$"
           "opaque, ^(org.pwmt.zathura)$"
+        ];
+
+        layerrule = [
+          "noanim, ^(menu)$"
         ];
       };
     };

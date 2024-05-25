@@ -27,13 +27,12 @@
 
       # Here are packages configured via home-manager, but also
       # installed system-wide with no further configuration.
+      bemenu
       btop
       firefox
       foot
-      fuzzel
       git
-      hypridle
-      hyprlock
+      j4-dmenu-desktop
       lf
       mako
       neovim

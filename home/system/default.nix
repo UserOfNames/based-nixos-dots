@@ -14,7 +14,11 @@ let dtrue = lib.mkDefault true; in {
 
   config = {
     myHomeModules.system = lib.mkIf config.myHomeModules.system.enable {
-      hyprland.enable = dtrue;
+      hyprland = {
+        enable = dtrue;
+        hypridle.enable = dtrue;
+        hyprlock.enable = dtrue;
+      };
       mako.enable = dtrue;
       waybar.enable = dtrue;
       zsh.enable = dtrue;

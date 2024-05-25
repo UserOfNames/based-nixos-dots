@@ -143,8 +143,8 @@
 
           "network" = {
             format-wifi = "{essid} ({signalStrength}%) ";
-            format-ethernet = "{ipaddr}/{cidr} 󰊗";
-            tooltip-format = "{ifname} via {gwaddr} 󰊗";
+            format-ethernet = "{ipaddr}/{cidr}";
+            tooltip-format = "{ifname} via {gwaddr}";
             format-disconnected = "Disconnected ⚠";
             format-alt = "{ifname}: {ipaddr}/{cidr}";
           };

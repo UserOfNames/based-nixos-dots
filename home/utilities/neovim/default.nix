@@ -17,7 +17,7 @@
         ccls
         lua-language-server
         nil
-        python311Packages.python-lsp-server
+        nodePackages.pyright
       ];
 
       plugins = with pkgs.vimPlugins; [
