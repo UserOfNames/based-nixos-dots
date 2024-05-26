@@ -4,6 +4,7 @@
   imports = [
     ./hyprland.nix
     ./plasma.nix
+    ./sddm.nix
   ];
 
   options = {
@@ -13,13 +14,6 @@
   config = lib.mkIf config.myModules.system.display.enable {
     programs.xwayland.enable = true;
     services = {
-      displayManager = {
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-        };
-      };
-
       xserver = {
         enable = true;
         xkb = {

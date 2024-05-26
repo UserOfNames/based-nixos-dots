@@ -22,6 +22,7 @@
       "$mainMod, return, exec, $terminal"
       "$mainMod, B, exec, $terminal -e $fileManager"
       "CTRL SHIFT, escape, exec, $terminal -e btop"
+      "$mainMod, E, exec, $terminal -e nvim"
       "$mainMod, R, exec, j4-dmenu-desktop --dmenu=$menu --term $terminal --no-generic"
       "$mainMod SHIFT, V, exec, cliphist list | $menu | cliphist decode | wl-copy"
       "$mainMod, W, exec, $browser"

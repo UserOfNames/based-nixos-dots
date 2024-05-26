@@ -15,10 +15,11 @@
 
           # Extensions from NUR
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-            ublock-origin
-            skip-redirect
-            multi-account-containers
             canvasblocker
+            multi-account-containers
+            skip-redirect
+            ublock-origin
+            vimium
           ];
 
           search = {

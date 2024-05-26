@@ -26,13 +26,17 @@ let dtrue = lib.mkDefault true; in {
         enable = dtrue;
         hyprland.enable = dtrue;
         # plasma.enable = dtrue;
+        sddm.enable = dtrue;
       };
       hardware = {
         # laptops.enable = dtrue;
         printing.enable = dtrue;
         sound.enable = dtrue;
       };
-      bootloader.enable = dtrue;
+      bootloader = {
+        enable = dtrue;
+        useLatestKernel = dtrue;
+      };
       fonts.enable = dtrue;
       environment.enable = dtrue;
       locale.enable = dtrue;

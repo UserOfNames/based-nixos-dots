@@ -29,8 +29,8 @@
         ls = "ls -a --color";
         c = "clear";
         clearall = "clear && rm ~/.zsh_history";
-        sc = "cd `hash -d | bemenu | sed 's/^.*=//'`";
-        scl = "lf `hash -d | bemenu | sed 's/^.*=//'`";
+        s = "cd `hash -d | bemenu | sed 's/^.*=//'`";
+        sf = "lf `hash -d | bemenu | sed 's/^.*=//'`";
 
         rebuild = "sudo nixos-rebuild switch --flake ~/.nixosdots";
         update = "sudo nix flake update ~/.nixosdots";

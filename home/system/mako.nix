@@ -9,7 +9,10 @@
     services.mako = {
       enable = true;
       font = "JetBrainsMono 10";
-      defaultTimeout = 10000;
+      defaultTimeout = 5000;
+      backgroundColor = "#1a1b26ff";
+      borderColor = "#ffffffff";
+      textColor = "#c0caf5ff";
     };
   };
 }
