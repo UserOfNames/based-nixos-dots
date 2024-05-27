@@ -9,6 +9,7 @@ let dtrue = lib.mkDefault true; in {
     ./firefox.nix
     ./foot.nix
     ./git.nix
+    ./kitty.nix
     ./tmux.nix
     ./xremap.nix
     ./zathura.nix
@@ -25,8 +26,9 @@ let dtrue = lib.mkDefault true; in {
       bemenu.enable = dtrue;
       btop.enable = dtrue;
       firefox.enable = dtrue;
-      foot.enable = dtrue;
+      # foot.enable = dtrue;
       git.enable = dtrue;
+      kitty.enable = dtrue;
       tmux.enable = dtrue;
       xremap.enable = dtrue;
       zathura.enable = dtrue;

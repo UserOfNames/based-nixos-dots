@@ -20,7 +20,6 @@
     swww
     texliveFull
     trashy
-    # FIXME delete
-    notify-desktop
+    ueberzugpp
   ];
 }

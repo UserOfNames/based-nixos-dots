@@ -16,7 +16,7 @@
       enable = true;
       settings = {
         "$mainMod" = "SUPER";
-        "$terminal" = "foot";
+        "$terminal" = "kitty";
         "$fileManager" = "lf";
         "$menu" = "bemenu";
         "$browser" = "firefox";
@@ -79,7 +79,7 @@
           "disable_hyprland_logo" = true;
           "disable_autoreload" = true;
           "enable_swallow" = true;
-          "swallow_regex" = "^(foot)$";
+          "swallow_regex" = "^(kitty)$";
         };
 
         windowrule = [

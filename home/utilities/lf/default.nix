@@ -22,10 +22,19 @@
         info = "size";
         ifs = "\n";
         scrolloff = 8;
-
-        previewer = "${pkgs.ctpv}/bin/ctpv";
-        cleaner = "${pkgs.ctpv}/bin/ctpvclear";
       };
+
+      extraConfig = let
+        cleaner = pkgs.writeShellScriptBin "clean.sh" ''
+          ${pkgs.ctpv}/bin/ctpvclear
+          ${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
+        '';
+      in ''
+        set previewer ${pkgs.ctpv}/bin/ctpv
+        set cleaner ${cleaner}/bin/clean.sh
+        &ctpv -s $id
+        &ctpvquit $id
+      '';
 
       commands = {
         drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x $fx'';
@@ -35,11 +44,6 @@
         mkdir = ''%mkdir "$@"'';
         trash = ''%trash put $fx'';
       };
-
-      extraConfig = ''
-        &${pkgs.ctpv}/bin/ctpv -s $id
-        cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
-      '';
 
       keybindings = {
         "D" = "trash";

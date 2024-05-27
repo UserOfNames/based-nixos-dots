@@ -30,9 +30,10 @@
       bemenu
       btop
       firefox
-      foot
+      # foot
       git
       j4-dmenu-desktop
+      kitty
       lf
       mako
       neovim
