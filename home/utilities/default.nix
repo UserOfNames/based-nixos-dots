@@ -10,6 +10,7 @@ let dtrue = lib.mkDefault true; in {
     ./foot.nix
     ./git.nix
     ./kitty.nix
+    ./syncthing.nix
     ./tmux.nix
     ./xremap.nix
     ./zathura.nix
@@ -29,6 +30,7 @@ let dtrue = lib.mkDefault true; in {
       # foot.enable = dtrue;
       git.enable = dtrue;
       kitty.enable = dtrue;
+      # syncthing.enable = dtrue;
       tmux.enable = dtrue;
       xremap.enable = dtrue;
       zathura.enable = dtrue;

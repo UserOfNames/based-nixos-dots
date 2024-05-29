@@ -29,6 +29,7 @@
     utilities = {
       enable = true;
       foot.enable = true;
+      syncthing.enable = true;
     };
   };
 }
