@@ -28,6 +28,7 @@
 
     utilities = {
       enable = true;
+      foot.enable = true;
     };
   };
 }

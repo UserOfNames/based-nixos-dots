@@ -7,10 +7,12 @@
 
   config = lib.mkIf config.myModules.utilities.syncthing.enable {
     environment.systemPackages = [ pkgs.syncthing ];
-    # services.syncthing does not currently work.
-    # services.syncthing = {
-    #   enable = true;
-    #   user = "zdbg";
-    # };
+    services.syncthing = {
+      enable = true;
+      overrideFolders = false;
+      overrideDevices = false;
+      relay.enable = false;
+      openDefaultPorts = true;
+    };
   };
 }

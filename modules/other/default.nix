@@ -11,7 +11,10 @@ let dtrue = lib.mkDefault true; in {
 
   config = {
     myModules.other = lib.mkIf config.myModules.other.enable {
-      gaming.enable = dtrue;
+      gaming = {
+        enable = dtrue;
+        # minecraft.enable = dtrue;
+      };
     };
   };
 }

@@ -19,6 +19,7 @@
       _7zz
       cliphist
       gnupg
+      jmtpfs
       ripgrep
       tree
       wl-clip-persist

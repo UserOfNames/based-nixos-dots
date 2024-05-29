@@ -30,14 +30,6 @@ Standard mappings which aren't specific to my setup are not listed here (e.g. LS
     - **a** - Add file to harpoon.  
 - **1234** - Open respective file from menu. (Single key after leader, not following **h**.)  
   
-- **t** - Terminal mappings gateway. Escape automatically exits terminal mode (while in terminal mode). Uses floaterm.  
-    - **t** - Toggle terminal window.  
-    - **n** - New floaterm instance.  
-    - **h** - Previous floaterm instance.  
-    - **l** - Previous floaterm instance.  
-    - **k** - Kill floaterm instance.  
-**While in terminal mode** - C-h and C-l to switch to previous/next instance, repsectively.  
-  
 **Splits:** - Hold alt. Controls splits.
     - **hjkl** - Move through splits.  
     - **HJKL** - Resize splits. Directions correspond to size change, not direction (e.g. H always decreases size).  

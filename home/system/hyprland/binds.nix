@@ -11,7 +11,7 @@
       "$mainMod SHIFT, M, exit,"
       "$mainMod, Q, killactive"
       "$mainMod, F, fullscreen, 1"
-      "$mainMod CTRL, F, fullscreen, 0"
+      "$mainMod SHIFT, F, fullscreen, 0"
       "$mainMod, Y, togglefloating"
       "$mainMod, O, toggleopaque"
       "$mainMod, G, lockactivegroup, toggle"

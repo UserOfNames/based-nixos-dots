@@ -33,6 +33,7 @@
     utilities = {
       enable = true;
       syncthing.enable = true;
+      thunar.enable = true;
       virtualization.enable = true;
     };
   };

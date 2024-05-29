@@ -23,7 +23,6 @@
       plugins = with pkgs.vimPlugins; [
         # Workflow plugins
         nvim-treesitter.withAllGrammars
-        vim-floaterm
         vim-numbertoggle
         oil-nvim
         undotree
@@ -64,9 +63,8 @@
         ${readFile ./autocmd/lua.lua}
         ${readFile ./autocmd/nix.lua}
         ${readFile ./plugins/treesitter.lua}
-        ${readFile ./plugins/floaterm.lua}
-        ${readFile ./plugins/mini-nvim.lua}
-        ${readFile ./plugins/oil-nvim.lua}
+        ${readFile ./plugins/mini.lua}
+        ${readFile ./plugins/oil.lua}
         ${readFile ./plugins/telescope.lua}
         ${readFile ./plugins/undotree.lua}
         ${readFile ./plugins/harpoon.lua}
