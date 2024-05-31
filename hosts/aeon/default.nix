@@ -8,20 +8,19 @@
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t520
   ];
 
-
   networking.hostName = "aeon";
 
-
   environment.systemPackages = with pkgs; [
+    prismlauncher
     tor-browser
   ];
-
 
   myModules = {
     system = {
       enable = true;
       user.userName = "zdbg";
       hardware = {
+        bluetooth.enable = true;
         laptops.enable = true;
       };
     };
@@ -36,6 +35,7 @@
       virtualization.enable = true;
     };
   };
+
 
 
   # Set this on install according to the version of NixOS

@@ -29,6 +29,7 @@ let dtrue = lib.mkDefault true; in {
         sddm.enable = dtrue;
       };
       hardware = {
+        # bluetooth.enable = dtrue;
         # laptops.enable = dtrue;
         printing.enable = dtrue;
         sound.enable = dtrue;

@@ -4,7 +4,6 @@ let cfg = config.myModules.other.gaming; in {
   options = {
     myModules.other.gaming = {
       enable = lib.mkEnableOption "Enable gaming module";
-      minecraft.enable = lib.mkEnableOption "Enable minecraft via prismlauncher";
     };
   };
 
@@ -15,9 +14,5 @@ let cfg = config.myModules.other.gaming; in {
     };
 
     programs.gamemode.enable = true;
-
-    environment.systemPackages =  with pkgs; lib.mkIf cfg.minecraft.enable [
-      prismlauncher
-    ];
   };
 }

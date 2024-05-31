@@ -13,8 +13,8 @@ let dtrue = lib.mkDefault true; in {
 
   config = {
     myModules.utilities = lib.mkIf config.myModules.utilities.enable {
-      # virtualization.enable = dtrue;
       # thunar.enable = dtrue;
+      # virtualization.enable = dtrue;
       xremapusers.enable = dtrue;
     };
   };

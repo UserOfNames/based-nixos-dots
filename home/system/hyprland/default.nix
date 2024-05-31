@@ -24,7 +24,7 @@
         exec-once = [
           "hypridle"
           "mako"
-          "${pkgs.networkmanagerapplet}/bin/nm-applet"
+          "${pkgs.networkmanagerapplet}/bin/nm-applet --no-agent"
           "${pkgs.swww}/bin/swww-daemon"
           # "${pkgs.swww}/bin/swww img ${../../glowy.jpg}"
           "wl-clip-persist --clipboard regular"

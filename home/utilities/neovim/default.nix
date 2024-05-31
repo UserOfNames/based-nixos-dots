@@ -23,12 +23,13 @@
       plugins = with pkgs.vimPlugins; [
         # Workflow plugins
         nvim-treesitter.withAllGrammars
-        vim-numbertoggle
-        oil-nvim
-        undotree
-        vim-fugitive
         harpoon2
         mini-nvim
+        oil-nvim
+        toggleterm-nvim
+        undotree
+        vim-fugitive
+        vim-numbertoggle
         vim-visual-multi
 
         # Telescope and dependencies
@@ -37,9 +38,9 @@
         telescope-fzf-native-nvim
 
         # Aesthetic plugins
+        lualine-nvim
         nvim-web-devicons
         tokyonight-nvim
-        lualine-nvim
         zen-mode-nvim
 
         # Notetaking plugins
@@ -48,12 +49,12 @@
 
         # LSP plugins
         nvim-lspconfig
+        lsp-zero-nvim
         nvim-cmp
         cmp-nvim-lsp
         cmp-buffer
         cmp-path
         luasnip
-        lsp-zero-nvim
       ];
 
       # Import all configs. Ugly solution but I can't seem to find a better one.
@@ -62,6 +63,7 @@
         ${readFile ./mappings.lua}
         ${readFile ./autocmd/lua.lua}
         ${readFile ./autocmd/nix.lua}
+        ${readFile ./plugins/toggleterm.lua}
         ${readFile ./plugins/treesitter.lua}
         ${readFile ./plugins/mini.lua}
         ${readFile ./plugins/oil.lua}

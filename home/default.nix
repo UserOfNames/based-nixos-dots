@@ -11,7 +11,7 @@
 
   home.packages = with pkgs; [
     calcurse
-    hydrus
+    hyprpicker
     mpc-cli
     qalculate-qt
     qimgv

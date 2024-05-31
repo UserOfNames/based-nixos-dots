@@ -2,6 +2,7 @@
 
 let dtrue = lib.mkDefault true; in {
   imports = [
+    ./cursor.nix
     ./hyprland
     ./waybar
     ./mako.nix
@@ -19,6 +20,7 @@ let dtrue = lib.mkDefault true; in {
         hypridle.enable = dtrue;
         hyprlock.enable = dtrue;
       };
+      cursor.enable = dtrue;
       mako.enable = dtrue;
       waybar.enable = dtrue;
       zsh.enable = dtrue;
