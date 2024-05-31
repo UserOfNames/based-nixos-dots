@@ -1,10 +1,8 @@
 { config, pkgs, lib, ... }:
 
-let cfg = config.myHomeModules.system.cursor; in {
-  options.myHomeModules.system.cursor = {
-    enable = lib.mkEnableOption "Enable cursor home configuration";
-  };
-
+let
+  cfg = config.myHomeModules.system.cursor;
+in {
   config = lib.mkIf cfg.enable {
     home.pointerCursor = {
       gtk.enable = true;

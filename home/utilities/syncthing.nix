@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.syncthing.enable = lib.mkEnableOption "Enable syncthing home configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.syncthing.enable {
+let
+  cfg = config.myHomeModules.utilities.syncthing;
+in {
+  config = lib.mkIf cfg.enable {
     services.syncthing = {
       enable = true;
     };

@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.foot.enable = lib.mkEnableOption "Enable foot user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.foot.enable {
+let
+  cfg = config.myHomeModules.utilities.foot;
+in {
+  config = lib.mkIf cfg.enable {
     programs.foot = {
       enable = true;
       settings = {

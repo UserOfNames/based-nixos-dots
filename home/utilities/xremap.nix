@@ -1,14 +1,11 @@
 { config, pkgs, inputs, lib, ... }:
 
-{
+let
+  cfg = config.myHomeModules.utilities.xremap;
+in {
   imports = [ inputs.xremap-flake.homeManagerModules.default ];
 
-  options = {
-    myHomeModules.utilities.xremap.enable = lib.mkEnableOption "Enable xremap module";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.xremap.enable {
-
+  config = lib.mkIf cfg.enable {
     services.xremap = {
       withWlroots = true;
       config = {

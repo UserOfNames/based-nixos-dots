@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.system.network.enable = lib.mkEnableOption "Enable network module";
-  };
-
-  config = lib.mkIf config.myModules.system.network.enable {
+let
+  cfg = config.myModules.system.network;
+in {
+  config = lib.mkIf cfg.enable {
     networking = {
       networkmanager = {
         enable = true;

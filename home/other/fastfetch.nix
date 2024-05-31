@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.other.fastfetch.enable = lib.mkEnableOption "Enable fastfetch module";
-  };
-
-  config = lib.mkIf config.myHomeModules.other.fastfetch.enable {
+let
+  cfg = config.myHomeModules.other.fastfetch;
+in {
+  config = lib.mkIf cfg.enable {
     programs.fastfetch = {
       enable = true;
       settings = {

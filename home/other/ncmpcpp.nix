@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.other.ncmpcpp.enable = lib.mkEnableOption "Enable ncmpcpp module";
-  };
-
-  config = lib.mkIf config.myHomeModules.other.ncmpcpp.enable {
+let
+  cfg = config.myHomeModules.other.ncmpcpp;
+in {
+  config = lib.mkIf cfg.enable {
     programs.ncmpcpp = {
       enable = true;
 

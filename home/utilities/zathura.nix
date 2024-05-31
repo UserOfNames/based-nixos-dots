@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.zathura.enable = lib.mkEnableOption "Enable zathura user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.zathura.enable {
+let
+  cfg = config.myHomeModules.utilities.zathura;
+in {
+  config = lib.mkIf cfg.enable {
     programs.zathura = {
       enable = true;
       options = {

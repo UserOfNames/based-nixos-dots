@@ -1,17 +1,15 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  cfg = config.myModules.system.display;
+in {
   imports = [
     ./hyprland.nix
-    ./plasma.nix
-    ./sddm.nix
+      ./plasma.nix
+      ./sddm.nix
   ];
 
-  options = {
-    myModules.system.display.enable = lib.mkEnableOption "Enable basic display options";
-  };
-
-  config = lib.mkIf config.myModules.system.display.enable {
+  config = lib.mkIf cfg.enable {
     programs.xwayland.enable = true;
     services = {
       xserver = {

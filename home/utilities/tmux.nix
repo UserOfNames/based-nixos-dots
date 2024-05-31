@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.tmux.enable = lib.mkEnableOption "Enable tmux user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.tmux.enable {
+let
+  cfg = config.myHomeModules.utilities.tmux;
+in {
+  config = lib.mkIf cfg.enable {
     programs.tmux = {
       enable = true;
       escapeTime = 0;

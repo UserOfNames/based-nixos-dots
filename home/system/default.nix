@@ -1,17 +1,16 @@
 { config, pkgs, lib, ... }:
 
-let dtrue = lib.mkDefault true; in {
+let
+  dtrue = lib.mkDefault true;
+in {
   imports = [
+    ../../options.nix
     ./cursor.nix
     ./hyprland
     ./waybar
     ./mako.nix
     ./zsh.nix
   ];
-
-  options = {
-    myHomeModules.system.enable = lib.mkEnableOption "Enable 'system' home module group";
-  };
 
   config = {
     myHomeModules.system = lib.mkIf config.myHomeModules.system.enable {

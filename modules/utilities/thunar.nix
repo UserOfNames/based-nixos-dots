@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.utilities.thunar.enable = lib.mkEnableOption "Enable thunar module";
-  };
-  
-  config = lib.mkIf config.myModules.utilities.thunar.enable {
+let
+  cfg = config.myModules.utilities.thunar;
+in {
+  config = lib.mkIf cfg.enable {
     services.gvfs.enable = true;
     programs.thunar = {
       enable = true;

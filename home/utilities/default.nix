@@ -1,7 +1,10 @@
 { config, pkgs, lib, ... }:
 
-let dtrue = lib.mkDefault true; in {
+let
+  dtrue = lib.mkDefault true;
+in {
   imports = [
+    ../../options.nix
     ./lf
     ./neovim
     ./bemenu.nix
@@ -15,10 +18,6 @@ let dtrue = lib.mkDefault true; in {
     ./xremap.nix
     ./zathura.nix
   ];
-
-  options = {
-    myHomeModules.utilities.enable = lib.mkEnableOption "Enable 'utilities' home module group";
-  };
 
   config = {
     myHomeModules.utilities = lib.mkIf config.myHomeModules.utilities.enable {

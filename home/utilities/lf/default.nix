@@ -1,11 +1,9 @@
 { config, pkgs, lib, inputs, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.lf.enable = lib.mkEnableOption "Enable lf user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.lf.enable {
+let
+  cfg = config.myHomeModules.utilities.lf;
+in {
+  config = lib.mkIf cfg.enable {
     xdg.configFile."lf/icons".source = ./icons;
 
     programs.lf = {

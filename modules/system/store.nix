@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.system.store.enable = lib.mkEnableOption "Enable store module";
-  };
-
-  config = lib.mkIf config.myModules.system.store.enable {
+let
+  cfg = config.myModules.system.store;
+in {
+  config = lib.mkIf cfg.enable {
     nix = {
       optimise = {
         automatic = true;

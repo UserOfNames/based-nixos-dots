@@ -15,6 +15,12 @@
     tor-browser
   ];
 
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    TERMINAL = "kitty";
+  };
+
   myModules = {
     system = {
       enable = true;

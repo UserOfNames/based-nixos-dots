@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.system.waybar.enable = lib.mkEnableOption "Enable waybar module";
-  };
-
-  config = lib.mkIf config.myHomeModules.system.waybar.enable {
+let
+  cfg = config.myHomeModules.system.waybar;
+in {
+  config = lib.mkIf cfg.enable {
     programs.waybar = {
       enable = true;
       style = ./style.css;

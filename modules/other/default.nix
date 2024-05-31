@@ -1,13 +1,12 @@
 { config, pkgs, lib, ... }:
 
-let dtrue = lib.mkDefault true; in {
+let
+  dtrue = lib.mkDefault true;
+in {
   imports = [
+    ../../options.nix
     ./gaming.nix
   ];
-
-  options = {
-    myModules.other.enable = lib.mkEnableOption "Enable 'other' module group";
-  };
 
   config = {
     myModules.other = lib.mkIf config.myModules.other.enable {

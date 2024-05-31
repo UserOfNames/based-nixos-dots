@@ -1,13 +1,10 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.system.security.enable = lib.mkEnableOption "Enable security module";
-  };
-
-  config = lib.mkIf config.myModules.system.security.enable {
+let
+  cfg = config.myModules.system.security;
+in {
+  config = lib.mkIf cfg.enable {
     security = {
-      # sudo: show password feedback, force root password
       sudo = {
         extraConfig = ''
           Defaults pwfeedback

@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.system.fonts.enable = lib.mkEnableOption "Enable fonts module";
-  };
-
-  config = lib.mkIf config.myModules.system.fonts.enable {
+let
+  cfg = config.myModules.system.fonts;
+in {
+  config = lib.mkIf cfg.enable {
     fonts = {
       packages = with pkgs; [
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

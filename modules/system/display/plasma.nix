@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.system.display.plasma.enable = lib.mkEnableOption "Enable plasma module";
-  };
-
-  config = lib.mkIf config.myModules.system.display.plasma.enable {
+let
+  cfg = config.myModules.system.display.plasma;
+in {
+  config = lib.mkIf cfg.enable {
     services.desktopManager.plasma6 = {
       enable = true;
       enableQt5Integration = true;

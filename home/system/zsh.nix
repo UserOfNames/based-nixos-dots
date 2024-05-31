@@ -1,11 +1,9 @@
 { config, lib, ... }:
 
-{
-  options = {
-    myHomeModules.system.zsh.enable = lib.mkEnableOption "Enable zsh user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.system.zsh.enable {
+let
+  cfg = config.myHomeModules.system.zsh;
+in {
+  config = lib.mkIf cfg.enable {
     programs.zsh = {
       enable = true;
       enableCompletion = true;

@@ -1,12 +1,14 @@
 { config, pkgs, lib, ... }:
 
-let dtrue = lib.mkDefault true; in {
+let
+  dtrue = lib.mkDefault true;
+in {
   imports = [
+    ../../options.nix
     ./display
     ./hardware
     ./bootloader.nix
     ./fonts.nix
-    ./environment.nix
     ./locale.nix
     ./network.nix
     ./packages.nix
@@ -15,10 +17,6 @@ let dtrue = lib.mkDefault true; in {
     ./user.nix
     ./zsh.nix
   ];
-
-  options = {
-    myModules.system.enable = lib.mkEnableOption "Enable 'system' module group";
-  };
 
   config = {
     myModules.system = lib.mkIf config.myModules.system.enable {
@@ -39,7 +37,6 @@ let dtrue = lib.mkDefault true; in {
         useLatestKernel = dtrue;
       };
       fonts.enable = dtrue;
-      environment.enable = dtrue;
       locale.enable = dtrue;
       network.enable = dtrue;
       packages.enable = dtrue;

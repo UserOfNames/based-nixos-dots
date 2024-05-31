@@ -1,11 +1,9 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.other.newsboat.enable = lib.mkEnableOption "Enable newsboat module";
-  };
-
-  config = lib.mkIf config.myHomeModules.other.newsboat.enable {
+let
+  cfg = config.myHomeModules.other.newsboat;
+in {
+  config = lib.mkIf cfg.enable {
     xdg.configFile = {
       "newsboat/colors".source = ./colors;
     };

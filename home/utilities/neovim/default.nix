@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.neovim.enable = lib.mkEnableOption "Enable neovim user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.neovim.enable {
+let
+  cfg = config.myHomeModules.utilities.neovim;
+in {
+  config = lib.mkIf cfg.enable {
     programs.neovim = let readFile = file: builtins.readFile file; in {
       enable = true;
       defaultEditor = true;

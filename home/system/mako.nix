@@ -1,11 +1,9 @@
 { config, pkgs, lib, ...}:
 
-{
-  options = {
-    myHomeModules.system.mako.enable = lib.mkEnableOption "Enable mako user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.system.mako.enable {
+let
+  cfg = config.myHomeModules.system.mako;
+in {
+  config = lib.mkIf cfg.enable {
     services.mako = {
       enable = true;
       font = "JetBrainsMono 10";

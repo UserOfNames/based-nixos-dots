@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.bemenu.enable = lib.mkEnableOption "Enable bemenu module";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.bemenu.enable {
+let
+  cfg = config.myHomeModules.utilities.bemenu;
+in {
+  config = lib.mkIf cfg.enable {
     programs.bemenu = {
       enable = true;
       settings = {

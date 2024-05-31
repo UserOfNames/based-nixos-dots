@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.system.hyprland.hyprlock.enable = lib.mkEnableOption "Enable hyprlock module";
-  };
-
-  config = lib.mkIf config.myHomeModules.system.hyprland.hyprlock.enable {
+let
+  cfg = config.myHomeModules.system.hyprland.hyprlock;
+in {
+  config = lib.mkIf cfg.enable {
     programs.hyprlock = {
       enable = true;
       settings = {

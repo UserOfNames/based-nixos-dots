@@ -1,13 +1,8 @@
 { config, pkgs, lib, ... }:
 
-let cfg = config.myModules.system.bootloader; in {
-  options = {
-    myModules.system.bootloader = {
-      enable = lib.mkEnableOption "Enable bootloader module";
-      useLatestKernel = lib.mkEnableOption "Use the latest kernel";
-    };
-  };
-
+let
+  cfg = config.myModules.system.bootloader;
+in {
   config = lib.mkIf cfg.enable {
     boot = {
       kernelPackages = lib.mkIf cfg.useLatestKernel pkgs.linuxPackages_latest;

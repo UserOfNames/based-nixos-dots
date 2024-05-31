@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.system.locale.enable = lib.mkEnableOption "Enable locale module";
-  };
-
-  config = lib.mkIf config.myModules.system.locale.enable {
+let
+  cfg = config.myModules.system.locale;
+in {
+  config = lib.mkIf cfg.enable {
     time.timeZone = "America/New_York";
 
     i18n = {

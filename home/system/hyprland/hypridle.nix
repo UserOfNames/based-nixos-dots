@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.system.hyprland.hypridle.enable = lib.mkEnableOption "Enable hypridle module";
-  };
-
-  config = lib.mkIf config.myHomeModules.system.hyprland.hypridle.enable {
+let
+  cfg = config.myHomeModules.system.hyprland.hypridle;
+in {
+  config = lib.mkIf cfg.enable {
     services.hypridle = {
       enable = true;
       settings = {

@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.system.hardware.bluetooth.enable = lib.mkEnableOption "Enable options for bluetooth";
-  };
-
-  config = lib.mkIf config.myModules.system.hardware.bluetooth.enable {
+let
+  cfg = config.myModules.system.hardware.bluetooth;
+in {
+  config = lib.mkIf cfg.enable {
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;

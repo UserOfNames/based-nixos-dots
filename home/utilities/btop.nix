@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.btop.enable = lib.mkEnableOption "Enable btop user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.btop.enable {
+let
+  cfg = config.myHomeModules.utilities.btop;
+in {
+  config = lib.mkIf cfg.enable {
     programs.btop = {
       enable = true;
 

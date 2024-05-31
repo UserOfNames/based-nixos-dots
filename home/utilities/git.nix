@@ -1,11 +1,9 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.git.enable = lib.mkEnableOption "Enable git user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.git.enable {
+let
+  cfg = config.myHomeModules.utilities.git;
+in {
+  config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
       userName = "UserOfNames";

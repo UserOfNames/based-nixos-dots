@@ -1,17 +1,15 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  cfg = config.myHomeModules.system.hyprland;
+in {
   imports = [
     ./binds.nix
     ./hypridle.nix
     ./hyprlock.nix
   ];
   
-  options  ={
-    myHomeModules.system.hyprland.enable = lib.mkEnableOption "Enable hyprland user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.system.hyprland.enable {
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

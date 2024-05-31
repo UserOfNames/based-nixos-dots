@@ -1,18 +1,14 @@
 { config, pkgs, lib, inputs, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.firefox.enable = lib.mkEnableOption "Enable firefox user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.firefox.enable {
+let
+  cfg = config.myHomeModules.utilities.firefox;
+in {
+  config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-
       profiles = {
         default = {
           isDefault = true;
-
           # Extensions from NUR
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
             canvasblocker

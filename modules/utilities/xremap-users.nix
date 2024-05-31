@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myModules.utilities.xremapusers.enable = lib.mkEnableOption "Enable xremapusers module";
-  };
-
-  config = lib.mkIf config.myModules.utilities.xremapusers.enable {
+let
+  cfg = config.myModules.utilities.xremapusers;
+in {
+  config = lib.mkIf cfg.enable {
     hardware.uinput.enable = true;
     users.groups = {
       uinput.members = [ "zdbg" ];

@@ -1,11 +1,9 @@
 { config, pkgs, lib, ... }:
 
-{
-  options = {
-    myHomeModules.utilities.kitty.enable = lib.mkEnableOption "Enable kitty user configuration";
-  };
-
-  config = lib.mkIf config.myHomeModules.utilities.kitty.enable {
+let
+  cfg = config.myHomeModules.utilities.kitty;
+in {
+  config = lib.mkIf cfg.enable {
     programs.kitty = {
       enable = true;
       shellIntegration.mode = "no-cursor";
