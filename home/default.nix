@@ -13,6 +13,8 @@
     calcurse
     hyprpicker
     mpc-cli
+    mpd-mpris
+    playerctl
     qalculate-qt
     qimgv
     ripdrag

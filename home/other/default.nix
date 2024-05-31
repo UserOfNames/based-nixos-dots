@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
+  cfg = config.myHomeModules.other;
   dtrue = lib.mkDefault true;
 in {
   imports = [
@@ -13,8 +14,8 @@ in {
     ./ytdlp.nix
   ];
 
-  config = {
-    myHomeModules.other = lib.mkIf config.myHomeModules.other.enable {
+  config = lib.mkIf cfg.enable {
+    myHomeModules.other = {
       fastfetch.enable = dtrue;
       mpd.enable = dtrue;
       mpv.enable = dtrue;

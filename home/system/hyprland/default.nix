@@ -22,6 +22,7 @@ in {
         exec-once = [
           "hypridle"
           "mako"
+          "mpd-mpris"
           "${pkgs.networkmanagerapplet}/bin/nm-applet --no-agent"
           "${pkgs.swww}/bin/swww-daemon"
           # "${pkgs.swww}/bin/swww img ${../../glowy.jpg}"
@@ -62,6 +63,7 @@ in {
           "repeat_rate" = 40;
           "repeat_delay" = 300;
           "follow_mouse" = 2;
+          "kb_options" = "caps:escape";
           touchpad = {
             "natural_scroll" = false;
           };

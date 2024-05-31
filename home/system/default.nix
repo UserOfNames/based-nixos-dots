@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
+  cfg = config.myHomeModules.system;
   dtrue = lib.mkDefault true;
 in {
   imports = [
@@ -12,8 +13,8 @@ in {
     ./zsh.nix
   ];
 
-  config = {
-    myHomeModules.system = lib.mkIf config.myHomeModules.system.enable {
+  config = lib.mkIf cfg.enable {
+    myHomeModules.system = {
       hyprland = {
         enable = dtrue;
         hypridle.enable = dtrue;

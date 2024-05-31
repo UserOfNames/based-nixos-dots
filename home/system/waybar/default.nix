@@ -59,11 +59,11 @@ in {
 
           "bluetooth" = {
             format = "";
-            format-connected = " {num_connections}";
+            format-connected = "{num_connections} ";
             format-disabled = "";
-            tooltip-format = " {device_alias}";
+            tooltip-format = "{device_alias} ";
             tooltip-format-connected = "{device_enumerate}";
-            tooltip-format-enumerate-connected = " {device_alias}";
+            tooltip-format-enumerate-connected = "{device_alias} ";
           };
 
           "clock" = {

@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
+  cfg = config.myHomeModules.utilities;
   dtrue = lib.mkDefault true;
 in {
   imports = [
@@ -15,12 +16,11 @@ in {
     ./kitty.nix
     ./syncthing.nix
     ./tmux.nix
-    ./xremap.nix
     ./zathura.nix
   ];
 
-  config = {
-    myHomeModules.utilities = lib.mkIf config.myHomeModules.utilities.enable {
+  config = lib.mkIf cfg.enable {
+    myHomeModules.utilities = {
       lf.enable = dtrue;
       neovim.enable = dtrue;
       bemenu.enable = dtrue;
@@ -31,7 +31,6 @@ in {
       kitty.enable = dtrue;
       # syncthing.enable = dtrue;
       tmux.enable = dtrue;
-      xremap.enable = dtrue;
       zathura.enable = dtrue;
     };
   };

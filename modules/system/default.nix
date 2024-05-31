@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
+  cfg = config.myModules.system;
   dtrue = lib.mkDefault true;
 in {
   imports = [
@@ -18,8 +19,8 @@ in {
     ./zsh.nix
   ];
 
-  config = {
-    myModules.system = lib.mkIf config.myModules.system.enable {
+  config = lib.mkIf cfg.enable {
+    myModules.system = {
       display = {
         enable = dtrue;
         hyprland.enable = dtrue;

@@ -29,6 +29,10 @@ in {
         };
 
         hardware = {
+          drivers = {
+            #
+          };
+
           bluetooth.enable = mke "Enable bluetooth";
           laptops.enable = mke "Enable some settings for laptops";
           printing.enable = mke "Enable printing";
@@ -56,7 +60,6 @@ in {
         enable = mke "Enable 'utilities' NixOS module group";
         thunar.enable = mke "Enable thunar";
         virtualization.enable = mke "Enable virtualization";
-        xremapusers.enable = mke "Enable necessary settings for xremap";
       };
     };
 
@@ -96,7 +99,6 @@ in {
         neovim.enable = mke "Enable neovim user configuration";
         syncthing.enable = mke "Enable syncthing user service";
         tmux.enable = mke "Enable tmux user configuration";
-        xremap.enable = mke "Enable xremap user configuration";
         zathura.enable = mke "Enable zathura";
       };
     };
