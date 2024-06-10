@@ -27,6 +27,11 @@ in {
 
         { key = "n"; command = "next_found_item"; }
         { key = "N"; command = "previous_found_item"; }
+
+        { key = "left"; command = "seek_backward"; }
+        { key = "right"; command = "seek_forward"; }
+        { key = "down"; command = "volume_down"; }
+        { key = "up"; command = "volume_up"; }
       ];
     };
   };

@@ -11,7 +11,6 @@
   networking.hostName = "aeon";
 
   environment.systemPackages = with pkgs; [
-    prismlauncher
     tor-browser
   ];
 

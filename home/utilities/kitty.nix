@@ -16,6 +16,7 @@ in {
       settings = {
         cursor_shape = "block";
         cursor_blink_interval = 0;
+        confirm_os_window_close = 0;
 
         # Tokyonight-nvim kitty theme
         background = "#1a1b26";

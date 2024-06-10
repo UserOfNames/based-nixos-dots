@@ -35,7 +35,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = { inherit inputs; };
-              users.zdbg = import ./hosts/${hostname}/home.nix;
+              users."zdbg" = import ./hosts/${hostname}/home.nix;
             };
           }
         ];

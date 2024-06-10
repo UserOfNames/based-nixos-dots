@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.myHomeModules.utilities.lf;
@@ -10,6 +10,7 @@ in {
       enable = true;
       settings = {
         preview = true;
+        mouse = true;
         hidden = true;
         drawbox = true;
         icons = true;

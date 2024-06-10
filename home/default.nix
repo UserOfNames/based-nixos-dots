@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     calcurse
+    foliate
     hyprpicker
     mpc-cli
     mpd-mpris
@@ -21,6 +22,5 @@
     swww
     texliveFull
     trashy
-    ueberzugpp
   ];
 }

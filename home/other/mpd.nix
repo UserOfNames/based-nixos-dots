@@ -6,9 +6,8 @@ in {
   config = lib.mkIf cfg.enable {
     services.mpd = {
       enable = true;
-      musicDirectory = "/home/zdbg/Music";
+      musicDirectory = "/home/${config.myModules.system.user.userName}/Music";
       network.startWhenNeeded = true;
-
       extraConfig = ''
         audio_output {
           type "pipewire"
