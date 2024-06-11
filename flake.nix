@@ -45,6 +45,7 @@
     nixosConfigurations = {
       nyx = mkHost "nyx";
       aeon = mkHost "aeon";
+      wyvern = mkHost "wyvern";
     };
   };
 }

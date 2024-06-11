@@ -24,7 +24,8 @@ in {
           modules-right = [
             "mpd"
             "bluetooth"
-            "wireplumber"
+            # "wireplumber"
+            "pulseaudio"
             "group/hardware"
             "network"
             "clock"
@@ -147,6 +148,23 @@ in {
             format-alt = "{ifname}: {ipaddr}/{cidr}";
           };
 
+          "pulseaudio" = {
+            scroll-step = 1;
+            format = "{volume}% {icon} {format_source}";
+            format-bluetooth = "{volume}% {icon} {format_source}";
+            format-bluetooth-muted = "{icon} {format_source}";
+            format-muted = "{icon} {format_source}";
+            format-source = "{volume}% ";
+            format-source-muted = "";
+            format-icons = {
+                headphone = "";
+                phone = "";
+                portable = "";
+                car = "";
+                default = [ "" "" "" ];
+            };
+        };
+
           "temperature" = {
             critical-threshold = 80;
             format = "{temperatureC}°C {icon}";
@@ -159,12 +177,12 @@ in {
             spacing = 6;
           };
 
-          "wireplumber" = {
-            format = "{volume}% {icon}";
-            format-icons = ["" "" ""];
-            format-muted = "";
-            on-click = "helvum";
-          };
+          # "wireplumber" = {
+          #   format = "{volume}% {icon}";
+          #   format-icons = ["" "" ""];
+          #   format-muted = "";
+          #   on-click = "helvum";
+          # };
         };
       };
     };

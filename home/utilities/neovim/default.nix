@@ -15,7 +15,7 @@ in {
         ccls
         lua-language-server
         nil
-        nodePackages.pyright
+        pyright
       ];
 
       plugins = with pkgs.vimPlugins; [

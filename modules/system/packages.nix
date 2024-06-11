@@ -15,9 +15,11 @@ in {
     # certain machines should be declared in the relevant host file, not here.
     environment.systemPackages = with pkgs; [
       _7zz
+      brightnessctl
       cliphist
       fzf
       gnupg
+      helvum
       jmtpfs
       ripgrep
       tree

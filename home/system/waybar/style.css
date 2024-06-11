@@ -55,10 +55,16 @@ tooltip {
 #memory,
 #mpd,
 #network,
+#pulseaudio,
 #temperature,
-#tray,
-#wireplumber {
+#tray {
+/*#wireplumber {*/
     padding: 0 15px;
+    color: #ffffff;
+}
+
+#window,
+#custom-nixicon {
     color: #ffffff;
 }
 
