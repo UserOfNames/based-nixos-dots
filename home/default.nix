@@ -14,7 +14,6 @@
     foliate
     hyprpicker
     mpc-cli
-    mpd-mpris
     playerctl
     qalculate-qt
     qimgv

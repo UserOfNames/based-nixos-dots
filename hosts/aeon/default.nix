@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./modules.nix
     ./hardware-configuration.nix
     inputs.disko.nixosModules.disko 
     (import ./disko.nix { device = "/dev/sda"; })
@@ -18,27 +19,6 @@
     EDITOR = "nvim";
     VISUAL = "nvim";
     TERMINAL = "kitty";
-  };
-
-  myModules = {
-    system = {
-      enable = true;
-      user.userName = "zdbg";
-      hardware = {
-        bluetooth.enable = true;
-        laptops.enable = true;
-      };
-    };
-
-    other = {
-      enable = true;
-    };
-
-    utilities = {
-      enable = true;
-      thunar.enable = true;
-      virtualization.enable = true;
-    };
   };
 
 

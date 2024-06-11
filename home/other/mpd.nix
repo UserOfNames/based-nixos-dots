@@ -15,5 +15,7 @@ in {
         }
       '';
     };
+
+    services.mpd-mpris.enable = true;
   };
 }

@@ -29,7 +29,7 @@ in {
       };
       hardware = {
         # bluetooth.enable = dtrue;
-        # laptops.enable = dtrue;
+        # laptop.enable = dtrue;
         printing.enable = dtrue;
         sound.enable = dtrue;
       };

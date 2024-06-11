@@ -3,7 +3,7 @@
 {
   imports = [
     ./bluetooth.nix
-    ./laptops.nix
+    ./laptop.nix
     ./printing.nix
     ./sound.nix
   ];

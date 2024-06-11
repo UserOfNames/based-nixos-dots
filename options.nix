@@ -34,7 +34,7 @@ in {
           };
 
           bluetooth.enable = mke "Enable bluetooth";
-          laptops.enable = mke "Enable some settings for laptops";
+          laptop.enable = mke "Enable some settings for laptops";
           printing.enable = mke "Enable printing";
           sound.enable = mke "Enable sound";
         };

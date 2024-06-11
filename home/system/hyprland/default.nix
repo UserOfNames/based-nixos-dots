@@ -22,7 +22,6 @@ in {
         exec-once = [
           "hypridle"
           "mako"
-          "mpd-mpris"
           "${pkgs.networkmanagerapplet}/bin/nm-applet"
           "${pkgs.swww}/bin/swww-daemon"
           # "${pkgs.swww}/bin/swww img ${../../glowy.jpg}"

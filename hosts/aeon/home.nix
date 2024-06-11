@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./modules.nix
     ../../home
   ];
 
@@ -15,20 +16,5 @@
       obs-studio
       qbittorrent
     ];
-  };
-
-  myHomeModules = {
-    other = {
-      enable = true;
-    };
-
-    system = {
-      enable = true;
-    };
-
-    utilities = {
-      enable = true;
-      syncthing.enable = true;
-    };
   };
 }
