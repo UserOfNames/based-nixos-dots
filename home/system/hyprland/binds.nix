@@ -28,6 +28,9 @@
       "$mainMod, W, exec, $browser"
       "CTRL SHIFT, L, exec, hyprlock"
 
+      ", Print, exec, grim"
+      "$mainMod, Print, exec, grim -g \"$(slurp -w 0)\""
+
       "$mainMod, H, movefocus, l"
       "$mainMod, L, movefocus, r"
       "$mainMod, J, movefocus, d"

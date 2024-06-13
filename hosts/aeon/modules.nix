@@ -18,7 +18,6 @@
     utilities = {
       enable = true;
       thunar.enable = true;
-      virtualization.enable = true;
     };
   };
 

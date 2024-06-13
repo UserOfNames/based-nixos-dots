@@ -27,6 +27,7 @@ in {
         ls = "ls -a --color";
         c = "clear";
         clearall = "clear && rm ~/.zsh_history";
+
         s = "cd `hash -d | bemenu | sed 's/^.*=//'`";
         sf = "lf `hash -d | bemenu | sed 's/^.*=//'`";
 

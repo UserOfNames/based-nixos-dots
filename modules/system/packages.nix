@@ -25,14 +25,12 @@ in {
       tree
       wl-clip-persist
       wl-clipboard
-      wlr-randr
 
       # Here are packages configured via home-manager, but also
       # installed system-wide with no further configuration.
       bemenu
       btop
       firefox
-      # foot
       git
       j4-dmenu-desktop
       kitty

@@ -29,10 +29,6 @@ in {
         };
 
         hardware = {
-          drivers = {
-            #
-          };
-
           bluetooth.enable = mke "Enable bluetooth";
           laptop.enable = mke "Enable some settings for laptops";
           printing.enable = mke "Enable printing";

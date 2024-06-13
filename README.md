@@ -1,6 +1,6 @@
-My NixOS dotfiles. Nothing too special.
+My NixOS dotfiles. Nothing too special. Credits to Vimjoyer for inspiring large amounts of my own setup.  
 
 # Hosts
-Host files are for enabling/disabling modules for a particular machine, as well as machine-specific options and packages.  
 - **nyx** - Main desktop.  
-- **aeon** - Personal laptop. Thinkpad T520.
+- **aeon** - Personal laptop. Thinkpad T520.  
+- **wyvern** - Work laptop. HP Spectre x360. Dual boot with Windows 11.
