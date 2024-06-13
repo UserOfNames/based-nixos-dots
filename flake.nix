@@ -27,17 +27,9 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/${hostname}
+          ./home-manager.nix
           ./modules
           { nixpkgs.overlays = [ nur.overlay ]; }
-
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users."zdbg" = import ./hosts/${hostname}/home.nix;
-            };
-          }
         ];
       };
 
