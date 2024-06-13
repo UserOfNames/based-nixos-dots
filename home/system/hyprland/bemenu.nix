@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.myHomeModules.utilities.bemenu;
+  cfg = config.myHomeModules.system.hyprland.bemenu;
 in {
   config = lib.mkIf cfg.enable {
     programs.bemenu = {

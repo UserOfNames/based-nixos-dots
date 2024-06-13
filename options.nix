@@ -74,18 +74,18 @@ in {
         enable = mke "Enable 'system' home module group";
         hyprland = {
           enable = mke "Enable hyprland user configuration";
+          bemenu.enable = mke "Enable bemenu";
+          cursor.enable = mke "Enable cursor";
           hypridle.enable = mke "Enable hypridle";
           hyprlock.enable = mke "Enable hyprlock";
+          mako.enable = mke "Enable mako";
+          waybar.enable = mke "Enable waybar";
         };
-        cursor.enable = mke "Enable cursor";
-        mako.enable = mke "Enable mako";
-        waybar.enable = mke "Enable waybar";
         zsh.enable = mke "Enable zsh user configuration";
       };
 
       utilities = {
         enable = mke "Enable 'utilities' home module group";
-        bemenu.enable = mke "Enable bemenu";
         btop.enable = mke "Enable btop";
         firefox.enable = mke "Enable firefox user configuration";
         foot.enable = mke "Enable foot user configuration"; # Currently not in use

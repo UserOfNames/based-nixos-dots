@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.myHomeModules.system.waybar;
+  cfg = config.myHomeModules.system.hyprland.waybar;
 in {
   config = lib.mkIf cfg.enable {
     programs.waybar = {

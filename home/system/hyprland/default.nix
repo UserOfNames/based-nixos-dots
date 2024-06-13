@@ -30,9 +30,13 @@ let
   '';
 in {
   imports = [
+    ./waybar
+    ./bemenu.nix
     ./binds.nix
+    ./cursor.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./mako.nix
   ];
   
   config = lib.mkIf cfg.enable {

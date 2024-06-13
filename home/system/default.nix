@@ -6,10 +6,7 @@ let
 in {
   imports = [
     ../../options.nix
-    ./cursor.nix
     ./hyprland
-    ./waybar
-    ./mako.nix
     ./zsh.nix
   ];
 
@@ -17,12 +14,13 @@ in {
     myHomeModules.system = {
       hyprland = {
         enable = dtrue;
-        hypridle.enable = dtrue;
-        hyprlock.enable = dtrue;
+        bemenu.enable = cfg.hyprland.enable;
+        cursor.enable = cfg.hyprland.enable;
+        hypridle.enable = cfg.hyprland.enable;
+        hyprlock.enable = cfg.hyprland.enable;
+        mako.enable = cfg.hyprland.enable;
+        waybar.enable = cfg.hyprland.enable;
       };
-      cursor.enable = dtrue;
-      mako.enable = dtrue;
-      waybar.enable = dtrue;
       zsh.enable = dtrue;
     };
   };

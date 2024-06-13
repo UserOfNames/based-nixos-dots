@@ -1,7 +1,7 @@
 { config, pkgs, lib, ...}:
 
 let
-  cfg = config.myHomeModules.system.mako;
+  cfg = config.myHomeModules.system.hyprland.mako;
 in {
   config = lib.mkIf cfg.enable {
     services.mako = {
