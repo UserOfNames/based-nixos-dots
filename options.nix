@@ -63,11 +63,12 @@ in {
       other = {
         enable = mke "Enable 'other' home module group";
         fastfetch.enable = mke "Enable fastfetch";
-        mpd.enable = mke "Enable mpd";
-        mpv.enable = mke "Enable mpv";
-        ncmpcpp.enable = mke "Enable ncmpcpp";
         newsboat.enable = mke "Enable newsboat";
         ytdlp.enable = mke "Enable YT-DLP";
+      };
+
+      productivity = {
+        enable = mke "Enable 'productivity' home module group";
       };
 
       system = {
@@ -92,6 +93,9 @@ in {
         git.enable = mke "Enable git user configuration";
         kitty.enable = mke "Enable kitty user configuration";
         lf.enable = mke "Enable lf user configuration";
+        mpd.enable = mke "Enable mpd";
+        mpv.enable = mke "Enable mpv";
+        ncmpcpp.enable = mke "Enable ncmpcpp";
         neovim.enable = mke "Enable neovim user configuration";
         syncthing.enable = mke "Enable syncthing user service";
         tmux.enable = mke "Enable tmux user configuration";

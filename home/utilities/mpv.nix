@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.myHomeModules.other.mpv;
+  cfg = config.myHomeModules.utilities.mpv;
 in {
   config = lib.mkIf cfg.enable {
     programs.mpv = {

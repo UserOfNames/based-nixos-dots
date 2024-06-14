@@ -6,8 +6,9 @@ require('oil').setup({
    },
 
    keymaps = {
-      ['<C-x>'] = 'actions.select_split',
-      ['<C-Space>'] = 'actions.select',
+      ['<C-x>'] = { 'actions.select', opts = { horizontal = true }, },
+      ['<C-s>'] = { 'actions.select', opts = { vertical = true }, },
+      ['<C-Space>'] = { 'actions.select' },
    },
 })
 

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.myHomeModules.other.ncmpcpp;
+  cfg = config.myHomeModules.utilities.ncmpcpp;
 in {
   config = lib.mkIf cfg.enable {
     programs.ncmpcpp = {

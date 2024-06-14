@@ -9,35 +9,5 @@ in {
       "nix-command"
       "flakes"
     ];
-
-    # Before adding a package here, make sure there isn't a module for it
-    # These packages are shared between all hosts. Packages only useful for
-    # certain machines should be declared in the relevant host file, not here.
-    environment.systemPackages = with pkgs; [
-      _7zz
-      brightnessctl
-      cliphist
-      fzf
-      gnupg
-      helvum
-      jmtpfs
-      ripgrep
-      tree
-      wl-clip-persist
-      wl-clipboard
-
-      # Here are packages configured via home-manager, but also
-      # installed system-wide with no further configuration.
-      bemenu
-      btop
-      firefox
-      git
-      j4-dmenu-desktop
-      kitty
-      lf
-      mako
-      neovim
-      tmux
-    ];
   };
 }

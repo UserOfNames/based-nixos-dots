@@ -2,8 +2,8 @@
 
 {
   imports = [
+    ./other
     ./system
     ./utilities
-    ./other
   ];
 }

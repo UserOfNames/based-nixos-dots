@@ -40,6 +40,14 @@ in {
   ];
   
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      grim
+      hyprpicker
+      j4-dmenu-desktop
+      slurp
+      swww
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

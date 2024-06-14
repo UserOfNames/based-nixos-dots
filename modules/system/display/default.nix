@@ -5,8 +5,8 @@ let
 in {
   imports = [
     ./hyprland.nix
-      ./plasma.nix
-      ./sddm.nix
+    ./plasma.nix
+    ./sddm.nix
   ];
 
   config = lib.mkIf cfg.enable {

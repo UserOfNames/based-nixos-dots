@@ -16,6 +16,7 @@ in {
         lua-language-server
         nil
         pyright
+        texliveFull
       ];
 
       plugins = with pkgs.vimPlugins; [

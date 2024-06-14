@@ -14,8 +14,6 @@ in {
     stateVersion = "23.11"; # stateVersion should match the NixOS stateVersion and should not be changed!
 
     packages = with pkgs; [
-      libreoffice-fresh
-      obs-studio
       qbittorrent
     ];
   };
