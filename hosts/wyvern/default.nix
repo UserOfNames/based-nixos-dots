@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./modules.nix
     ./hardware-configuration.nix
   ];
 
@@ -11,24 +12,10 @@
     tor-browser
   ];
 
-  myModules = {
-    system = {
-      enable = true;
-      user.userName = "zdbg";
-      hardware = {
-        bluetooth.enable = true;
-        laptops.enable = true;
-      };
-    };
-
-    other = {
-      enable = true;
-    };
-
-    utilities = {
-      enable = true;
-      thunar.enable = true;
-    };
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    TERMINAL = "kitty";
   };
 
 

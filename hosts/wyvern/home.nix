@@ -1,35 +1,20 @@
 { config, pkgs, ... }:
 
-{
+let
+  userName = config.myModules.system.user.userName;
+in {
   imports = [
+    ./modules.nix
     ../../home
   ];
 
   home = {
-    username = "zdbg";
-    homeDirectory = "/home/zdbg";
-    stateVersion = "24.05";
+    username = userName;
+    homeDirectory = "/home/${userName}";
+    stateVersion = "24.05"; # stateVersion should match the NixOS stateVersion and should not be changed!
 
     packages = with pkgs; [
-      libreoffice-fresh
-      obs-studio
       qbittorrent
     ];
-  };
-
-  myHomeModules = {
-    other = {
-      enable = true;
-    };
-
-    system = {
-      enable = true;
-    };
-
-    utilities = {
-      enable = true;
-      foot.enable = true;
-      syncthing.enable = true;
-    };
   };
 }
