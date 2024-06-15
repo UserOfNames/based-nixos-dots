@@ -39,13 +39,14 @@ in {
             "geo.provider.network.url" = "https://location.services.mozilla.com/v1/gelocate?key=%MOZILLA_API_KEY%"; # Change geolocation provider to Mozilla (from Google)
             "geo.provider.use_gpsd" = false;
             "geo.provider.use_geoclue" = false;
-            "intl.accept_languages" = "en-US, en";
-            "javascript.use_us_english_locale" = true;
+            # "intl.accept_languages" = "en-US, en";
+            # "javascript.use_us_english_locale" = true;
 
             # Privacy
             "extensions.getAddons.showPane" = false;
             "extensions.htmlaboutaddons.recommendations.enabled" = false;
             "browser.discovery.enabled" = false;
+            "browser.shopping.experience2023.enabled" = true;
             "datareporting.policy.dataSubmissionsEnabled" = false;
             "datareporting.healthreport.uploadEnabled" = false;
             "toolkit.telemetry.unified" = false;
@@ -89,7 +90,7 @@ in {
             "layout.css.font-visibility.standard" = 1; # Restrict fonts to base system fonts only
             "privacy.userContext.enabled" = true;
             "privacy.userContext.ui.enabled" = true;
-            "media.eme.enabled" = false;
+            # "media.eme.enabled" = false;  # Disable DRM content
             "permissions.manager.defaultsUrl" = "";
             "webchannel.allowObject.urlWhitelist" = false;
             "permissions.delegation.enabled" = true;
@@ -102,18 +103,34 @@ in {
             "privacy.trackingprotection.socialtracking.enabled" = true;
             # Might change later; enable DoH and use Quad9
             "network.trr.mode" = 2; # Enable DoH with regular DNS as a backup
-            "network.trr.url" = "https://dns.quad9.net/dns-query";
+            "network.trr.uri" = "https://dns.quad9.net/dns-query";
+            "network.trr.custom_uri" = "https://dns.quad9.net/dns-query";
 
             # Sanitizing
             "privacy.sanitize.sanitizeOnShutdown" = true;
-            "privacy.clearOnShudown.history" = true;
-            "privacy.clearOnShudown.cache" = true;
-            "privacy.clearOnShudown.downloads" = true;
-            "privacy.clearOnShudown.formdata" = true;
-            "privacy.clearOnShudown.sessions" = true;
-            "privacy.clearOnShudown.openWindows" = true;
-            "privacy.clearOnShudown.offlineApps" = true;
-            "privacy.clearOnShudown.cookies" = true;
+            "privacy.clearOnShutdown.history" = false;
+            "privacy.clearOnShutdown.cache" = true;
+            "privacy.clearOnShutdown_v2.cache" = true;
+            "privacy.clearOnShutdown.downloads" = true;
+            "privacy.clearOnShutdown.formdata" = true;
+            "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = true;
+            "privacy.clearOnShutdown.sessions" = true;
+            "privacy.clearOnShutdown.offlineApps" = true;
+            "privacy.clearOnShutdown.cookies" = true;
+            "privacy.clearOnShutdown_v2.cookiesAndStorage" = true;
+            "privacy.clearOnShutdown.openWindows" = true;
+            "privacy.clearSiteData.cache" = true;
+            "privacy.clearSiteData.cookiesAndStorage" = false;  # Keep false until it respects "allow" site exceptions
+            "privacy.clearSiteData.historyFormDataAndDownloads" = true;
+            "privacy.cpd.cache" = true;
+            "privacy.clearHistory.cache" = true;
+            "privacy.cpd.formdata" = true;
+            "privacy.cpd.history" = true;
+            "privacy.clearHistory.historyFormDataAndDownloads" = true;
+            "privacy.cpd.cookies" = true;
+            "privacy.cpd.sessions" = true;
+            "privacy.cpd.offlineApps" = true;
+            "privacy.clearHistory.cookiesAndStorage" = true;
             "browser.send_pings" = false;
 
             # Security
@@ -173,12 +190,21 @@ in {
             "browser.link.open_newwindow" = 3;
             "browser.link.open_newwindow.restriction" = 0;
             "browser.urlbar.suggest.history" = false;
-            "browser.urlbar.suggest.bookmark" = false;
+            "browser.urlbar.suggest.bookmark" = true;
             "browser.urlbar.suggest.openpage" = false;
             "browser.urlbar.suggest.topsites" = false;
             "browser.urlbar.autoFill" = false;
             "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
             "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+            "browser.tabs.searchclipboardfor.middleclick" = false;
+            "browser.urlbar.trending.featureGate" = false;
+            "browser.urlbar.addons.featureGate" = false;
+            "browser.urlbar.mdn.featureGate" = false;
+            "browser.urlbar.pocket.featureGate" = false;
+            "browser.urlbar.weather.featureGate" = false;
+            "browser.urlbar.yelp.featureGate" = false;
+            "browser.download.start_downloads_in_tmp_dir" = true;
+            "browser.contentanalysis.default_allow" = false;
 
             # Always leave on
             "extensions.blocklist.enabled" = true;
@@ -190,6 +216,7 @@ in {
             "extensions.webcompat-reporter.enabled" = false;
             "dom.event.contextmenu.enabled" = true;
             "plugins.enumerable_names" = "";
+            "extensions.quarantinedDomains.enabled" = true;
 
 
 
