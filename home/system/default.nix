@@ -3,6 +3,7 @@
 let
   cfg = config.myHomeModules.system;
   dtrue = lib.mkDefault true;
+  htrue = lib.mkDefault cfg.hyprland.enable;
 in {
   imports = [
     ../../options.nix
@@ -14,12 +15,12 @@ in {
     myHomeModules.system = {
       hyprland = {
         enable = dtrue;
-        bemenu.enable = cfg.hyprland.enable;
-        cursor.enable = cfg.hyprland.enable;
-        hypridle.enable = cfg.hyprland.enable;
-        hyprlock.enable = cfg.hyprland.enable;
-        mako.enable = cfg.hyprland.enable;
-        waybar.enable = cfg.hyprland.enable;
+        bemenu.enable = htrue;
+        cursor.enable = htrue;
+        hypridle.enable = htrue;
+        hyprlock.enable = htrue;
+        mako.enable = htrue;
+        waybar.enable = htrue;
       };
       zsh.enable = dtrue;
     };

@@ -39,7 +39,6 @@ in {
       mpd.enable = dtrue;
       mpv.enable = dtrue;
       ncmpcpp.enable = dtrue;
-      # syncthing.enable = dtrue;
       tmux.enable = dtrue;
       zathura.enable = dtrue;
     };

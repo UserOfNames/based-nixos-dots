@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   wayland.windowManager.hyprland.settings = {
@@ -8,72 +8,72 @@
     # m: Mouse
 
     bind = [
-      "$mainMod SHIFT, M, exit,"
-      "$mainMod, Q, killactive"
-      "$mainMod, F, fullscreen, 1"
-      "$mainMod SHIFT, F, fullscreen, 0"
-      "$mainMod, Y, togglefloating"
-      "$mainMod, O, toggleopaque"
-      "$mainMod, G, lockactivegroup, toggle"
-      "$mainMod SHIFT, G, togglegroup"
-      "$mainMod, bracketleft, changegroupactive, b"
-      "$mainMod, bracketright, changegroupactive, f"
+      "SUPER SHIFT, M, exit,"
+      "SUPER, Q, killactive"
+      "SUPER, F, fullscreen, 1"
+      "SUPER SHIFT, F, fullscreen, 0"
+      "SUPER, Y, togglefloating"
+      "SUPER, O, toggleopaque"
+      "SUPER, G, lockactivegroup, toggle"
+      "SUPER SHIFT, G, togglegroup"
+      "SUPER, bracketleft, changegroupactive, b"
+      "SUPER, bracketright, changegroupactive, f"
 
-      "$mainMod, return, exec, $terminal"
-      "$mainMod, B, exec, $terminal -e $fileManager"
+      "SUPER, return, exec, $terminal"
+      "SUPER, B, exec, $fileManager"
       "CTRL SHIFT, escape, exec, $terminal -e btop"
-      "$mainMod, E, exec, $terminal -e nvim"
-      "$mainMod, R, exec, j4-dmenu-desktop --dmenu=$menu --term $terminal --no-generic"
-      "$mainMod SHIFT, V, exec, cliphist list | $menu | cliphist decode | wl-copy"
-      "$mainMod, W, exec, $browser"
+      "SUPER, E, exec, $editor"
+      "SUPER, R, exec, $launcher"
+      "SUPER SHIFT, V, exec, cliphist list | $dmenu | cliphist decode | wl-copy"
+      "SUPER, W, exec, $browser"
       "CTRL SHIFT, L, exec, hyprlock"
 
       ", Print, exec, grim"
-      "$mainMod, Print, exec, grim -g \"$(slurp -w 0)\""
+      "SUPER, Print, exec, grim -g \"$(slurp -w 0)\""
 
-      "$mainMod, H, movefocus, l"
-      "$mainMod, L, movefocus, r"
-      "$mainMod, J, movefocus, d"
-      "$mainMod, K, movefocus, u"
+      "SUPER, H, movefocus, l"
+      "SUPER, L, movefocus, r"
+      "SUPER, J, movefocus, d"
+      "SUPER, K, movefocus, u"
 
-      "$mainMod ALT, H, movewindow, l"
-      "$mainMod ALT, L, movewindow, r"
-      "$mainMod ALT, J, movewindow, d"
-      "$mainMod ALT, K, movewindow, u"
+      "SUPER ALT, H, movewindow, l"
+      "SUPER ALT, L, movewindow, r"
+      "SUPER ALT, J, movewindow, d"
+      "SUPER ALT, K, movewindow, u"
 
-      "$mainMod, 1, workspace, 1"
-      "$mainMod, 2, workspace, 2"
-      "$mainMod, 3, workspace, 3"
-      "$mainMod, 4, workspace, 4"
-      "$mainMod, 5, workspace, 5"
-      "$mainMod, 6, workspace, 6"
-      "$mainMod, 7, workspace, 7"
-      "$mainMod, 8, workspace, 8"
-      "$mainMod, 9, workspace, 9"
-      "$mainMod, 0, workspace, 10"
+      "SUPER, 1, workspace, 1"
+      "SUPER, 2, workspace, 2"
+      "SUPER, 3, workspace, 3"
+      "SUPER, 4, workspace, 4"
+      "SUPER, 5, workspace, 5"
+      "SUPER, 6, workspace, 6"
+      "SUPER, 7, workspace, 7"
+      "SUPER, 8, workspace, 8"
+      "SUPER, 9, workspace, 9"
+      "SUPER, 0, workspace, 10"
 
-      "$mainMod SHIFT, 1, movetoworkspace, 1"
-      "$mainMod SHIFT, 2, movetoworkspace, 2"
-      "$mainMod SHIFT, 3, movetoworkspace, 3"
-      "$mainMod SHIFT, 4, movetoworkspace, 4"
-      "$mainMod SHIFT, 5, movetoworkspace, 5"
-      "$mainMod SHIFT, 6, movetoworkspace, 6"
-      "$mainMod SHIFT, 7, movetoworkspace, 7"
-      "$mainMod SHIFT, 8, movetoworkspace, 8"
-      "$mainMod SHIFT, 9, movetoworkspace, 9"
-      "$mainMod SHIFT, 0, movetoworkspace, 10"
+      "SUPER SHIFT, 1, movetoworkspace, 1"
+      "SUPER SHIFT, 2, movetoworkspace, 2"
+      "SUPER SHIFT, 3, movetoworkspace, 3"
+      "SUPER SHIFT, 4, movetoworkspace, 4"
+      "SUPER SHIFT, 5, movetoworkspace, 5"
+      "SUPER SHIFT, 6, movetoworkspace, 6"
+      "SUPER SHIFT, 7, movetoworkspace, 7"
+      "SUPER SHIFT, 8, movetoworkspace, 8"
+      "SUPER SHIFT, 9, movetoworkspace, 9"
+      "SUPER SHIFT, 0, movetoworkspace, 10"
     ];
 
     binde = [
-      "$mainMod SHIFT, H, resizeactive, -30 0"
-      "$mainMod SHIFT, L, resizeactive, 30 0"
-      "$mainMod SHIFT, J, resizeactive, 0 10"
-      "$mainMod SHIFT, K, resizeactive, 0 -10"
+      "SUPER SHIFT, H, resizeactive, -30 0"
+      "SUPER SHIFT, L, resizeactive, 30 0"
+      "SUPER SHIFT, J, resizeactive, 0 10"
+      "SUPER SHIFT, K, resizeactive, 0 -10"
 
-      "$mainMod CTRL, H, moveactive, -20 0"
-      "$mainMod CTRL, L, moveactive, 20 0"
-      "$mainMod CTRL, J, moveactive, 0 20"
-      "$mainMod CTRL, K, moveactive, 0 -20"
+      "SUPER CTRL, H, moveactive, -20 0"
+      "SUPER CTRL, L, moveactive, 20 0"
+      "SUPER CTRL, J, moveactive, 0 20"
+      "SUPER CTRL, K, moveactive, 0 -20"
     ];
 
     bindl = [
@@ -98,8 +98,8 @@
     ];
 
     bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
+      "SUPER, mouse:272, movewindow"
+      "SUPER, mouse:273, resizewindow"
     ];
   };
 }

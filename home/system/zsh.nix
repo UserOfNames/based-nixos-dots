@@ -28,9 +28,6 @@ in {
         c = "clear";
         clearall = "clear && rm ~/.zsh_history";
 
-        s = "cd `hash -d | bemenu | sed 's/^.*=//'`";
-        sf = "lf `hash -d | bemenu | sed 's/^.*=//'`";
-
         rebuild = "sudo nixos-rebuild switch --flake ~/.nixosdots";
         update = "sudo nix flake update ~/.nixosdots";
         updaterb = "sudo nix flake update ~/.nixosdots && sudo nixos-rebuild switch --flake ~/.nixosdots";

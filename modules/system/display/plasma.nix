@@ -11,6 +11,7 @@ in {
 
     environment.plasma6.excludePackages = with pkgs; [
       kdePackages.discover
+      kdePackages.dolphin
       kdePackages.elisa
       kdePackages.kate
       kdePackages.khelpcenter

@@ -2,6 +2,7 @@
 
 let
   cfg = config.myHomeModules.system.hyprland.bemenu;
+  cfgZsh = config.myHomeModules.system.zsh;
 in {
   config = lib.mkIf cfg.enable {
     programs.bemenu = {
@@ -58,6 +59,11 @@ in {
         # Border color.
         bdr = "#ffffff";
       };
+    };
+
+    programs.zsh.shellAliases = lib.mkIf cfgZsh.enable {
+      s = "cd `hash -d | bemenu | sed 's/^.*=//'`";
+      sf = "lf `hash -d | bemenu | sed 's/^.*=//'`";
     };
   };
 }

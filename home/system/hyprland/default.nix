@@ -41,6 +41,7 @@ in {
   
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      cliphist
       grim
       hyprpicker
       j4-dmenu-desktop
@@ -51,11 +52,12 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        "$mainMod" = "SUPER";
         "$terminal" = "kitty";
-        "$fileManager" = "lf";
-        "$menu" = "bemenu";
         "$browser" = "firefox";
+        "$editor" = "$terminal -e nvim";
+        "$fileManager" = "$terminal -e lf";
+        "$dmenu" = "bemenu";
+        "$launcher" = "j4-dmenu-desktop --dmenu=$dmenu --term $terminal --no-generic";
 
         exec-once = [
           "hypridle"
@@ -73,6 +75,7 @@ in {
           "gaps_in" = 5;
           "gaps_out" = 10;
           "layout" = "master";
+          "no_cursor_warps" = true;
         };
 
         decoration = {
