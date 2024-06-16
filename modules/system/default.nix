@@ -24,12 +24,9 @@ in {
       display = {
         enable = dtrue;
         hyprland.enable = dtrue;
-        # plasma.enable = dtrue;
         sddm.enable = dtrue;
       };
       hardware = {
-        # bluetooth.enable = dtrue;
-        # laptop.enable = dtrue;
         printing.enable = dtrue;
         sound.enable = dtrue;
       };

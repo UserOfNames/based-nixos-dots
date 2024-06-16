@@ -13,7 +13,6 @@ in {
     myModules.other = {
       gaming = {
         enable = dtrue;
-        # minecraft.enable = dtrue;
       };
     };
   };

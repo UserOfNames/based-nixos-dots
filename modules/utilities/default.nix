@@ -25,8 +25,6 @@ in {
     ];
 
     myModules.utilities = {
-      # thunar.enable = dtrue;
-      # virtualization.enable = dtrue;
     };
   };
 }
