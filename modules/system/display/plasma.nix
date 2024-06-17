@@ -4,14 +4,17 @@ let
   cfg = config.myModules.system.display.plasma;
 in {
   config = lib.mkIf cfg.enable {
-    services.desktopManager.plasma6 = {
-      enable = true;
-      enableQt5Integration = true;
+    services = {
+      desktopManager.plasma6 = {
+        enable = true;
+        enableQt5Integration = true;
+      };
+
+      power-profiles-daemon.enable = false;
     };
 
     environment.plasma6.excludePackages = with pkgs; [
       kdePackages.discover
-      kdePackages.dolphin
       kdePackages.elisa
       kdePackages.kate
       kdePackages.khelpcenter

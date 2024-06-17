@@ -62,8 +62,10 @@ in {
     };
 
     programs.zsh.shellAliases = lib.mkIf cfgZsh.enable {
+      # FIXME: Module assumptions
       s = "cd `hash -d | bemenu | sed 's/^.*=//'`";
-      sf = "lf `hash -d | bemenu | sed 's/^.*=//'`";
+      sb = "lf `hash -d | bemenu | sed 's/^.*=//'`";
+      se = "nvim `hash -d | bemenu | sed 's/^.*=//'`";
     };
   };
 }

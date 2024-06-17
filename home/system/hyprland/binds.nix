@@ -9,7 +9,7 @@
 
     bind = [
       "SUPER SHIFT, M, exit,"
-      "SUPER, Q, killactive"
+      "SUPER SHIFT, Q, killactive"
       "SUPER, F, fullscreen, 1"
       "SUPER SHIFT, F, fullscreen, 0"
       "SUPER, Y, togglefloating"
@@ -52,16 +52,16 @@
       "SUPER, 9, workspace, 9"
       "SUPER, 0, workspace, 10"
 
-      "SUPER SHIFT, 1, movetoworkspace, 1"
-      "SUPER SHIFT, 2, movetoworkspace, 2"
-      "SUPER SHIFT, 3, movetoworkspace, 3"
-      "SUPER SHIFT, 4, movetoworkspace, 4"
-      "SUPER SHIFT, 5, movetoworkspace, 5"
-      "SUPER SHIFT, 6, movetoworkspace, 6"
-      "SUPER SHIFT, 7, movetoworkspace, 7"
-      "SUPER SHIFT, 8, movetoworkspace, 8"
-      "SUPER SHIFT, 9, movetoworkspace, 9"
-      "SUPER SHIFT, 0, movetoworkspace, 10"
+      "SUPER SHIFT, 1, movetoworkspacesilent, 1"
+      "SUPER SHIFT, 2, movetoworkspacesilent, 2"
+      "SUPER SHIFT, 3, movetoworkspacesilent, 3"
+      "SUPER SHIFT, 4, movetoworkspacesilent, 4"
+      "SUPER SHIFT, 5, movetoworkspacesilent, 5"
+      "SUPER SHIFT, 6, movetoworkspacesilent, 6"
+      "SUPER SHIFT, 7, movetoworkspacesilent, 7"
+      "SUPER SHIFT, 8, movetoworkspacesilent, 8"
+      "SUPER SHIFT, 9, movetoworkspacesilent, 9"
+      "SUPER SHIFT, 0, movetoworkspacesilent, 10"
     ];
 
     binde = [
