@@ -4,11 +4,13 @@ require('telescope').setup({
          i = {
             ['<C-Space>'] = 'select_default',
             ['<C-s>'] = 'select_vertical',
+            ['C-l'] = 'select_default',
          },
 
          n = {
             ['<C-Space>'] = 'select_default',
             ['<Space>'] = 'select_default',
+            ['C-l'] = 'select_default',
             ['<C-s>'] = 'select_vertical',
          },
       }

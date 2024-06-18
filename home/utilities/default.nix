@@ -10,6 +10,7 @@ in {
     ./neovim
     ./btop.nix
     ./firefox.nix
+    ./fzf.nix
     ./git.nix
     ./kitty.nix
     ./mpd.nix
@@ -34,6 +35,7 @@ in {
       neovim.enable = dtrue;
       btop.enable = dtrue;
       firefox.enable = dtrue;
+      fzf.enable = dtrue;
       git.enable = dtrue;
       kitty.enable = dtrue;
       mpd.enable = dtrue;

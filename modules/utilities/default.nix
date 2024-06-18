@@ -14,7 +14,6 @@ in {
     environment.systemPackages = with pkgs; [
       _7zz
       brightnessctl
-      fzf
       gnupg
       helvum
       jmtpfs

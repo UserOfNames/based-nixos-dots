@@ -74,7 +74,7 @@ in {
       system = {
         enable = mke "Enable 'system' home module group";
         hyprland = {
-          enable = mke "Enable hyprland user configuration";
+          enable = mke "Enable hyprland";
           bemenu.enable = mke "Enable bemenu";
           cursor.enable = mke "Enable cursor";
           hypridle.enable = mke "Enable hypridle";
@@ -82,23 +82,23 @@ in {
           mako.enable = mke "Enable mako";
           waybar.enable = mke "Enable waybar";
         };
-        zsh.enable = mke "Enable zsh user configuration";
+        zsh.enable = mke "Enable zsh";
       };
 
       utilities = {
         enable = mke "Enable 'utilities' home module group";
         btop.enable = mke "Enable btop";
-        firefox.enable = mke "Enable firefox user configuration";
-        foot.enable = mke "Enable foot user configuration"; # Currently not in use
-        git.enable = mke "Enable git user configuration";
-        kitty.enable = mke "Enable kitty user configuration";
-        lf.enable = mke "Enable lf user configuration";
+        firefox.enable = mke "Enable firefox";
+        fzf.enable = mke "Enable fzf";
+        git.enable = mke "Enable git";
+        kitty.enable = mke "Enable kitty";
+        lf.enable = mke "Enable lf";
         mpd.enable = mke "Enable mpd";
         mpv.enable = mke "Enable mpv";
         ncmpcpp.enable = mke "Enable ncmpcpp";
-        neovim.enable = mke "Enable neovim user configuration";
+        neovim.enable = mke "Enable neovim";
         syncthing.enable = mke "Enable syncthing user service";
-        tmux.enable = mke "Enable tmux user configuration";
+        tmux.enable = mke "Enable tmux";
         zathura.enable = mke "Enable zathura";
       };
     };
