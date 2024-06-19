@@ -6,6 +6,15 @@ in {
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
+
+      policies = {
+        Cookies = {
+          Allow = [
+            "https://github.com"
+          ];
+        };
+      };
+
       profiles = {
         default = {
           isDefault = true;
