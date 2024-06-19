@@ -7,8 +7,9 @@ vim.keymap.set({ 'i', 'n' }, '<C-l>', '<Enter>')
 
 -- Split commands are handled with left alt
 -- Create splits
-vim.keymap.set('n', '<M-v>', ':vsplit <Enter>', {silent = true})
-vim.keymap.set('n', '<M-s>', ':split <Enter>', {silent = true})
+vim.keymap.set('n', '<M-v>', vim.cmd.vsplit)
+vim.keymap.set('n', '<M-s>', vim.cmd.split)
+
 -- Navigate splits
 vim.keymap.set('n', '<M-k>', '<C-w>k')
 vim.keymap.set('n', '<M-j>', '<C-w>j')

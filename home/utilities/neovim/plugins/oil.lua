@@ -10,8 +10,9 @@ require('oil').setup({
       ['<C-s>'] = { 'actions.select', opts = { vertical = true }, },
       ['<C-Space>'] = { 'actions.select' },
       ['<C-l>'] = { 'actions.select' },
+      ['<C-->'] = { 'actions.refresh' },
    },
 })
 
 -- Mappings
-vim.keymap.set('n', '<Leader>fe', ':e . <Enter>', {silent = true})
+vim.keymap.set('n', '<Leader>fe', vim.cmd.Oil)

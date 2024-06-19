@@ -22,6 +22,7 @@ in {
       plugins = with pkgs.vimPlugins; [
         # Workflow plugins
         nvim-treesitter.withAllGrammars
+        friendly-snippets
         harpoon2
         mini-nvim
         oil-nvim
@@ -66,6 +67,7 @@ in {
         ${readFile ./plugins/treesitter.lua}
         ${readFile ./plugins/mini.lua}
         ${readFile ./plugins/oil.lua}
+        ${readFile ./plugins/fugitive.lua}
         ${readFile ./plugins/telescope.lua}
         ${readFile ./plugins/undotree.lua}
         ${readFile ./plugins/harpoon.lua}
@@ -79,6 +81,7 @@ in {
         ${readFile ./plugins/lsp/lsp-lua_ls.lua}
         ${readFile ./plugins/lsp/lsp-nil_ls.lua}
         ${readFile ./plugins/lsp/lsp-pylsp.lua}
+        require('luasnip.loaders.from_vscode').lazy_load({ paths = { "${pkgs.vimPlugins.friendly-snippets}" } })
       '';
     };
   };
