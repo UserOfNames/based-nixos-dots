@@ -17,9 +17,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, disko, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, disko, stylix, ... }@inputs:
   let
     mkHost = hostname:
       nixpkgs.lib.nixosSystem {
