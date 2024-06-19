@@ -30,7 +30,6 @@ in {
         undotree
         vim-fugitive
         vim-numbertoggle
-        vim-visual-multi
 
         # Telescope and dependencies
         telescope-nvim
@@ -50,11 +49,12 @@ in {
         # LSP plugins
         nvim-lspconfig
         lsp-zero-nvim
+        luasnip
         nvim-cmp
         cmp-nvim-lsp
         cmp-buffer
         cmp-path
-        luasnip
+        cmp_luasnip
       ];
 
       # Import all configs. Ugly solution but I can't seem to find a better one.
@@ -81,7 +81,7 @@ in {
         ${readFile ./plugins/lsp/lsp-lua_ls.lua}
         ${readFile ./plugins/lsp/lsp-nil_ls.lua}
         ${readFile ./plugins/lsp/lsp-pylsp.lua}
-        require('luasnip.loaders.from_vscode').lazy_load({ paths = { "${pkgs.vimPlugins.friendly-snippets}" } })
+        ${readFile ./plugins/lsp/lsp-luasnip.lua}
       '';
     };
   };
