@@ -92,13 +92,13 @@ in {
         fzf.enable = mke "Enable fzf";
         git.enable = mke "Enable git";
         kitty.enable = mke "Enable kitty";
-        lf.enable = mke "Enable lf";
         mpd.enable = mke "Enable mpd";
         mpv.enable = mke "Enable mpv";
         ncmpcpp.enable = mke "Enable ncmpcpp";
         neovim.enable = mke "Enable neovim";
         syncthing.enable = mke "Enable syncthing user service";
         tmux.enable = mke "Enable tmux";
+        yazi.enable = mke "Enable yazi";
         zathura.enable = mke "Enable zathura";
       };
     };

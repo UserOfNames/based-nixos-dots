@@ -6,7 +6,7 @@ let
 in {
   imports = [
     ../../options.nix
-    ./lf
+    ./yazi
     ./neovim
     ./btop.nix
     ./firefox.nix
@@ -31,7 +31,7 @@ in {
     ];
 
     myHomeModules.utilities = {
-      lf.enable = dtrue;
+      yazi.enable = dtrue;
       neovim.enable = dtrue;
       btop.enable = dtrue;
       firefox.enable = dtrue;
