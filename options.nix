@@ -57,7 +57,6 @@ in {
           };
         };
 
-        fonts.enable = mke "Enable font module";
         locale.enable = mke "Enable locale module";
         network.enable = mke "Enable network module";
         packages.enable = mke "Enable packages module";
@@ -149,7 +148,6 @@ in {
 
         user.enable = ms;
 
-        fonts.enable = ms;
         locale.enable = ms;
         network.enable = ms;
         packages.enable = ms;

@@ -8,7 +8,6 @@ in {
     ./display
     ./hardware
     ./bootloader.nix
-    # ./fonts.nix
     ./locale.nix
     ./network.nix
     ./packages.nix
