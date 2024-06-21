@@ -1,2 +1,4 @@
 vim.keymap.set('n', '<Leader>gg', vim.cmd.Git)
+vim.keymap.set('n', '<Leader>g ', ':Git ')
 vim.keymap.set('n', '<Leader>gb', function() vim.cmd.Git('branch') end)
+vim.keymap.set('n', '<Leader>gl', function() vim.cmd.Git('log') end)
