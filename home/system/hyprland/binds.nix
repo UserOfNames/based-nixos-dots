@@ -26,7 +26,7 @@
       "SUPER, R, exec, $launcher"
       "SUPER SHIFT, V, exec, cliphist list | $dmenu | cliphist decode | wl-copy"
       "SUPER, W, exec, $browser"
-      "CTRL SHIFT, L, exec, hyprlock"
+      "SUPER CTRL SHIFT, L, exec, hyprlock"
 
       ", Print, exec, grim"
       "SUPER, Print, exec, grim -g \"$(slurp -w 0)\""
