@@ -55,7 +55,7 @@ in {
         "$terminal" = "kitty";
         "$browser" = "firefox";
         "$editor" = "$terminal -e nvim";
-        "$fileManager" = "$terminal -e lf";
+        "$fileManager" = "$terminal -e yazi";
         "$dmenu" = "bemenu";
         "$launcher" = "j4-dmenu-desktop --dmenu=$dmenu --term $terminal --no-generic";
 

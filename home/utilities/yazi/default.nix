@@ -5,7 +5,6 @@ let
 in {
   imports = [
     ./keymaps.nix
-    ./theme.nix
   ];
 
   config = lib.mkIf cfg.enable {
@@ -22,8 +21,20 @@ in {
         };
 
         preview = {
-          max_width = 1200;
-          max_height = 1800;
+          max_width = 9999;
+          max_height = 9999;
+        };
+
+        opener = {
+          epub = [
+            { run = ''foliate "$@"''; orphan = true; }
+          ];
+        };
+
+        open = {
+          prepend_rules = [
+            { name = ''*.epub''; use = ''epub''; }
+          ];
         };
       };
     };
