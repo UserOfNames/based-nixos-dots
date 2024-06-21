@@ -2,7 +2,6 @@
 
 let
   cfg = config.myHomeModules.productivity;
-  dtrue = lib.mkDefault true;
 in {
   imports = [
     ../../options.nix
@@ -14,8 +13,5 @@ in {
       libreoffice-fresh
       obs-studio
     ];
-
-    myHomeModules.productivity = {
-    };
   };
 }

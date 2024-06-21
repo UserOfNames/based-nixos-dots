@@ -2,7 +2,6 @@
 
 let
   cfg = config.myModules.utilities;
-  dtrue = lib.mkDefault true;
 in {
   imports = [
     ../../options.nix
@@ -22,8 +21,5 @@ in {
       wl-clip-persist
       wl-clipboard
     ];
-
-    myModules.utilities = {
-    };
   };
 }

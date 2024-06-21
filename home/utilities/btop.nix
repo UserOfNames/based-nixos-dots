@@ -9,7 +9,6 @@ in {
 
       settings = {
         # I decided to copy+paste the entire default config for posterity
-        color_theme = "Default";
         theme_background = true;
         truecolor = true;
         force_tty = false;

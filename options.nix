@@ -2,16 +2,29 @@
 
 let
   mke = lib.mkEnableOption;
+  lmd = lib.mkDefault;
+  cfg = config.myModules;
+  hfg = config.myHomeModules;
+
+  mo = lib.mkDefault cfg.other.enable;
+  ms = lib.mkDefault cfg.system.enable;
+  mu = lib.mkDefault cfg.utilities.enable;
+
+  ho = lib.mkDefault hfg.other.enable;
+  hp = lib.mkDefault hfg.productivity.enable;
+  hs = lib.mkDefault hfg.system.enable;
+  hu = lib.mkDefault hfg.utilities.enable;
 in {
   /* Options for all modules are declared here. I did it this way to allow
   sharing options between home and system modules when necessary and to provide
   a centralized location to browse module options. This file must be imported
-  in each group default.nix file.*/
+  in each group default.nix file. */
   options = {
     myModules = {
       other = {
         enable = mke "Enable 'other' NixOS module group";
         gaming.enable = mke "Enable gaming module";
+        stylix.enable = mke "Enable stylix";
       };
 
       system = {
@@ -29,6 +42,7 @@ in {
         };
 
         hardware = {
+          enable = mke "Enable hardware module";
           bluetooth.enable = mke "Enable bluetooth";
           laptop.enable = mke "Enable some settings for laptops";
           printing.enable = mke "Enable printing";
@@ -76,7 +90,6 @@ in {
         hyprland = {
           enable = mke "Enable hyprland";
           bemenu.enable = mke "Enable bemenu";
-          cursor.enable = mke "Enable cursor";
           hypridle.enable = mke "Enable hypridle";
           hyprlock.enable = mke "Enable hyprlock";
           mako.enable = mke "Enable mako";
@@ -100,6 +113,93 @@ in {
         tmux.enable = mke "Enable tmux";
         yazi.enable = mke "Enable yazi";
         zathura.enable = mke "Enable zathura";
+      };
+    };
+  };
+
+
+
+  config = {
+    myModules = {
+      other = {
+        gaming.enable = mo;
+        stylix.enable = mo;
+      };
+
+      system = {
+        bootloader = {
+          enable = ms;
+          useLatestKernel = lmd cfg.system.bootloader.enable;
+        };
+
+        display = {
+          enable = ms;
+          hyprland.enable = lmd cfg.system.display.enable;
+          # plasma.enable = lmd cfg.system.display.enable;
+          sddm.enable = lmd cfg.system.display.enable;
+        };
+
+        hardware = {
+          enable = ms;
+          # bluetooth.enable = lmd cfg.system.hardware.enable;
+          # laptop.enable = lmd cfg.system.hardware.enable;
+          printing.enable = lmd cfg.system.hardware.enable;
+          sound.enable = lmd cfg.system.hardware.enable;
+        };
+
+        user.enable = ms;
+
+        fonts.enable = ms;
+        locale.enable = ms;
+        network.enable = ms;
+        packages.enable = ms;
+        security.enable = ms;
+        store.enable = ms;
+        zsh.enable = ms;
+      };
+
+      utilities = {
+        # thunar.enable = mu;
+        # virtualization.enable = mu;
+      };
+    };
+
+    myHomeModules = {
+      other = {
+        fastfetch.enable = ho;
+        newsboat.enable = ho;
+        ytdlp.enable = ho;
+      };
+
+      productivity = {
+      };
+
+      system = {
+        hyprland = {
+          enable = hs;
+          bemenu.enable = lmd hfg.system.hyprland.enable;
+          hypridle.enable = lmd hfg.system.hyprland.enable;
+          hyprlock.enable = lmd hfg.system.hyprland.enable;
+          mako.enable = lmd hfg.system.hyprland.enable;
+          waybar.enable = lmd hfg.system.hyprland.enable;
+        };
+        zsh.enable = hs;
+      };
+
+      utilities = {
+        btop.enable = hu;
+        firefox.enable = hu;
+        fzf.enable = hu;
+        git.enable = hu;
+        kitty.enable = hu;
+        mpd.enable = hu;
+        mpv.enable = hu;
+        ncmpcpp.enable = hu;
+        neovim.enable = hu;
+        syncthing.enable = hu;
+        tmux.enable = hu;
+        yazi.enable = hu;
+        zathura.enable = hu;
       };
     };
   };

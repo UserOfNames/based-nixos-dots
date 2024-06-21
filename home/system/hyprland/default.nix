@@ -33,7 +33,6 @@ in {
     ./waybar
     ./bemenu.nix
     ./binds.nix
-    ./cursor.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./mako.nix
@@ -76,6 +75,7 @@ in {
           "gaps_out" = 10;
           "layout" = "master";
           "no_cursor_warps" = true;
+          "col.active_border" = lib.mkForce "0xffffffff";
         };
 
         decoration = {

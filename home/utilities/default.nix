@@ -2,7 +2,6 @@
 
 let
   cfg = config.myHomeModules.utilities;
-  dtrue = lib.mkDefault true;
 in {
   imports = [
     ../../options.nix
@@ -29,20 +28,5 @@ in {
       qimgv
       trashy
     ];
-
-    myHomeModules.utilities = {
-      yazi.enable = dtrue;
-      neovim.enable = dtrue;
-      btop.enable = dtrue;
-      firefox.enable = dtrue;
-      fzf.enable = dtrue;
-      git.enable = dtrue;
-      kitty.enable = dtrue;
-      mpd.enable = dtrue;
-      mpv.enable = dtrue;
-      ncmpcpp.enable = dtrue;
-      tmux.enable = dtrue;
-      zathura.enable = dtrue;
-    };
   };
 }

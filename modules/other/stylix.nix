@@ -9,7 +9,9 @@ in {
 
   config = lib.mkIf cfg.enable {
     stylix = {
-      base16Scheme = "${pkgs.base16-schemes}/";
+      enable = true;
+      image = ./Totality.jpg;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
       cursor = {
         package = pkgs.gnome.adwaita-icon-theme;
         name = "Adwaita";
@@ -22,13 +24,13 @@ in {
         };
 
         sansSerif = {
-          package = "";
-          name = "";
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Sans";
         };
 
         serif = {
-          package = "";
-          name = "";
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Serif";
         };
 
         sizes = {
