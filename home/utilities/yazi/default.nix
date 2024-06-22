@@ -10,7 +10,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.yazi = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = config.myHomeModules.system.zsh.enable;
 
       settings = {
         manager = {
