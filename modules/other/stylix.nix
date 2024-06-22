@@ -38,7 +38,7 @@ in {
       cursor = {
         package = pkgs.gnome.adwaita-icon-theme;
         name = "Adwaita";
-        size = 16;
+        size = 24;
       };
 
       fonts = {

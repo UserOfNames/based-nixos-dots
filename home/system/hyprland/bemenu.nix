@@ -63,8 +63,6 @@ in {
 
     programs.zsh.shellAliases = lib.mkIf cfgZsh.enable {
       s = "cd `hash -d | bemenu | sed 's/^.*=//'`";
-      sb = "yazi `hash -d | bemenu | sed 's/^.*=//'`";
-      se = "nvim `hash -d | bemenu | sed 's/^.*=//'`";
     };
   };
 }

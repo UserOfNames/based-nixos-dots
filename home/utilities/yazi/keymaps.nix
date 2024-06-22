@@ -28,7 +28,7 @@ in {
 
       input = {
         prepend_keymap = [
-          { on = [ "<C-l>" ]; run = "close -- submit"; desc = "Submit the input"; }
+          { on = [ "<C-l>" ]; run = "close --submit"; desc = "Submit the input"; }
         ];
       };
 

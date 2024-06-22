@@ -10,6 +10,7 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
+      dotDir = "./config/zsh";
 
       dirHashes = {
         docs = "$HOME/Documents";
@@ -50,6 +51,7 @@ in {
         keytimeout=1
         zstyle ':completion:*' menu select
         _comp_options+=(globdots)
+        bindkey -s ^f "tmux-sessionizer\n"
       '';
     }; 
   };

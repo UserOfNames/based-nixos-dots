@@ -11,6 +11,9 @@ in {
         Cookies = {
           Allow = [
             "https://github.com"
+            "https://google.com"
+            "https://lichess.org"
+            "https://youtube.com"
           ];
         };
       };

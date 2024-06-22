@@ -1,14 +1,16 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 # Script by ThePrimeagen. Bugfix from https://github.com/ThePrimeagen/.dotfiles/issues/32#issuecomment-1359249250
 let
   cfg = config.scripts.tmux-sessionizer;
+  cfgZsh = config.myHomeModules.system.zsh;
+  userName = config.myModules.system.user.userName;
 
   tmux-sessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
     if [[ $# -eq 1 ]]; then
         selected=$1
     else
-        selected=$(find ~/Projects ~/.nixosdots -mindepth 0 -maxdepth 1 -type d | ${pkgs.fzf}/bin/fzf)
+        selected=$(find ~/Projects ~/.nixosdots ~/Documents/lecture-notes -mindepth 0 -maxdepth 1 -type d | ${pkgs.fzf}/bin/fzf)
     fi
 
     if [[ -z $selected ]]; then
@@ -35,9 +37,13 @@ let
   '';
 
 in {
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       tmux-sessionizer
     ];
+
+    home-manager.users."${userName}".programs.zsh.initExtra = lib.mkIf cfgZsh.enable ''bindkey -s ^f "tmux-sessionizer\n"'';
   };
 }

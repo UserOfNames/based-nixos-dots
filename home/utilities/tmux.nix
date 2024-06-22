@@ -6,8 +6,9 @@ in {
   config = lib.mkIf cfg.enable {
     programs.tmux = {
       enable = true;
-      escapeTime = 0;
+      shortcut = "Space";
       keyMode = "vi";
+      escapeTime = 0;
       clock24 = true;
 
       extraConfig = ''
