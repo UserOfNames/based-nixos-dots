@@ -5,15 +5,18 @@ let
   lmd = lib.mkDefault;
   cfg = config.myModules;
   hfg = config.myHomeModules;
+  sfg = config.scripts;
 
-  mo = lib.mkDefault cfg.other.enable;
-  ms = lib.mkDefault cfg.system.enable;
-  mu = lib.mkDefault cfg.utilities.enable;
+  mo = lmd cfg.other.enable;
+  ms = lmd cfg.system.enable;
+  mu = lmd cfg.utilities.enable;
 
-  ho = lib.mkDefault hfg.other.enable;
-  hp = lib.mkDefault hfg.productivity.enable;
-  hs = lib.mkDefault hfg.system.enable;
-  hu = lib.mkDefault hfg.utilities.enable;
+  ho = lmd hfg.other.enable;
+  hp = lmd hfg.productivity.enable;
+  hs = lmd hfg.system.enable;
+  hu = lmd hfg.utilities.enable;
+
+  se = lmd sfg.enable;
 in {
   /* Options for all modules are declared here. I did it this way to allow
   sharing options between home and system modules when necessary and to provide
@@ -114,6 +117,11 @@ in {
         zathura.enable = mke "Enable zathura";
       };
     };
+
+    scripts = {
+      enable = mke "Enable scripts";
+      tmux-sessionizer.enable = mke "Enable tmux-sessionizer script by Primeagen";
+    };
   };
 
 
@@ -199,6 +207,11 @@ in {
         yazi.enable = hu;
         zathura.enable = hu;
       };
+    };
+
+    scripts = {
+      enable = lmd true;
+      tmux-sessionizer.enable = se;
     };
   };
 }

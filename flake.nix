@@ -31,6 +31,7 @@
           ./hosts/${hostname}
           ./home-manager.nix
           ./modules
+          ./scripts
           { nixpkgs.overlays = [ nur.overlay ]; }
         ];
       };
