@@ -126,6 +126,10 @@ in {
           "no_warps" = true;
         };
 
+        master = {
+          "new_is_master" = false;
+        };
+
         windowrule = [
           "opaque, ^(qimgv)$"
           "opaque, ^(org.pwmt.zathura)$"

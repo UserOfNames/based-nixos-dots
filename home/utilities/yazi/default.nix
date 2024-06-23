@@ -29,11 +29,16 @@ in {
           epub = [
             { run = ''foliate "$@"''; orphan = true; }
           ];
+
+          pdf = [
+            { run = ''${pkgs.zathura}/bin/zathura "$@"''; orphan = true; }
+          ];
         };
 
         open = {
           prepend_rules = [
             { name = ''*.epub''; use = ''epub''; }
+            { name = ''*.pdf''; use = ''pdf''; }
           ];
         };
       };
