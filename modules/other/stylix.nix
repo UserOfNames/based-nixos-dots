@@ -12,7 +12,7 @@ in {
       enable = true;
       autoEnable = true;
 
-      image = ./Totality.jpg;
+      image = ../../assets/Totality.jpg;
 
       # Slight modifications to align more with nvim-tokyonight-night
       # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";

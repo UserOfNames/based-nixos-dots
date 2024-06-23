@@ -3,6 +3,7 @@
 let
   cfg = config.myHomeModules.system.hyprland;
   swww-random = pkgs.writeShellScriptBin "swww-random" ''
+    sleep 1
     if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
       echo "Usage:
       $0 <path/to/wallpapers/folder>"
@@ -59,11 +60,11 @@ in {
         "$launcher" = "j4-dmenu-desktop --dmenu=$dmenu --term $terminal --no-generic";
 
         exec-once = [
+          "swww-daemon"
+          "${swww-random}/bin/swww-random /home/${config.myModules.system.user.userName}/Wallpapers"
           "hypridle"
           "mako"
           "${pkgs.networkmanagerapplet}/bin/nm-applet"
-          "${pkgs.swww}/bin/swww-daemon"
-          "${swww-random}/bin/swww-random /home/${config.myModules.system.user.userName}/Wallpapers"
           "wl-clip-persist --clipboard regular"
           "wl-paste --type text --watch cliphist store"
           "wl-paste --type image --watch cliphist store"
@@ -74,7 +75,6 @@ in {
           "gaps_in" = 5;
           "gaps_out" = 10;
           "layout" = "master";
-          "no_cursor_warps" = true;
           "col.active_border" = lib.mkForce "0xffffffff";
         };
 
@@ -120,6 +120,10 @@ in {
           "disable_autoreload" = true;
           "enable_swallow" = true;
           "swallow_regex" = "^(kitty)$";
+        };
+
+        cursor = {
+          "no_warps" = true;
         };
 
         windowrule = [
