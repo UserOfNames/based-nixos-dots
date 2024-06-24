@@ -99,7 +99,7 @@ in {
         };
 
         input = {
-          # "numlock_by_default" = true;
+          "numlock_by_default" = lib.mkDefault true;
           "repeat_rate" = 40;
           "repeat_delay" = 300;
           "follow_mouse" = 2;

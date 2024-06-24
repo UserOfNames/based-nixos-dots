@@ -9,6 +9,8 @@ in {
       shortcut = "Space";
       keyMode = "vi";
       escapeTime = 0;
+      baseIndex = 1;
+      mouse = true;
       clock24 = true;
 
       extraConfig = ''
@@ -21,6 +23,8 @@ in {
         bind-key -r J resize-pane -D
         bind-key -r H resize-pane -L
         bind-key -r L resize-pane -R
+
+        set -g status-position top
       '';
     };
   };
