@@ -2,6 +2,7 @@
 
 let
   cfg = config.myHomeModules.utilities.tmux;
+  cfgColors = config.stylix.base16Scheme;
 in {
   config = lib.mkIf cfg.enable {
     programs.tmux = {
@@ -24,7 +25,21 @@ in {
         bind-key -r H resize-pane -L
         bind-key -r L resize-pane -R
 
+        bind-key r source-file $HOME/.config/tmux/tmux.conf
+
         set -g status-position top
+        set -g status-justify left
+        set -g status-left ""
+        set -g status-right "%m-%d-%Y %H:%M "
+        set -g status-left-length 10
+        set -g status-right-length 50
+        set -g status-style "bg=color0"
+
+        setw -g window-status-current-style "fg=color2 bold"
+        setw -g window-status-current-format " #I #[fg=color2]#W #F "
+
+        setw -g window-status-style "fg=color7 dim"
+        setw -g window-status-format " #I #W #F "
       '';
     };
   };

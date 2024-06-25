@@ -10,7 +10,8 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
-      dotDir = "./config/zsh";
+      dotDir = ".config/zsh";
+      history.path = "$ZDOTDIR/.zsh_history";
 
       dirHashes = {
         docs = "$HOME/Documents";
@@ -27,7 +28,7 @@ in {
       shellAliases = {
         ls = "ls -a --color";
         c = "clear";
-        clearall = "clear && rm ~/.zsh_history";
+        clearall = "clear && rm $ZDOTDIR/.zsh_history";
 
         rebuild = "sudo nixos-rebuild switch --flake ~/.nixosdots";
         update = "sudo nix flake update ~/.nixosdots";
