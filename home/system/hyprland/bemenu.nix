@@ -62,7 +62,7 @@ in {
     };
 
     programs.zsh.shellAliases = lib.mkIf cfgZsh.enable {
-      s = "cd `hash -d | bemenu | sed 's/^.*=//'`";
+      s = "cd `hash -d | fzf | sed 's/^.*=//'`";
     };
   };
 }
