@@ -24,6 +24,7 @@ in {
           # Extensions from NUR
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
             canvasblocker
+            darkreader
             multi-account-containers
             skip-redirect
             ublock-origin
