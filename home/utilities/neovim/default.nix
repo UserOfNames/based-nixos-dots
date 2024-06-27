@@ -27,6 +27,7 @@ in {
         mini-nvim
         oil-nvim
         toggleterm-nvim
+        trouble-nvim
         undotree
         vim-fugitive
         vim-numbertoggle
@@ -64,6 +65,7 @@ in {
         ${readFile ./autocmd/lua.lua}
         ${readFile ./autocmd/nix.lua}
         ${readFile ./plugins/toggleterm.lua}
+        ${readFile ./plugins/trouble.lua}
         ${readFile ./plugins/treesitter.lua}
         ${readFile ./plugins/mini.lua}
         ${readFile ./plugins/oil.lua}
