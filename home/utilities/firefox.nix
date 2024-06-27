@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.myHomeModules.utilities.firefox;
@@ -32,8 +32,72 @@ in {
           ];
 
           search = {
-            default = "DuckDuckGo";
+            default = "Brave";
             force = true;
+
+            order = [
+              "Brave"
+              "DuckDuckGo"
+              "Wikipedia"
+              "Nix Packages"
+              "Nix Options"
+              "Home Manager Options"
+            ];
+
+            engines = {
+              "Brave" = {
+                 definedAliases = [ "@brave" "@b" ];
+
+                 urls = [{
+                   template = "https://search.brave.com/search";
+                   params = [
+                      { name = "q"; value = "{searchTerms}"; }
+                      # { name = "source"; value = "web"; }
+                    ];
+                }];
+              };
+
+              "Nix Packages" = {
+                definedAliases = [ "@nixpackages" "@np" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+
+                urls = [{
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    { name = "type"; value = "packages"; }
+                    { name = "channel"; value = "unstable"; }
+                    { name = "query"; value = "{searchTerms}"; }
+                  ];
+                }];
+              };
+
+              "Nix Options" = {
+                definedAliases = [ "@nixoptions" "@no" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+
+                urls = [{
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    { name = "type"; value = "packages"; }
+                    { name = "channel"; value = "unstable"; }
+                    { name = "query"; value = "{searchTerms}"; }
+                  ];
+                }];
+              };
+
+              "Home Manager Options" = {
+                definedAliases = [ "@homemanager" "@hm" ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+
+                urls = [{
+                  template = "https://home-manager-options.extranix.com/";
+                  params = [
+                    { name = "query"; value = "{searchTerms}"; }
+                    { name = "release"; value = "master"; }
+                  ];
+                }];
+              };
+            };
           };
 
           settings = {
