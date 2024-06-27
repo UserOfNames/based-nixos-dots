@@ -20,8 +20,7 @@ let
 in {
   /* Options for all modules are declared here. I did it this way to allow
   sharing options between home and system modules when necessary and to provide
-  a centralized location to browse module options. This file must be imported
-  in each group default.nix file. */
+  a centralized location to browse module options.*/
   options = {
     myModules = {
       other = {

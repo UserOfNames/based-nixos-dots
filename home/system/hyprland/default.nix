@@ -61,7 +61,7 @@ in {
 
         exec-once = [
           "swww-daemon"
-          "${swww-random}/bin/swww-random /home/${config.myModules.system.user.userName}/Wallpapers"
+          "${swww-random}/bin/swww-random /home/${config.myModules.system.user.userName}/Pictures/Wallpapers"
           "hypridle"
           "mako"
           "${pkgs.networkmanagerapplet}/bin/nm-applet"
@@ -75,7 +75,7 @@ in {
           "gaps_in" = 5;
           "gaps_out" = 10;
           "layout" = "master";
-          "col.active_border" = lib.mkForce "0xffffffff";
+          # "col.active_border" = lib.mkForce "0xffffffff";
         };
 
         decoration = {
