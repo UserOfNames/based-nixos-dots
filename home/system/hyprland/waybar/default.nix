@@ -12,11 +12,11 @@ in {
           mode = "dock";
           layer = "top";
           position = "top";
-          height = 30;
-          spacing = 5;
+          height = 32;
+          # spacing = 5;
 
           modules-left = [
-            "custom/nixicon"
+            "image"
             "hyprland/workspaces"
             "hyprland/window"
           ];
@@ -32,8 +32,9 @@ in {
             "tray"
           ];
 
-          "custom/nixicon" = {
-            format = "  ";
+          "image" = {
+            path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+            size = 24;
           };
 
           "hyprland/workspaces" = {
@@ -173,7 +174,7 @@ in {
           };
 
           "tray" = {
-            icon-size = 15;
+            icon-size = 16;
             spacing = 6;
           };
 

@@ -1,6 +1,6 @@
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 15px;
+    font-size: 16px;
     border: none;
     border-radius: 0px;
 }
@@ -27,6 +27,12 @@ window#waybar.hidden {
 tooltip {
 }
 
+#image,
+#window {
+    color: #ffffff;
+    padding: 0 8px;
+}
+
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
@@ -51,7 +57,6 @@ tooltip {
 #bluetooth,
 #clock,
 #cpu,
-#custom,
 #memory,
 #mpd,
 #network,
@@ -59,12 +64,7 @@ tooltip {
 #temperature,
 #tray {
 /*#wireplumber {*/
-    padding: 0 15px;
-    color: #ffffff;
-}
-
-#window,
-#custom-nixicon {
+    padding: 0 20px;
     color: #ffffff;
 }
 
