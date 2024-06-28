@@ -80,8 +80,6 @@ in {
 
         decoration = {
           "rounding" = 5;
-          "active_opacity" = 0.95;
-          "inactive_opacity" = 0.85;
           "blur" = {
             "enabled" = false;
           };
@@ -131,8 +129,7 @@ in {
         };
 
         windowrule = [
-          "opaque, ^(qimgv)$"
-          "opaque, ^(org.pwmt.zathura)$"
+          "opacity 0.95 0.85 1.0, ^(kitty)$"
         ];
 
         layerrule = [
