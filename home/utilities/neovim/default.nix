@@ -24,6 +24,7 @@ in {
         nvim-treesitter.withAllGrammars
         friendly-snippets
         harpoon2
+        luasnip
         mini-nvim
         oil-nvim
         toggleterm-nvim
@@ -33,9 +34,9 @@ in {
         vim-numbertoggle
 
         # Telescope and dependencies
-        telescope-nvim
         plenary-nvim
         telescope-fzf-native-nvim
+        telescope-nvim
 
         # Aesthetic plugins
         lualine-nvim
@@ -50,7 +51,6 @@ in {
         # LSP plugins
         nvim-lspconfig
         lsp-zero-nvim
-        luasnip
         nvim-cmp
         cmp-nvim-lsp
         cmp-buffer
@@ -64,26 +64,31 @@ in {
         ${readFile ./mappings.lua}
         ${readFile ./autocmd/lua.lua}
         ${readFile ./autocmd/nix.lua}
-        ${readFile ./plugins/toggleterm.lua}
-        ${readFile ./plugins/trouble.lua}
+
         ${readFile ./plugins/treesitter.lua}
+        ${readFile ./plugins/harpoon.lua}
+        ${readFile ./plugins/luasnip.lua}
         ${readFile ./plugins/mini.lua}
         ${readFile ./plugins/oil.lua}
-        ${readFile ./plugins/fugitive.lua}
-        ${readFile ./plugins/telescope.lua}
+        ${readFile ./plugins/toggleterm.lua}
+        ${readFile ./plugins/trouble.lua}
         ${readFile ./plugins/undotree.lua}
-        ${readFile ./plugins/harpoon.lua}
-        ${readFile ./plugins/nvim-web-devicons.lua}
+        ${readFile ./plugins/fugitive.lua}
+
+        ${readFile ./plugins/telescope.lua}
+
         ${readFile ./plugins/lualine.lua}
-        ${readFile ./plugins/vimtex.lua}
+        ${readFile ./plugins/nvim-web-devicons.lua}
         ${readFile ./plugins/zen-mode.lua}
+
+        ${readFile ./plugins/vimtex.lua}
+
         ${readFile ./plugins/lsp/lsp-zero.lua}
-        ${readFile ./plugins/lsp/lsp-cmp.lua}
-        ${readFile ./plugins/lsp/lsp-ccls.lua}
-        ${readFile ./plugins/lsp/lsp-lua_ls.lua}
-        ${readFile ./plugins/lsp/lsp-nil_ls.lua}
-        ${readFile ./plugins/lsp/lsp-pylsp.lua}
-        ${readFile ./plugins/lsp/lsp-luasnip.lua}
+        ${readFile ./plugins/lsp/cmp.lua}
+        ${readFile ./plugins/lsp/ccls.lua}
+        ${readFile ./plugins/lsp/lua_ls.lua}
+        ${readFile ./plugins/lsp/nil_ls.lua}
+        ${readFile ./plugins/lsp/pylsp.lua}
       '';
     };
   };
