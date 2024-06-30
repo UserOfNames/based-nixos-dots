@@ -9,8 +9,6 @@ in {
         enable = true;
         enableQt5Integration = true;
       };
-
-      power-profiles-daemon.enable = false;
     };
 
     environment.plasma6.excludePackages = with pkgs; [

@@ -8,6 +8,7 @@ in {
       libinput.enable = true;
       tlp.enable = true;
       upower.enable = true;
+      power-profiles-daemon.enable = false;
     };
   };
 }
