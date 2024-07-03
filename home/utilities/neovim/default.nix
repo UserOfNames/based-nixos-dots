@@ -27,7 +27,6 @@ in {
         luasnip
         mini-nvim
         oil-nvim
-        toggleterm-nvim
         trouble-nvim
         undotree
         vim-fugitive
@@ -70,7 +69,6 @@ in {
         ${readFile ./plugins/luasnip.lua}
         ${readFile ./plugins/mini.lua}
         ${readFile ./plugins/oil.lua}
-        ${readFile ./plugins/toggleterm.lua}
         ${readFile ./plugins/trouble.lua}
         ${readFile ./plugins/undotree.lua}
         ${readFile ./plugins/fugitive.lua}
