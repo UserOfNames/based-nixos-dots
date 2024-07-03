@@ -2,6 +2,8 @@
 
 let
   cfg = config.myHomeModules.system.hyprland;
+  userName = config.myModules.system.user.userName;
+
   swww-random = pkgs.writeShellScriptBin "swww-random" ''
     sleep 1
     if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
@@ -61,7 +63,7 @@ in {
 
         exec-once = [
           "swww-daemon"
-          "${swww-random}/bin/swww-random /home/${config.myModules.system.user.userName}/Pictures/Wallpapers"
+          "${swww-random}/bin/swww-random /home/${userName}/Pictures/Wallpapers"
           "hypridle"
           "mako"
           "${pkgs.networkmanagerapplet}/bin/nm-applet"
