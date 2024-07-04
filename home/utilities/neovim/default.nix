@@ -26,6 +26,7 @@ in {
         harpoon2
         luasnip
         mini-nvim
+        nvim-autopairs
         oil-nvim
         trouble-nvim
         undotree
@@ -68,6 +69,7 @@ in {
         ${readFile ./plugins/harpoon.lua}
         ${readFile ./plugins/luasnip.lua}
         ${readFile ./plugins/mini.lua}
+        ${readFile ./plugins/autopairs.lua}
         ${readFile ./plugins/oil.lua}
         ${readFile ./plugins/trouble.lua}
         ${readFile ./plugins/undotree.lua}

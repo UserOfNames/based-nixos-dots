@@ -13,8 +13,5 @@ require('mini.move').setup({
    }
 })
 
--- mini.pairs: Autopairing
-require('mini.pairs').setup()
-
 -- mini.surround: Manage brackets/quotes/etc.
 require('mini.surround').setup()
