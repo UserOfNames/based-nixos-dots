@@ -282,6 +282,7 @@ in {
             "browser.urlbar.yelp.featureGate" = false;
             "browser.download.start_downloads_in_tmp_dir" = true;
             "browser.contentanalysis.default_allow" = false;
+            "browser.tabs.closeWindowWithLastTab" = false;
 
             # Always leave on
             "extensions.blocklist.enabled" = true;
