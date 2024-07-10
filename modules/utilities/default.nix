@@ -21,5 +21,7 @@ in {
       wl-clip-persist
       wl-clipboard
     ];
+
+    programs.ssh.askPassword = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
   };
 }
