@@ -10,7 +10,7 @@ in {
           { on = [ "<C-l>" ]; run = "open"; desc = "Open the selected files"; }
           { on = [ "<C-L>" ]; run = "open --interactive"; desc = "Open the selected files interactively"; }
 
-          { on = [ "`" ]; run = "shell '${pkgs.ripdrag}/bin/ripdrag -a -x \"$1\"' --confirm"; desc = "Ripdrag the file"; }
+          { on = [ "`" ]; run = "shell '${pkgs.ripdrag}/bin/ripdrag -a -x \"$@\"' --confirm"; desc = "Ripdrag the selected files"; }
         ];
       };
 
