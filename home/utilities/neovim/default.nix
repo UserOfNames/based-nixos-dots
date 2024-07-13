@@ -63,6 +63,7 @@ in {
         ${readFile ./init.lua}
         ${readFile ./mappings.lua}
         ${readFile ./autocmd/lua.lua}
+        ${readFile ./autocmd/md.lua}
         ${readFile ./autocmd/nix.lua}
 
         ${readFile ./plugins/treesitter.lua}

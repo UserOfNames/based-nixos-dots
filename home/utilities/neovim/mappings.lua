@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set('n', '<Leader>os', function() vim.o.spell = not(vim.o.spell) end)
 vim.keymap.set('n', '<Leader>q', '@q')
+vim.keymap.set('i', '<C-s>', '<C-g>u<Esc>[s1z=`]a<C-g>u')
 vim.keymap.set({ 'n', 'i', 'c' }, '<C-l>', '<Enter>')
 
 
