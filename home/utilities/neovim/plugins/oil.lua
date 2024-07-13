@@ -13,5 +13,4 @@ require('oil').setup({
    },
 })
 
--- Mappings
 vim.keymap.set('n', '<Leader>fe', vim.cmd.Oil)

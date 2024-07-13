@@ -83,6 +83,7 @@ in {
         ${readFile ./plugins/zen-mode.lua}
 
         ${readFile ./plugins/vimtex.lua}
+        ${readFile ./plugins/vimwiki.lua}
 
         ${readFile ./plugins/lsp/lsp-zero.lua}
         ${readFile ./plugins/lsp/cmp.lua}
