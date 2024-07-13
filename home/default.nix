@@ -9,4 +9,6 @@
   ];
 
   programs.home-manager.enable = true;
+
+  xdg.mimeApps.enable = true;
 }
