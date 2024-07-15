@@ -8,7 +8,10 @@
       hardware = {
         bluetooth.enable = true;
       };
-      display.plasma.enable = true;
+      display = {
+        hyprland.enable = false;
+        plasma.enable = true;
+      };
     };
 
     other = {
