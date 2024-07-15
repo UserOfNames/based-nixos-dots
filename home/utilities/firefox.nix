@@ -258,12 +258,12 @@ in {
             # Misc
             "dom.battery.enabled" = false; # Do not track battery
             "middlemouse.contentLoadURL" = false;
+            "general.autoScroll" = true;
             "pdfjs.disabled" = false;
             "pdfjs.enableScripting" = false;
             "browser.download.useDownloadDir" = false;
             "browser.download.alwaysOpenPanel" = false;
             "browser.download.manager.addToRecentDocs" = false;
-            "browser.download.always_ask_before_handling_new_types" = true;
             "browser.link.open_newwindow" = 3;
             "browser.link.open_newwindow.restriction" = 0;
             "browser.urlbar.suggest.history" = false;
