@@ -9,6 +9,7 @@ in {
       autoEnable = true;
       targets = {
         bemenu.enable = false;
+        kde.enable = false;
         tmux.enable = false;
         waybar.enable = false;
       };

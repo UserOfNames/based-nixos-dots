@@ -1,7 +1,6 @@
 { device ? throw "Specify device name, e.g. /dev/sda", ... }:
 
 {
-  # FIXME on next install, add boot mount option umask=0077 and change subvolume names
   disko.devices = {
     disk.main = {
       inherit device;
@@ -17,7 +16,7 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = [ "defaults" ];
+              mountOptions = [ "defaults" "umask=0077" ];
             };
           };
 
@@ -30,30 +29,26 @@
                 type = "btrfs";
                 extraArgs = [ "-f" ];
                 subvolumes = {
-                  "@" = {
+                  "/root" = {
                     mountpoint = "/";
                     mountOptions = [ "compress-force=zstd:1" "noatime" "noautodefrag" "space_cache=v2" ];
                   };
-                  "@home" = {
+                  "/home" = {
                     mountpoint = "/home";
                     mountOptions = [ "compress-force=zstd:1" "noatime" "noautodefrag" "space_cache=v2" ];
                   };
-                  "@nix" = {
+                  "/nix" = {
                     mountpoint = "/nix";
                     mountOptions = [ "compress-force=zstd:1" "noatime" "noautodefrag" "space_cache=v2" ];
                   };
-                  "@log" = {
+                  "/log" = {
                     mountpoint = "/var/log";
                     mountOptions = [ "compress-force=zstd:1" "noatime" "noautodefrag" "space_cache=v2" ];
                   };
-                  "@swap" = {
+                  "/swap" = {
                     mountpoint = "/.swapvol";
                     swap.swapfile.size = "8G";
                   };
-                  # FIXME vms setup
-                  # "vms" = {
-                  #   mountpoint = "$HOME";
-                  # };
                 };
               };
             };
