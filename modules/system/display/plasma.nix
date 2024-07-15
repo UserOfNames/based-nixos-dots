@@ -14,10 +14,12 @@ in {
     environment.plasma6.excludePackages = with pkgs; [
       kdePackages.discover
       kdePackages.elisa
+      kdePackages.gwenview
       kdePackages.kate
       kdePackages.khelpcenter
       kdePackages.konsole
       kdePackages.kwalletmanager
+      kdePackages.okular
       kdePackages.plasma-browser-integration
       kdePackages.plasma-systemmonitor
     ];
