@@ -51,8 +51,6 @@ in {
       swww
     ];
 
-    programs.ssh.askPassword = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
-
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

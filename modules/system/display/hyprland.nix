@@ -7,6 +7,7 @@ in {
     services.displayManager.defaultSession = "hyprland";
 
     programs = {
+      ssh.askPassword = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
       waybar.enable = true;
       hyprland = {
         enable = true;
