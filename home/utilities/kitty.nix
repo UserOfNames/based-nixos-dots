@@ -17,6 +17,7 @@ in {
         cursor_shape = "block";
         cursor_blink_interval = 0;
         confirm_os_window_close = 0;
+        enable_audio_bell = false;
       };
     };
   };

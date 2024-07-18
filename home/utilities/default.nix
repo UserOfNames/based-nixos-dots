@@ -24,8 +24,8 @@ in {
     home.packages = with pkgs; [
       bitwarden
       foliate
+      nomacs
       qalculate-qt
-      qimgv
       trashy
     ];
   };
