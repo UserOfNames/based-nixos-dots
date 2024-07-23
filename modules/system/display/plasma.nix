@@ -1,8 +1,11 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let
   cfg = config.myModules.system.display.plasma;
+  userName = config.myModules.system.user.userName;
 in {
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   config = lib.mkIf cfg.enable {
     services = {
       desktopManager.plasma6 = {
@@ -23,5 +26,7 @@ in {
       kdePackages.plasma-browser-integration
       kdePackages.plasma-systemmonitor
     ];
+
+    home-manager.users."${userName}".xdg.mimeApps.enable = false;
   };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, outputs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -10,5 +10,6 @@
 
   programs.home-manager.enable = true;
 
-  xdg.mimeApps.enable = true;
+  # Disabled by plasma module
+  xdg.mimeApps.enable = lib.mkDefault true;
 }
