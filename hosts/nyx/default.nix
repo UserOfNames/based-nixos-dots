@@ -11,7 +11,6 @@
   networking.hostName = "nyx";
 
   environment.systemPackages = with pkgs; [
-    prismlauncher
     tor-browser
   ];
 

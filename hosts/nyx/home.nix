@@ -14,6 +14,7 @@ in {
     stateVersion = "24.05"; # stateVersion should match the NixOS stateVersion and should not be changed!
 
     packages = with pkgs; [
+      prismlauncher
       qbittorrent
     ];
   };

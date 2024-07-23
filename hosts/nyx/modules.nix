@@ -20,6 +20,7 @@
 
     utilities = {
       enable = true;
+      virtualization.enable = true;
     };
   };
 
