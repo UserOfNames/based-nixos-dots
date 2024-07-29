@@ -11,7 +11,11 @@ in {
       syntaxHighlighting.enable = true;
       autocd = true;
       dotDir = ".config/zsh";
-      history.path = "$ZDOTDIR/.zsh_history";
+
+      history = {
+        path = "$ZDOTDIR/.zsh_history";
+        ignoreSpace = true;
+      };
 
       dirHashes = {
         docs = "$HOME/Documents";
@@ -52,7 +56,6 @@ in {
         keytimeout=1
         zstyle ':completion:*' menu select
         _comp_options+=(globdots)
-        bindkey -s ^f "tmux-sessionizer\n"
       '';
     }; 
   };
