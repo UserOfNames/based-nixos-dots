@@ -10,7 +10,7 @@ let
     if [[ $# -eq 1 ]]; then
         selected=$1
     else
-        selected=$(find ~/Projects ~/Documents -mindepth 1 -type d | ${pkgs.fzf}/bin/fzf)
+        selected=$(find ~/Projects ~/Documents ~/.nixosdots -mindepth 1 -type d | ${pkgs.fzf}/bin/fzf)
     fi
 
     if [[ -z $selected ]]; then
@@ -44,6 +44,6 @@ in {
       tmux-sessionizer
     ];
 
-    home-manager.users."${userName}".programs.zsh.initExtra = lib.mkIf cfgZsh.enable ''bindkey -s ^f "tmux-sessionizer\n"'';
+    home-manager.users."${userName}".programs.zsh.initExtra = lib.mkIf cfgZsh.enable ''bindkey -s "^[f" " tmux-sessionizer\n"'';
   };
 }
