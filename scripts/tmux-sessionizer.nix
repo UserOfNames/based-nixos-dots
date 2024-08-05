@@ -10,7 +10,7 @@ let
     if [[ $# -eq 1 ]]; then
         selected=$1
     else
-        selected=$(find ~/Projects ~/Documents ~/.nixosdots -mindepth 1 -type d | ${pkgs.fzf}/bin/fzf)
+        selected=$(find ~/Projects ~/Documents ~/.nixosdots \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
     fi
 
     if [[ -z $selected ]]; then

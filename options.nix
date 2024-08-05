@@ -119,6 +119,7 @@ in {
 
     scripts = {
       enable = mke "Enable scripts";
+      fzf-cd-common.enable = mke "Enable script to fzf + cd over important directories";
       tmux-sessionizer.enable = mke "Enable tmux-sessionizer script by Primeagen";
     };
   };
@@ -210,6 +211,7 @@ in {
 
     scripts = {
       enable = lmd true;
+      fzf-cd-common.enable = se;
       tmux-sessionizer.enable = se;
     };
   };

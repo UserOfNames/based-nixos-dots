@@ -14,8 +14,6 @@ in {
       shellAliases = {
         s = "cd `hash -d | fzf | sed 's/^.*=//'`";
       };
-
-      initExtra = "bindkey -s '^f' 'cd $(find ~/Projects ~/Documents ~/.nixosdots -mindepth 1 -type d | fzf)\n'";
     };
   };
 }
