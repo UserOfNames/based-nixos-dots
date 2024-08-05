@@ -23,20 +23,8 @@
 
   outputs = { self, nixpkgs, home-manager, nur, disko, stylix, ... }@inputs:
   let
-    mkHost = hostname:
-      nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/${hostname}
-          ./home-manager.nix
-          ./modules
-          ./scripts
-          { nixpkgs.overlays = [ nur.overlay ]; }
-        ];
-      };
-
-  in {
+    myLib = import ./myLib {inherit inputs;};
+  in with myLib; {
     nixosConfigurations = {
       nyx = mkHost "nyx";
       aeon = mkHost "aeon";

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, myLib, ... }:
 
 let
   userName = config.myModules.system.user.userName;
@@ -11,7 +11,7 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs myLib; };
     users.${userName} = import ./hosts/${hostName}/home.nix;
   };
 }
