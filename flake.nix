@@ -9,14 +9,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur.url = "github:nix-community/nur";
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nur.url = "github:nix-community/nur";
 
     stylix.url = "github:danth/stylix";
   };

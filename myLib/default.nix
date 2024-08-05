@@ -15,4 +15,18 @@ in {
         { nixpkgs.overlays = [ inputs.nur.overlay ]; }
       ];
     };
+
+  # nixvim helpers
+  nixvim = {
+    mkMap = mode: key: action: desc: {
+      inherit mode key action;
+      options = {
+        silent = true;
+        noremap = true;
+      };
+    };
+
+    mkOptMap = mode: key: action: desc: opts:
+      (myLib.nixvim.mkMap mode key action desc) // { options = opts; };
+  };
 }
