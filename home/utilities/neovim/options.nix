@@ -20,8 +20,6 @@
       # Fold settings - Use treesitter folding, fold nothing by default
       foldenable = false;
       foldlevelstart = 99;
-      foldmethod = "expr";
-      foldexpr = "nvim_treesitter#foldexpr()";
     };
   };
 }

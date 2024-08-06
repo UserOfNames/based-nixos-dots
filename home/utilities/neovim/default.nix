@@ -5,6 +5,7 @@ let
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
+    ./plugins
     ./mappings.nix
     ./options.nix
   ];
@@ -16,11 +17,6 @@ in {
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
-
-      extraPackages = with pkgs; [
-        # For vimtex
-        texliveFull
-      ];
 
       globals = {
         # Disable netrw
