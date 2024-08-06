@@ -2,6 +2,19 @@
 
 {
   programs.nixvim = {
+    globals = {
+      # Disable netrw
+      "loaded_netrw" = 1;
+      "loaded_netrwPlugin" = 1;
+    };
+
+    colorschemes.tokyonight = {
+      enable = true;
+      settings = {
+        style = "night";
+      };
+    };
+
     opts = {
       termguicolors = true;
       hidden = true;

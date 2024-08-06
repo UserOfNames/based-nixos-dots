@@ -17,12 +17,6 @@ in {
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
-
-      globals = {
-        # Disable netrw
-        "loaded_netrw" = 1;
-        "loaded_netrwPlugin" = 1;
-      };
     };
   };
 }
