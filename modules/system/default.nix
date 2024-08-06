@@ -3,5 +3,5 @@
 let
   cfg = config.myModules.system;
 in {
-  imports = [ ../../options.nix ] ++ (myLib.importHelper ./.);
+  imports = [ ../../options ] ++ (myLib.importHelper ./.);
 }

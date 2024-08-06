@@ -3,7 +3,7 @@
 let
   cfg = config.myHomeModules.productivity;
 in {
-  imports = [ ../../options.nix ] ++ (myLib.importHelper ./.);
+  imports = [ ../../options ] ++ (myLib.importHelper ./.);
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
