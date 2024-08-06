@@ -14,7 +14,7 @@
 
         keymaps = {
           "<C-l>" =  "actions.select";
-          # "<C-x>" =  "actions.select"; # FIXME horizontal split
+          "<C-x>" =  "actions.select_split";
           "<C-->" =  "actions.refresh";
         };
       };
