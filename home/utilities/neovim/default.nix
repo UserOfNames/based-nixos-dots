@@ -6,6 +6,7 @@ in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./plugins
+    ./autocmd.nix
     ./mappings.nix
     ./options.nix
   ];
