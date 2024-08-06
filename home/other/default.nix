@@ -1,13 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
   cfg = config.myHomeModules.other;
 in {
-  imports = [
-    ../../options.nix
-    ./newsboat
-    ./fastfetch.nix
-    ./stylix.nix
-    ./ytdlp.nix
-  ];
+  imports = [ ../../options.nix ] ++ (myLib.importHelper ./.);
 }

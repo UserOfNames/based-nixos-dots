@@ -1,10 +1,5 @@
-{ lib, ... }:
+{ myLib, ... }:
 
 {
-  imports = [
-    ./bluetooth.nix
-    ./laptop.nix
-    ./printing.nix
-    ./sound.nix
-  ];
+  imports = [] ++ (myLib.importHelper ./.);
 }

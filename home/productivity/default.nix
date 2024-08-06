@@ -1,11 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
   cfg = config.myHomeModules.productivity;
 in {
-  imports = [
-    ../../options.nix
-  ];
+  imports = [ ../../options.nix ] ++ (myLib.importHelper ./.);
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

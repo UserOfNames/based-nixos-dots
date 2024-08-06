@@ -1,11 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
   cfg = config.myModules.system;
 in {
-  imports = [
-    ../../options.nix
-    ./hyprland
-    ./zsh.nix
-  ];
+  imports = [ ../../options.nix ] ++ (myLib.importHelper ./.);
 }

@@ -1,12 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ lib, myLib, ... }:
 
 {
-  imports = [
-    ./other
-    ./productivity
-    ./system
-    ./utilities
-  ];
+  imports = [] ++ (myLib.importHelper ./.);
 
   programs.home-manager.enable = true;
 

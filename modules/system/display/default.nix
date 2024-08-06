@@ -4,6 +4,7 @@ let
   cfg = config.myModules.system.display;
 in {
   imports = [
+    # FIXME Using importHelper here throws some error
     ./hyprland.nix
     ./plasma.nix
     ./sddm.nix

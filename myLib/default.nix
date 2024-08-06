@@ -3,6 +3,7 @@
 let
   myLib = (import ./default.nix) {inherit inputs;};
 in {
+  # Create a new host
   mkHost = hostname:
     inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -15,6 +16,9 @@ in {
         { nixpkgs.overlays = [ inputs.nur.overlay ]; }
       ];
     };
+
+  # Get all files in directory except default.nix (credit to vimjoyer)
+  importHelper = dir: (map (filename: dir + "/${filename}") (builtins.attrNames (builtins.removeAttrs (builtins.readDir dir) [ "default.nix" ])));
 
   # nixvim helpers
   nixvim = {

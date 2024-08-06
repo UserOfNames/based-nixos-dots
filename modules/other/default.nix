@@ -1,11 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
   cfg = config.myModules.other;
 in {
-  imports = [
-    ../../options.nix
-    ./gaming.nix
-    ./stylix.nix
-  ];
+  imports = [ ../../options.nix ] ++ (myLib.importHelper ./.);
 }
