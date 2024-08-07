@@ -12,7 +12,7 @@ in {
   };
 
   config.myModules.utilities = {
-    thunar.enable = lmd cfg.enable;
-    virtualization.enable = lmd cfg.enable;
+    # thunar.enable = lmd cfg.enable;
+    # virtualization.enable = lmd cfg.enable;
   };
 }
