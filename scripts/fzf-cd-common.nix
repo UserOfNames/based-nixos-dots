@@ -6,18 +6,11 @@ let
   userName = config.myModules.system.user.userName;
 
   fzf-cd-common = pkgs.writeShellScriptBin "fzf-cd-common" ''
-    if [[ $# -eq 1 ]]; then
-        selected=$1
-    else
-        selected=$(find ~/Projects ~/Documents ~/.nixosdots \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+    selected=$(find ~/Projects ~/Documents ~/.nixosdots \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+
+    if [[ ! -z $selected ]]; then
+        cd $selected
     fi
-
-    # Can reenable once I remove the source workaround
-    # if [[ -z $selected ]]; then
-    #     exit 0
-    # fi
-
-    cd $selected
   '';
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
