@@ -15,8 +15,8 @@ in {
     keymaps = with myLib.nixvim; [
       (mkMap [ "i" "s" ] "<C-n>" {
         __raw = ''function()
-           if ${ls}.expand_or_jumpable() then
-              ${ls}.expand_or_jump()
+           if ${ls}.jumpable(1) then
+              ${ls}.jump(1)
            elseif ${ls}.choice_active() then
               ${ls}.change_choice(1)
            end

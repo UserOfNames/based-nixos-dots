@@ -7,7 +7,7 @@
     };
 
     keymaps = with myLib.nixvim; [
-      (mkMap [ "n" ] "<Leader>u" "<cmd>UndoTreeToggle<Enter>" "Toggle undotree")
+      (mkMap [ "n" ] "<Leader>u" "<cmd>UndotreeToggle<Enter>" "Toggle undotree")
     ];
   };
 }

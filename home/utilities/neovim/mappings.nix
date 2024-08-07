@@ -11,6 +11,10 @@
         __raw = ''function() vim.o.spell = not(vim.o.spell) end'';
       } "Toggle spellcheck")
 
+      (mkMap [ "n" ] "<Leader>ow" {
+        __raw = ''function() vim.o.wrap = not(vim.o.wrap) end'';
+      } "Toggle word wrap")
+
       (mkMap [ "i" ] "<C-s>" "<C-g>u<Esc>[s1z=`]a<C-g>u" "Correct last spelling error")
 
       (mkMap [ "n" "i" "c" ] "<C-l>" "<Enter>" null)
