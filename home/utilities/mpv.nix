@@ -9,6 +9,7 @@ in {
       config = {
         profile = "high-quality";
         force-window = true;
+        window-maximized = true;
       };
     };
   };
