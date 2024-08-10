@@ -19,6 +19,7 @@
       termguicolors = true;
       hidden = true;
       number = true;
+      relativenumber = true;
       hlsearch = false;
       incsearch = true;
       wrap = false;
