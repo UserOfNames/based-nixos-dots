@@ -1,8 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.myHomeModules.utilities.tmux;
-  cfgColors = config.stylix.base16Scheme;
 in {
   config = lib.mkIf cfg.enable {
     programs.tmux = {

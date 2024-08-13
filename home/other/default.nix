@@ -1,4 +1,4 @@
-{ config, pkgs, lib, myLib, ... }:
+{ config, myLib, ... }:
 
 let
   cfg = config.myHomeModules.other;

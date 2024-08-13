@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, myLib, ... }:
+{ config, inputs, myLib, ... }:
 
 let
   userName = config.myModules.system.user.userName;

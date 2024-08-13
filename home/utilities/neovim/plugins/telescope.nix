@@ -1,10 +1,6 @@
 { ... }:
 
-let
-  mkTelescopeMap = mode: key: action: {
-    key = { inherit mode action; };
-  };
-in {
+{
   programs.nixvim.plugins.telescope = {
     enable = true;
 
