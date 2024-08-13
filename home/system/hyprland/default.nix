@@ -36,12 +36,16 @@ in {
   
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      brightnessctl
       cliphist
       grim
       hyprpicker
       j4-dmenu-desktop
+      jmtpfs
       slurp
       swww
+      wl-clip-persist
+      wl-clipboard
     ];
 
     wayland.windowManager.hyprland = {

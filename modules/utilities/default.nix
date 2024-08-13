@@ -8,15 +8,10 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       _7zz
-      brightnessctl
       cpu-x
       gnupg
-      helvum
-      jmtpfs
       ripgrep
       tree
-      wl-clip-persist
-      wl-clipboard
     ];
   };
 }
