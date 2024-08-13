@@ -16,8 +16,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      # FIXME Uncomment this after some update(s)
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
