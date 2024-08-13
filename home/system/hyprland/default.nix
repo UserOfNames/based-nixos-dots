@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, myLib, ... }:
 
 let
   cfg = config.myHomeModules.system.hyprland;
@@ -32,14 +32,7 @@ let
     done
   '';
 in {
-  imports = [
-    ./waybar
-    ./bemenu.nix
-    ./binds.nix
-    ./hypridle.nix
-    ./hyprlock.nix
-    ./mako.nix
-  ];
+  imports = [] ++ (myLib.importHelper ./.);
   
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
