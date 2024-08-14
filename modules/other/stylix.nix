@@ -71,6 +71,10 @@ in {
         desktop = 1.0;
         popups = 1.0;
       };
+
+      targets = {
+        chromium.enable = false;
+      };
     };
   };
 }
