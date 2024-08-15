@@ -10,6 +10,7 @@ in {
         profile = "high-quality";
         force-window = true;
         window-maximized = true;
+        loop-file = "inf";
       };
     };
   };
