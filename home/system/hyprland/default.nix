@@ -44,8 +44,6 @@ in {
       jmtpfs
       slurp
       swww
-      wl-clip-persist
-      wl-clipboard
     ];
 
     wayland.windowManager.hyprland = {
