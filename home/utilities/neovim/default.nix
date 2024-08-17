@@ -1,15 +1,9 @@
-{ config, lib, inputs, ... }:
+{ config, lib, inputs, myLib, ... }:
 
 let
   cfg = config.myHomeModules.utilities.neovim;
 in {
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-    ./plugins
-    ./autocmd.nix
-    ./mappings.nix
-    ./options.nix
-  ];
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ] ++ (myLib.importHelper ./.);
   
   config = lib.mkIf cfg.enable {
     programs.nixvim = {

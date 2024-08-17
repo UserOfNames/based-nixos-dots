@@ -31,7 +31,7 @@
       tabstop = 4;
       shiftwidth = 4;
 
-      # Fold settings - Use treesitter folding, fold nothing by default
+      # Fold settings - Fold nothing by default
       foldenable = false;
       foldlevelstart = 99;
     };
