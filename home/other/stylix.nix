@@ -6,7 +6,9 @@ let
 in {
   config = lib.mkIf cfg.enable {
     stylix = {
+      enable = true;
       autoEnable = true;
+
       targets = {
         bemenu.enable = false;
         nixvim.enable = false;

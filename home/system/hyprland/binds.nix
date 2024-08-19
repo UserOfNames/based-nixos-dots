@@ -13,7 +13,7 @@
       "SUPER, F, fullscreen, 1"
       "SUPER SHIFT, F, fullscreen, 0"
       "SUPER, Y, togglefloating"
-      "SUPER, O, toggleopaque"
+      "SUPER, O, exec, hyprctl setprop active opaque toggle"
       "SUPER, G, lockactivegroup, toggle"
       "SUPER SHIFT, G, togglegroup"
       "SUPER, bracketleft, changegroupactive, b"
