@@ -2,7 +2,7 @@
 
 let
   cfg = config.myModules.system.display.plasma;
-  userName = config.myModules.system.user.userName;
+  userName = config.myModules.system.mainUser.userName;
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 

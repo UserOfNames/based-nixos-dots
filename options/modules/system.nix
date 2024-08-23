@@ -28,7 +28,7 @@ in {
       sound.enable = mke "Enable sound";
     };
 
-    user = {
+    mainUser = {
       enable = mke "Enable main user module";
       userName = lib.mkOption {
         default = "zdbg";
@@ -65,7 +65,7 @@ in {
       sound.enable = lmd cfg.hardware.enable;
     };
 
-    user.enable = lmd cfg.enable;
+    mainUser.enable = lmd cfg.enable;
 
     locale.enable = lmd cfg.enable;
     network.enable = lmd cfg.enable;

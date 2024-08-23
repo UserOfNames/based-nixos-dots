@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  userName = config.myModules.system.user.userName;
+  userName = config.myModules.system.mainUser.userName;
 in {
   imports = [
     ./modules.nix

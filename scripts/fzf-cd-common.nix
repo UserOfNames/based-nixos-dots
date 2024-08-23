@@ -3,7 +3,7 @@
 let
   cfg = config.scripts.fzf-cd-common;
   cfgZsh = config.myHomeModules.system.zsh;
-  userName = config.myModules.system.user.userName;
+  userName = config.myModules.system.mainUser.userName;
 
   fzf-cd-common = pkgs.writeShellScriptBin "fzf-cd-common" ''
     selected=$(find ~/Projects ~/Documents ~/.nixosdots \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)

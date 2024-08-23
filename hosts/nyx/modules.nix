@@ -4,7 +4,7 @@
   myModules = {
     system = {
       enable = true;
-      user.userName = "zdbg";
+      mainUser.userName = "zdbg";
       hardware = {
         bluetooth.enable = true;
       };

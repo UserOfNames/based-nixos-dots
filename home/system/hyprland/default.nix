@@ -2,7 +2,7 @@
 
 let
   cfg = config.myHomeModules.system.hyprland;
-  userName = config.myModules.system.user.userName;
+  userName = config.myModules.system.mainUser.userName;
 
   swww-random = pkgs.writeShellScriptBin "swww-random" ''
     sleep 1

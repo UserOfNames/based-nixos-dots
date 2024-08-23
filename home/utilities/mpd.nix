@@ -11,7 +11,7 @@ in {
 
     services.mpd = {
       enable = true;
-      musicDirectory = "/home/${config.myModules.system.user.userName}/Music";
+      musicDirectory = "/home/${config.myModules.system.mainUser.userName}/Music";
       network.startWhenNeeded = true;
       extraConfig = ''
         audio_output {

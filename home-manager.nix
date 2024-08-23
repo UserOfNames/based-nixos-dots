@@ -1,7 +1,7 @@
 { config, inputs, myLib, ... }:
 
 let
-  userName = config.myModules.system.user.userName;
+  userName = config.myModules.system.mainUser.userName;
   hostName = config.networking.hostName;
 in {
   imports = [

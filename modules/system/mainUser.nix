@@ -1,11 +1,11 @@
 { config, lib, ... }:
 let
-  cfg = config.myModules.system.user;
+  cfg = config.myModules.system.mainUser;
 in {
   config = lib.mkIf cfg.enable {
     users.users.${cfg.userName} = {
       isNormalUser = true;
-      description = "Main user";
+      description = "zdbg";
       initialPassword = "CHANGENOW";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "syncthing" ];
     };

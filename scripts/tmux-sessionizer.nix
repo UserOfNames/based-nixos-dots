@@ -4,7 +4,7 @@
 let
   cfg = config.scripts.tmux-sessionizer;
   cfgZsh = config.myHomeModules.system.zsh;
-  userName = config.myModules.system.user.userName;
+  userName = config.myModules.system.mainUser.userName;
 
   tmux-sessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
     if [[ $# -eq 1 ]]; then
