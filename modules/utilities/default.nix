@@ -3,7 +3,7 @@
 let
   cfg = config.myModules.utilities;
 in {
-  imports = [ ../../options ] ++ (myLib.importHelper ./.);
+  imports = [] ++ (myLib.importFilesIn ./.);
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

@@ -3,7 +3,7 @@
 let
   cfg = config.myHomeModules.utilities.neovim;
 in {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ] ++ (myLib.importHelper ./.);
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ] ++ (myLib.importFilesIn ./.);
   
   config = lib.mkIf cfg.enable {
     programs.nixvim = {

@@ -1,7 +1,7 @@
 { lib, myLib, ... }:
 
 {
-  imports = [] ++ (myLib.importHelper ./.);
+  imports = [ ../options ] ++ (myLib.importFilesIn ./.);
 
   programs.home-manager.enable = true;
 

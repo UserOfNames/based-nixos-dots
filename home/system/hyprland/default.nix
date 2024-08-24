@@ -32,7 +32,7 @@ let
     done
   '';
 in {
-  imports = [] ++ (myLib.importHelper ./.);
+  imports = [] ++ (myLib.importFilesIn ./.);
   
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

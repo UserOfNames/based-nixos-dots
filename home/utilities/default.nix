@@ -3,7 +3,7 @@
 let
   cfg = config.myHomeModules.utilities;
 in {
-  imports = [ ../../options ] ++ (myLib.importHelper ./.);
+  imports = [] ++ (myLib.importFilesIn ./.);
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

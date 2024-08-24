@@ -3,5 +3,5 @@
 let
   cfg = config.myHomeModules.other;
 in {
-  imports = [ ../../options ] ++ (myLib.importHelper ./.);
+  imports = [] ++ (myLib.importFilesIn ./.);
 }

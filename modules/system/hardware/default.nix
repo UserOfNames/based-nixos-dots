@@ -1,5 +1,5 @@
 { myLib, ... }:
 
 {
-  imports = [] ++ (myLib.importHelper ./.);
+  imports = [] ++ (myLib.importFilesIn ./.);
 }

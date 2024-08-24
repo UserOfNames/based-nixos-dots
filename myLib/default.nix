@@ -1,8 +1,8 @@
 { inputs, ... }:
 
 let
-  myLib = (import ./default.nix) {inherit inputs;};
   lib = inputs.nixpkgs.lib;
+  myLib = (import ./default.nix) {inherit inputs;};
 in rec {
   # Create a new host
   mkHost = hostname:
@@ -18,8 +18,39 @@ in rec {
       ];
     };
 
-  # Get all files in directory except default.nix (credit to vimjoyer)
-  importHelper = dir: (map (filename: dir + "/${filename}") (builtins.attrNames (builtins.removeAttrs (builtins.readDir dir) [ "default.nix" ])));
+  # Get the name of a file
+  fileName = path:
+    builtins.head (builtins.split "\\." (builtins.baseNameOf path));
+
+  # Get a list of filenames in a directory
+  fileNamesIn = dir:
+    builtins.attrNames (builtins.readDir dir);
+
+  # Get a list of files in a directory
+  filesIn = dir:
+    map (filename: dir + "/${filename}") (fileNamesIn dir);
+
+  # Get a list of files in a directory except default.nix
+  # Importing default.nix into itself causes infinite recursion,
+  # so this can be used to simplify and automate imports
+  importFilesIn = dir:
+    lib.lists.remove (dir + "/default.nix") (filesIn dir);
+
+
+  # Create an option: options.(base).(filename).enable
+  # base should be a string like "myModules.system"
+  mkModuleToggle = base: name: {
+    options.${base}.${name}.enable = lib.mkEnableOption "Enable ${name} module";
+  };
+
+  # importFilesIn and add enable options for each based on filename
+  # Enable modules by default with mkConfigDefault
+  importModulesIn = dir: base:
+    let
+      modules = importFilesIn dir;
+    in 
+      (map (file: mkModuleToggle base (fileName file)) modules)
+      ++ importFilesIn dir;
 
   # nixvim helpers
   nixvim = {
