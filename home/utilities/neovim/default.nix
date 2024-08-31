@@ -12,6 +12,24 @@ in {
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+
+      performance = {
+        byteCompileLua = {
+          enable = true;
+          configs = true;
+          initLua = true;
+          nvimRuntime = true;
+          plugins = true;
+        };
+
+        combinePlugins = {
+          enable = true;
+
+          standalonePlugins = [
+            "vim-fugitive"
+          ];
+        };
+      };
     };
   };
 }
