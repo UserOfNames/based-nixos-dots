@@ -2,10 +2,11 @@
 
 let
   myLib = (import ./default.nix) {inherit inputs;};
-in {
+  lib = inputs.nixpkgs.lib;
+in rec {
   # Create a new host
   mkHost = hostname:
-    inputs.nixpkgs.lib.nixosSystem {
+    lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs myLib; };
       modules = [
@@ -32,6 +33,12 @@ in {
     };
 
     mkOptMap = mode: key: action: desc: opts:
-      (myLib.nixvim.mkMap mode key action desc) // { options = opts; };
+      (nixvim.mkMap mode key action desc) // { options = opts; };
+
+    mkRawMap = mode: key: raw: desc:
+      (nixvim.mkMap mode key { __raw = raw; } desc);
+
+    mkFunctionMap = mode: key: body: desc:
+      (nixvim.mkRawMap mode key ''function() ${body} end'' desc);
   };
 }

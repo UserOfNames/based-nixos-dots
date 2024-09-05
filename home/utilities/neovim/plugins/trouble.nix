@@ -7,9 +7,7 @@
     };
 
     keymaps = with myLib.nixvim; [
-      (mkMap [ "n" ] "<Leader>tt" {
-        __raw = ''function() vim.cmd.Trouble("diagnostics toggle") end'';
-      } "Toggle trouble diagnostics window")
+      (mkFunctionMap [ "n" ] "<Leader>tt" ''vim.cmd.Trouble("diagnostics toggle")'' "Toggle trouble diagnostics window")
     ];
   };
 }

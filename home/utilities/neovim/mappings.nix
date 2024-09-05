@@ -7,13 +7,9 @@
     };
 
     keymaps = with myLib.nixvim; [
-      (mkMap [ "n" ] "<Leader>os" {
-        __raw = ''function() vim.o.spell = not(vim.o.spell) end'';
-      } "Toggle spellcheck")
+      (mkFunctionMap [ "n" ] "<Leader>os" ''vim.o.spell = not(vim.o.spell)'' "Toggle spellcheck")
 
-      (mkMap [ "n" ] "<Leader>ow" {
-        __raw = ''function() vim.o.wrap = not(vim.o.wrap) end'';
-      } "Toggle word wrap")
+      (mkFunctionMap [ "n" ] "<Leader>ow" ''vim.o.wrap = not(vim.o.wrap)'' "Toggle word wrap")
 
       (mkMap [ "i" ] "<C-s>" "<C-g>u<Esc>[s1z=`]a<C-g>u" "Correct last spelling error")
 

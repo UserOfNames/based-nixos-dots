@@ -7,9 +7,7 @@
     };
 
     keymaps = with myLib.nixvim; [
-      (mkMap [ "n" ] "<Leader>oz" {
-        __raw = ''function() require("zen-mode").toggle({}) end'';
-      } "Toggle zenmode")
+      (mkFunctionMap [ "n" ] "<Leader>oz" ''require("zen-mode").toggle({})'' "Toggle zenmode")
     ];
   };
 }
