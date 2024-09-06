@@ -1,4 +1,4 @@
-{ myLib, ... }:
+{ ... }:
 
 {
   programs.nixvim.plugins.which-key = {
