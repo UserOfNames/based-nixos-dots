@@ -26,7 +26,7 @@ in {
           enable = true;
 
           standalonePlugins = [
-            "vim-fugitive"
+            "friendly-snippets"
           ];
         };
       };
