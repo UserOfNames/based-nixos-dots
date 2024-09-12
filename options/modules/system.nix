@@ -52,7 +52,7 @@ in {
 
     display = {
       enable = lmd cfg.enable;
-      hyprland.enable = lmd cfg.display.enable;
+      # hyprland.enable = lmd cfg.display.enable;
       # plasma.enable = lmd cfg.display.enable;
       sddm.enable = lmd cfg.display.enable;
     };

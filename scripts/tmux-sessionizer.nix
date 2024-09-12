@@ -3,7 +3,6 @@
 # Script by ThePrimeagen. Bugfix from https://github.com/ThePrimeagen/.dotfiles/issues/32#issuecomment-1359249250
 let
   cfg = config.scripts.tmux-sessionizer;
-  cfgZsh = config.myHomeModules.system.zsh;
   userName = config.myModules.system.mainUser.userName;
 
   tmux-sessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
@@ -44,6 +43,6 @@ in {
       tmux-sessionizer
     ];
 
-    home-manager.users."${userName}".programs.zsh.initExtra = lib.mkIf cfgZsh.enable ''bindkey -s "^[f" " tmux-sessionizer\n"'';
+    home-manager.users."${userName}".programs.zsh.initExtra = ''bindkey -s "^[f" " tmux-sessionizer\n"'';
   };
 }

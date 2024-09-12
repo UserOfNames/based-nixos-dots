@@ -1,8 +1,7 @@
 { config, lib, ... }:
 
 let
-  # Home and system stylix modules must be activated together
-  cfg = config.myModules.other.stylix;
+  cfg = config.myHomeModules.other.stylix;
 in {
   config = lib.mkIf cfg.enable {
     stylix = {

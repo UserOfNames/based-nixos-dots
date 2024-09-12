@@ -20,7 +20,7 @@ in {
 
   config.myHomeModules.system = {
     hyprland = {
-      enable = lmd cfg.enable;
+      # enable = lmd cfg.enable;
       bemenu.enable = lmd cfg.hyprland.enable;
       hypridle.enable = lmd cfg.hyprland.enable;
       hyprlock.enable = lmd cfg.hyprland.enable;

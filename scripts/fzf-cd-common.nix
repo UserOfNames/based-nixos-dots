@@ -2,7 +2,6 @@
 
 let
   cfg = config.scripts.fzf-cd-common;
-  cfgZsh = config.myHomeModules.system.zsh;
   userName = config.myModules.system.mainUser.userName;
 
   fzf-cd-common = pkgs.writeShellScriptBin "fzf-cd-common" ''
@@ -20,6 +19,6 @@ in {
       fzf-cd-common
     ];
 
-    home-manager.users."${userName}".programs.zsh.initExtra = lib.mkIf cfgZsh.enable ''bindkey -s "^f" " source fzf-cd-common\n"'';
+    home-manager.users."${userName}".programs.zsh.initExtra = ''bindkey -s "^f" " source fzf-cd-common\n"'';
   };
 }

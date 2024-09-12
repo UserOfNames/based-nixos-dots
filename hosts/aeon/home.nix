@@ -4,7 +4,6 @@ let
   userName = config.myModules.system.mainUser.userName;
 in {
   imports = [
-    ./modules.nix
     ../../home
   ];
 
@@ -18,5 +17,25 @@ in {
     packages = with pkgs; [
       qbittorrent
     ];
+  };
+
+  myHomeModules = {
+    other = {
+      enable = true;
+    };
+
+    productivity = {
+      enable = true;
+    };
+
+    system = {
+      enable = true;
+      hyprland.enable = true;
+    };
+
+    utilities = {
+      enable = true;
+      syncthing.enable = true;
+    };
   };
 }

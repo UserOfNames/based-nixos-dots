@@ -1,14 +1,21 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, myLib, ... }:
 
-{
+let
+  hostName = "nyx";
+  userName = "zdbg";
+  homeFile = ./home.nix;
+  diskoDevice = "/dev/nvme0n1";
+in {
   imports = [
-    ./modules.nix
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
     inputs.disko.nixosModules.disko 
-    (import ./disko.nix { device = "/dev/nvme0n1"; })
+    (import ./disko.nix { device = diskoDevice; })
   ];
 
-  networking.hostName = "nyx";
+  networking.hostName = hostName;
+
+  home-manager = myLib.mkHome userName homeFile;
 
   environment.systemPackages = with pkgs; [
     tor-browser
@@ -23,6 +30,33 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+  };
+
+  myModules = {
+    system = {
+      enable = true;
+
+      mainUser = {
+        userName = userName;
+      };
+
+      hardware = {
+        bluetooth.enable = true;
+      };
+
+      display = {
+        plasma.enable = true;
+      };
+    };
+
+    other = {
+      enable = true;
+    };
+
+    utilities = {
+      enable = true;
+      virtualization.enable = true;
+    };
   };
 
 

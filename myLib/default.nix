@@ -11,12 +11,18 @@ in rec {
       specialArgs = { inherit inputs myLib; };
       modules = [
         ../hosts/${hostname}
-        ../home-manager.nix
         ../modules
         ../scripts
         { nixpkgs.overlays = [ inputs.nur.overlay ]; }
       ];
     };
+
+  mkHome = userName: homeFile: {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs myLib; };
+    users.${userName} = import homeFile;
+  };
 
   # Get the name of a file
   fileName = path:
@@ -35,7 +41,6 @@ in rec {
   # so this can be used to simplify and automate imports
   importFilesIn = dir:
     lib.lists.remove (dir + "/default.nix") (filesIn dir);
-
 
   # Create an option: options.(base).(filename).enable
   # base should be a string like "myModules.system"
