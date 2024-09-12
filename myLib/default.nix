@@ -17,6 +17,7 @@ in rec {
       ];
     };
 
+  # Create a home-manager configuration
   mkHome = userName: homeFile: {
     useGlobalPkgs = true;
     useUserPackages = true;

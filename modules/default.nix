@@ -1,5 +1,5 @@
 { myLib, ... }:
 
 {
-  imports = [ ../options ] ++ (myLib.importFilesIn ./.);
+  imports = [] ++ (myLib.importFilesIn ./.);
 }

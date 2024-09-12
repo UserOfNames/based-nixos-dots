@@ -2,6 +2,7 @@
 
 let
   cfg = config.myHomeModules.utilities.mpd;
+  userName = config.myHomeModules.userName;
 in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -11,7 +12,7 @@ in {
 
     services.mpd = {
       enable = true;
-      musicDirectory = "/home/${config.myModules.system.mainUser.userName}/Music";
+      musicDirectory = "/home/${userName}/Music";
       network.startWhenNeeded = true;
       extraConfig = ''
         audio_output {

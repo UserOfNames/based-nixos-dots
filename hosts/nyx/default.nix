@@ -37,7 +37,7 @@ in {
       enable = true;
 
       mainUser = {
-        userName = userName;
+        inherit userName;
       };
 
       hardware = {
