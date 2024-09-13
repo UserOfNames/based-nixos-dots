@@ -42,6 +42,10 @@ in {
     };
   };
 
+  scripts = {
+    enable = true;
+  };
+
   myModules = {
     system = {
       enable = true;

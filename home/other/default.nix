@@ -10,10 +10,10 @@ in {
 
   config = lib.mkIf cfg.enable {
     myHomeModules.other = {
-      fastfetch.enable = lmd cfg.enable;
-      newsboat.enable = lmd cfg.enable;
-      stylix.enable = lmd cfg.enable;
-      ytdlp.enable = lmd cfg.enable;
+      fastfetch.enable = lmd true;
+      newsboat.enable = lmd true;
+      stylix.enable = lmd true;
+      ytdlp.enable = lmd true;
     };
   };
 }

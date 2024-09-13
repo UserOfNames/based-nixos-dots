@@ -18,19 +18,19 @@ in {
     ];
 
     myHomeModules.utilities = {
-      btop.enable = lmd cfg.enable;
-      firefox.enable = lmd cfg.enable;
-      fzf.enable = lmd cfg.enable;
-      git.enable = lmd cfg.enable;
-      kitty.enable = lmd cfg.enable;
-      mpd.enable = lmd cfg.enable;
-      mpv.enable = lmd cfg.enable;
-      ncmpcpp.enable = lmd cfg.enable;
-      neovim.enable = lmd cfg.enable;
-      syncthing.enable = lmd cfg.enable;
-      tmux.enable = lmd cfg.enable;
-      yazi.enable = lmd cfg.enable;
-      zathura.enable = lmd cfg.enable;
+      btop.enable = lmd true;
+      firefox.enable = lmd true;
+      fzf.enable = lmd true;
+      git.enable = lmd true;
+      kitty.enable = lmd true;
+      mpd.enable = lmd true;
+      mpv.enable = lmd true;
+      ncmpcpp.enable = lmd true;
+      neovim.enable = lmd true;
+      syncthing.enable = lmd true;
+      tmux.enable = lmd true;
+      yazi.enable = lmd true;
+      zathura.enable = lmd true;
     };
   };
 }

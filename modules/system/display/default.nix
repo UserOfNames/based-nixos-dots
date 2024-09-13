@@ -3,7 +3,7 @@
 let
   modules = myLib.importModulesIn ./. [ "myModules" "system" "display" ];
 
-  cfg = config.myModules.system;
+  cfg = config.myModules.system.display;
   lmd = lib.mkDefault;
 in {
   imports = [] ++ modules;
@@ -20,10 +20,9 @@ in {
     };
 
     myModules.system.display = {
-      enable = lmd cfg.enable;
-      # hyprland.enable = lmd cfg.display.enable;
-      # plasma.enable = lmd cfg.display.enable;
-      sddm.enable = lmd cfg.display.enable;
+      # hyprland.enable = lmd true;
+      # plasma.enable = lmd true;
+      sddm.enable = lmd true;
     };
   };
 }

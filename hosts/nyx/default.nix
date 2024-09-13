@@ -32,6 +32,10 @@ in {
     enable32Bit = true;
   };
 
+  scripts = {
+    enable = true;
+  };
+
   myModules = {
     system = {
       enable = true;

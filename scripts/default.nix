@@ -12,9 +12,10 @@ in {
     enable = mke "Enable scripts";
   };
 
-  config.scripts = {
-    enable = lmd true;
-    fzf-cd-common.enable = lmd cfg.enable;
-    tmux-sessionizer.enable = lmd cfg.enable;
+  config = lib.mkIf cfg.enable {
+    scripts = {
+      fzf-cd-common.enable = lmd true;
+      tmux-sessionizer.enable = lmd true;
+    };
   };
 }

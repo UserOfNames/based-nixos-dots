@@ -28,6 +28,10 @@ in {
     TERMINAL = "kitty";
   };
 
+  scripts.enable = {
+    enable = true;
+  };
+
   myModules = {
     system = {
       enable = true;

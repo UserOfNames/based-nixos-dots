@@ -17,15 +17,18 @@ in {
 
   config = lib.mkIf cfg.enable {
     myModules.system = {
-      mainUser.enable = lmd cfg.enable;
+      display.enable = lmd true;
+      hardware.enable = lmd true;
 
-      bootloader.enable = lmd cfg.enable;
-      locale.enable = lmd cfg.enable;
-      network.enable = lmd cfg.enable;
-      packages.enable = lmd cfg.enable;
-      security.enable = lmd cfg.enable;
-      store.enable = lmd cfg.enable;
-      zsh.enable = lmd cfg.enable;
+      mainUser.enable = lmd true;
+
+      bootloader.enable = lmd true;
+      locale.enable = lmd true;
+      network.enable = lmd true;
+      packages.enable = lmd true;
+      security.enable = lmd true;
+      store.enable = lmd true;
+      zsh.enable = lmd true;
     };
   };
 }

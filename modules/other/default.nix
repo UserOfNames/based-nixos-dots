@@ -10,8 +10,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     myModules.other = {
-      gaming.enable = lmd cfg.enable;
-      stylix.enable = lmd cfg.enable;
+      gaming.enable = lmd true;
+      stylix.enable = lmd true;
     };
   };
 }

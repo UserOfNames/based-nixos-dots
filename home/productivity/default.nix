@@ -1,7 +1,7 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn ./. [ "myHomeModules.productivity" ];
+  modules = myLib.importModulesIn ./. [ "myHomeModules" "productivity" ];
 
   cfg = config.myHomeModules.productivity;
   lmd = lib.mkDefault;
