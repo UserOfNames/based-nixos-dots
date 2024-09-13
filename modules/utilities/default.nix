@@ -1,10 +1,17 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn ./. [ "myModules" "utilities" ];
+  modules = myLib.importModulesIn {
+    inherit config;
+    dir = ./.;
+    base = [ "myModules" "utilities" ];
+    excludeConfigs = [
+      "thunar"
+      "virtualization"
+    ];
+  };
 
   cfg = config.myModules.utilities;
-  lmd = lib.mkDefault;
 in {
   imports = [] ++ modules;
 
@@ -18,10 +25,5 @@ in {
       wl-clip-persist
       wl-clipboard
     ];
-
-    myModules.utilities = {
-      # thunar.enable = lmd true;
-      # virtualization.enable = lmd true;
-    };
   };
 }

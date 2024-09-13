@@ -1,10 +1,13 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn ./. [ "myHomeModules" "system" "hyprland" ];
+  modules = myLib.importModulesIn {
+    inherit config;
+    dir = ./.;
+    base = [ "myHomeModules" "system" "hyprland" ];
+  };
 
   cfg = config.myHomeModules.system.hyprland;
-  lmd = lib.mkDefault;
   userName = config.myHomeModules.userName;
 
   swww-random = pkgs.writeShellScriptBin "swww-random" ''
@@ -48,15 +51,6 @@ in {
       slurp
       swww
     ];
-
-    myHomeModules.system.hyprland = {
-      bemenu.enable = lmd true;
-      binds.enable = lmd true;
-      hypridle.enable = lmd true;
-      hyprlock.enable = lmd true;
-      mako.enable = lmd true;
-      waybar.enable = lmd true;
-    };
 
     wayland.windowManager.hyprland = {
       enable = true;

@@ -1,10 +1,17 @@
 { config, lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn ./. [ "myModules" "system" "display" ];
+  modules = myLib.importModulesIn {
+    inherit config;
+    dir = ./.;
+    base = [ "myModules" "system" "display" ];
+    excludeConfigs = [
+      "hyprland"
+      "plasma"
+    ];
+  };
 
   cfg = config.myModules.system.display;
-  lmd = lib.mkDefault;
 in {
   imports = [] ++ modules;
 
@@ -17,12 +24,6 @@ in {
           layout = "us";
         };
       };
-    };
-
-    myModules.system.display = {
-      # hyprland.enable = lmd true;
-      # plasma.enable = lmd true;
-      sddm.enable = lmd true;
     };
   };
 }

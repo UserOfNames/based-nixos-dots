@@ -1,7 +1,7 @@
 { lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn ./. [ "myHomeModules" ];
+  modules = myLib.importModulesInBasic ./. [ "myHomeModules" ];
 in {
   imports = [] ++ modules;
 

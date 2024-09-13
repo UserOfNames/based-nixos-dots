@@ -51,8 +51,48 @@ in rec {
       ([ "options" ] ++ base ++ [ name ] ++ [ "enable" ])
       (lib.mkEnableOption "Enable ${name} module");
 
-  # importFilesIn and add enable options for each based on filename
-  importModulesIn = dir: base:
+  # Bind a config to its group config with very low priority
+  # lib.mkDefault will override configs made by this
+  mkConfigDefault = base: name: config:
+    let
+      cfg = ([ "config" ] ++ base ++ [ name ] ++ [ "enable" ]);
+      groupCfg = lib.attrsets.getAttrFromPath (base ++ [ "enable" ]) config;
+    in
+      lib.attrsets.setAttrByPath
+        cfg (lib.mkOverride 1250 groupCfg);
+
+  # importFilesIn and make enable options for each based on filename
+  # Also apply mkConfigDefault to each module
+  # Exclude configs or options by filename
+  importModulesIn = {
+    dir,
+    base,
+    config,
+    excludeOptions ? [],
+    excludeConfigs ? []
+  }:
+    let
+      modules = importFilesIn dir;
+    in 
+      []
+      ++ modules
+
+      ++ (map (file:
+          if (builtins.elem (fileName file) excludeOptions)
+          then {}
+          else mkModuleToggle base (fileName file))
+          modules)
+
+      ++ (map (file:
+          if ((builtins.elem (fileName file) excludeConfigs) || (builtins.elem (fileName file) excludeOptions))
+          then {}
+          else mkConfigDefault base (fileName file) config)
+          modules);
+
+  # Basic version of importModulesIn, used for
+  # base default.nix in modules/ and home/
+  # where the extra features aren't wanted
+  importModulesInBasic = dir: base:
     let
       modules = importFilesIn dir;
     in 

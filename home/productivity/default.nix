@@ -1,10 +1,13 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn ./. [ "myHomeModules" "productivity" ];
+  modules = myLib.importModulesIn {
+    inherit config;
+    dir = ./.;
+    base = [ "myHomeModules" "productivity" ];
+  };
 
   cfg = config.myHomeModules.productivity;
-  lmd = lib.mkDefault;
 in {
   imports = [] ++ modules;
 

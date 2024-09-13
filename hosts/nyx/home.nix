@@ -36,7 +36,6 @@ in {
 
     utilities = {
       enable = true;
-      syncthing.enable = true;
     };
   };
 }

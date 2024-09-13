@@ -1,9 +1,13 @@
 { config, lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn ./. [ "scripts" ];
+  modules = myLib.importModulesIn {
+    inherit config;
+    dir = ./.;
+    base = [ "scripts" ];
+  };
+
   mke = lib.mkEnableOption;
-  lmd = lib.mkDefault;
   cfg = config.scripts;
 in {
   imports = [] ++ modules;
@@ -13,9 +17,5 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    scripts = {
-      fzf-cd-common.enable = lmd true;
-      tmux-sessionizer.enable = lmd true;
-    };
   };
 }

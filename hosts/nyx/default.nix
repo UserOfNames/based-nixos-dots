@@ -55,6 +55,7 @@ in {
 
     other = {
       enable = true;
+      gaming.enable = true;
     };
 
     utilities = {
