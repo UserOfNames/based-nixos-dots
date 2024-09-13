@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  userName = config.myModules.system.mainUser.userName;
+  userName = "zdbg";
 in {
   imports = [
     ../../home
@@ -18,6 +18,8 @@ in {
   };
 
   myHomeModules = {
+    inherit userName;
+
     other = {
       enable = true;
     };

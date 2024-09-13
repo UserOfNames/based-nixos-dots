@@ -1,13 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  userName = config.myModules.system.mainUser.userName;
+  userName = "zdbg";
 in {
   imports = [
     ../../home
   ];
-
-  wayland.windowManager.hyprland.settings.input."numlock_by_default" = false;
 
   home = {
     username = userName;
@@ -19,7 +17,11 @@ in {
     ];
   };
 
+  wayland.windowManager.hyprland.settings.input."numlock_by_default" = false;
+
   myHomeModules = {
+    inherit userName;
+
     other = {
       enable = true;
     };

@@ -28,7 +28,7 @@ in {
     TERMINAL = "kitty";
   };
 
-  scripts.enable = {
+  scripts = {
     enable = true;
   };
 
