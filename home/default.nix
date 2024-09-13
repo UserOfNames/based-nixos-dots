@@ -1,7 +1,9 @@
 { lib, myLib, ... }:
 
-{
-  imports = [] ++ (myLib.importFilesIn ./.);
+let
+  modules = myLib.importModulesIn ./. [ "myHomeModules" ];
+in {
+  imports = [] ++ modules;
 
   options.myHomeModules.userName = lib.mkOption {
     default = "zdbg";

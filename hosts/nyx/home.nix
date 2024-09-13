@@ -32,7 +32,6 @@ in {
 
     system = {
       enable = true;
-      hyprland.enable = false;
     };
 
     utilities = {

@@ -1,28 +1,12 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myHomeModules" "utilities" ];
+
   cfg = config.myHomeModules.utilities;
-  mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
-
-  options.myHomeModules.utilities = {
-    enable = mke "Enable 'utilities' home module group";
-    btop.enable = mke "Enable btop";
-    firefox.enable = mke "Enable firefox";
-    fzf.enable = mke "Enable fzf";
-    git.enable = mke "Enable git";
-    kitty.enable = mke "Enable kitty";
-    mpd.enable = mke "Enable mpd";
-    mpv.enable = mke "Enable mpv";
-    ncmpcpp.enable = mke "Enable ncmpcpp";
-    neovim.enable = mke "Enable neovim";
-    syncthing.enable = mke "Enable syncthing user service";
-    tmux.enable = mke "Enable tmux";
-    yazi.enable = mke "Enable yazi";
-    zathura.enable = mke "Enable zathura";
-  };
+  imports = [] ++ modules;
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

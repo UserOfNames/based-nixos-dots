@@ -1,30 +1,18 @@
 { config, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myModules" "system" ];
+
   cfg = config.myModules.system;
-  mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
+  imports = [] ++ modules;
 
   options.myModules.system = {
-    enable = mke "Enable 'system' NixOS module group";
-
-    mainUser = {
-      enable = mke "Enable main user module";
-      userName = lib.mkOption {
-        default = "zdbg";
-        description = "Main user username";
-      };
+    mainUser.userName = lib.mkOption {
+      default = "zdbg";
+      description = "Main user username";
     };
-
-    bootloader.enable = mke "Enable bootloader module";
-    locale.enable = mke "Enable locale module";
-    network.enable = mke "Enable network module";
-    packages.enable = mke "Enable packages module";
-    security.enable = mke "Enable security module";
-    store.enable = mke "Enable nix store module";
-    zsh.enable = mke "Enable zsh";
   };
 
   config = lib.mkIf cfg.enable {

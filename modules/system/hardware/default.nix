@@ -1,19 +1,12 @@
 { config, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myModules" "system" "hardware" ];
+
   cfg = config.myModules.system;
-  mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
-
-  options.myModules.system.hardware = {
-    enable = mke "Enable hardware module";
-    bluetooth.enable = mke "Enable bluetooth";
-    laptop.enable = mke "Enable some settings for laptops";
-    printing.enable = mke "Enable printing";
-    sound.enable = mke "Enable sound";
-  };
+  imports = [] ++ modules;
 
   config = lib.mkIf cfg.enable {
     myModules.system.hardware = {

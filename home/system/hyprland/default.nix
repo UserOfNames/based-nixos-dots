@@ -1,6 +1,8 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myHomeModules" "system" "hyprland" ];
+
   cfg = config.myHomeModules.system.hyprland;
   userName = config.myHomeModules.userName;
 
@@ -32,7 +34,7 @@ let
     done
   '';
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
+  imports = [] ++ modules;
   
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

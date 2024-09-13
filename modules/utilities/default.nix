@@ -1,17 +1,12 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myModules" "utilities" ];
+
   cfg = config.myModules.utilities;
-  mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
-
-  options.myModules.utilities = {
-    enable = mke "Enable 'utilities' NixOS module group";
-    thunar.enable = mke "Enable thunar";
-    virtualization.enable = mke "Enable virtualization";
-  };
+  imports = [] ++ modules;
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

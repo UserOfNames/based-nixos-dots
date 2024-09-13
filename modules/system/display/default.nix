@@ -1,18 +1,12 @@
 { config, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myModules" "system" "display" ];
+
   cfg = config.myModules.system;
-  mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
-
-  options.myModules.system.display = {
-    enable = mke "Enable basic display settings";
-    hyprland.enable = mke "Enable basic hyprland (configuration is a home module)";
-    plasma.enable = mke "Enable KDE plasma module";
-    sddm.enable = mke "Enable SDDM module";
-  };
+  imports = [] ++ modules;
 
   config = lib.mkIf cfg.enable {
     programs.xwayland.enable = true;

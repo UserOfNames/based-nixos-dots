@@ -1,16 +1,15 @@
 { config, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "scripts" ];
   mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
   cfg = config.scripts;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
+  imports = [] ++ modules;
 
   options.scripts = {
     enable = mke "Enable scripts";
-    fzf-cd-common.enable = mke "Enable script to fzf + cd over important directories";
-    tmux-sessionizer.enable = mke "Enable tmux-sessionizer script by Primeagen";
   };
 
   config.scripts = {

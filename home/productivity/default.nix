@@ -1,15 +1,12 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myHomeModules.productivity" ];
+
   cfg = config.myHomeModules.productivity;
-  mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
-
-  options.myHomeModules.productivity = {
-    enable = mke "Enable 'productivity home module group";
-  };
+  imports = [] ++ modules;
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

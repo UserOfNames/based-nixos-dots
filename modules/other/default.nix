@@ -1,17 +1,12 @@
 { config, lib, myLib, ... }:
 
 let
+  modules = myLib.importModulesIn ./. [ "myModules" "other" ];
+
   cfg = config.myModules.other;
-  mke = lib.mkEnableOption;
   lmd = lib.mkDefault;
 in {
-  imports = [] ++ (myLib.importFilesIn ./.);
-
-  options.myModules.other = {
-    enable = mke "Enable 'other' NixOS module group";
-    gaming.enable = mke "Enable gaming module";
-    stylix.enable = mke "Enable stylix";
-  };
+  imports = [] ++ modules;
 
   config = lib.mkIf cfg.enable {
     myModules.other = {

@@ -45,9 +45,10 @@ in rec {
 
   # Create an option: options.(base).(filename).enable
   # base should be a string like "myModules.system"
-  mkModuleToggle = base: name: {
-    options.${base}.${name}.enable = lib.mkEnableOption "Enable ${name} module";
-  };
+  mkModuleToggle = base: name:
+    lib.attrsets.setAttrByPath
+      ([ "options" ] ++ base ++ [ name ] ++ [ "enable" ])
+      (lib.mkEnableOption "Enable ${name} module");
 
   # importFilesIn and add enable options for each based on filename
   # Enable modules by default with mkConfigDefault

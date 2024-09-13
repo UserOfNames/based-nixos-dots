@@ -1,5 +1,7 @@
 { myLib, ... }:
 
-{
-  imports = [] ++ (myLib.importFilesIn ./.);
+let
+  modules = myLib.importModulesIn ./. [ "myModules" ];
+in {
+  imports = [] ++ modules;
 }
