@@ -1,13 +1,18 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.myModules.system.hardware.printing;
 in {
   config = lib.mkIf cfg.enable {
-    # avahi is for autodiscovery of printers
-    # Port 5353 is opened
     services = {
-      printing.enable = true;
+      printing = {
+        enable = true;
+
+        drivers = with pkgs; [
+          gutenprint
+        ];
+      };
+
       avahi = {
         enable = true;
         nssmdns4 = true;
