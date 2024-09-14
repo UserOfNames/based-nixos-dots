@@ -49,13 +49,27 @@ in {
 
       initExtra = ''
         PS1="%F{magenta}[%f%F{green}%n%f%F{magenta}@%f%F{cyan}%m%f %F{magenta}%~]%% %f"
+        bindkey -v
+        keytimeout=1
+
         setopt correct
         setopt INC_APPEND_HISTORY
         setopt HIST_FIND_NO_DUPS
-        bindkey -v
-        keytimeout=1
+
         zstyle ':completion:*' menu select
         _comp_options+=(globdots)
+
+        fancy-ctrl-z () {
+          if [[ $#BUFFER -eq 0 ]]; then
+            BUFFER=" fg"
+            zle accept-line -w
+          else
+            zle push-input -w
+            zle clear-screen -w
+          fi
+        }
+        zle -N fancy-ctrl-z
+        bindkey '^Z' fancy-ctrl-z
       '';
     }; 
   };
