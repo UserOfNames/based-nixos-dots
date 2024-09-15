@@ -59,6 +59,8 @@ in {
         zstyle ':completion:*' menu select
         _comp_options+=(globdots)
 
+
+        # <C-z> toggles suspend
         fancy-ctrl-z () {
           if [[ $#BUFFER -eq 0 ]]; then
             BUFFER=" fg"

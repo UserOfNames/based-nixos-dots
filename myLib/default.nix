@@ -55,11 +55,11 @@ in rec {
   # lib.mkDefault will override configs made by this
   mkConfigDefault = base: name: config:
     let
-      cfg = ([ "config" ] ++ base ++ [ name ] ++ [ "enable" ]);
       groupCfg = lib.attrsets.getAttrFromPath (base ++ [ "enable" ]) config;
     in
       lib.attrsets.setAttrByPath
-        cfg (lib.mkOverride 1250 groupCfg);
+        ([ "config" ] ++ base ++ [ name ] ++ [ "enable" ])
+        (lib.mkOverride 1250 groupCfg);
 
   # importFilesIn and make enable options for each based on filename
   # Also apply mkConfigDefault to each module
@@ -92,7 +92,7 @@ in rec {
   # Basic version of importModulesIn, used for
   # base default.nix in modules/ and home/
   # where the extra features aren't wanted
-  importModulesInBasic = dir: base:
+  importGroupsIn = dir: base:
     let
       modules = importFilesIn dir;
     in 

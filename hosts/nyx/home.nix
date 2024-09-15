@@ -14,6 +14,7 @@ in {
 
     packages = with pkgs; [
       bottles
+      mindustry-wayland
       prismlauncher
       qbittorrent
     ];

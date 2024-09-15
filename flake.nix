@@ -26,7 +26,15 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, disko, stylix, ... }@inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nur,
+    disko,
+    stylix,
+    ...
+  }@inputs:
   let
     myLib = import ./myLib {inherit inputs;};
   in with myLib; {
