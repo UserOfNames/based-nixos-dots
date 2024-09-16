@@ -27,6 +27,7 @@ in {
 
           standalonePlugins = [
             "friendly-snippets"
+            "nvim-treesitter"
           ];
         };
       };
