@@ -2,6 +2,9 @@
 
 let
   cfg = config.myHomeModules.other.newsboat;
+
+  mkFeed = title: url: tags:
+    { inherit title url tags; };
 in {
   config = lib.mkIf cfg.enable {
     xdg.configFile = {
@@ -19,14 +22,6 @@ in {
       '';
 
       urls = [
-        {
-          title = "Planet KDE";
-          url = "https://planet.kde.org/atom.xml";
-          tags = [
-            "Linux"
-            "Tech"
-          ];
-        }
       ];
     };
   };
