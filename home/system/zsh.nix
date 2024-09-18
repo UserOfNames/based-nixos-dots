@@ -59,6 +59,7 @@ in {
         zstyle ':completion:*' menu select
         _comp_options+=(globdots)
 
+        bindkey -s "^[s" " nix develop -c zsh\n"
 
         # <C-z> toggles suspend
         fancy-ctrl-z () {
@@ -71,7 +72,7 @@ in {
           fi
         }
         zle -N fancy-ctrl-z
-        bindkey '^Z' fancy-ctrl-z
+        bindkey "^Z" fancy-ctrl-z
       '';
     }; 
   };
