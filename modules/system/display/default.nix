@@ -6,6 +6,7 @@ let
     dir = ./.;
     base = [ "myModules" "system" "display" ];
     excludeConfigs = [
+      "cosmic"
       "hyprland"
       "plasma"
     ];
