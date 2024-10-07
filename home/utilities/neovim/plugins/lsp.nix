@@ -33,7 +33,7 @@
       hls.enable = true;
       lua-ls.enable = true;
       nil-ls.enable = true;
-      pylsp.enable = true;
+      pyright.enable = true;
     };
   };
 }
