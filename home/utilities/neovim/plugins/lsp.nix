@@ -30,7 +30,12 @@
 
     servers = {
       clangd.enable = true;
-      hls.enable = true;
+
+      hls = {
+        enable = true;
+        installGhc = true;
+      };
+
       lua_ls.enable = true;
       nil_ls.enable = true;
       pyright.enable = true;
