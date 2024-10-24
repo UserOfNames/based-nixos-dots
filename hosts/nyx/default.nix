@@ -37,6 +37,11 @@ in {
   };
 
   myModules = {
+    other = {
+      enable = true;
+      gaming.enable = true;
+    };
+
     system = {
       enable = true;
 
@@ -51,11 +56,6 @@ in {
       display = {
         plasma.enable = true;
       };
-    };
-
-    other = {
-      enable = true;
-      gaming.enable = true;
     };
 
     utilities = {

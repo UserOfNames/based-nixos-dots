@@ -13,8 +13,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      bitwarden
       foliate
+      keepassxc
       nomacs
       qalculate-qt
       trashy
