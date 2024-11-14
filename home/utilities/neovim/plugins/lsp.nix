@@ -24,6 +24,7 @@
       extra = with myLib.nixvim; [
         (mkMap "n" "gi" "<cmd>Telescope lsp_implementations<Enter>" null)
         (mkMap "n" "gr" "<cmd>Telescope lsp_references<Enter>" null)
+        (mkFunctionMap "n" "<Leader>lh" "vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())" "Toggle inlay hints")
       ];
     };
 
