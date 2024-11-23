@@ -14,7 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       calcurse
-      libreoffice-fresh
+      libreoffice-qt
       obs-studio
     ];
   };
