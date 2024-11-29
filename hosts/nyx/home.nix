@@ -17,6 +17,7 @@ in {
       mindustry-wayland
       prismlauncher
       qbittorrent
+      r2modman
     ];
   };
 
