@@ -10,6 +10,7 @@ in {
 
       targets = {
         bemenu.enable = false;
+        hyprlock.enable = false;
         nixvim.enable = false;
         kde.enable = false;
         tmux.enable = false;
