@@ -13,7 +13,7 @@ in rec {
         ../hosts/${hostname}
         ../modules
         ../scripts
-        { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+        { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
       ];
     };
 
