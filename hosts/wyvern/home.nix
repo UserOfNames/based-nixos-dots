@@ -14,6 +14,7 @@ in {
 
     packages = with pkgs; [
       qbittorrent
+      vscode-fhs
     ];
   };
 

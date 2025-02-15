@@ -42,6 +42,11 @@ in {
     };
   };
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mysql84;
+  };
+
   scripts = {
     enable = true;
   };
