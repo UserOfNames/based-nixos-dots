@@ -22,14 +22,16 @@ in {
         default = {
           isDefault = true;
           # Extensions from NUR
-          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-            canvasblocker
-            darkreader
-            multi-account-containers
-            skip-redirect
-            ublock-origin
-            vimium
-          ];
+          extensions = {
+            packages = with pkgs.nur.repos.rycee.firefox-addons; [
+              canvasblocker
+              darkreader
+              multi-account-containers
+              skip-redirect
+              ublock-origin
+              vimium
+            ];
+          };
 
           search = {
             default = "Brave";
