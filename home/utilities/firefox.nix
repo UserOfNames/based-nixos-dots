@@ -39,7 +39,7 @@ in {
 
             order = [
               "Brave"
-              "DuckDuckGo"
+              "ddg"
               "Wikipedia"
               "Nix Packages"
               "Nix Options"
