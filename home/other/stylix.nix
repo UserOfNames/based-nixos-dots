@@ -9,6 +9,12 @@ in {
       autoEnable = true;
 
       targets = {
+        firefox = {
+          profileNames = [
+            "default"
+          ];
+        };
+
         bemenu.enable = false;
         hyprlock.enable = false;
         nixvim.enable = false;

@@ -19,6 +19,6 @@ in {
       fzf-cd-common
     ];
 
-    home-manager.users."${userName}".programs.zsh.initExtra = ''bindkey -s "^f" " source fzf-cd-common\n"'';
+    home-manager.users."${userName}".programs.zsh.initContent = ''bindkey -s "^f" " source fzf-cd-common\n"'';
   };
 }

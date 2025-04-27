@@ -43,6 +43,6 @@ in {
       tmux-sessionizer
     ];
 
-    home-manager.users."${userName}".programs.zsh.initExtra = ''bindkey -s "^[f" " tmux-sessionizer\n"'';
+    home-manager.users."${userName}".programs.zsh.initContent = ''bindkey -s "^[f" " tmux-sessionizer\n"'';
   };
 }

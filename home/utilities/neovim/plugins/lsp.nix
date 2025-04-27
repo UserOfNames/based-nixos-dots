@@ -50,6 +50,7 @@ in {
           installGhc = false;
         };
 
+        jdtls.enable = true;
         lua_ls.enable = true;
         nil_ls.enable = true;
         pyright.enable = true;
@@ -62,7 +63,7 @@ in {
       };
     };
 
-    diagnostics = {
+    diagnostic.config = {
       virtual_text = true;
     };
   };

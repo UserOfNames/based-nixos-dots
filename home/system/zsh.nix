@@ -47,7 +47,7 @@ in {
         searchDownKey = "$terminfo[kcud1]";
       };
 
-      initExtra = ''
+      initContent = ''
         PS1="%F{magenta}[%f%F{green}%n%f%F{magenta}@%f%F{cyan}%m%f %F{magenta}%~]%% %f"
         bindkey -v
         keytimeout=1
