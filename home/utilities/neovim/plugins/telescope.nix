@@ -10,6 +10,8 @@
 
     settings = {
       defaults = {
+        border = false;
+
         mappings = {
           i = {
             "<C-l>" = "select_default";

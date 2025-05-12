@@ -16,25 +16,15 @@ in {
       enable = true;
 
       keymaps = {
-        diagnostic = {
-          "[d" = "goto_prev";
-          "]d" = "goto_next";
-        };
-
         lspBuf = {
-          "K" = "hover";
-          "gd" = "definition";
-          "gD" = "declaration";
           "go" = "type_definition";
-          "gs" = "signature_help";
-          "<F2>" = "rename";
-          "<F3>" = "format";
-          "<F4>" = "code_action";
+          "grs" = "signature_help";
+          "grf" = "format";
         };
 
         extra = with myLib.nixvim; [
           (mkMap "n" "gi" "<cmd>Telescope lsp_implementations<Enter>" null)
-          (mkMap "n" "gr" "<cmd>Telescope lsp_references<Enter>" null)
+          (mkMap "n" "grr" "<cmd>Telescope lsp_references<Enter>" null)
           (mkFunctionMap "n" "<Leader>lh" "vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())" "Toggle inlay hints")
           (mkFunctionMap "n" "<Leader>ld" "${toggle_virtual_text}" "Toggle inline LSP diagnostics")
           (mkFunctionMap "n" "<Leader>ll" "${toggle_virtual_line}" "Toggle inline LSP diagnostics")
@@ -52,7 +42,16 @@ in {
 
         jdtls.enable = true;
         lua_ls.enable = true;
-        nil_ls.enable = true;
+
+        nixd = {
+          enable = true;
+          settings = {
+            nixpkgs = {
+              expr = "import <nixpkgs> { }";
+            };
+          };
+        };
+
         pyright.enable = true;
 
         rust_analyzer = {

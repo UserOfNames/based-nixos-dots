@@ -1,6 +1,4 @@
-{ inputs, ... }:
-
-let
+{inputs, ...}: let
   lib = inputs.nixpkgs.lib;
   myLib = (import ./default.nix) {inherit inputs;};
 in rec {
@@ -21,10 +19,9 @@ in rec {
   mkHome = userName: homeFile: {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs myLib; };
+    extraSpecialArgs = {inherit inputs myLib;};
     users.${userName} = import homeFile;
   };
-
 
   # Get the name of a file
   fileName = path:
@@ -76,18 +73,16 @@ in rec {
     in 
       []
       ++ modules
-
       ++ (map (file:
           if (builtins.elem (fileName file) excludeOptions)
           then {}
           else mkModuleToggle base (fileName file))
-          modules)
-
+      modules)
       ++ (map (file:
           if ((builtins.elem (fileName file) excludeConfigs) || (builtins.elem (fileName file) excludeOptions))
           then {}
           else mkConfigDefault base (fileName file) config)
-          modules);
+      modules);
 
   # Basic version of importModulesIn, used for
   # base default.nix in modules/ and home/

@@ -34,6 +34,8 @@
       # Fold settings - Fold nothing by default
       foldenable = false;
       foldlevelstart = 99;
+
+      winborder = "rounded";
     };
   };
 }
