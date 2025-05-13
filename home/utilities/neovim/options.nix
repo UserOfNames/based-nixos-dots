@@ -35,6 +35,7 @@
       foldenable = false;
       foldlevelstart = 99;
 
+      # Border config - Rounded borders on all windows
       winborder = "rounded";
     };
   };

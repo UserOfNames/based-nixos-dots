@@ -28,6 +28,7 @@ in {
           standalonePlugins = [
             "friendly-snippets"
             "nvim-treesitter"
+            "oil.nvim"
           ];
         };
       };
