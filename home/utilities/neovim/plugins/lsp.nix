@@ -33,6 +33,7 @@ in {
 
 
       servers = {
+        basedpyright.enable = true;
         clangd.enable = true;
 
         hls = {
@@ -51,8 +52,6 @@ in {
             };
           };
         };
-
-        pyright.enable = true;
 
         rust_analyzer = {
           enable = true;

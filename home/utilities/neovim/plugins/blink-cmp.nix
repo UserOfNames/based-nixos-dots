@@ -18,17 +18,6 @@
         "<C-k>" = [ "select_prev" ];
         "<C-l>" = [ "accept" ];
         "<C-e>" = [ "cancel" ];
-        "<C-y>" = [ "show_signature" "hide_signature" ];
-      };
-
-      signature = {
-        enabled = true;
-
-        trigger = {
-          show_on_insert = false;
-          show_on_trigger_character = false;
-          show_on_insert_on_trigger_character = false;
-        };
       };
 
       sources = {

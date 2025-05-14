@@ -11,7 +11,7 @@
 
       (mkFunctionMap [ "n" ] "<Leader>ow" ''vim.o.wrap = not(vim.o.wrap)'' "Toggle word wrap")
 
-      (mkMap [ "i" ] "<C-s>" "<C-g>u<Esc>[s1z=`]a<C-g>u" "Correct last spelling error")
+      (mkMap [ "i" ] "<C-b>" "<C-g>u<Esc>[s1z=`]a<C-g>u" "Correct last spelling error")
 
       (mkMap [ "n" "i" "c" ] "<C-l>" "<Enter>" null)
 
