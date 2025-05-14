@@ -7,6 +7,12 @@ in {
     plugins = {
       luasnip = {
         enable = true;
+
+        lazyLoad = {
+          settings = {
+            event = "DeferredUIEnter";
+          };
+        };
       };
 
       friendly-snippets.enable = true;

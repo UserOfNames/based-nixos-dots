@@ -9,5 +9,11 @@
         icons_enabled = true;
       };
     };
+
+    lazyLoad = {
+      settings = {
+        event = "DeferredUIEnter";
+      };
+    };
   };
 }

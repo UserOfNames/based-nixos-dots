@@ -11,5 +11,6 @@
       tex_conceal = "abdmg";
       conceallevel = 1;
     };
+    # NOTE: vimtex advises against lazy loading
   };
 }

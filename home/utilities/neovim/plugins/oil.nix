@@ -18,6 +18,7 @@
           "<C-->" =  "actions.refresh";
         };
       };
+      # NOTE: Oil advises against lazy loading
     };
 
     keymaps = with myLib.nixvim; [

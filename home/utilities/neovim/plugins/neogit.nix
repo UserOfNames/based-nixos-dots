@@ -1,8 +1,6 @@
 { myLib, ... }:
 
-let
-  ng = ''require("neogit")'';
-in {
+{
   programs.nixvim = {
     plugins.neogit = {
       enable = true;
@@ -10,12 +8,18 @@ in {
       settings = {
         kind = "vsplit";
       };
+
+      lazyLoad = {
+        settings = {
+          cmd = "Neogit";
+        };
+      };
     };
 
     keymaps = with myLib.nixvim; [
-      (mkFunctionMap [ "n" ] "<Leader>gs" ''${ng}.open()'' "Open neogit")
-      (mkFunctionMap [ "n" ] "<Leader>gl" ''${ng}.open({"log"})'' "Open neogit log popup")
-      (mkFunctionMap [ "n" ] "<Leader>gb" ''${ng}.open({"branch"})'' "Open neogit branch popup")
+      (mkMap [ "n" ] "<Leader>gs" "<cmd>Neogit<Enter>" "Open neogit")
+      (mkMap [ "n" ] "<Leader>gl" "<cmd>Neogit log<Enter>" "Open neogit")
+      (mkMap [ "n" ] "<Leader>gb" "<cmd>Neogit branch<Enter>" "Open neogit")
     ];
   };
 }

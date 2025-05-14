@@ -7,5 +7,11 @@
     settings = {
       map_cr = true;
     };
+
+    lazyLoad = {
+      settings = {
+        event = "InsertEnter";
+      };
+    };
   };
 }

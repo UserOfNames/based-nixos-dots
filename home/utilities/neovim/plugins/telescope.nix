@@ -34,5 +34,11 @@
       "<Leader>fs" = "live_grep";
       "<Leader>fd" = "diagnostics";
     };
+
+    lazyLoad = {
+      settings = {
+        cmd = "Telescope";
+      };
+    };
   };
 }

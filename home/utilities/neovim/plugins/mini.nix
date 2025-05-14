@@ -21,5 +21,11 @@
 
       surround = {};
     };
+
+    lazyLoad = {
+      settings = {
+        event = "DeferredUIEnter";
+      };
+    };
   };
 }
