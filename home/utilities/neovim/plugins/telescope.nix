@@ -37,7 +37,7 @@
 
     lazyLoad = {
       settings = {
-        cmd = "Telescope";
+        event = "DeferredUIEnter";
       };
     };
   };
