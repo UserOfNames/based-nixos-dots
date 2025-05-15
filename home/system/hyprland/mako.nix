@@ -6,7 +6,10 @@ in {
   config = lib.mkIf cfg.enable {
     services.mako = {
       enable = true;
-      defaultTimeout = 10000;
+
+      settings = {
+        default-timeout = 10000;
+      };
     };
   };
 }

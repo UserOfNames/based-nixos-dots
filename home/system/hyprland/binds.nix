@@ -28,6 +28,8 @@
       "SUPER, W, exec, $browser"
       "SUPER CTRL SHIFT, L, exec, hyprlock"
 
+      "SUPER SHIFT, S, toggleswallow"
+
       ", Print, exec, grim"
       "SUPER, Print, exec, grim -g \"$(slurp -w 0)\""
 
