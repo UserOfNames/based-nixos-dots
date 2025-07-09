@@ -5,7 +5,7 @@ let
 in {
   config = lib.mkIf cfg.enable {
     boot = {
-      kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+      # kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
       supportedFilesystems = [ "ntfs" ];
 

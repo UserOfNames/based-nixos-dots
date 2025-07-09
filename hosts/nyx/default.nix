@@ -18,6 +18,7 @@ in {
   home-manager = myLib.mkHome userName homeFile;
 
   environment.systemPackages = with pkgs; [
+    sillytavern
     tor-browser
   ];
 
@@ -32,9 +33,11 @@ in {
     enable32Bit = true;
   };
 
-  services.mysql = {
+  hardware.wooting.enable = true;
+
+  services.ollama = {
     enable = true;
-    package = pkgs.mysql84;
+    acceleration = "rocm";
   };
 
   scripts = {

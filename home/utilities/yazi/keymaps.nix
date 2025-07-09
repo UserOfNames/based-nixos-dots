@@ -5,7 +5,7 @@ let
 in {
   config = lib.mkIf cfg.enable {
     programs.yazi.keymap = {
-      manager = {
+      mgr = {
         prepend_keymap = [
           { on = [ "<C-l>" ]; run = "open"; desc = "Open the selected files"; }
           { on = [ "<C-L>" ]; run = "open --interactive"; desc = "Open the selected files interactively"; }

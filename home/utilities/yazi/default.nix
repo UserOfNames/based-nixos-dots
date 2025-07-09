@@ -13,7 +13,7 @@ in {
       enableZshIntegration = config.myHomeModules.system.zsh.enable;
 
       settings = {
-        manager = {
+        mgr = {
           ratio = [ 1 3 5 ];
           sort_by = "natural";
           show_hidden = true;
