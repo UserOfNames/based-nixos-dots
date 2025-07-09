@@ -5,7 +5,7 @@ in {
   config = lib.mkIf cfg.enable {
     users.users.${cfg.userName} = {
       isNormalUser = true;
-      description = "zdbg";
+      description = cfg.userName;
       initialPassword = "CHANGENOW";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "syncthing" ];
     };

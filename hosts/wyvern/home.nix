@@ -1,20 +1,22 @@
-{ pkgs, ... }:
+{ osConfig, pkgs, ... }:
 
 let
-  userName = "zdbg";
+  userName = osConfig.myModules.system.mainUser.userName;
+
+  # stateVersion is shared with the NixOS stateVersion
+  stateVersion = osConfig.system.stateVersion;
 in {
   imports = [
     ../../home
   ];
 
   home = {
+    inherit stateVersion;
     username = userName;
     homeDirectory = "/home/${userName}";
-    stateVersion = "24.05"; # stateVersion should match the NixOS stateVersion and should not be changed!
 
     packages = with pkgs; [
       qbittorrent
-      vscode-fhs
     ];
   };
 

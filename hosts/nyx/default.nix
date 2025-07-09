@@ -18,7 +18,6 @@ in {
   home-manager = myLib.mkHome userName homeFile;
 
   environment.systemPackages = with pkgs; [
-    sillytavern
     tor-browser
   ];
 

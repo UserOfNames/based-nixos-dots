@@ -14,6 +14,7 @@ in {
   options.myModules.system = {
     mainUser.userName = lib.mkOption {
       default = "zdbg";
+      type = lib.types.str;
       description = "Main user username";
     };
   };
