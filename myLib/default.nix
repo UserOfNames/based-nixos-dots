@@ -11,6 +11,7 @@ in rec {
         ../hosts/${hostname}
         ../modules
         ../scripts
+        { networking.hostName = hostname; }
         { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
       ];
     };

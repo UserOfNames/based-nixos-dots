@@ -1,7 +1,6 @@
 { pkgs, inputs, myLib, ... }:
 
 let
-  hostName = "nyx";
   userName = "zdbg";
   homeFile = ./home.nix;
   diskoDevice = "/dev/nvme0n1";
@@ -12,8 +11,6 @@ in {
     inputs.disko.nixosModules.disko 
     (import ./disko.nix { device = diskoDevice; })
   ];
-
-  networking.hostName = hostName;
 
   home-manager = myLib.mkHome userName homeFile;
 
@@ -34,10 +31,10 @@ in {
 
   hardware.wooting.enable = true;
 
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-  };
+  # services.ollama = {
+  #   enable = true;
+  #   acceleration = "rocm";
+  # };
 
   scripts = {
     enable = true;

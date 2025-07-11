@@ -1,7 +1,6 @@
 { pkgs, inputs, myLib, ... }:
 
 let
-  hostName = "wyvern";
   userName = "zdbg";
   homeFile = ./home.nix;
 in {
@@ -9,8 +8,6 @@ in {
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
-
-  networking.hostName = hostName;
 
   home-manager = myLib.mkHome userName homeFile;
 

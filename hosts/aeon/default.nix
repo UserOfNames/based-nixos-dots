@@ -1,7 +1,6 @@
 { pkgs, inputs, myLib, ... }:
 
 let
-  hostName = "aeon";
   userName = "zdbg";
   homeFile = ./home.nix;
   diskoDevice = "/dev/sda";
@@ -13,8 +12,6 @@ in {
     inputs.disko.nixosModules.disko 
     (import ./disko.nix { device = diskoDevice; })
   ];
-
-  networking.hostName = hostName;
 
   home-manager = myLib.mkHome userName homeFile;
 

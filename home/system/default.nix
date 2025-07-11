@@ -11,7 +11,6 @@ let
   };
 
   cfg = config.myHomeModules.system;
-  lmd = lib.mkDefault;
 in {
   imports = [] ++ modules;
 
