@@ -2,6 +2,7 @@
 
 let
   cfg = config.myHomeModules.system.zsh;
+  dotDir = ".config/zsh";
 in {
   config = lib.mkIf cfg.enable {
     programs.zsh = {
@@ -10,10 +11,10 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
-      dotDir = ".config/zsh";
+      inherit dotDir;
 
       history = {
-        path = "$ZDOTDIR/.zsh_history";
+        path = "${dotDir}/.zsh_history";
         ignoreSpace = true;
       };
 
