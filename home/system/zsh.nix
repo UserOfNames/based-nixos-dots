@@ -2,7 +2,7 @@
 
 let
   cfg = config.myHomeModules.system.zsh;
-  dotDir = ".config/zsh";
+  dotDir = "${config.home.homeDirectory}/.config/zsh";
 in {
   config = lib.mkIf cfg.enable {
     programs.zsh = {

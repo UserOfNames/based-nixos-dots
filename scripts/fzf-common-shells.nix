@@ -12,13 +12,13 @@ let
     fi
   '';
 in {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
-
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      fzf-common-shells
-    ];
-
-    home-manager.users."${userName}".programs.zsh.initContent = ''bindkey -s "^f" " source fzf-common-shells\n"'';
-  };
+  # imports = [ inputs.home-manager.nixosModules.home-manager ];
+  #
+  # config = lib.mkIf cfg.enable {
+  #   environment.systemPackages = [
+  #     fzf-common-shells
+  #   ];
+  #
+  #   home-manager.users."${userName}".programs.zsh.initContent = ''bindkey -s "^f" " source fzf-common-shells\n"'';
+  # };
 }
