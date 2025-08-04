@@ -69,7 +69,7 @@ in {
             lze
             lzextras
             snacks-nvim
-            onedark-nvim
+            tokyonight-nvim
             vim-sleuth
           ];
         };
