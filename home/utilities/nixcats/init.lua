@@ -1,42 +1,38 @@
-vim.g = {
-   mapleader = ' ',
-   maplocalleader = ' ',
-   loaded_netrw = 1,
-   loaded_netrwPlugin = 1,
-}
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
-vim.opt = {
-   termguicolors = true,
-   hidden = true,
-   number = true,
-   relativenumber = true,
-   wrap = false,
-   scrolloff = 8,
+vim.opt.termguicolors = true
+vim.opt.hidden = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false
+vim.opt.scrolloff = 8
 
-   incsearch = true,
-   hlsearch = false,
-   inccommand = "split",
-   ignorecase = true,
-   smartcase = true,
+vim.opt.incsearch = true
+vim.opt.hlsearch = false
+vim.opt.inccommand = "split"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-   -- Spaces instead of tabs, default width 4
-   expandtab = true,
-   softtabstop = 4,
-   tabstop = 4,
-   shiftwidth = 4,
-   breakindent = true,
+-- Spaces instead of tabs, default width 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.breakindent = true
 
-   -- TODO: signcolumn settings
-   -- signcolumn = 'yes'
-   -- relativenumber = true
+-- TODO: signcolumn settings
+-- vim.opt.signcolumn = 'yes'
+-- vim.opt.relativenumber = true
 
-   foldenable = false,
-   -- foldmethod = "expr",
-   -- foldexpr = "nvim_treesitter#foldexpr()",
-   foldlevelstart = 99,
+vim.opt.foldenable = false
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99
 
-   winborder = "rounded",
-}
+vim.opt.winborder = "rounded"
 
 -- TODO: yeah?
 -- vim.o.smarttab = true
@@ -64,7 +60,8 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = 'Previous Search Result' })
 -- TODO: Work on this keymap
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 
-vim.cmd.colorscheme("tokyonight-night")
+require("tokyonight").setup({ style = "night" })
+vim.cmd("colorscheme tokyonight")
 
 require("snacks").setup({
   explorer = {},
