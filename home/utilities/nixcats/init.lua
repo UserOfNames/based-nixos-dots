@@ -1,50 +1,6 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+require("options")
+require("plugins")
 
-vim.opt.termguicolors = true
-vim.opt.hidden = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wrap = false
-vim.opt.scrolloff = 8
-
-vim.opt.incsearch = true
-vim.opt.hlsearch = false
-vim.opt.inccommand = "split"
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Spaces instead of tabs, default width 4
-vim.opt.expandtab = true
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.breakindent = true
-
--- TODO: signcolumn settings
--- vim.opt.signcolumn = 'yes'
--- vim.opt.relativenumber = true
-
-vim.opt.foldenable = false
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevelstart = 99
-
-vim.opt.winborder = "rounded"
-
--- TODO: yeah?
--- vim.o.smarttab = true
--- vim.o.smartindent = true
--- vim.o.autoindent = true
-
--- TODO: worth considering
--- vim.o.undofile = true
-
--- TODO: what
--- Set completeopt to have a better completion experience
--- vim.o.completeopt = 'menu,preview,noselect'
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Scroll Down' })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Scroll Up' })
@@ -57,51 +13,8 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = 'Previous Search Result' })
 -- vim.keymap.set("n", "<leader><leader>l", "<cmd>b#<CR>", { desc = 'Last buffer' })
 -- vim.keymap.set("n", "<leader><leader>d", "<cmd>bdelete<CR>", { desc = 'delete buffer' })
 
--- TODO: Work on this keymap
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', 'gre', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 
-require("tokyonight").setup({ style = "night" })
-vim.cmd("colorscheme tokyonight")
-
-require("snacks").setup({
-  explorer = {},
-  picker = {},
-  bigfile = {},
-  image = {},
-  lazygit = {},
-  terminal = {},
-  rename = {},
-  notifier = {},
-  indent = {},
-  gitbrowse = {},
-  scope = {},
-})
-vim.keymap.set("n", "-", function() Snacks.explorer.open() end, { desc = 'Snacks Explorer' })
-vim.keymap.set("n", "<c-\\>", function() Snacks.terminal.open() end, { desc = 'Snacks Terminal' })
-vim.keymap.set("n", "<leader>_", function() Snacks.lazygit.open() end, { desc = 'Snacks LazyGit' })
-vim.keymap.set('n', "<leader>sf", function() Snacks.picker.smart() end, { desc = "Smart Find Files" })
-vim.keymap.set('n', "<leader><leader>s", function() Snacks.picker.buffers() end, { desc = "Search Buffers" })
--- find
-vim.keymap.set('n', "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
-vim.keymap.set('n', "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
--- Grep
-vim.keymap.set('n', "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
-vim.keymap.set('n', "<leader>sB", function() Snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
-vim.keymap.set('n', "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
-vim.keymap.set({ "n", "x" }, "<leader>sw", function() Snacks.picker.grep_word() end, { desc = "Visual selection or ord" })
--- search
-vim.keymap.set('n', "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
-vim.keymap.set('n', "<leader>sd", function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
-vim.keymap.set('n', "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, { desc = "Buffer Diagnostics" })
-vim.keymap.set('n', "<leader>sh", function() Snacks.picker.help() end, { desc = "Help Pages" })
-vim.keymap.set('n', "<leader>sj", function() Snacks.picker.jumps() end, { desc = "Jumps" })
-vim.keymap.set('n', "<leader>sk", function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
-vim.keymap.set('n', "<leader>sl", function() Snacks.picker.loclist() end, { desc = "Location List" })
-vim.keymap.set('n', "<leader>sm", function() Snacks.picker.marks() end, { desc = "Marks" })
-vim.keymap.set('n', "<leader>sM", function() Snacks.picker.man() end, { desc = "Man Pages" })
-vim.keymap.set('n', "<leader>sq", function() Snacks.picker.qflist() end, { desc = "Quickfix List" })
-vim.keymap.set('n', "<leader>sR", function() Snacks.picker.resume() end, { desc = "Resume" })
-vim.keymap.set('n', "<leader>su", function() Snacks.picker.undo() end, { desc = "Undo History" })
 require('lze').load {
   {
     "blink.cmp",
