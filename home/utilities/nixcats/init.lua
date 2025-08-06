@@ -1,10 +1,10 @@
--- HACK: Add the paths at runtime
--- This sucks. Fix it later
-package.path = "./?.lua;./?/init.lua;"
+-- TODO: Find a way to manage modules that isn't total cancer
+package.path = "./?.lua;./?/init.lua;./plugins/?.lua"
 
 require("options")
 require("keymaps")
 require("plugins")
+require("plugins.snacks")
 
 -- TODO: Move this
 vim.keymap.set('n', 'gre', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
