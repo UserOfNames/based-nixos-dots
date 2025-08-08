@@ -1,10 +1,7 @@
 require("snacks").setup({
-  explorer = {},
   picker = {},
   bigfile = {},
   image = {},
-  lazygit = {},
-  terminal = {},
   rename = {},
   notifier = {},
   indent = {},
@@ -12,9 +9,6 @@ require("snacks").setup({
   scope = {},
 })
 
-vim.keymap.set("n", "-", function() Snacks.explorer.open() end, { desc = 'Snacks Explorer' })
-vim.keymap.set("n", "<c-\\>", function() Snacks.terminal.open() end, { desc = 'Snacks Terminal' })
-vim.keymap.set("n", "<leader>_", function() Snacks.lazygit.open() end, { desc = 'Snacks LazyGit' })
 vim.keymap.set('n', "<leader>sf", function() Snacks.picker.smart() end, { desc = "Smart Find Files" })
 vim.keymap.set('n', "<leader><leader>s", function() Snacks.picker.buffers() end, { desc = "Search Buffers" })
 -- find

@@ -72,6 +72,10 @@ in {
             tokyonight-nvim
             vim-sleuth
           ];
+
+          testcat = with pkgs.vimPlugins; [
+            vim-be-good
+          ];
         };
 
         # not loaded automatically at startup.
@@ -158,6 +162,7 @@ in {
             lua = true;
             nix = true;
             go = false;
+            testcat = false;
           };
           # anything else to pass and grab in lua with `nixCats.extra`
           extra = {

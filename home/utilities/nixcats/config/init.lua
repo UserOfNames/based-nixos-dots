@@ -1,12 +1,17 @@
-local location = nixCats.nixCats_config_location
-package.path = location .. "/?.lua;" .. location .. "./?/init.lua;"
+-- Expose the nix store path of the config to lua
+-- Not a great solution, but it works; revisit later
+local location = require('nixCats').cats.nixCats_config_location
+package.path = location .. '/?.lua;' .. location .. '/?/init.lua;'
 
-require("options")
-require("keymaps")
-require("plugins")
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
--- TODO: Move this
-vim.keymap.set('n', 'gre', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+require('options')
+require('keymaps')
+require('plugins')
+require('after')
 
 -- require('lze').load {
 --   {
