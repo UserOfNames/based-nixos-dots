@@ -11,7 +11,6 @@ vim.g.loaded_netrwPlugin = 1
 require('options')
 require('keymaps')
 require('plugins')
-require('after')
 
 -- require('lze').load {
 --   {

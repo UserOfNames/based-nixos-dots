@@ -1,6 +1,6 @@
 local mk_map = require('helpers').mk_map
 
-require('plugins.lsp.diagnostics')
+require('diagnostics')
 
 mk_map('n', '<Leader>lh', function()
    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

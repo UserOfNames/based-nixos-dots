@@ -1,2 +1,2 @@
-require("after.ftplugin.lua")
-require("after.ftplugin.nix")
+require("lua")
+require("nix")

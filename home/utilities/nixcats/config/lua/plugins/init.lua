@@ -1,2 +1,2 @@
-require('plugins.lsp')
+require('lsp')
 -- require('plugins.snacks')
