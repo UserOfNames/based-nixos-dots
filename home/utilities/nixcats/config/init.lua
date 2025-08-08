@@ -1,10 +1,9 @@
--- TODO: Find a way to manage modules that isn't total cancer
-package.path = "./?.lua;./?/init.lua;./plugins/?.lua"
+local location = nixCats.nixCats_config_location
+package.path = location .. "/?.lua;" .. location .. "./?/init.lua;"
 
 require("options")
 require("keymaps")
 require("plugins")
-require("plugins.snacks")
 
 -- TODO: Move this
 vim.keymap.set('n', 'gre', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
