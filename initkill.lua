@@ -41,30 +41,6 @@ require("lz.n").load({
         cmd = "Trouble",
     },
     {
-        "telescope.nvim",
-        after = function()
-            require("telescope").setup({
-                defaults = {
-                    border = false,
-                    mappings = {
-                        i = { ["<C-l>"] = "select_default", ["<C-s>"] = "select_vertical" },
-                        n = {
-                            ["<C-l>"] = "select_default",
-                            ["<C-s>"] = "select_vertical",
-                            ["<Space>"] = "select_default",
-                        },
-                    },
-                },
-            })
-
-            local __telescopeExtensions = { "fzf", "harpoon" }
-            for i, extension in ipairs(__telescopeExtensions) do
-                require("telescope").load_extension(extension)
-            end
-        end,
-        event = "DeferredUIEnter",
-    },
-    {
         "nvim-autopairs",
         after = function()
             require("nvim-autopairs").setup({ map_cr = true })
@@ -210,11 +186,6 @@ require("diffview").setup({ use_icons = true })
 -- Set up keybinds {{{
 do
     local __nixvim_binds = {
-        { action = "<cmd>Telescope buffers<cr>", key = "<Leader>fb", mode = "n" },
-        { action = "<cmd>Telescope diagnostics<cr>", key = "<Leader>fd", mode = "n" },
-        { action = "<cmd>Telescope find_files<cr>", key = "<Leader>ff", mode = "n" },
-        { action = "<cmd>Telescope git_files<cr>", key = "<Leader>fg", mode = "n" },
-        { action = "<cmd>Telescope live_grep<cr>", key = "<Leader>fs", mode = "n" },
         {
             action = "<cmd>DiffviewOpen<Enter>",
             key = "<Leader>gdd",

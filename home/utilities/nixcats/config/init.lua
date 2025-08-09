@@ -1,8 +1,3 @@
--- Expose the nix store path of the config to lua
--- Not a great solution, but it works; revisit later
-local location = require('nixCats').cats.nixCats_config_location
-package.path = location .. '/?.lua;' .. location .. '/?/init.lua;'
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.loaded_netrw = 1
@@ -13,7 +8,6 @@ require('keymaps')
 require('plugins')
 
 -- require('lze').load {
---   {
 --     "blink.cmp",
 --     enabled = nixCats('general') or false,
 --     event = "DeferredUIEnter",

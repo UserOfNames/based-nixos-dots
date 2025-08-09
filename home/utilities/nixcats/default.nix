@@ -39,25 +39,15 @@ in {
         # at RUN TIME for plugins. Will be available to PATH within neovim terminal
         # this includes LSPs
         lspsAndRuntimeDeps = {
-          general = with pkgs; [
-            lazygit
-          ];
+          general = with pkgs; [];
           lua = with pkgs; [
             lua-language-server
             stylua
           ];
+
           nix = with pkgs; [
             nixd
             alejandra
-          ];
-          go = with pkgs; [
-            gopls
-            delve
-            golint
-            golangci-lint
-            gotools
-            go-tools
-            go
           ];
         };
 
@@ -72,18 +62,11 @@ in {
             tokyonight-nvim
             vim-sleuth
           ];
-
-          testcat = with pkgs.vimPlugins; [
-            vim-be-good
-          ];
         };
 
         # not loaded automatically at startup.
         # use with packadd and an autocommand in config to achieve lazy loading
         optionalPlugins = {
-          go = with pkgs.vimPlugins; [
-            nvim-dap-go
-          ];
           lua = with pkgs.vimPlugins; [
             lazydev-nvim
           ];
@@ -161,8 +144,6 @@ in {
             general = true;
             lua = true;
             nix = true;
-            go = false;
-            testcat = false;
           };
           # anything else to pass and grab in lua with `nixCats.extra`
           extra = {

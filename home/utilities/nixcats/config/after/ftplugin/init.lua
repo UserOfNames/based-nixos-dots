@@ -1,2 +1,0 @@
-require("lua")
-require("nix")
