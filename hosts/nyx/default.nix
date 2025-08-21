@@ -29,7 +29,8 @@ in {
     enable32Bit = true;
   };
 
-  hardware.wooting.enable = true;
+  # TODO: Reenable later (broken for now)
+  # hardware.wooting.enable = true;
 
   # services.ollama = {
   #   enable = true;
