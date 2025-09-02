@@ -29,8 +29,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nur.url = "github:nix-community/nur";
-
-    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -39,7 +37,6 @@
     home-manager,
     nur,
     disko,
-    stylix,
     ...
   }@inputs:
   let
