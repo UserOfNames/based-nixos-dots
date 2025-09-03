@@ -6,9 +6,9 @@ in {
   config = lib.mkIf cfg.enable {
     services = {
       libinput.enable = true;
-      tlp.enable = true;
       upower.enable = true;
-      power-profiles-daemon.enable = false;
+      tlp.enable = false;
+      power-profiles-daemon.enable = true;
     };
   };
 }

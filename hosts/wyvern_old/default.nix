@@ -21,7 +21,23 @@ in {
     TERMINAL = "kitty";
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware = {
+    graphics.enable = true;
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      open = false;
+      nvidiaSettings = true;
+
+      prime = {
+        # sync.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+  };
 
   scripts = {
     enable = true;
@@ -37,7 +53,7 @@ in {
       enable = true;
 
       mainUser = {
-        inherit userName;
+        userName = "zdbg";
       };
 
       hardware = {
@@ -53,7 +69,6 @@ in {
     utilities = {
       enable = true;
       thunar.enable = true;
-      virtualization.enable = true;
     };
   };
 
@@ -62,5 +77,5 @@ in {
   # Set this on install according to the version of NixOS
   # on installation (copy from auto-generated configuration.nix).
   # Do not change once set!
-  system.stateVersion = "25.05";
+  system.stateVersion = "24.05";
 }

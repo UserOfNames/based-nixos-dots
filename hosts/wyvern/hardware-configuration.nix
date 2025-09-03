@@ -8,77 +8,83 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
       fsType = "btrfs";
-      options = [ "subvol=root" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+      options = [ "subvol=root" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
     };
 
-  boot.initrd.luks.devices."cryptbtrfs".device = "/dev/disk/by-uuid/357b7952-34a0-4671-8c44-2dd7dfb428d8";
+  boot.initrd.luks.devices."cryptbtrfs".device = "/dev/disk/by-uuid/278ed293-c19a-413f-8ba8-a927d88a2a20";
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
       fsType = "btrfs";
-      options = [ "subvol=home" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+      options = [ "subvol=home" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
       fsType = "btrfs";
-      options = [ "subvol=nix" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+      options = [ "subvol=nix" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+    };
+
+  fileSystems."/var/log" =
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
+      fsType = "btrfs";
+      options = [ "subvol=log" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
     };
 
   fileSystems."/.swapvol" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
       fsType = "btrfs";
-      options = [ "subvol=swap" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+      options = [ "subvol=swap" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
     };
 
   fileSystems."/srv" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
       fsType = "btrfs";
-      options = [ "subvol=srv" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
-    };
-
-  fileSystems."/tmp" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
-      fsType = "btrfs";
-      options = [ "subvol=tmp" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
-    };
-
-  fileSystems."/var/tmp" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
-      fsType = "btrfs";
-      options = [ "subvol=var_tmp" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+      options = [ "subvol=srv" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
     };
 
   fileSystems."/var/lib/portables" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
       fsType = "btrfs";
-      options = [ "subvol=portables" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+      options = [ "subvol=portables" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
     };
 
   fileSystems."/var/lib/machines" =
-    { device = "/dev/disk/by-uuid/085f5c11-2189-4740-a4ff-2214fd8a3d60";
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
       fsType = "btrfs";
-      options = [ "subvol=machines" "compress-force=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+      options = [ "subvol=machines" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+    };
+
+  fileSystems."/tmp" =
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
+      fsType = "btrfs";
+      options = [ "subvol=tmp" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
+    };
+
+  fileSystems."/var/tmp" =
+    { device = "/dev/disk/by-uuid/0f30ab1d-41f2-4035-ad36-b6747ef9bc82";
+      fsType = "btrfs";
+      options = [ "subvol=var_tmp" "compress=zstd:1" "noautodefrag" "noatime" "space_cache=v2" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0268-D56F";
+    { device = "/dev/disk/by-uuid/74CF-D32A";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  # Shared partition for dual booting
+  fileSystems."/mnt/Shared" =
+    { device = "/dev/disk/by-uuid/F856E51156E4D184";
+      fsType = "ntfs";
     };
 
   swapDevices = [ { device = "/.swapvol/swapfile"; } ];
@@ -88,8 +94,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp192s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
