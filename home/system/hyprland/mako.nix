@@ -1,4 +1,4 @@
-{ config, lib, ...}:
+{ config, lib, myLib, ...}:
 
 let
   cfg = config.myHomeModules.system.hyprland.mako;
@@ -7,8 +7,15 @@ in {
     services.mako = {
       enable = true;
 
-      settings = {
+      settings = with myLib.base16Scheme; {
         default-timeout = 10000;
+
+        background-color = "#${base00}";
+        border-color = "#${base0D}";
+
+        font = "monospace 10";
+
+        border-radius = 1;
       };
     };
   };
