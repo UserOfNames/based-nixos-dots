@@ -7,6 +7,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
   ];
 
   home-manager = myLib.mkHome userName homeFile;
