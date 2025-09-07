@@ -95,28 +95,6 @@ in rec {
       (map (file: mkModuleToggle base (fileName file)) modules)
       ++ importFilesIn dir;
 
-
-  # nixvim helpers
-  nixvim = {
-    mkMap = mode: key: action: desc: {
-      inherit mode key action;
-      options = {
-        inherit desc;
-        silent = true;
-        noremap = true;
-      };
-    };
-
-    mkOptMap = mode: key: action: desc: opts:
-      (nixvim.mkMap mode key action desc) // { options = opts; };
-
-    mkRawMap = mode: key: raw: desc:
-      (nixvim.mkMap mode key { __raw = raw; } desc);
-
-    mkFunctionMap = mode: key: body: desc:
-      (nixvim.mkRawMap mode key ''function() ${body} end'' desc);
-  };
-
   # System base16 scheme, modified slightly from
   # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
   base16Scheme = {
