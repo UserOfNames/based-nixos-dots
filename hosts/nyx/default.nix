@@ -65,6 +65,7 @@ in {
     utilities = {
       enable = true;
       virtualization.enable = true;
+      wireshark.enable = true;
     };
   };
 

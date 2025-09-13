@@ -7,7 +7,7 @@ in {
       isNormalUser = true;
       description = cfg.userName;
       initialPassword = "CHANGENOW";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "syncthing" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "syncthing" "wireshark" ];
     };
   };
 }

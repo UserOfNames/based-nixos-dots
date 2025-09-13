@@ -8,6 +8,7 @@ let
     excludeConfigs = [
       "thunar"
       "virtualization"
+      "wireshark"
     ];
   };
 
