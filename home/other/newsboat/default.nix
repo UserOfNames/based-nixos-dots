@@ -22,6 +22,8 @@ in {
       '';
 
       urls = [
+        (mkFeed "Rust language" "https://blog.rust-lang.org/feed.xml" ["programming" "rust"])
+        (mkFeed "Arch news" "https://archlinux.org/feeds/news" ["linux"])
       ];
     };
   };
