@@ -31,6 +31,10 @@ in {
               clang-tools
             ];
 
+            latex = with pkgs; [
+              texliveFull
+            ];
+
             lua = with pkgs; [
               lua-language-server
               stylua
@@ -69,6 +73,10 @@ in {
               nvim-lspconfig
             ];
 
+            latex = with pkgs.vimPlugins; [
+              vimtex
+            ];
+
             rust = with pkgs.vimPlugins; [
               rustaceanvim
             ];
@@ -100,10 +108,6 @@ in {
               diffview-nvim
               gitsigns-nvim
               neogit
-            ];
-
-            latex = [
-              vimtex
             ];
           };
         };
@@ -157,7 +161,8 @@ in {
             programming = {
               clang = true;
               git = true;
-              lua =  true;
+              latex = true;
+              lua = true;
               nix = true;
               python = true;
               rust = true;

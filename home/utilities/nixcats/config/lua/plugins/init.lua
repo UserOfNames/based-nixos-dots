@@ -22,7 +22,7 @@ if nixCats('ui') or false then
    require('plugins.oil') -- Don't lazy load
 end
 
-if nixCats('programming.vimtex') or false then
+if nixCats('programming.latex') or false then
    require('plugins.vimtex') -- Don't lazy load
 end
 
