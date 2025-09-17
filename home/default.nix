@@ -13,7 +13,14 @@ in {
   config = {
     programs.home-manager.enable = true;
 
-    # Disabled by plasma module
-    xdg.mimeApps.enable = lib.mkDefault true;
+    xdg = {
+      # Disabled by plasma module
+      mimeApps.enable = lib.mkDefault true;
+
+      userDirs = {
+        enable = lib.mkDefault true;
+        createDirectories = lib.mkDefault true;
+      };
+    };
   };
 }
