@@ -73,12 +73,12 @@ in {
           "wl-paste --type image --watch cliphist store"
         ];
 
-        general = {
+        general = with myLib.base16Scheme; {
           "border_size" = 2;
           "gaps_in" = 5;
           "gaps_out" = 10;
           "layout" = "master";
-          # "col.active_border" = lib.mkForce "0xffffffff";
+          "col.active_border" = lib.mkForce "rgb(${base0D})";
         };
 
         decoration = {
@@ -90,12 +90,12 @@ in {
 
         animations = {
           enabled = true;
-          first_launch_animation = false;
 
           animation = [
             "windows, 1, 7, default"
             "fade, 0"
             "workspaces, 1, 3, default, fade"
+            "monitorAdded, 0"
           ];
         };
 
