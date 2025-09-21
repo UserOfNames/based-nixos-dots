@@ -3,9 +3,10 @@
 let
   cfg = config.scripts.fzf-common-dirs;
   userName = config.myModules.system.mainUser.userName;
+  dotsPath = config.myModules.dotsPath;
 
   fzf-common-dirs = pkgs.writeShellScriptBin "fzf-common-dirs" ''
-    selected=$(find ~/Projects ~/Documents ~/.nixosdots \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+    selected=$(find ~/Projects ~/Documents ${dotsPath} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
 
     if [[ ! -z $selected ]]; then
         cd $selected

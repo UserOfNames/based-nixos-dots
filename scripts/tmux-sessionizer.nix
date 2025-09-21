@@ -4,12 +4,13 @@
 let
   cfg = config.scripts.tmux-sessionizer;
   userName = config.myModules.system.mainUser.userName;
+  dotsPath = config.myModules.dotsPath;
 
   tmux-sessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
     if [[ $# -eq 1 ]]; then
         selected=$1
     else
-        selected=$(find ~/Projects ~/Documents ~/.nixosdots \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+        selected=$(find ~/Projects ~/Documents ${dotsPath} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
     fi
 
     if [[ -z $selected ]]; then

@@ -3,6 +3,7 @@
 let
   userName = "zdbg";
   homeFile = ./home.nix;
+  dotsPath = "/home/${userName}/.nixosdots";
 in {
   imports = [
     ./hardware-configuration.nix
@@ -29,6 +30,8 @@ in {
   };
 
   myModules = {
+    inherit dotsPath;
+
     other = {
       enable = true;
       gaming.enable = true;
