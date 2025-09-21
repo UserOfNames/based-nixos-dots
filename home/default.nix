@@ -6,8 +6,8 @@ in {
   imports = [] ++ modules;
 
   options.myHomeModules.userName = lib.mkOption {
-    default = "zdbg";
-    description = "Set home-manager username. On NixOS systems, this should be the same as config.myModules.system.mainUser.userName";
+    type = lib.types.str;
+    description = "Set home-manager username.";
   };
 
   config = {

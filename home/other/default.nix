@@ -1,4 +1,4 @@
-{ config, osConfig, lib, myLib, ... }:
+{ config, lib, myLib, ... }:
 
 let
   modules = myLib.importModulesIn {

@@ -42,7 +42,7 @@ in {
       enable = true;
 
       mainUser = {
-        userName = "zdbg";
+        inherit userName;
       };
 
       hardware = {
