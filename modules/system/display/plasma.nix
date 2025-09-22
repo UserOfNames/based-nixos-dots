@@ -27,6 +27,12 @@ in {
       kdePackages.plasma-systemmonitor
     ];
 
-    home-manager.users."${userName}".xdg.mimeApps.enable = false;
+    home-manager.users."${userName}".xdg = {
+      mimeApps.enable = false;
+      userDirs = {
+        enable = false;
+        createDirectories = false;
+      };
+    };
   };
 }
