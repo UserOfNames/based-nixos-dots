@@ -3,10 +3,12 @@
 let
   cfg = config.scripts.fzf-common-dirs;
   userName = config.myModules.system.mainUser.userName;
-  dotsPath = config.myModules.dotsPath;
+
+  targets = config.scripts.fzf-common-dirs.targets;
+  pathStrs = lib.concatStringsSep " " targets;
 
   fzf-common-dirs = pkgs.writeShellScriptBin "fzf-common-dirs" ''
-    selected=$(find ~/Projects ~/Documents ${dotsPath} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+    selected=$(find ${pathStrs} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
 
     if [[ ! -z $selected ]]; then
         cd $selected
@@ -14,6 +16,11 @@ let
   '';
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
+
+  options.scripts.fzf-common-dirs.targets = lib.mkOption {
+    type = lib.types.listOf lib.types.path;
+    description = "Base paths to search";
+  };
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [

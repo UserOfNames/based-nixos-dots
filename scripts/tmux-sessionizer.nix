@@ -4,13 +4,15 @@
 let
   cfg = config.scripts.tmux-sessionizer;
   userName = config.myModules.system.mainUser.userName;
-  dotsPath = config.myModules.dotsPath;
+
+  targets = config.scripts.fzf-common-dirs.targets;
+  pathStrs = lib.concatStringsSep " " targets;
 
   tmux-sessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
     if [[ $# -eq 1 ]]; then
         selected=$1
     else
-        selected=$(find ~/Projects ~/Documents ${dotsPath} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+        selected=$(find ${pathStrs} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
     fi
 
     if [[ -z $selected ]]; then
@@ -38,6 +40,11 @@ let
 
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
+
+  options.scripts.tmux-sessionizer.targets = lib.mkOption {
+    type = lib.types.listOf lib.types.path;
+    description = "Base paths to search";
+  };
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [

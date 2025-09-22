@@ -3,7 +3,8 @@
 let
   userName = "zdbg";
   homeFile = ./home.nix;
-  dotsPath = "/home/${userName}/.nixosdots";
+  homePath = "/home/${userName}";
+  dotsPath = "${homePath}/.nixosdots";
 in {
   imports = [
     ./hardware-configuration.nix
@@ -27,6 +28,18 @@ in {
 
   scripts = {
     enable = true;
+
+    fzf-common-dirs.targets = [
+      "${homePath}/Projects"
+      "/mnt/Shared/Documents"
+      dotsPath
+    ];
+
+    tmux-sessionizer.targets = [
+      "${homePath}/Projects"
+      "/mnt/Shared/Documents"
+      dotsPath
+    ];
   };
 
   myModules = {

@@ -4,6 +4,7 @@ let
   userName = "zdbg";
   homeFile = ./home.nix;
   diskoDevice = "/dev/sda";
+  homePath = "/home/${userName}";
   dotsPath = "/home/${userName}/.nixosdots";
 in {
   imports = [
@@ -28,6 +29,18 @@ in {
 
   scripts = {
     enable = true;
+
+    fzf-common-dirs.targets = [
+      "${homePath}/Projects"
+      "${homePath}/Documents"
+      dotsPath
+    ];
+
+    tmux-sessionizer.targets = [
+      "${homePath}/Projects"
+      "${homePath}/Documents"
+      dotsPath
+    ];
   };
 
   myModules = {
