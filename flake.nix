@@ -14,16 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
