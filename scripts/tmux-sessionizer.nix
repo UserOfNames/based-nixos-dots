@@ -12,7 +12,7 @@ let
     if [[ $# -eq 1 ]]; then
         selected=$1
     else
-        selected=$(find ${pathStrs} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+        selected=$(find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | ${pkgs.fzf}/bin/fzf)
     fi
 
     if [[ -z $selected ]]; then

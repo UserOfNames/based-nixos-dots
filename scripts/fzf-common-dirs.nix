@@ -8,7 +8,7 @@ let
   pathStrs = lib.concatStringsSep " " targets;
 
   fzf-common-dirs = pkgs.writeShellScriptBin "fzf-common-dirs" ''
-    selected=$(find ${pathStrs} \( -name .git -prune \) -o -type d -print | ${pkgs.fzf}/bin/fzf)
+    selected=$(find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | ${pkgs.fzf}/bin/fzf)
 
     if [[ ! -z $selected ]]; then
         cd $selected
