@@ -99,6 +99,7 @@ in {
           ui = with pkgs.vimPlugins; [
             harpoon2
             lualine-nvim
+            render-markdown-nvim
             undotree
             which-key-nvim
           ];

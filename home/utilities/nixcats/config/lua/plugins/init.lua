@@ -17,6 +17,7 @@ end
 if nixCats('ui') or false then
    lazy_load('plugins.harpoon')
    lazy_load('plugins.lualine')
+   lazy_load('plugins.render-markdown')
    lazy_load('plugins.undotree')
    lazy_load('plugins.whichkey')
    require('plugins.oil') -- Don't lazy load
