@@ -9,6 +9,8 @@ return {
 
       rm.setup({
          file_types = { 'markdown' },
+
+         render_modes = { 'n', 'c', 't', 'i' },
       })
 
       mk_map('n', '<Leader>mm', rm.toggle, 'Toggle markdown rendering')
