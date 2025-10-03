@@ -48,6 +48,11 @@ in {
             python = with pkgs; [
               basedpyright
             ];
+
+            typst = with pkgs; [
+              tinymist
+              typst
+            ];
           };
         };
 
@@ -79,6 +84,10 @@ in {
 
             rust = with pkgs.vimPlugins; [
               rustaceanvim
+            ];
+
+            typst = with pkgs.vimPlugins; [
+              typst-preview-nvim
             ];
           };
         };
@@ -167,6 +176,7 @@ in {
               nix = true;
               python = true;
               rust = true;
+              typst = true;
             };
           };
 

@@ -27,6 +27,10 @@ if nixCats('programming.latex') or false then
    require('plugins.vimtex') -- Don't lazy load
 end
 
+if nixCats('programming.typst') or false then
+   require('plugins.typst') -- Don't lazy load
+end
+
 if nixCats('programming.git') or false then
    lazy_load('plugins.diffview')
    lazy_load('plugins.gitsigns')
