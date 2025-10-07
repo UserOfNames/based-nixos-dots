@@ -26,6 +26,10 @@ in {
       # :help nixCats.flake.outputs.categories
       categoryDefinitions.replace = ({ pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
         lspsAndRuntimeDeps = {
+          core = with pkgs; [
+            ghostscript_headless
+          ];
+
           programming = {
             clang = with pkgs; [
               clang-tools
