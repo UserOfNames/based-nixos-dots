@@ -1,7 +1,12 @@
 local mk_map = require('helpers').mk_map
 
 require('snacks').setup({
-  image = {},
+  image = {
+      math = {
+         enabled = false,
+      },
+  },
+
   picker = {},
 })
 
