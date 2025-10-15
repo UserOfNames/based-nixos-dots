@@ -11,6 +11,7 @@ return {
    after = function()
       local mk_map = require('helpers').mk_map
       local ls = require('luasnip')
+
       local function ls_jump(by)
          if ls.jumpable(by) then
             ls.jump(by)
@@ -21,6 +22,7 @@ return {
 
       ls.config.setup({})
       require('luasnip.loaders.from_vscode').lazy_load({})
+      require('luasnip.loaders.from_lua').lazy_load({paths = nixCats('nixCats_config_location')..'/snippets'})
 
       mk_map({ 'i', 's' }, '<C-n>', function() ls_jump(1) end, 'Jump to next point in snippet')
       mk_map({ 'i', 's' }, '<C-p>', function() ls_jump(-1) end, 'Jump to previous point in snippet')
