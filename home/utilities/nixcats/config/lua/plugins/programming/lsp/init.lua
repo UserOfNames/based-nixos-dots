@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
    end,
 })
 
-require('plugins.lsp.diagnostics')
+require('plugins.programming.lsp.diagnostics')
 
 mk_map('n', '<Leader>lh', function()
    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
@@ -26,7 +26,7 @@ if nixCats('programming.lua') or false then
 end
 
 if nixCats('programming.nix') or false then
-   require('plugins.lsp.nix')
+   require('plugins.programming.lsp.nix')
 end
 
 if nixCats('programming.python') or false then
@@ -34,5 +34,5 @@ if nixCats('programming.python') or false then
 end
 
 if nixCats('programming.rust') or false then
-   require('plugins.lsp.rust')
+   require('plugins.programming.lsp.rust')
 end
