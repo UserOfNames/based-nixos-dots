@@ -6,8 +6,12 @@ in {
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
-      userName = "UserOfNames";
-      userEmail = "lightninguy.yoyo@gmail.com";
+      settings = {
+        user = {
+          name = "UserOfNames";
+          email = "lightninguy.yoyo@gmail.com";
+        };
+      };
     };
   };
 }
