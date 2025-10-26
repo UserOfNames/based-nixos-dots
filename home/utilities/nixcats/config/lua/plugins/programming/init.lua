@@ -7,7 +7,7 @@ if nixCats('programming.latex') or false then
 end
 
 if nixCats('programming.typst') or false then
-   require('plugins.programming.typst') -- Don't lazy load
+   lazy_load('plugins.programming.typst')
 end
 
 if nixCats('programming.git') or false then

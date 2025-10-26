@@ -6,9 +6,9 @@ local fmt = require('luasnip.extras.fmt').fmt
 return {
    s('unbreakable', fmt(
       [[
-         #block(breakable: false)[
-            {}
-         ]
+        #block(breakable: false)[
+          {}
+        ]
       ]], {
          i(1),
       }
@@ -16,9 +16,9 @@ return {
 
    s('center', fmt(
       [[
-         #align(center)[
-            {}
-         ]
+        #align(center)[
+          {}
+        ]
       ]], {
          i(1),
       }

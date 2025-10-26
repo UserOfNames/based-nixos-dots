@@ -85,10 +85,6 @@ in {
             rust = with pkgs.vimPlugins; [
               rustaceanvim
             ];
-
-            typst = with pkgs.vimPlugins; [
-              typst-preview-nvim
-            ];
           };
         };
 
@@ -118,6 +114,10 @@ in {
               diffview-nvim
               gitsigns-nvim
               neogit
+            ];
+
+            typst = with pkgs.vimPlugins; [
+              typst-preview-nvim
             ];
           };
         };
