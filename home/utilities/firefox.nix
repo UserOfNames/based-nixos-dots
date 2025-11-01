@@ -285,6 +285,7 @@ in {
             "browser.download.start_downloads_in_tmp_dir" = true;
             "browser.contentanalysis.default_allow" = false;
             "browser.tabs.closeWindowWithLastTab" = false;
+            "clipboard.copyPrivateDataToClipboardCloudOrHistory" = true;
 
             # Always leave on
             "extensions.blocklist.enabled" = true;
