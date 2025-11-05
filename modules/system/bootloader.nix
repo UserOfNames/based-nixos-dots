@@ -22,6 +22,12 @@ in {
           efiSysMountPoint = "/boot";
         };
       };
+
+      kernelParams = [
+        # Disable async suspend, which was racing on some computers and causing
+        # hangs on suspend
+        "pm_async=0"
+      ];
     };
   };
 }
