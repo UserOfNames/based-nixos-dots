@@ -21,7 +21,6 @@ in {
       prismlauncher
       qbittorrent
       r2modman
-      sillytavern
     ];
   };
 
