@@ -19,8 +19,6 @@ vim.opt.shiftwidth = 4
 vim.opt.breakindent = true
 
 vim.opt.foldenable = false
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevelstart = 99
 
 vim.opt.winborder = 'rounded'

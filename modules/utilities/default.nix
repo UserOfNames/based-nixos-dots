@@ -19,7 +19,7 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       _7zz
-      # cpu-x TODO: Once this stops breaking, readd it
+      cpu-x
       gnupg
       ripgrep
       tree

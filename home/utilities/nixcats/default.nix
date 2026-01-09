@@ -60,6 +60,7 @@ in {
           core = with pkgs.vimPlugins; [
             lz-n
             snacks-nvim
+            nvim-treesitter.withAllGrammars
 
             # conform-nvim
             # nvim-dap
@@ -92,7 +93,6 @@ in {
           core = with pkgs.vimPlugins; [
             mini-nvim
             nvim-autopairs
-            nvim-treesitter.withAllGrammars
           ];
 
           completion = with pkgs.vimPlugins; [
