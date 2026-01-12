@@ -132,11 +132,11 @@ in {
         };
 
         windowrule = [
-          "opacity 0.95 0.85 1.0, class:kitty"
+          "opacity 0.95 0.85 1.0, match:class kitty"
         ];
 
         layerrule = [
-          "noanim, ^(menu)$"
+          "no_anim on, match:namespace ^(menu)$"
         ];
       };
     };
