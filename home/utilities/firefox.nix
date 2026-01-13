@@ -14,6 +14,7 @@ in {
             "https://google.com"
             "https://lichess.org"
             "https://youtube.com"
+            "https://discord.com"
           ];
         };
       };
