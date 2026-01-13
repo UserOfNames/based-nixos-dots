@@ -24,6 +24,11 @@ vim.api.nvim_create_autocmd('FileType', {
       local buf = args.buf
       local ft = vim.bo[buf].filetype
 
+      -- Needed to prevent some weird bugs
+      if not vim.api.nvim_buf_is_loaded(buf) then
+         return
+      end
+
       local lang = vim.treesitter.language.get_lang(ft) or ft
       -- FIXME: This call will break in neovim version 0.12. Remove the opt table
       -- after updating. The pcall approach is inappropriate as it will ALSO be
