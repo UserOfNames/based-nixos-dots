@@ -11,6 +11,7 @@ in {
     programs.yazi = {
       enable = true;
       enableZshIntegration = config.myHomeModules.system.zsh.enable;
+      shellWrapperName = "yy";
 
       settings = {
         mgr = {
