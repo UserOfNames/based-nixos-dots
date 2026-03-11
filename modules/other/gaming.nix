@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.myModules.other.gaming;
@@ -7,8 +7,10 @@ in {
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
-    };
 
-    programs.gamemode.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
   };
 }
