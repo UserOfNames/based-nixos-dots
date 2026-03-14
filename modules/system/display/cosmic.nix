@@ -7,10 +7,8 @@ in {
   config = lib.mkIf cfg.enable {
     services = {
       desktopManager.cosmic.enable = true;
-      displayManager.cosmic-greeter.enable = true;
+      displayManager.cosmic-greeter.enable = lib.mkDefault true;
     };
-
-    myModules.system.display.sddm.enable = false;
 
     home-manager.users."${userName}".xdg = {
       mimeApps.enable = false;

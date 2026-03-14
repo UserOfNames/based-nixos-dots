@@ -12,6 +12,10 @@ in {
         enable = true;
         enableQt5Integration = true;
       };
+
+      displayManager.plasma-login-manager = lib.mkDefault {
+        enable = true;
+      };
     };
 
     environment.plasma6.excludePackages = with pkgs; [
