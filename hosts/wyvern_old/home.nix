@@ -27,10 +27,6 @@ in {
       enable = true;
     };
 
-    productivity = {
-      enable = true;
-    };
-
     system = {
       enable = true;
       hyprland.enable = true;

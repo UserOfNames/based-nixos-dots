@@ -32,10 +32,6 @@ in {
       gaming.enable = true;
     };
 
-    productivity = {
-      enable = true;
-    };
-
     system = {
       enable = true;
     };

@@ -16,6 +16,7 @@ in {
       bitwarden-desktop
       foliate
       nomacs
+      obs-studio
       qalculate-qt
       trashy
     ];
