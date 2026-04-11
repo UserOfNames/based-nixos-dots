@@ -32,6 +32,8 @@ in {
       gtk2 = {
         force = true;
       };
+
+      gtk4.theme = config.gtk.theme;
     };
   };
 }

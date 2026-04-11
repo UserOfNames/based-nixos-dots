@@ -6,6 +6,8 @@ in {
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
+      signing.format = "openpgp";
+
       settings = {
         user = {
           name = "UserOfNames";
