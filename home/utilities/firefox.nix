@@ -7,6 +7,9 @@ in {
     programs.firefox = {
       enable = true;
 
+      # STATEVERSION FIX: < 26.05
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
+
       policies = {
         Cookies = {
           Allow = [
