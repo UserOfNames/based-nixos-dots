@@ -20,6 +20,9 @@ in {
       userDirs = {
         enable = lib.mkDefault true;
         createDirectories = lib.mkDefault true;
+
+        # STATEVERSION FIX: < 26.05
+        setSessionVariables = false;
       };
     };
   };
