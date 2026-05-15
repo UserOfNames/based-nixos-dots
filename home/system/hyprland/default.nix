@@ -10,7 +10,7 @@ let
   cfg = config.myHomeModules.system.hyprland;
   userName = config.myHomeModules.userName;
 
-  swww-random = pkgs.writeShellScriptBin "swww-random" ''
+  awww-random = pkgs.writeShellScriptBin "awww-random" ''
     sleep 1
     if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
       echo "Usage:
@@ -19,8 +19,8 @@ let
     fi
 
     # Edit below to control the images transition
-    export SWWW_TRANSITION_FPS=60
-    export SWWW_TRANSITION_STEP=2
+    export AWWW_TRANSITION_FPS=60
+    export AWWW_TRANSITION_STEP=2
 
     # This controls (in seconds) when to switch to the next image
     INTERVAL=300
@@ -32,7 +32,7 @@ let
         done \
         | sort -n | cut -d':' -f2- \
         | while read -r img; do
-          swww img "$img"
+          awww img "$img"
           sleep $INTERVAL
         done
     done
@@ -49,7 +49,7 @@ in {
       j4-dmenu-desktop
       jmtpfs
       slurp
-      swww
+      awww
     ];
 
     wayland.windowManager.hyprland = {
@@ -63,8 +63,8 @@ in {
         "$launcher" = "j4-dmenu-desktop --dmenu=$dmenu --term $terminal --no-generic";
 
         exec-once = [
-          "swww-daemon"
-          "${swww-random}/bin/swww-random /home/${userName}/Pictures/Wallpapers"
+          "awww-daemon"
+          "${awww-random}/bin/awww-random /home/${userName}/Pictures/Wallpapers"
           "hypridle"
           "mako"
           "${pkgs.networkmanagerapplet}/bin/nm-applet"
