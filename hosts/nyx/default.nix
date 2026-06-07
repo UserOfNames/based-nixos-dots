@@ -33,10 +33,11 @@ in {
 
   hardware.wooting.enable = true;
 
-  # services.ollama = {
-  #   enable = true;
-  #   acceleration = "rocm";
-  # };
+  # HOPEFULLY fix pageflip timeout problems
+  boot.kernelParams = [
+    "amdgpu.runpm=0"
+    "amdgpu.dcdebugmask=0x10"
+  ];
 
   scripts = {
     enable = true;
@@ -81,7 +82,6 @@ in {
     utilities = {
       enable = true;
       virtualization.enable = true;
-      wireshark.enable = true;
     };
   };
 
