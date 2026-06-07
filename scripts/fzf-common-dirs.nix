@@ -6,14 +6,6 @@ let
 
   targets = config.scripts.fzf-common-dirs.targets;
   pathStrs = lib.concatStringsSep " " targets;
-
-  fzf-common-dirs = pkgs.writeShellScriptBin "fzf-common-dirs" ''
-    selected=$(find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | ${pkgs.fzf}/bin/fzf)
-
-    if [[ ! -z $selected ]]; then
-        cd $selected
-    fi
-  '';
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
@@ -22,11 +14,22 @@ in {
     description = "Base paths to search";
   };
 
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      fzf-common-dirs
-    ];
+config = lib.mkIf cfg.enable {
+    home-manager.users."${userName}".programs.zsh.initContent = ''
+      fzf-common-dirs-widget() {
+        local selected
+        selected=$(${pkgs.findutils}/bin/find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | ${pkgs.fzf}/bin/fzf)
 
-    home-manager.users."${userName}".programs.zsh.initContent = ''bindkey -s "^f" " source fzf-common-dirs\n"'';
+        if [ -n "$selected" ]; then
+          cd "$selected"
+          # 2. Crucial: redraw the prompt so the new directory path shows up immediately
+          zle reset-prompt
+        fi
+      }
+
+      zle -N fzf-common-dirs-widget
+
+      bindkey "^f" fzf-common-dirs-widget
+    '';
   };
 }

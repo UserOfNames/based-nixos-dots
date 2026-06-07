@@ -8,35 +8,49 @@ let
   targets = config.scripts.fzf-common-dirs.targets;
   pathStrs = lib.concatStringsSep " " targets;
 
-  tmux-sessionizer = pkgs.writeShellScriptBin "tmux-sessionizer" ''
-    if [[ $# -eq 1 ]]; then
-        selected=$1
-    else
-        selected=$(find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | ${pkgs.fzf}/bin/fzf)
-    fi
+  tmux-sessionizer = pkgs.writeShellApplication {
+    name = "tmux-sessionizer";
 
-    if [[ -z $selected ]]; then
+    runtimeInputs = with pkgs; [
+      coreutils # basename, tr
+      findutils # find
+      fzf
+      procps # pgrep
+      tmux
+    ];
+
+    text = ''
+      tmux_env="''${TMUX:-}"
+
+      if [ "$#" -eq 1 ]; then
+        selected="$1"
+      else
+        selected=$(find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | fzf)
+      fi
+
+      if [ -z "$selected" ]; then
         exit 0
-    fi
+      fi
 
-    selected_name=$(basename "$selected" | tr . _)
-    tmux_running=$(pgrep tmux)
+      selected_name=$(basename "$selected" | tr . _)
+      tmux_running=$(pgrep tmux)
 
-    if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-        tmux new-session -s $selected_name -c $selected
+      if [ -z "$tmux_env" ] && [ -z "$tmux_running" ]; then
+        tmux new-session -s "$selected_name" -c "$selected"
         exit 0
-    fi
+      fi
 
-    if ! tmux has-session -t=$selected_name 2> /dev/null; then
-        tmux new-session -ds $selected_name -c $selected
-    fi
+      if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+        tmux new-session -ds "$selected_name" -c "$selected"
+      fi
 
-    if [[ -z $TMUX ]]; then
-        tmux attach-session -t $selected_name
-    else
-        tmux switch-client -t $selected_name
-    fi
-  '';
+      if [ -z "$tmux_env" ]; then
+        tmux attach-session -t "$selected_name"
+      else
+        tmux switch-client -t "$selected_name"
+      fi
+    '';
+  };
 
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];

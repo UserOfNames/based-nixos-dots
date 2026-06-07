@@ -17,12 +17,12 @@ let
     text = ''
       usage="Usage: sys-utils {rebuild|update|updaterb|listpkgs}"
 
-      if [ $# -eq 0 ]; then
+      if [ "$#" -eq 0 ]; then
         echo "$usage"
         exit 1
       fi
 
-      COMMAND=$1
+      COMMAND="$1"
       shift
 
       case "$COMMAND" in
@@ -34,7 +34,7 @@ let
           ;;
         updaterb)
           sudo nix flake update --flake "${osDotsPath}" && \
-          sudo nixos-rebuild switch --flake ${osDotsPath}
+          sudo nixos-rebuild switch --flake "${osDotsPath}"
           ;;
         listpkgs)
           nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq
