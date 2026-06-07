@@ -290,6 +290,7 @@ in {
             "browser.contentanalysis.default_allow" = false;
             "browser.tabs.closeWindowWithLastTab" = false;
             "clipboard.copyPrivateDataToClipboardCloudOrHistory" = true;
+            "gfx.canvas.accelerated" = false; # Fix canvas rendering issues on Wayland
 
             # Always leave on
             "extensions.blocklist.enabled" = true;
