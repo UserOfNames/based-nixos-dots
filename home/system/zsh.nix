@@ -1,9 +1,8 @@
-{ config, osConfig, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.myHomeModules.system.zsh;
   dotDir = "${config.home.homeDirectory}/.config/zsh";
-  osDotsPath = osConfig.myModules.dotsPath;
 in {
   config = lib.mkIf cfg.enable {
     programs.zsh = {
@@ -22,7 +21,6 @@ in {
       dirHashes = {
         desk = "$HOME/Desktop";
         docs = "$HOME/Documents";
-        dots = osDotsPath;
         down = "$HOME/Downloads";
         mus  = "$HOME/Music";
         pics = "$HOME/Pictures";
@@ -35,11 +33,6 @@ in {
         ls = "ls -a --color";
         c = "clear";
         clearall = "clear && rm $ZDOTDIR/.zsh_history";
-
-        rebuild = "sudo nixos-rebuild switch --flake ${osDotsPath}";
-        update = "sudo nix flake update --flake ${osDotsPath}";
-        updaterb = "sudo nix flake update --flake ${osDotsPath} && sudo nixos-rebuild switch --flake ${osDotsPath}";
-        listpkgs = "nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq";
       };
 
       # Default keys didn't work so set alternate up/down keys
