@@ -23,7 +23,6 @@ in {
       gnupg
       ripgrep
       tree
-      wl-clip-persist
       wl-clipboard
     ];
   };

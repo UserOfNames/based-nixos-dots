@@ -68,7 +68,6 @@ in {
           "hypridle"
           "mako"
           "${pkgs.networkmanagerapplet}/bin/nm-applet"
-          "wl-clip-persist --clipboard regular"
           "wl-paste --type text --watch cliphist store"
           "wl-paste --type image --watch cliphist store"
         ];
