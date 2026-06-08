@@ -8,7 +8,7 @@ in {
     description = "Main user username";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     users.users.${cfg.userName} = {
       isNormalUser = true;
       description = cfg.userName;
