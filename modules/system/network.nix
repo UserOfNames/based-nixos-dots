@@ -2,6 +2,7 @@
 
 let
   cfg = config.myModules.system.network;
+  userName = config.myModules.system.mainUser.userName;
 in {
   config = lib.mkIf cfg.enable {
     networking = {
@@ -20,5 +21,7 @@ in {
         bantime = "4000";
       };
     };
+
+    users.users.${userName}.extraGroups = [ "networkmanager" ];
   };
 }

@@ -1,4 +1,5 @@
 { config, lib, ... }:
+
 let
   cfg = config.myModules.system.mainUser;
 in {
@@ -11,8 +12,8 @@ in {
     users.users.${cfg.userName} = {
       isNormalUser = true;
       description = cfg.userName;
-      initialPassword = "CHANGENOW";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "syncthing" "wireshark" ];
+      initialPassword = "CHANGENOW"; # Passwords should be set imperatively after setup
+      extraGroups = [ "wheel" ];
     };
   };
 }
