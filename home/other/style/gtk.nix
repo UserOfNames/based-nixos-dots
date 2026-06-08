@@ -33,6 +33,7 @@ in {
         force = true;
       };
 
+      # STATEVERSION FIX: 26.05
       gtk4.theme = config.gtk.theme;
     };
   };

@@ -6,6 +6,8 @@ in {
   config = lib.mkIf cfg.enable {
     programs.git = {
       enable = true;
+
+      # STATEVERSION FIX: 25.05
       signing.format = "openpgp";
 
       settings = {
