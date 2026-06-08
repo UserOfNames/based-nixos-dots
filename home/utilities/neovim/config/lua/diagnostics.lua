@@ -15,6 +15,9 @@ vim.diagnostic.config({
    severity_sort = true,
 })
 
+
+mk_map('n', '<Leader>fd', vim.diagnostic.setqflist, 'Project diagnostics (quickfix)')
+mk_map('n', '<leader>fD', vim.diagnostic.setloclist, 'Buffer diagnostics (location list)')
 mk_map('n', 'gre', vim.diagnostic.open_float, 'Open floating diagnostic message')
 mk_map('n', '<Leader>ld', toggle_text, 'Toggle LSP virtual text')
 mk_map('n', '<Leader>ll', toggle_lines, 'Toggle LSP virtual lines')

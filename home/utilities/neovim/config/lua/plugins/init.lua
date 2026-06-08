@@ -1,9 +1,8 @@
 local lazy_load = require('lz.n').load
 
--- Core plugins; always on
 lazy_load('plugins.autopairs')
 lazy_load('plugins.mini')
-require('plugins.snacks') -- Don't lazy load
+require('plugins.fff') -- Self-lazy-loads
 
 require('plugins.completion')
 require('plugins.programming')

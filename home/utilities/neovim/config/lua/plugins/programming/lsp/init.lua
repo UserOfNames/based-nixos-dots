@@ -6,12 +6,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
       local opts = { buffer = args.buf, silent = true }
       mk_map('n', 'grs', vim.lsp.buf.signature_help, 'LSP signature help', opts)
       mk_map('n', 'grf', vim.lsp.buf.format, 'LSP format buffer', opts)
-      mk_map('n', 'grr', Snacks.picker.lsp_references, 'LSP format buffer', opts)
-      mk_map('n', 'gri', Snacks.picker.lsp_implementations, 'LSP format buffer', opts)
+      mk_map('n', 'grr', vim.lsp.buf.references, 'LSP references', opts)
+      mk_map('n', 'gri', vim.lsp.buf.implementation, 'LSP implementations', opts)
    end,
 })
-
-require('plugins.programming.lsp.diagnostics')
 
 mk_map('n', '<Leader>lh', function()
    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

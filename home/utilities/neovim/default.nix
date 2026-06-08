@@ -22,7 +22,9 @@ in {
 
       plugins = with pkgs.vimPlugins; [
         lz-n
-        snacks-nvim
+        fff-nvim
+        # TODO: nvim-treesitter is archived and should be replaced as soon as
+        # possible.
         nvim-treesitter.withAllGrammars
         oil-nvim
         tokyonight-nvim

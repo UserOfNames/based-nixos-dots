@@ -11,6 +11,11 @@ vim.opt.inccommand = 'split'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Wildmenu: fuzzy, popup, longest match first
+vim.opt.wildmenu = true
+vim.opt.wildoptions = { 'pum', 'fuzzy' }
+vim.opt.wildmode = "longest:full,full"
+
 -- Spaces instead of tabs, default width 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
