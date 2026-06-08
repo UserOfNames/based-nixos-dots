@@ -27,7 +27,6 @@ in {
         oil-nvim
         tokyonight-nvim
         rustaceanvim
-        vimtex
         nvim-lspconfig
 
         (optional mini-nvim)
@@ -38,7 +37,6 @@ in {
         (optional harpoon2)
         (optional lualine-nvim)
         (optional render-markdown-nvim)
-        (optional undotree)
         (optional which-key-nvim)
         (optional diffview-nvim)
         (optional gitsigns-nvim)
@@ -55,7 +53,6 @@ in {
         basedpyright
         tinymist
         typst
-        texliveFull
       ];
     };
 

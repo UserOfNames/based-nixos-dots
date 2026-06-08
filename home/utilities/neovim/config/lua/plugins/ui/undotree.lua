@@ -6,11 +6,8 @@ return {
    after = function()
       local mk_map = require('helpers').mk_map
 
-      local function toggle()
-         vim.cmd.UndotreeToggle()
-         vim.cmd.UndotreeFocus()
-      end
+      vim.cmd.packadd('nvim.undotree')
 
-      mk_map('n', '<Leader>u', toggle, 'Toggle undotree')
+      mk_map('n', '<Leader>u', vim.cmd.Undotree, 'Toggle undotree')
    end,
 }
