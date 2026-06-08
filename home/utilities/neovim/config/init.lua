@@ -1,14 +1,10 @@
-assert(nixCats('core'), 'Category `core` should always be enabled')
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-if nixCats('ui') or false then
-   require('tokyonight').setup({ style = 'night' })
-   vim.cmd('colorscheme tokyonight')
-end
+require('tokyonight').setup({ style = 'night' })
+vim.cmd('colorscheme tokyonight')
 
 require('options')
 require('keymaps')

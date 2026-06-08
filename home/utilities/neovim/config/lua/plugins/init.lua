@@ -5,17 +5,9 @@ lazy_load('plugins.autopairs')
 lazy_load('plugins.mini')
 require('plugins.snacks') -- Don't lazy load
 
-if nixCats('completion') or false then
-   require('plugins.completion')
-end
-
-if nixCats('programming') then
-   require('plugins.programming')
-end
-
-if nixCats('ui') or false then
-   require('plugins.ui')
-end
+require('plugins.completion')
+require('plugins.programming')
+require('plugins.ui')
 
 vim.api.nvim_create_autocmd('FileType', {
    group = vim.api.nvim_create_augroup('TreesitterAutoSetup', { clear = true }),

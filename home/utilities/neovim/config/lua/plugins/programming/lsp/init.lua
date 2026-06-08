@@ -17,22 +17,8 @@ mk_map('n', '<Leader>lh', function()
    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, 'Toggle inlay hints')
 
-if nixCats('programming.clang') or false then
-   vim.lsp.enable('clangd')
-end
-
-if nixCats('programming.lua') or false then
-   vim.lsp.enable('lua_ls')
-end
-
-if nixCats('programming.nix') or false then
-   require('plugins.programming.lsp.nix')
-end
-
-if nixCats('programming.python') or false then
-   vim.lsp.enable('basedpyright')
-end
-
-if nixCats('programming.rust') or false then
-   require('plugins.programming.lsp.rust')
-end
+vim.lsp.enable('clangd')
+vim.lsp.enable('lua_ls')
+require('plugins.programming.lsp.nix')
+vim.lsp.enable('basedpyright')
+require('plugins.programming.lsp.rust')

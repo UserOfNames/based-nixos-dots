@@ -2,7 +2,7 @@ vim.lsp.config('nixd', {
    settings = {
       nixd = {
          nixpkgs = {
-            expr = nixCats.extra('nixdExtras.nixpkgs') or [[import <nixpkgs> {}]]
+            expr = [[import <nixpkgs> {}]]
          },
 
          formatting = {
