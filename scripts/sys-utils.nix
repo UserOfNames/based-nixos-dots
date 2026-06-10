@@ -27,14 +27,14 @@ let
 
       case "$COMMAND" in
         rebuild)
-          sudo nixos-rebuild switch --flake "${osDotsPath}"
+          nixos-rebuild switch --flake "${osDotsPath}" --sudo
           ;;
         update)
-          sudo nix flake update --flake "${osDotsPath}"
+          nix flake update --flake "${osDotsPath}"
           ;;
         updaterb)
-          sudo nix flake update --flake "${osDotsPath}" && \
-          sudo nixos-rebuild switch --flake "${osDotsPath}"
+          nix flake update --flake "${osDotsPath}" && \
+          nixos-rebuild switch --flake "${osDotsPath}" --sudo
           ;;
         listpkgs)
           nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq
