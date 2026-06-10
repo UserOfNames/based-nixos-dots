@@ -8,6 +8,7 @@ vim.cmd('colorscheme tokyonight')
 
 require('options')
 require('keymaps')
+require('diagnostics')
 require('plugins')
 
 -- require('lze').load {
