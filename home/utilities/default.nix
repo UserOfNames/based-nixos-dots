@@ -13,8 +13,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # bitwarden-desktop
       foliate
+      keepassxc
       nomacs
       obs-studio
       qalculate-qt
