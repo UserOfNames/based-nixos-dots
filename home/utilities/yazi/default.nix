@@ -38,8 +38,8 @@ in {
 
         open = {
           prepend_rules = [
-            { name = ''*.epub''; use = ''epub''; }
-            { name = ''*.pdf''; use = ''pdf''; }
+            { url = ''*.epub''; use = ''epub''; }
+            { url = ''*.pdf''; use = ''pdf''; }
           ];
         };
       };
