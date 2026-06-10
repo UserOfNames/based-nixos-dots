@@ -150,7 +150,24 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "nur": "nur"
+        "nur": "nur",
+        "secrets": "secrets"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781061045,
+        "narHash": "sha256-cI4nGN6bmBAsnbmCsSaqDqpRUca0JXYSv1GrqfgKRG4=",
+        "ref": "refs/heads/master",
+        "rev": "a4613257b27f9f2a2abff6254cd9810cbc8fb596",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/UserOfNames/nixos-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/UserOfNames/nixos-secrets.git"
       }
     }
   },

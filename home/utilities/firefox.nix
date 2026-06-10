@@ -1,7 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let
   cfg = config.myHomeModules.utilities.firefox;
+
+  cookieAllowList = builtins.fromJSON (builtins.readFile "${inputs.secrets}/firefox-cookies-allow.json");
 in {
   config = lib.mkIf cfg.enable {
     programs.firefox = {
@@ -12,13 +14,7 @@ in {
 
       policies = {
         Cookies = {
-          Allow = [
-            "https://github.com"
-            "https://google.com"
-            "https://lichess.org"
-            "https://youtube.com"
-            "https://discord.com"
-          ];
+          Allow = [] ++ cookieAllowList;
         };
       };
 

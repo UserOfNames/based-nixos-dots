@@ -17,6 +17,11 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nur.url = "github:nix-community/nur";
+
+    secrets = {
+      url = "git+ssh://git@github.com/UserOfNames/nixos-secrets.git";
+      flake = false;
+    };
   };
 
   outputs = {
