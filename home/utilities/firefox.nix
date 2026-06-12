@@ -4,7 +4,23 @@ let
   cfg = config.myHomeModules.utilities.firefox;
 
   cookieAllowList = builtins.fromJSON (builtins.readFile "${inputs.secrets}/firefox-cookies-allow.json");
+
+  networkTrrMode = if cfg.enableCustomDns then 2 else 5;
+  dnsProvider = if cfg.enableCustomDns then "https://dns.quad9.net/dns-query" else "";
 in {
+  options.myHomeModules.utilities.firefox = {
+    enableCustomDns = lib.mkOption {
+      type = lib.types.bool;
+      description = ''
+          Whether to enable custom DNS settings: DoH with fallback and quad9.
+          This is undesirable if using a VPN, as it will cause DNS leaks.
+          Otherwise, it is a great security measure. Enable if and only if you
+          are not using a VPN.
+      '';
+      default = false;
+    };
+  };
+
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
@@ -180,10 +196,10 @@ in {
             "network.cookie.cookieBehavior" = 5; # Enable dFPI (total cookie protection)
             "privacy.trackingprotection.enabled" = true;
             "privacy.trackingprotection.socialtracking.enabled" = true;
-            # Might change later; enable DoH and use Quad9
-            "network.trr.mode" = 2; # Enable DoH with regular DNS as a backup
-            "network.trr.uri" = "https://dns.quad9.net/dns-query";
-            "network.trr.custom_uri" = "https://dns.quad9.net/dns-query";
+            # Enable DoH with plain DNS backup, and quad9, if requested in the config
+            "network.trr.mode" = networkTrrMode;
+            "network.trr.uri" = dnsProvider;
+            "network.trr.custom_uri" = dnsProvider;
 
             # Sanitizing
             "privacy.sanitize.sanitizeOnShutdown" = true;
