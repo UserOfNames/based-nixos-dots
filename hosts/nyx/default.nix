@@ -81,6 +81,7 @@ in {
 
     utilities = {
       enable = true;
+      proton.enable = true;
       virtualization.enable = true;
     };
   };
