@@ -16,7 +16,7 @@ in {
     services.blueman.enable = config.myModules.system.hardware.bluetooth.enable;
 
     programs = {
-      ssh.askPassword = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
+      ssh.askPassword = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
       waybar.enable = true;
 
       hyprland = {

@@ -1,44 +1,25 @@
 { config, pkgs, lib, myLib, ... }:
 
 let
-  modules = myLib.importModulesIn {
-    inherit config;
-    dir = ./.;
-    base = [ "myHomeModules" "system" "hyprland" ];
-  };
+  files = myLib.importFilesIn ./.;
 
   cfg = config.myHomeModules.system.hyprland;
-  userName = config.myHomeModules.userName;
-
-  awww-random = pkgs.writeShellScriptBin "awww-random" ''
-    sleep 1
-    if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
-      echo "Usage:
-      $0 <path/to/wallpapers/folder>"
-      exit 1
-    fi
-
-    # Edit below to control the images transition
-    export AWWW_TRANSITION_FPS=60
-    export AWWW_TRANSITION_STEP=2
-
-    # This controls (in seconds) when to switch to the next image
-    INTERVAL=300
-
-    while true; do
-      find "$1" -type f \
-        | while read -r img; do
-          echo "$((RANDOM % 1000)):$img"
-        done \
-        | sort -n | cut -d':' -f2- \
-        | while read -r img; do
-          awww img "$img"
-          sleep $INTERVAL
-        done
-    done
-  '';
 in {
-  imports = [] ++ modules;
+  imports = [] ++ files;
+
+  options.myHomeModules.system.hyprland = with lib.types; {
+    wallpapers_path = lib.mkOption {
+      type = nullOr path;
+      default = null;
+      description = "Path to the wallpapers directory";
+    };
+
+    numlock_by_default = lib.mkOption {
+      type = bool;
+      default = true;
+      description = "Whether to enable numlock on startup";
+    };
+  };
   
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -54,90 +35,12 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = true;
-      settings = {
-        "$terminal" = "kitty";
-        "$browser" = "firefox";
-        "$editor" = "$terminal -e nvim";
-        "$fileManager" = "$terminal -e yazi";
-        "$dmenu" = "bemenu";
-        "$launcher" = "j4-dmenu-desktop --dmenu=$dmenu --term $terminal --no-generic";
 
-        exec-once = [
-          "awww-daemon"
-          "${awww-random}/bin/awww-random /home/${userName}/Pictures/Wallpapers"
-          "hypridle"
-          "mako"
-          "${pkgs.networkmanagerapplet}/bin/nm-applet"
-          "wl-paste --type text --watch cliphist store"
-          "wl-paste --type image --watch cliphist store"
-        ];
+      configType = "lua";
 
-        general = with myLib.base16Scheme; {
-          "border_size" = 2;
-          "gaps_in" = 5;
-          "gaps_out" = 10;
-          "layout" = "master";
-          "col.active_border" = lib.mkForce "rgb(${base0D})";
-        };
-
-        decoration = {
-          "rounding" = 5;
-          "blur" = {
-            "enabled" = false;
-          };
-        };
-
-        animations = {
-          enabled = true;
-
-          animation = [
-            "windows, 1, 7, default"
-            "fade, 0"
-            "workspaces, 1, 3, default, fade"
-            "monitorAdded, 0"
-          ];
-        };
-
-        input = {
-          "numlock_by_default" = lib.mkDefault true;
-          "repeat_rate" = 40;
-          "repeat_delay" = 300;
-          "follow_mouse" = 2;
-          "kb_options" = "caps:escape";
-          touchpad = {
-            "natural_scroll" = false;
-          };
-        };
-
-        group = {
-          groupbar = {
-          };
-        };
-
-        misc = {
-          "force_default_wallpaper" = 1;
-          "disable_hyprland_logo" = true;
-          "disable_autoreload" = true;
-          "enable_swallow" = true;
-          "swallow_regex" = "^(kitty)$";
-        };
-
-        cursor = {
-          "no_warps" = true;
-        };
-
-        master = {
-          new_status = "slave";
-        };
-
-        windowrule = [
-          "opacity 0.95 0.85 1.0, match:class kitty"
-        ];
-
-        layerrule = [
-          "no_anim on, match:namespace ^(menu)$"
-        ];
-      };
+      extraConfig = ''
+        require('init')
+      '';
     };
   };
 }

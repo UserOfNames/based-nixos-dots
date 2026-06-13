@@ -3,6 +3,8 @@
 let
   userName = osConfig.myModules.system.mainUser.userName;
 
+  homeDirectory = "/home/${userName}";
+
   # stateVersion is shared with the NixOS stateVersion
   stateVersion = osConfig.system.stateVersion;
 in {
@@ -11,9 +13,8 @@ in {
   ];
 
   home = {
-    inherit stateVersion;
+    inherit stateVersion homeDirectory;
     username = userName;
-    homeDirectory = "/home/${userName}";
 
     packages = with pkgs; [
       qbittorrent
@@ -33,7 +34,11 @@ in {
 
     system = {
       enable = true;
-      hyprland.enable = true;
+
+      hyprland = {
+        enable = true;
+        wallpapers_path = "${homeDirectory}/Pictures/Wallpapers";
+      };
     };
 
     utilities = {
