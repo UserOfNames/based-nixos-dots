@@ -47,7 +47,7 @@ in {
         return {
            home_path = "${homeDirectory}/",
            awww_random_path = "${awww-random}/",
-           wallpaper_path = "${cfg.wallpapers_path}/",
+           wallpapers_path = "${cfg.wallpapers_path}/",
            nw_applet_path = "${pkgs.networkmanagerapplet}/",
            numlock_by_default = ${lib.boolToString cfg.numlock_by_default},
         }
