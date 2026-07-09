@@ -35,7 +35,7 @@ let
     done
   '';
 in {
-  config = {
+  config = lib.mkIf cfg.enable {
     home.file = {
       ".config/hypr/" = {
         source = ./lua;

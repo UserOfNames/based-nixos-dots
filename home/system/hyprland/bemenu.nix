@@ -1,7 +1,9 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  config.programs.bemenu = {
+let
+  cfg = config.myHomeModules.system.hyprland;
+in {
+  config.programs.bemenu = lib.mkIf cfg.enable {
     enable = true;
     settings = {
       prompt = ":>";

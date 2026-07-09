@@ -1,7 +1,9 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  config.programs.hyprlock = {
+let
+  cfg = config.myHomeModules.system.hyprland;
+in {
+  config.programs.hyprlock = lib.mkIf cfg.enable {
     enable = true;
     settings = {
       general = {

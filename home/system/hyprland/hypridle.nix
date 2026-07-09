@@ -1,7 +1,9 @@
-{ ... }:
+{ config, lib, ... }:
 
-{
-  config.services.hypridle = {
+let
+  cfg = config.myHomeModules.system.hyprland;
+in {
+  config.services.hypridle = lib.mkIf cfg.enable {
     enable = true;
     settings = {
       general = {

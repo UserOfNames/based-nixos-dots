@@ -1,7 +1,9 @@
-{ myLib, ... }:
+{ config, lib, myLib, ... }:
 
-{
-  config.services.mako = {
+let
+  cfg = config.myHomeModules.system.hyprland;
+in {
+  config.services.mako = lib.mkIf cfg.enable {
     enable = true;
 
     settings = with myLib.base16Scheme; {
