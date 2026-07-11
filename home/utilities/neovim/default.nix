@@ -24,7 +24,8 @@ in {
         lz-n
         fff-nvim
         # TODO: nvim-treesitter is archived and should be replaced as soon as
-        # possible.
+        # a suitable alternative presents itself. It's only used to source
+        # grammars and queries in my config.
         nvim-treesitter.withAllGrammars
         oil-nvim
         tokyonight-nvim
