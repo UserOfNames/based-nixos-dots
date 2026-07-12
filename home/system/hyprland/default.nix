@@ -22,6 +22,7 @@ in {
   };
   
   config = lib.mkIf cfg.enable {
+    # TODO: Remove this
     home.packages = with pkgs; [
       brightnessctl
       cliphist
@@ -32,15 +33,5 @@ in {
       slurp
       awww
     ];
-
-    wayland.windowManager.hyprland = {
-      enable = true;
-
-      configType = "lua";
-
-      extraConfig = ''
-        require('init')
-      '';
-    };
   };
 }

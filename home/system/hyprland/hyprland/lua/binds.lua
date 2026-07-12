@@ -1,4 +1,4 @@
-local const = require('constants')
+local const = require('hyprland.constants')
 
 hl.bind("SUPER + SHIFT + M", hl.dsp.exit({}))
 

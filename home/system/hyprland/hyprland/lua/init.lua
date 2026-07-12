@@ -1,8 +1,8 @@
 -- Host-specific information, such as paths, certain hardware toggles,
 -- monitor layouts, etc.
-local nix = require('host_vars')
+local nix = require('hyprland.host_vars')
 
-require('binds')
+require('hyprland.binds')
 
 -- TODO: Silence "undefined global" whining
 hl.on("hyprland.start", function()
