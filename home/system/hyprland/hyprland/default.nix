@@ -6,7 +6,6 @@ let
   homeDirectory = config.home.homeDirectory;
 
   # TODO: Update random script
-  # TODO: Conditional logic to handle null wallpapers path
   awww-random = pkgs.writeShellScriptBin "awww-random" ''
     sleep 1
     if [[ $# -lt 1 ]] || [[ ! -d $1 ]]; then
@@ -44,7 +43,7 @@ in {
       extraConfig = ''
         require('hyprland.init')
       '';
-    };
+};
 
     home.file = {
       ".config/hypr/hyprland/" = {
