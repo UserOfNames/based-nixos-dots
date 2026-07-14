@@ -4,6 +4,8 @@ local nix = require('hyprland.host_vars')
 
 require('hyprland.binds')
 
+local colors = require('themes.catppuccin')
+
 -- TODO: Silence "undefined global" whining
 hl.on("hyprland.start", function()
    hl.exec_cmd("awww-daemon")
@@ -22,7 +24,7 @@ hl.config({
       gaps_out = 10,
 
       col = {
-         active_border = "rgb(7aa2f7)",
+         active_border = colors.mauve,
       },
 
       layout = "master",

@@ -18,6 +18,8 @@
 
     nur.url = "github:nix-community/nur";
 
+    catppuccin.url = "github:catppuccin/nix";
+
     secrets = {
       url = "git+ssh://git@github.com/UserOfNames/nixos-secrets.git";
       flake = false;

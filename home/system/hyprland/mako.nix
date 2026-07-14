@@ -1,4 +1,4 @@
-{ config, lib, myLib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.myHomeModules.system.hyprland;
@@ -6,11 +6,8 @@ in {
   config.services.mako = lib.mkIf cfg.enable {
     enable = true;
 
-    settings = with myLib.base16Scheme; {
+    settings = {
       default-timeout = 10000;
-
-      background-color = "#${base00}";
-      border-color = "#${base0D}";
 
       font = "monospace 10";
 

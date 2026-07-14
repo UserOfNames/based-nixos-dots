@@ -1,4 +1,4 @@
-{ osConfig, pkgs, ... }:
+{ osConfig, inputs, pkgs, ... }:
 
 let
   userName = osConfig.myModules.system.mainUser.userName;
