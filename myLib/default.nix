@@ -26,7 +26,7 @@ in rec {
 
   # Get the name of a file
   fileName = path:
-    builtins.head (builtins.split "\\." (builtins.baseNameOf path));
+    builtins.head (builtins.split "\\." (baseNameOf path));
 
   # Get a list of filenames in a directory
   fileNamesIn = dir:
@@ -95,24 +95,55 @@ in rec {
       (map (file: mkModuleToggle base (fileName file)) modules)
       ++ importFilesIn dir;
 
-  # System base16 scheme, modified slightly from
-  # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-city-dark.yaml";
-  base16Scheme = {
-    base00 = "1a1b26"; # Modified, original 171D23
-    base01 = "1d252c";
-    base02 = "28323a";
-    base03 = "526270";
-    base04 = "b7c5d3";
-    base05 = "d8e2ec";
-    base06 = "f6f6f8";
-    base07 = "fbfbfd";
-    base08 = "f7768e";
-    base09 = "ff9e64";
-    base0A = "b7c5d3";
-    base0B = "9ece6a";
-    base0C = "73daca"; # Modified, original 89DDFF
-    base0D = "7aa2f7";
-    base0E = "bb9af7";
-    base0F = "bb9af7";
+  # Catppuccin mocha color mapping
+  # https://github.com/catppuccin/catppuccin
+  catppuccinMocha = {
+    rosewater = "f5e0dc";
+    flamingo = "f2cdcd";
+    pink = "f5c2e7";
+    mauve = "cba6f7";
+    red = "f38ba8";
+    maroon = "eba0ac";
+    peach = "fab387";
+    yellow = "f9e2af";
+    green = "a6e3a1";
+    teal = "94e2d5";
+    sky = "89dceb";
+    sapphire = "74c7ec";
+    blue = "89b4fa";
+    lavender = "b4befe";
+    text = "cdd6f4";
+    subtext1 = "bac2de";
+    subtext0 = "a6adc8";
+    overlay2 = "9399b2";
+    overlay1 = "7f849c";
+    overlay0 = "6c7086";
+    surface2 = "585b70";
+    surface1 = "45475a";
+    surface0 = "313244";
+    base = "1e1e2e";
+    mantle = "181825";
+    crust = "11111b";
+  };
+
+  # System base16 scheme; catppuccin mocha
+  # https://github.com/catppuccin/base16/blob/main/base16/mocha.yaml
+  base16Scheme = with catppuccinMocha; {
+    base00 = base;
+    base01 = mantle;
+    base02 = surface0;
+    base03 = surface1;
+    base04 = surface2;
+    base05 = text;
+    base06 = rosewater;
+    base07 = lavender;
+    base08 = red;
+    base09 = peach;
+    base0A = yellow;
+    base0B = green;
+    base0C = teal;
+    base0D = blue;
+    base0E = mauve;
+    base0F = flamingo;
   };
 }

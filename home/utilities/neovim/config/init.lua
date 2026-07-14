@@ -3,8 +3,8 @@ vim.g.maplocalleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require('tokyonight').setup({ style = 'night' })
-vim.cmd('colorscheme tokyonight')
+require('catppuccin').setup({ flavor = 'mocha' })
+vim.cmd('colorscheme catppuccin-nvim')
 
 require('options')
 require('keymaps')

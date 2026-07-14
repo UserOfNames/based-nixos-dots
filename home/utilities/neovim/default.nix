@@ -28,7 +28,7 @@ in {
         # grammars and queries in my config.
         nvim-treesitter.withAllGrammars
         oil-nvim
-        tokyonight-nvim
+        catppuccin-nvim
         rustaceanvim
         nvim-lspconfig
 
