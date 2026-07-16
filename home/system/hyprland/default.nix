@@ -10,7 +10,6 @@ in {
   options.myHomeModules.system.hyprland = with lib.types; {
     wallpapers_path = lib.mkOption {
       type = path;
-      default = "../../../assets/default_wallpaper.jpg";
       description = "Path to the wallpapers directory";
     };
 
