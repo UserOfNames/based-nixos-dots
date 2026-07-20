@@ -1,15 +1,15 @@
 { config, pkgs, lib, inputs, ... }:
 
 let
-  cfg = config.scripts.fzf-common-dirs;
+  cfg = config.myUtils.fzf-common-dirs;
   userName = config.myModules.system.mainUser.userName;
 
-  targets = config.scripts.fzf-common-dirs.targets;
+  targets = config.myUtils.fzf-common-dirs.targets;
   pathStrs = lib.concatStringsSep " " targets;
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
-  options.scripts.fzf-common-dirs.targets = lib.mkOption {
+  options.myUtils.fzf-common-dirs.targets = lib.mkOption {
     type = lib.types.listOf lib.types.path;
     description = "Base paths to search";
   };

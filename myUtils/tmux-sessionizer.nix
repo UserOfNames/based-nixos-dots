@@ -2,10 +2,10 @@
 
 # Script by ThePrimeagen. Bugfix from https://github.com/ThePrimeagen/.dotfiles/issues/32#issuecomment-1359249250
 let
-  cfg = config.scripts.tmux-sessionizer;
+  cfg = config.myUtils.tmux-sessionizer;
   userName = config.myModules.system.mainUser.userName;
 
-  targets = config.scripts.fzf-common-dirs.targets;
+  targets = config.myUtils.fzf-common-dirs.targets;
   pathStrs = lib.concatStringsSep " " targets;
 
   tmux-sessionizer = pkgs.writeShellApplication {
@@ -55,7 +55,7 @@ let
 in {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
-  options.scripts.tmux-sessionizer.targets = lib.mkOption {
+  options.myUtils.tmux-sessionizer.targets = lib.mkOption {
     type = lib.types.listOf lib.types.path;
     description = "Base paths to search";
   };

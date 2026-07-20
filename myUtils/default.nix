@@ -4,16 +4,15 @@ let
   modules = myLib.importModulesIn {
     inherit config;
     dir = ./.;
-    base = [ "scripts" ];
+    base = [ "myUtils" ];
   };
 
-  mke = lib.mkEnableOption;
-  cfg = config.scripts;
+  cfg = config.myUtils;
 in {
   imports = [] ++ modules;
 
-  options.scripts = {
-    enable = mke "Enable scripts";
+  options.myUtils = {
+    enable = lib.mkEnableOption "Enable my utilities";
   };
 
   config = lib.mkIf cfg.enable {

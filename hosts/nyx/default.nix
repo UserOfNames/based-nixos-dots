@@ -39,7 +39,7 @@ in {
     "amdgpu.dcdebugmask=0x10"
   ];
 
-  scripts = {
+  myUtils = {
     enable = true;
 
     fzf-common-dirs.targets = [

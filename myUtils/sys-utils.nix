@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.scripts.fzf-common-dirs;
+  cfg = config.myUtils.fzf-common-dirs;
 
   osDotsPath = config.myModules.dotsPath;
 

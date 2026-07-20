@@ -14,15 +14,29 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    nur.url = "github:nix-community/nur";
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     secrets = {
       url = "git+ssh://git@github.com/UserOfNames/nixos-secrets.git";
       flake = false;
+    };
+
+    rust-utils = {
+      url = "path:./myUtils/rust";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -35,7 +49,7 @@
     ...
   }@inputs:
   let
-    myLib = import ./myLib {inherit inputs;};
+    myLib = import ./myLib { inherit inputs; };
   in with myLib; {
     nixosConfigurations = {
       nyx = mkHost "nyx";

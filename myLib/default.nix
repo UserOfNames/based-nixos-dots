@@ -1,6 +1,8 @@
-{inputs, ...}: let
+{ inputs, ... }:
+
+let
   lib = inputs.nixpkgs.lib;
-  myLib = (import ./default.nix) {inherit inputs;};
+  myLib = (import ./default.nix) { inherit inputs; };
 in rec {
   # Create a new host
   mkHost = hostname:
@@ -10,7 +12,7 @@ in rec {
       modules = [
         ../hosts/${hostname}
         ../modules
-        ../scripts
+        ../myUtils
         { networking.hostName = hostname; }
         { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
       ];

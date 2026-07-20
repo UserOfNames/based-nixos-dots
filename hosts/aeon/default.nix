@@ -27,7 +27,7 @@ in {
     TERMINAL = "kitty";
   };
 
-  scripts = {
+  myUtils = {
     enable = true;
 
     fzf-common-dirs.targets = [

@@ -26,7 +26,7 @@ in {
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  scripts = {
+  myUtils = {
     enable = true;
 
     fzf-common-dirs.targets = [
