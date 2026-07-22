@@ -18,7 +18,7 @@
         };
       in {
         packages.default = pkgs.rustPlatform.buildRustPackage {
-          pname = "rust-sys-utils-core";
+          pname = "rust-utils";
           version = "0.1.0";
           src = ./.;
           cargoLock = {

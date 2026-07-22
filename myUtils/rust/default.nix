@@ -7,16 +7,19 @@ let
   rust-core = inputs.rust-utils.packages.${pkgs.system}.default;
 
   utils = [
-    # {
-    #   name = "first";
-    #   envVars = [
-    #     {
-    #       name = "DOTS_PATH";
-    #       value = osDotsPath;
-    #     }
-    #   ];
-    #   runtimePkgs = [];
-    # }
+    {
+      name = "nix-utils";
+      envVars = [
+        {
+          name = "OS_DOTS_PATH";
+          value = osDotsPath;
+        }
+      ];
+      runtimePkgs = with pkgs; [
+        nix
+        nixos-rebuild
+      ];
+    }
   ];
 
   # Helper to wrap individual binaries from the core bundle
