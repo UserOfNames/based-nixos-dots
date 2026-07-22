@@ -20,6 +20,14 @@ let
         nixos-rebuild
       ];
     }
+
+    {
+      name = "awww-random";
+      envVars = [];
+      runtimePkgs = with pkgs; [
+        awww
+      ];
+    }
   ];
 
   # Helper to wrap individual binaries from the core bundle
