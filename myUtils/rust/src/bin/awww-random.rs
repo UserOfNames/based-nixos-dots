@@ -112,12 +112,6 @@ fn fetch_displays() -> anyhow::Result<Vec<String>> {
 }
 
 fn fetch_wallpaper_paths(args: &Args, num_displays: usize) -> Vec<PathBuf> {
-    // https://codeberg.org/LGFae/awww
-    const IMAGE_EXTS: &[&str] = &[
-        "jpg", "jpeg", "jxl", "jpegxl", "png", "gif", "pnm", "tga", "tiff", "webp", "bmp",
-        "farbfeld", "svg",
-    ];
-
     let mut wallpaper_paths: Vec<_> = WalkDir::new(&args.directory)
         .into_iter()
         .filter_entry(|entry| args.include_hidden || !is_hidden(entry))
@@ -129,14 +123,7 @@ fn fetch_wallpaper_paths(args: &Args, num_displays: usize) -> Vec<PathBuf> {
         .filter_map(Result::ok)
         .filter(|entry| entry.file_type().is_file())
         .map(DirEntry::into_path)
-        .filter(|path| {
-            args.include_odd_extensions
-                || path
-                    .extension()
-                    .and_then(|ext| ext.to_str())
-                    .map(|ext| IMAGE_EXTS.iter().any(|&e| ext.eq_ignore_ascii_case(e)))
-                    .unwrap_or(false)
-        })
+        .filter(|path| args.include_odd_extensions || has_normal_extension(path))
         .collect();
 
     if wallpaper_paths.is_empty() {
@@ -187,5 +174,18 @@ fn is_hidden(entry: &DirEntry) -> bool {
         .file_name()
         .to_str()
         .map(|s| s.starts_with("."))
+        .unwrap_or(false)
+}
+
+fn has_normal_extension(path: &Path) -> bool {
+    // https://codeberg.org/LGFae/awww
+    const IMAGE_EXTS: &[&str] = &[
+        "jpg", "jpeg", "jxl", "jpegxl", "png", "gif", "pnm", "tga", "tiff", "webp", "bmp",
+        "farbfeld", "svg",
+    ];
+
+    path.extension()
+        .and_then(|ext| ext.to_str())
+        .map(|ext| IMAGE_EXTS.iter().any(|&e| ext.eq_ignore_ascii_case(e)))
         .unwrap_or(false)
 }

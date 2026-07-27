@@ -57,6 +57,8 @@ let
 
   mkOptionalWrappedUtil = util: lib.optionals cfg.${util.name}.enable [ (mkWrappedUtil util) ];
 
+  optionalWrappedUtils = lib.concatMap mkOptionalWrappedUtil utils;
+
   mkUtilToggle = util: myLib.mkModuleToggle
     [ "myUtils" "rust" ]
     util.name;
@@ -65,8 +67,6 @@ let
     [ "myUtils" "rust" ]
     util.name
     config;
-
-  optionalWrappedUtils = lib.concatMap mkOptionalWrappedUtil utils;
 in {
   imports = []
     ++ (map mkUtilToggle utils)

@@ -1,3 +1,6 @@
+#[cfg(windows)]
+compile_error!("Windows is not supported");
+
 use std::{
     io::{self, BufWriter, Write},
     path::{Path, PathBuf},
@@ -48,9 +51,6 @@ struct ListArgs {
 }
 
 fn main() -> ExitCode {
-    #[cfg(windows)]
-    panic!("Windows is not supported");
-
     let args = CliArgs::parse();
 
     let os_dots_path: PathBuf = std::env::var_os("OS_DOTS_PATH")
