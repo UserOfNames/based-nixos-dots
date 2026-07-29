@@ -9,12 +9,9 @@ let
   utils = [
     {
       name = "nix-utils";
-      envVars = [
-        {
-          name = "OS_DOTS_PATH";
-          value = osDotsPath;
-        }
-      ];
+      envVars = {
+        OS_DOTS_PATH = osDotsPath;
+      };
       runtimePkgs = with pkgs; [
         nix
         nixos-rebuild
@@ -23,37 +20,19 @@ let
 
     {
       name = "awww-random";
-      envVars = [];
       runtimePkgs = with pkgs; [
         awww
       ];
     }
   ];
 
-  # Helper to wrap individual binaries from the core bundle
-  mkWrappedUtil = util:
-  let
-    envVars = lib.strings.concatMapStringsSep
-      " "
-      (item: "--set ${lib.escapeShellArg item.name} ${lib.escapeShellArg item.value}")
-      util.envVars;
-
-    pathArg = lib.optionalString (util.runtimePkgs != [])
-      "--prefix PATH : ${lib.makeBinPath util.runtimePkgs}";
-  in
-    pkgs.runCommand
-      util.name
-      {
-        nativeBuildInputs = [ pkgs.makeWrapper ];
-      }
-      ''
-        mkdir -p $out/bin
-
-        # Pull the specific binary from the core bundle and wrap it
-        makeWrapper ${rust-core}/bin/${util.name} $out/bin/${util.name} \
-          ${envVars} \
-          ${pathArg}
-      '';
+  mkWrappedUtil = util: myLib.mkWrappedBinary {
+    inherit pkgs;
+    binPath = lib.getExe' rust-core util.name;
+    outName = "${util.name}";
+    envVars = util.envVars or {};
+    runtimePkgs = util.runtimePkgs or [];
+  };
 
   mkOptionalWrappedUtil = util: lib.optionals cfg.${util.name}.enable [ (mkWrappedUtil util) ];
 

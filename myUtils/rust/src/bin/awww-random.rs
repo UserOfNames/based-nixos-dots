@@ -20,10 +20,9 @@ use walkdir::{DirEntry, WalkDir};
 )]
 struct Args {
     /// Directory containing wallpapers to cycle through
-    #[arg(short, long)]
     directory: PathBuf,
 
-    /// Interval (in seconds) between wallpaper switches
+    /// Interval (in seconds) between wallpaper switches. Defaults to 300
     #[arg(short, long, default_value_t = 300)]
     interval: u64,
 
