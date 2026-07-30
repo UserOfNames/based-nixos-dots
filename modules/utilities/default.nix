@@ -24,7 +24,7 @@ in {
       gnupg
       ripgrep
       tree
-      wl-clipboard
+      # wl-clipboard
     ];
   };
 }

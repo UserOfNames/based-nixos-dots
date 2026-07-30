@@ -19,15 +19,13 @@ in {
       description = "Whether to enable numlock on startup";
     };
   };
-  
+
   config = lib.mkIf cfg.enable {
     # TODO: Remove this
     home.packages = with pkgs; [
       brightnessctl
-      cliphist
       grim
       hyprpicker
-      j4-dmenu-desktop
       jmtpfs
       slurp
       awww

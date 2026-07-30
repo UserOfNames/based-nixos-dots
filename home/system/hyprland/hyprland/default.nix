@@ -23,7 +23,7 @@ in {
       extraConfig = ''
         require('hyprland.init')
       '';
-};
+    };
 
     home.file = {
       ".config/hypr/hyprland/" = {
