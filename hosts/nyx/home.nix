@@ -16,8 +16,6 @@ in {
     homeDirectory = "/home/${userName}";
 
     packages = with pkgs; [
-      # bottles
-      mindustry-wayland
       prismlauncher
       qbittorrent
       r2modman
