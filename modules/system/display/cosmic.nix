@@ -10,6 +10,7 @@ in {
       displayManager.cosmic-greeter.enable = lib.mkDefault true;
     };
 
+    # TODO: Unprincipled manipulation of home-manager, remove later
     home-manager.users."${userName}".xdg = {
       mimeApps.enable = false;
       userDirs = {

@@ -31,6 +31,7 @@ in {
       kdePackages.plasma-systemmonitor
     ];
 
+    # TODO: Unprincipled manipulation of home-manager, remove later
     home-manager.users."${userName}".xdg = {
       mimeApps.enable = false;
       userDirs = {

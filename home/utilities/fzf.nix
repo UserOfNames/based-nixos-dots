@@ -6,7 +6,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.fzf = {
       enable = true;
-      enableZshIntegration = config.myHomeModules.system.zsh.enable;
+      enableFishIntegration = config.myHomeModules.system.fish.enable;
     };
   };
 }

@@ -26,7 +26,8 @@ in {
       brightnessctl
       grim
       hyprpicker
-      jmtpfs
+      # TODO: Replace
+      # jmtpfs
       slurp
       awww
     ];

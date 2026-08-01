@@ -21,10 +21,6 @@ in {
     ];
   };
 
-  programs.zsh.dirHashes = {
-    share = "/mnt/Shared/";
-  };
-
   myHomeModules = {
     inherit userName;
 

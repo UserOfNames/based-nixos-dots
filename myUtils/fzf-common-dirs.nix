@@ -15,21 +15,29 @@ in {
   };
 
 config = lib.mkIf cfg.enable {
-    home-manager.users."${userName}".programs.zsh.initContent = ''
-      fzf-common-dirs-widget() {
-        local selected
-        selected=$(${pkgs.findutils}/bin/find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | ${pkgs.fzf}/bin/fzf)
+    # TODO: Unprincipled manipulation of home-manager, remove later
+    # TODO: Tightly coupled to fish, fix later
+    home-manager.users."${userName}".programs.fish = {
+      functions = {
+        fzf-common-dirs = {
+          body = ''
+            set -l selected (${pkgs.findutils}/bin/find ${pathStrs} \( -name .git -o -name .stversions -o -name .stfolder -o -name target \) -prune -o -type d -print | ${pkgs.fzf}/bin/fzf)
 
-        if [ -n "$selected" ]; then
-          cd "$selected"
-          # 2. Crucial: redraw the prompt so the new directory path shows up immediately
-          zle reset-prompt
-        fi
-      }
+            if test -n "$selected"
+              cd "$selected"
+            end
+            
+            commandline -f repaint
+          '';
+        };
+      };
 
-      zle -N fzf-common-dirs-widget
-
-      bindkey "^f" fzf-common-dirs-widget
-    '';
+      binds = {
+        "ctrl-f" = {
+          command = "fzf-common-dirs";
+          mode = "insert";
+        };
+      };
+    };
   };
 }

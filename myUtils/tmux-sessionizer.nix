@@ -65,6 +65,12 @@ in {
       tmux-sessionizer
     ];
 
-    home-manager.users."${userName}".programs.zsh.initContent = ''bindkey -s "^[f" " tmux-sessionizer\n"'';
+    # TODO: Unprincipled manipulation of home-manager, remove later
+    home-manager.users."${userName}".programs.fish.binds ={ 
+      "alt-f" = {
+        command = "commandline -r '\ tmux-sessionizer'; commandline -f execute";
+        mode = "insert";
+      };
+    };
   };
 }

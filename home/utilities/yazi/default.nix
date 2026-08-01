@@ -10,7 +10,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.yazi = {
       enable = true;
-      enableZshIntegration = config.myHomeModules.system.zsh.enable;
+      enableFishIntegration = config.myHomeModules.system.fish.enable;
       shellWrapperName = "yy";
 
       settings = {
