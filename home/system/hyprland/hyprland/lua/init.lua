@@ -47,7 +47,6 @@ hl.config({
    misc = {
       disable_hyprland_logo = true,
       force_default_wallpaper = false,
-      disable_autoreload = true,
       -- TODO: Consider window swallowing
       enable_swallow = true,
       swallow_regex = "^(kitty)$",

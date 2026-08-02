@@ -7,7 +7,6 @@ let
     base = [ "myModules" "utilities" ];
     excludeConfigs = [
       "proton"
-      "thunar"
       "virtualization"
       "wireshark"
     ];
@@ -24,7 +23,7 @@ in {
       gnupg
       ripgrep
       tree
-      # wl-clipboard
+      wl-clipboard
     ];
   };
 }

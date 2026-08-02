@@ -36,9 +36,9 @@ in {
         return {
            home_path = "${homeDirectory}/",
            awww_random_path = "${awww-random}/",
-           wallpapers_path = "${cfg.wallpapers_path}/",
+           wallpapers_path = "${cfg.wallpapersPath}/",
            nw_applet_path = "${pkgs.networkmanagerapplet}/",
-           numlock_by_default = ${lib.boolToString cfg.numlock_by_default},
+           numlock_by_default = ${lib.boolToString cfg.numlockByDefault},
         }
       '';
     };

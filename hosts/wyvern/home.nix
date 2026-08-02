@@ -25,7 +25,7 @@ in {
     inherit userName;
 
     host = {
-      bluetooth = osConfig.myModules.system.hardware.bluetooth.enable;
+      bluetooth = true;
     };
 
     other = {
@@ -37,7 +37,7 @@ in {
 
       hyprland = {
         enable = true;
-        wallpapers_path = "${homeDirectory}/Pictures/Wallpapers";
+        wallpapersPath = "${homeDirectory}/Pictures/Wallpapers";
       };
     };
 

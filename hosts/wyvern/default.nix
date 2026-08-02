@@ -70,7 +70,6 @@ in {
     utilities = {
       enable = true;
       proton.enable = true;
-      thunar.enable = true;
       virtualization.enable = true;
     };
   };

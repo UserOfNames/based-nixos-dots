@@ -70,7 +70,6 @@ in {
 
     utilities = {
       enable = true;
-      thunar.enable = true;
     };
   };
 

@@ -20,13 +20,11 @@ in {
     ];
   };
 
-  wayland.windowManager.hyprland.settings.input."numlock_by_default" = false;
-
   myHomeModules = {
     inherit userName;
 
     host = {
-      bluetooth = osConfig.myModules.system.hardware.bluetooth.enable;
+      bluetooth = true;
     };
 
     other = {
@@ -35,7 +33,10 @@ in {
 
     system = {
       enable = true;
-      hyprland.enable = true;
+      hyprland = {
+        enable = true;
+        numlockByDefault = false;
+      };
     };
 
     utilities = {

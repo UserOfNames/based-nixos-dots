@@ -26,7 +26,7 @@ in {
     inherit userName;
 
     host = {
-      bluetooth = osConfig.myModules.system.hardware.bluetooth.enable;
+      bluetooth = true;
     };
 
     other = {

@@ -4,10 +4,6 @@ let
   cfg = config.myModules.system.display.hyprland;
 in {
   config = lib.mkIf cfg.enable {
-      environment.systemPackages = with pkgs; [
-        wl-clipboard
-      ];
-
     services.displayManager = {
       # TODO: Do I want to use PLM or greetd for Hyprland?
       plasma-login-manager = lib.mkDefault {

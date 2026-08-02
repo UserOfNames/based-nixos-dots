@@ -10,12 +10,12 @@ in {
   imports = [] ++ files;
 
   options.myHomeModules.system.hyprland = with lib.types; {
-    wallpapers_path = lib.mkOption {
+    wallpapersPath = lib.mkOption {
       type = path;
       description = "Path to the wallpapers directory";
     };
 
-    numlock_by_default = lib.mkOption {
+    numlockByDefault = lib.mkOption {
       type = bool;
       default = true;
       description = "Whether to enable numlock on startup";
