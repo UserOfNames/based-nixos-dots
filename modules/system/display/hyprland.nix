@@ -17,9 +17,6 @@ in {
       defaultSession = "hyprland";
     };
 
-    # TODO: replace
-    services.blueman.enable = config.myModules.system.hardware.bluetooth.enable;
-
     services.stash-clipboard = {
       enable = lib.mkDefault true;
     };

@@ -4,6 +4,8 @@ let
   files = myLib.importFilesIn ./.;
 
   cfg = config.myHomeModules.system.hyprland;
+
+  bluetooth = config.myHomeModules.host.bluetooth;
 in {
   imports = [] ++ files;
 
@@ -23,13 +25,14 @@ in {
   config = lib.mkIf cfg.enable {
     # TODO: Remove this
     home.packages = with pkgs; [
+      awww
       brightnessctl
       grim
       hyprpicker
       # TODO: Replace
       # jmtpfs
       slurp
-      awww
-    ];
+    ]
+    ++ lib.optionals bluetooth [ bluetui ];
   };
 }

@@ -5,9 +5,15 @@ let
 in {
   imports = [] ++ modules;
 
-  options.myHomeModules.userName = lib.mkOption {
-    type = lib.types.str;
-    description = "Set home-manager username.";
+  options.myHomeModules = {
+    host = {
+      bluetooth = lib.mkEnableOption "Host supports bluetooth";
+    };
+
+    userName = lib.mkOption {
+      type = lib.types.str;
+      description = "Set home-manager username.";
+    };
   };
 
   config = {

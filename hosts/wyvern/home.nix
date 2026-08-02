@@ -1,4 +1,4 @@
-{ osConfig, inputs, pkgs, ... }:
+{ osConfig, pkgs, ... }:
 
 let
   userName = osConfig.myModules.system.mainUser.userName;
@@ -23,6 +23,10 @@ in {
 
   myHomeModules = {
     inherit userName;
+
+    host = {
+      bluetooth = osConfig.myModules.system.hardware.bluetooth.enable;
+    };
 
     other = {
       enable = true;

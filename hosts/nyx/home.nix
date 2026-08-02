@@ -25,6 +25,10 @@ in {
   myHomeModules = {
     inherit userName;
 
+    host = {
+      bluetooth = osConfig.myModules.system.hardware.bluetooth.enable;
+    };
+
     other = {
       enable = true;
       gaming.enable = true;
