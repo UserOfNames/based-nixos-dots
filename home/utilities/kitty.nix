@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.myHomeModules.utilities.kitty;
@@ -9,8 +9,7 @@ in {
       shellIntegration.mode = "no-cursor";
 
       font = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font Mono";
+        name = config.myHomeModules.other.style.fonts.monospace.name;
         size = 12;
       };
 

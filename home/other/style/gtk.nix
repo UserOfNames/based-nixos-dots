@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.myHomeModules.other.style.gtk;
+  style = config.myHomeModules.other.style;
+  cfg = style.gtk;
 in {
   config = lib.mkIf cfg.enable {
     gtk = {
@@ -14,8 +15,7 @@ in {
       };
 
       font = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        name = style.fonts.sansSerif.name;
         size = 12;
       };
 

@@ -2,10 +2,16 @@
 
 let
   cfg = config.myHomeModules.system.hyprland;
+  fonts = config.myHomeModules.other.style.fonts;
 in {
   config.programs.waybar = lib.mkIf cfg.enable {
     enable = true;
-    style = ./style.css;
+
+    style = builtins.replaceStrings
+      [ "@sansSerif@" "@iconFont@" ]
+      [ fonts.sansSerif.name fonts.icons.name ]
+      (builtins.readFile ./style.css);
+
     settings = {
       mainBar = {
         mode = "dock";
