@@ -78,5 +78,10 @@ in {
         };
       };
     };
+
+    gtk.font = {
+      name = cfg.sansSerif.name;
+      size = 12;
+    };
   };
 }

@@ -12,7 +12,10 @@ in {
       enable = true;
       autoEnable = true;
       flavor = "mocha";
+      # TODO: once I start ricing, I may want to reenable some of these
       gtk.icon.enable = false;
+      # avoid assertion related to qt style
+      kvantum.enable = false;
       firefox.enable = false;
       waybar.enable = false;
       nvim.enable = false;
