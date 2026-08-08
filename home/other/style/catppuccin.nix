@@ -20,6 +20,11 @@ in {
       waybar.enable = false;
       nvim.enable = false;
       hyprlock.enable = false;
+
+      # catppuccin/nix doesn't hardcode any colors in Hyprland, it just exposes
+      # some color names to use. For portability, I copied the theme file
+      # locally. As such, we don't need it enabled here.
+      hyprland.enable = false;
     };
   };
 }

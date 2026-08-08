@@ -1,18 +1,20 @@
 -- Host-specific information, such as paths, certain hardware toggles,
 -- monitor layouts, etc.
-local nix = require('hyprland.host_vars')
+local host = require('hyprland.host_vars')
+
+local const = require('hyprland.constants')
+
+local colors = require('hyprland.catppuccin-mocha')
 
 require('hyprland.binds')
-
-local colors = require('themes.catppuccin')
 
 -- TODO: Silence "undefined global" whining
 hl.on("hyprland.start", function()
    hl.exec_cmd("awww-daemon")
-   hl.exec_cmd(nix.awww_random_path .. "bin/awww-random " .. nix.wallpapers_path)
+   hl.exec_cmd(host.awww_random_path .. "bin/awww-random " .. host.wallpapers_path)
    hl.exec_cmd("hypridle")
    hl.exec_cmd("mako")
-   hl.exec_cmd(nix.nw_applet_path .. "bin/nm-applet")
+   hl.exec_cmd(host.nw_applet_path .. "bin/nm-applet")
 end)
 
 hl.config({
@@ -38,7 +40,7 @@ hl.config({
 
    input = {
       kb_options = "caps:escape",
-      numlock_by_default = nix.numlock_by_default,
+      numlock_by_default = host.numlock_by_default,
       repeat_rate = 40,
       repeat_delay = 300,
       follow_mouse = 2,
@@ -47,9 +49,8 @@ hl.config({
    misc = {
       disable_hyprland_logo = true,
       force_default_wallpaper = false,
-      -- TODO: Consider window swallowing
       enable_swallow = true,
-      swallow_regex = "^(kitty)$",
+      swallow_regex = "^(" .. const.terminal .. ")$",
    },
 
    cursor = {
