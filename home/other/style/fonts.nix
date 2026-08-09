@@ -29,8 +29,8 @@ in {
     sansSerif = lib.mkOption {
       type = fontType;
       default = {
-        package = pkgs.inter;
-        name = "Inter";
+        package = pkgs.ibm-plex;
+        name = "IBM Plex Sans";
       };
     };
 
