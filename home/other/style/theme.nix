@@ -28,7 +28,7 @@ in {
       };
     };
 
-    qt = {
+    qt = lib.mkIf config.myHomeModules.system.hyprland.enable {
       platformTheme.name = "gtk3";
       style.name = "adwaita-dark";
     };
