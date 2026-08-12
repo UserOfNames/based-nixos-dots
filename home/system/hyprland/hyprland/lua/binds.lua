@@ -39,9 +39,11 @@ hl.bind("SUPER + B", hl.dsp.exec_cmd(const.file_manager))
 hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd(const.task_manager))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(const.editor))
 hl.bind("SUPER + R", hl.dsp.exec_cmd(const.launcher))
--- hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd(
---    "cliphist list | " .. const.dmenu .. " cliphistdecode | wl-copy"
--- ))
+
+hl.bind("SUPER + V", hl.dsp.exec_cmd(const.clipboard_history))
+hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("wl-copy --clear"))
+hl.bind("SUPER + CTRL + SHIFT + V", hl.dsp.exec_cmd("stash db wipe && wl-copy --clear"))
+
 hl.bind("SUPER + W", hl.dsp.exec_cmd(const.browser))
 hl.bind("SUPER + CTRL + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
 

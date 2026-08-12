@@ -13,8 +13,8 @@ in {
       defaultSession = "hyprland";
     };
 
-    services.stash-clipboard = {
-      enable = lib.mkDefault true;
+    services.stash-clipboard = lib.mkDefault {
+      enable = true;
     };
 
     # HACK: Because `services.stash-clipboard.arguments` passes to `stash`

@@ -44,6 +44,7 @@ hl.config({
       repeat_rate = 40,
       repeat_delay = 300,
       follow_mouse = 2,
+      float_switch_override_focus = 0,
    },
 
    misc = {
@@ -73,6 +74,19 @@ hl.window_rule({
    },
 
    opacity = "0.95 override 0.85 override 1.0 override",
+})
+
+hl.window_rule({
+   match = {
+      class = "stash-tui",
+   },
+
+   float = true,
+   center = true,
+   pin = true,
+   opaque = true,
+   no_anim = true,
+   size = { "(monitor_w * 0.5)", "(monitor_h * 0.5)" },
 })
 
 hl.layer_rule({

@@ -23,7 +23,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # TODO: Remove this
     home.packages = with pkgs; [
       awww
       brightnessctl
@@ -34,5 +33,7 @@ in {
       slurp
     ]
     ++ lib.optionals bluetooth [ bluetui ];
+
+    services.network-manager-applet.enable = true;
   };
 }
