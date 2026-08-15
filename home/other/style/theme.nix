@@ -6,8 +6,8 @@ in {
   config = lib.mkIf cfg.enable {
     gtk = {
       iconTheme = {
-        package = pkgs.adwaita-icon-theme;
-        name = "Adwaita";
+        package = pkgs.papirus-icon-theme;
+        name = "Papirus";
       };
 
       theme = {

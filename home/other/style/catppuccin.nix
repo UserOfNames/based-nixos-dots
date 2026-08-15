@@ -13,7 +13,6 @@ in {
       autoEnable = true;
       flavor = "mocha";
       # TODO: once I start ricing, I may want to reenable some of these
-      gtk.icon.enable = false;
       # avoid assertion related to qt style
       kvantum.enable = false;
       firefox.enable = false;
@@ -25,6 +24,12 @@ in {
       # some color names to use. For portability, I copied the theme file
       # locally. As such, we don't need it enabled here.
       hyprland.enable = false;
+
+      # I set GTK icons manually in `./theme.nix`.
+      gtk.icon.enable = false;
+
+      # I set cursors manually in `./cursor.nix`.
+      cursors.enable = false;
     };
   };
 }
