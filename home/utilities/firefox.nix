@@ -26,6 +26,7 @@ in {
       enable = true;
 
       # STATEVERSION FIX: < 26.05
+      # Once all hosts are above stateVersion 26.05, remove this line
       configPath = "${config.xdg.configHome}/mozilla/firefox";
 
       policies = {
@@ -37,6 +38,7 @@ in {
       profiles = {
         default = {
           isDefault = true;
+
           # Extensions from NUR
           extensions = {
             packages = with pkgs.nur.repos.rycee.firefox-addons; [

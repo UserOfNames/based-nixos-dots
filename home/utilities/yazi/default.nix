@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.myHomeModules.utilities.yazi;
@@ -32,7 +32,7 @@ in {
           ];
 
           pdf = [
-            { run = ''${pkgs.zathura}/bin/zathura "$@"''; orphan = true; }
+            { run = ''zathura "$@"''; orphan = true; }
           ];
         };
 

@@ -14,7 +14,6 @@ hl.on("hyprland.start", function()
    hl.exec_cmd(host.awww_random_path .. "bin/awww-random " .. host.wallpapers_path)
    hl.exec_cmd("hypridle")
    hl.exec_cmd("mako")
-   hl.exec_cmd(host.nw_applet_path .. "bin/nm-applet")
 end)
 
 hl.config({
@@ -24,7 +23,7 @@ hl.config({
       gaps_out = 10,
 
       col = {
-         active_border = colors.mauve,
+         active_border = colors.accent,
       },
 
       layout = "master",
