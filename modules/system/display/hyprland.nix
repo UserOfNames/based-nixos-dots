@@ -4,13 +4,22 @@ let
   cfg = config.myModules.system.display.hyprland;
 in {
   config = lib.mkIf cfg.enable {
-    services.displayManager = {
-      # TODO: Do I want to use PLM or greetd for Hyprland?
-      plasma-login-manager = lib.mkDefault {
-        enable = true;
-      };
+    services.greetd = {
+      enable = true;
+      useTextGreeter = true;
 
-      defaultSession = "hyprland";
+      settings = {
+        default_session = {
+          command = builtins.concatStringsSep " " [
+            "${pkgs.tuigreet}/bin/tuigreet"
+            "--time"
+            "--battery"
+            "--asterisks"
+            "--remember"
+            "--cmd start-hyprland"
+          ];
+        };
+      };
     };
 
     services.stash-clipboard = lib.mkDefault {

@@ -12,6 +12,8 @@ in {
       enable = true;
       autoEnable = true;
       flavor = "mocha";
+      accent = "mauve";
+
       # TODO: once I start ricing, I may want to reenable some of these
       # avoid assertion related to qt style
       kvantum.enable = false;
