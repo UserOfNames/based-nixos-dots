@@ -88,7 +88,7 @@ hl.bind("SUPER + SHIFT + J", hl.dsp.window.resize({
 }), repeating)
 
 hl.bind("SUPER + SHIFT + K", hl.dsp.window.resize({
-   x = 0, y = 10, relative = true,
+   x = 0, y = -10, relative = true,
 }), repeating)
 
 hl.bind("SUPER + CTRL + H", hl.dsp.window.move({
