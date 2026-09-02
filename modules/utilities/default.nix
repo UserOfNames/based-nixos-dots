@@ -23,6 +23,7 @@ in {
       gnupg
       ripgrep
       tree
+      veracrypt
       wl-clipboard
     ];
   };
