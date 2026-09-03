@@ -24,14 +24,11 @@ in {
 
     services.stash-clipboard = lib.mkDefault {
       enable = true;
-    };
 
-    # HACK: Because `services.stash-clipboard.arguments` passes to `stash`
-    # instead of `stash watch`, we have to manually override like this
-    # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/services/misc/stash-clipboard.nix
-    # TODO: open a PR or issue for this
-    systemd.user.services.stash-clipboard.serviceConfig.ExecStart = 
-      lib.mkForce "${lib.getExe config.services.stash-clipboard.package} watch --persist";
+      serviceArguments = [
+        "--persist"
+      ];
+    };
 
     programs = {
       ssh.askPassword = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
