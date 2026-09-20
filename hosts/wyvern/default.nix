@@ -69,6 +69,7 @@ in {
 
     utilities = {
       enable = true;
+      docker.enable = true;
       proton.enable = true;
       virtualization.enable = true;
     };

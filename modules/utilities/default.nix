@@ -6,6 +6,7 @@ let
     dir = ./.;
     base = [ "myModules" "utilities" ];
     excludeConfigs = [
+      "docker"
       "proton"
       "virtualization"
       "wireshark"
