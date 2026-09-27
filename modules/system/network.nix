@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.myModules.system.network;
@@ -8,6 +8,8 @@ in {
     networking = {
       networkmanager = {
         enable = true;
+
+        plugins = [ pkgs.networkmanager-openvpn ];
         
         wifi = {
           backend = "iwd";
