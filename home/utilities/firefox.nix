@@ -323,6 +323,7 @@ in {
             # UI
 
             # One-offs
+            "nova.enabled" = false;
             "browser.tabs.firefox-view" = false;
             "browser.urlbar.shortcuts.history" = false;
             "browser.urlbar.shortcuts.tabs" = false;
