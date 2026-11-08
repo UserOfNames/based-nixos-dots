@@ -28,7 +28,6 @@ in {
       brightnessctl
       grim
       hyprpicker
-      simple-mtpfs
       slurp
     ]
     ++ lib.optionals bluetooth [ bluetui ];
