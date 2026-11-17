@@ -1,7 +1,5 @@
 local const = require('hyprland.constants')
 
-hl.bind("SUPER + SHIFT + M", hl.dsp.exit({}))
-
 hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close({}))
 
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({
